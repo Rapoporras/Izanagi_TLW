@@ -26,6 +26,11 @@
 # Visual Studio cache directory
 .vs/
 
+# Rider
+.idea/
+*.sln.DotSettings.user
+*.sln.DotSettings
+
 # Gradle cache directory
 .gradle/
 
