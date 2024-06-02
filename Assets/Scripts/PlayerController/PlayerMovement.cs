@@ -324,13 +324,13 @@ namespace PlayerController
         
         #region Debug
         #if UNITY_EDITOR
-        private void OnGUI()
-        {
-            GUILayout.BeginHorizontal();
-            string rootStateName = _currentState.Name;
-            GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
-            GUILayout.EndHorizontal();
-        }
+        // private void OnGUI()
+        // {
+        //     GUILayout.BeginHorizontal();
+        //     string rootStateName = _currentState.Name;
+        //     GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
+        //     GUILayout.EndHorizontal();
+        // }
         #endif
         #endregion
     }

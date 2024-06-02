@@ -13,7 +13,10 @@ namespace PlayerController
         private int _isGroundedHash;
         private int _isSlidingHash;
         private int _isDashingHash;
-
+        
+        private int _attackHash;
+        private int _attackTypeHash;
+        
         private void Awake()
         {
             _player = GetComponent<PlayerMovement>();
@@ -24,6 +27,9 @@ namespace PlayerController
             _isGroundedHash = Animator.StringToHash("isGrounded");
             _isSlidingHash = Animator.StringToHash("isSliding");
             _isDashingHash = Animator.StringToHash("isDashing");
+            
+            _attackHash = Animator.StringToHash("attack");
+            _attackTypeHash = Animator.StringToHash("attackType");
         }
 
         private void Update()
@@ -39,6 +45,12 @@ namespace PlayerController
             _animator.SetBool(_isGroundedHash, _player.IsGrounded);
             _animator.SetBool(_isSlidingHash, _player.IsWallSliding);
             _animator.SetBool(_isDashingHash, _player.CurrentState == PlayerStates.Dashing);
+        }
+
+        public void SetAttackAnimation(int attackType)
+        {
+            _animator.SetInteger(_attackTypeHash, attackType);
+            _animator.SetTrigger(_attackHash);
         }
     }
 }
