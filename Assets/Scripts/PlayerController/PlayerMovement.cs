@@ -21,6 +21,9 @@ namespace PlayerController
 
         private PlayerInputActions _playerInputActions;
         private InputAction _movementAction;
+
+        private bool _inKnockBack;
+        private float _lastKnockBackSpeed;
         #endregion
 
         public PlayerStates CurrentState => _currentState.StateKey;
@@ -139,7 +142,7 @@ namespace PlayerController
         #region Movement Functions
         public void Run(float lerpAmount, bool canAddBonusJumpApex)
         {
-            float targetSpeed = MovementDirection.x * Data.runMaxSpeed;
+            float targetSpeed = GetTargetSpeed();
             // smooths change
             targetSpeed = Mathf.Lerp(_rb2d.velocity.x, targetSpeed, lerpAmount);
 
@@ -187,6 +190,14 @@ namespace PlayerController
             movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
             
             _rb2d.AddForce(movement * Vector2.up);
+        }
+
+        private float GetTargetSpeed()
+        {
+            float targetSpeed = MovementDirection.x * Data.runMaxSpeed;
+            if (_inKnockBack)
+                targetSpeed = _lastKnockBackSpeed;
+            return targetSpeed;
         }
         #endregion
 
@@ -287,6 +298,28 @@ namespace PlayerController
             {
                 DashRequest = false;
             }
+        }
+        #endregion
+        
+        #region Attack KnockBack Functions
+        public void ApplyHorizontalKnockBack(float speed, Vector2 direction, float duration)
+        {
+            StartCoroutine(SetKnockBackMaxSpeed(speed * direction.x, duration));
+            _rb2d.AddForce(speed * 50 * direction, ForceMode2D.Force);
+        }
+
+        public void ApplyUpwardsKnockBack(float force)
+        {
+            _rb2d.velocity = new Vector2(_rb2d.velocity.x, 0f);
+            _rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        }
+
+        private IEnumerator SetKnockBackMaxSpeed(float speed, float duration)
+        {
+            _lastKnockBackSpeed = speed;
+            _inKnockBack = true;
+            yield return new WaitForSeconds(duration);
+            _inKnockBack = false;
         }
         #endregion
         

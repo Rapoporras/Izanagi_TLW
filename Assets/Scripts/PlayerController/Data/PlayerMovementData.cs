@@ -2,7 +2,7 @@
 
 namespace PlayerController
 {
-    [CreateAssetMenu(fileName = "New Player Movement Data", menuName = "Player Movement Data")]
+    [CreateAssetMenu(fileName = "New PlayerMovementData", menuName = "Player Data/Movement Data")]
     public class PlayerMovementData : ScriptableObject
     {
         [Header("GRAVITY")]

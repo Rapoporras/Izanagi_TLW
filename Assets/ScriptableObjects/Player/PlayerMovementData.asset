@@ -43,7 +43,7 @@ MonoBehaviour:
   dashSpeed: 20
   dashTime: 0.15
   dashRefillTime: 0.2
-  dashSleepTime: 0.05
+  dashSleepTime: 0
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2
   dashInputBufferTime: 0.05
