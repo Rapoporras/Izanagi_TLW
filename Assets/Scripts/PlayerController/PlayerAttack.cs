@@ -101,6 +101,7 @@ namespace PlayerController
         {
             if (_isPlayerAttacking) return;
             if (_playerMovement.CurrentState == PlayerStates.Dashing) return;
+            if (_playerMovement.CurrentState == PlayerStates.Damaged) return;
             
             _lastAttackInfo.Type = GetAttackType();
             _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);

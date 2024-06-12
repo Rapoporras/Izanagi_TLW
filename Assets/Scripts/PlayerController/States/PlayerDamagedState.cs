@@ -19,10 +19,7 @@ namespace PlayerController.States
             _timeInState += Time.deltaTime;
         }
 
-        public override void FixedUpdateState()
-        {
-            // Context.Run(1f, false);
-        }
+        public override void FixedUpdateState() { }
 
         public override void ExitState()
         {
@@ -34,7 +31,6 @@ namespace PlayerController.States
         {
             if (_timeInState >= Context.Data.knockBackDuration)
             {
-                Debug.Log("Hola");
                 if (Context.IsGrounded)
                     return PlayerStates.Grounded;
                 

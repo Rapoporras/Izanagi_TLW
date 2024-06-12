@@ -345,8 +345,8 @@ namespace PlayerController
             velocity.x *= xDirection;
             
             StartCoroutine(SetTemporalMaxSpeed(velocity.x, Data.knockBackDuration));
-            _rb2d.velocity = new Vector2(_rb2d.velocity.x, 0f);
-            _rb2d.AddForce(velocity * 50, ForceMode2D.Force);
+            _rb2d.velocity = new Vector2(0f, 0f);
+            _rb2d.AddForce(velocity, ForceMode2D.Impulse);
         }
 
         private IEnumerator SetTemporalMaxSpeed(float speed, float duration)

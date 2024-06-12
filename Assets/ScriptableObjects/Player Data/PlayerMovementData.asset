@@ -47,7 +47,7 @@ MonoBehaviour:
   recoilSpeed: 5
   recoilDuration: 0.1
   pogoForce: 15
-  knockBackVelocity: {x: 10, y: 7}
+  knockBackVelocity: {x: 12, y: 10}
   knockBackDuration: 0.2
   kbAccelInArMult: 0.05
   kbDecelInArMult: 1
