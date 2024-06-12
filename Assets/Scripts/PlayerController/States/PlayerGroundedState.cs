@@ -30,6 +30,9 @@ namespace PlayerController.States
 
         public override PlayerStates GetNextState()
         {
+            if (Context.IsTakingDamage)
+                return PlayerStates.Damaged;
+            
             if (!Context.IsGrounded)
             {
                 Context.IsActiveCoyoteTime = true;

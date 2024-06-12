@@ -34,7 +34,7 @@ MonoBehaviour:
   jumpHangTimeThreshold: 0
   jumpHangAcceleration: 1
   jumpHangMaxSpeedMult: 1
-  wallJumpForce: {x: 8.5, y: 20}
+  wallJumpForce: {x: 12, y: 20}
   wallJumpRunLerp: 0.075
   wallJumpTime: 0.3
   slideSpeed: -9
@@ -44,6 +44,13 @@ MonoBehaviour:
   dashTime: 0.15
   dashRefillTime: 0.2
   dashSleepTime: 0
+  recoilSpeed: 5
+  recoilDuration: 0.1
+  pogoForce: 15
+  knockBackVelocity: {x: 10, y: 7}
+  knockBackDuration: 0.2
+  kbAccelInArMult: 0.05
+  kbDecelInArMult: 1
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2
   dashInputBufferTime: 0.05

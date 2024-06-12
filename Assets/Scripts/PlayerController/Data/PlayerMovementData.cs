@@ -5,6 +5,7 @@ namespace PlayerController
     [CreateAssetMenu(fileName = "New PlayerMovementData", menuName = "Player Data/Movement Data")]
     public class PlayerMovementData : ScriptableObject
     {
+        #region GRAVITY
         [Header("GRAVITY")]
         [Tooltip("Force needed for the desired Jump Height and Jump Time To Apex")]
         [ReadOnly] public float gravityStrength;
@@ -20,10 +21,10 @@ namespace PlayerController
         public float fastFallGravityMult;
         [Tooltip("Maximum fall speed of the player when falling when performing a faster fall")]
         public float maxFastFallSpeed;
-
-        [Space(20)]
+        #endregion
         
-        [Header("RUN")]
+        #region RUN
+        [Space(20), Header("RUN")]
         [Tooltip("Target speed we want the player to reach")]
         public float runMaxSpeed;
         [Tooltip("The speed at which the player accelerates to max speed, can be set to runMaxSpeed to instant acceleration down to 0 for none at all")]
@@ -40,10 +41,10 @@ namespace PlayerController
         [Range(0, 1)] public float accelInAirMult;
         [Tooltip("Multiplier applied to deceleration rate when airborne")]
         [Range(0, 1)] public float decelInAirMult;
-
-        [Space(20)]
+        #endregion
         
-        [Header("JUMP")]
+        #region JUMP
+        [Space(20), Header("JUMP")]
         [Tooltip("Height of the player's jump")]
         public float jumpHeight;
         [Tooltip("Time between applying the jump force and reaching the desired jump height")]
@@ -71,27 +72,45 @@ namespace PlayerController
         [Range(0, 1)] public float wallJumpRunLerp;
         [Tooltip("Time after wall jumping the player's movement is slowed for")]
         [Range(0, 1)] public float wallJumpTime;
-
-        [Space(20)]
+        #endregion
         
-        [Header("SLIDE")]
+        #region SLIDE
+        [Space(20), Header("SLIDE")]
         [Tooltip("Target speed we want the player to reach while sliding")]
         public float slideSpeed;
         [Tooltip("The speed at which the player accelerates to max speed, can be set to runMaxSpeed to instant acceleration down to 0 for none at all")]
         public float slideAccel;
         [Range(0f, 0.1f)] public float wallSlideReleaseTime;
-
-        [Header("DASH")]
+        #endregion
+        
+        #region DASH
+        [Space(20), Header("DASH")]
         public float dashSpeed;
         public float dashTime;
         public float dashRefillTime; // after dashing
         public float dashSleepTime;
-
-        [Header("ASSISTS")]
+        #endregion
+        
+        #region ATTACK
+        [Space(20), Header("ATTACK MOVEMENT")]
+        public float recoilSpeed;
+        public float recoilDuration;
+        public float pogoForce;
+        [Space(5)]
+        public Vector2 knockBackVelocity;
+        public float knockBackDuration;
+        [Space(5)]
+        [Range(0, 1)] public float kbAccelInArMult;
+        [Range(0, 1)] public float kbDecelInArMult;
+        #endregion
+        
+        #region ASSISTS
+        [Space(20), Header("ASSISTS")]
         [Range(0.01f, 0.5f)] public float coyoteTime;
         [Range(0.01f, 0.5f)] public float jumpInputBufferTime;
         [Range(0.01f, 0.5f)] public float dashInputBufferTime;
-
+        #endregion
+        
         private void OnValidate()
         {
             gravityStrength = -(2 * jumpHeight) / (jumpTimeToApex * jumpTimeToApex);

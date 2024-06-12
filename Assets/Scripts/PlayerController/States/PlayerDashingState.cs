@@ -40,6 +40,9 @@ namespace PlayerController.States
 
         public override PlayerStates GetNextState()
         {
+            if (Context.IsTakingDamage)
+                return PlayerStates.Damaged;
+            
             if (_timeInState >= Context.Data.dashTime)
             {
                 if (Context.IsGrounded)

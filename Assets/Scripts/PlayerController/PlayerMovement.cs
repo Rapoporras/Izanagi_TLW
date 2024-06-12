@@ -13,6 +13,7 @@ namespace PlayerController
         #region Serialized Fields
         [field: Header("Dependencies")]
         [field: SerializeField] public PlayerMovementData Data { get; private set; }
+        [SerializeField] private float _xInputDeadZone = 0.25f;
         #endregion
         
         #region Private variables
@@ -37,7 +38,17 @@ namespace PlayerController
         #endregion
         
         #region Movement Parameters
-        public Vector2 MovementDirection => _movementAction.ReadValue<Vector2>();
+
+        public Vector2 MovementDirection
+        {
+            get
+            {
+                Vector2 direction = _movementAction.ReadValue<Vector2>();
+                if (Mathf.Abs(direction.x) < _xInputDeadZone)
+                    direction.x = 0;
+                return direction;
+            }
+        }
         public bool LeftWallHit => _raycastInfo.HitInfo.Left;
         public bool RightWallHit => _raycastInfo.HitInfo.Right;
         public Vector2 Velocity
@@ -61,6 +72,11 @@ namespace PlayerController
             get => _additionalJumps;
             set => _additionalJumps = Mathf.Clamp(value, 0, Data.additionalJumps);
         }
+        #endregion
+        
+        #region KonckBack Parameters
+        public bool IsTakingDamage { get; set; }
+        public bool UseKnockBackAccelInAir { get; set; }
         #endregion
 
         #region Unity Functions
@@ -112,6 +128,7 @@ namespace PlayerController
             States.Add(PlayerStates.WallSliding, new PlayerWallSlidingState(PlayerStates.WallSliding, this));
             States.Add(PlayerStates.WallJumping, new PlayerWallJumpingState(PlayerStates.WallJumping, this));
             States.Add(PlayerStates.Dashing, new PlayerDashingState(PlayerStates.Dashing, this));
+            States.Add(PlayerStates.Damaged, new PlayerDamagedState(PlayerStates.Damaged, this));
             
             _currentState = States[PlayerStates.Grounded];
         }
@@ -155,9 +172,12 @@ namespace PlayerController
             }
             else
             {
+                float accel = UseKnockBackAccelInAir ? Data.kbAccelInArMult : Data.accelInAirMult;
+                float decel = UseKnockBackAccelInAir ? Data.kbDecelInArMult : Data.decelInAirMult;
+                
                 accelRate = Mathf.Abs(targetSpeed) > 0.01f
-                    ? Data.runAccelAmount * Data.accelInAirMult
-                    : Data.runDecelAmount * Data.decelInAirMult;
+                    ? Data.runAccelAmount * accel
+                    : Data.runDecelAmount * decel;
             }
             
             if (canAddBonusJumpApex && Mathf.Abs(_rb2d.velocity.y) < Data.jumpHangTimeThreshold)
@@ -175,6 +195,9 @@ namespace PlayerController
             // _rb2d.velocity = new Vector2(
             //      _rb2d.velocity.x + (Time.fixedDeltaTime * speedDif * accelRate) / _rb2d.mass,
             //      _rb2d.velocity.y);
+
+            if (speedDif == 0)
+                UseKnockBackAccelInAir = false;
         }
 
         public void Slide()
@@ -301,20 +324,32 @@ namespace PlayerController
         }
         #endregion
         
-        #region Attack KnockBack Functions
-        public void ApplyHorizontalKnockBack(float speed, Vector2 direction, float duration)
+        #region Attack Movement Functions
+        public void ApplyRecoil(Vector2 direction)
         {
-            StartCoroutine(SetKnockBackMaxSpeed(speed * direction.x, duration));
-            _rb2d.AddForce(speed * 50 * direction, ForceMode2D.Force);
+            StartCoroutine(SetTemporalMaxSpeed(Data.recoilSpeed * direction.x, Data.recoilDuration));
+            _rb2d.AddForce(Data.recoilSpeed * 50 * direction, ForceMode2D.Force);
         }
-
-        public void ApplyUpwardsKnockBack(float force)
+        
+        public void ApplyPogoJump()
         {
             _rb2d.velocity = new Vector2(_rb2d.velocity.x, 0f);
-            _rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+            _rb2d.AddForce(Vector2.up * Data.pogoForce, ForceMode2D.Impulse);
         }
 
-        private IEnumerator SetKnockBackMaxSpeed(float speed, float duration)
+        public void ApplyDamageKnockBack(int xDirection) // xDirection: -1, 1
+        {
+            IsTakingDamage = true;
+            
+            Vector2 velocity = Data.knockBackVelocity;
+            velocity.x *= xDirection;
+            
+            StartCoroutine(SetTemporalMaxSpeed(velocity.x, Data.knockBackDuration));
+            _rb2d.velocity = new Vector2(_rb2d.velocity.x, 0f);
+            _rb2d.AddForce(velocity * 50, ForceMode2D.Force);
+        }
+
+        private IEnumerator SetTemporalMaxSpeed(float speed, float duration)
         {
             _lastKnockBackSpeed = speed;
             _inKnockBack = true;
@@ -357,13 +392,17 @@ namespace PlayerController
         
         #region Debug
         #if UNITY_EDITOR
-        // private void OnGUI()
-        // {
-        //     GUILayout.BeginHorizontal();
-        //     string rootStateName = _currentState.Name;
-        //     GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
-        //     GUILayout.EndHorizontal();
-        // }
+        private void OnGUI()
+        {
+            GUILayout.BeginHorizontal();
+            string rootStateName = _currentState.Name;
+            GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
+            GUILayout.EndHorizontal();
+            
+            GUILayout.BeginHorizontal();
+            GUILayout.Label($"<color=black><size=30>Input: {MovementDirection}</size></color>");
+            GUILayout.EndHorizontal();
+        }
         #endif
         #endregion
     }

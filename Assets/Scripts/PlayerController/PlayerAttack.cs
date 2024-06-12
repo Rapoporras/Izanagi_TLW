@@ -73,7 +73,12 @@ namespace PlayerController
 
             if (angle >= _attackData.angleDirectionOffset)
             {
-                attackType = direction.y < 0 ? AttackType.Downwards : AttackType.Upwards;
+                if (direction.y > 0)
+                    attackType = AttackType.Upwards;
+                else if (!_playerMovement.IsGrounded)
+                    attackType = AttackType.Downwards;
+                
+                // attackType = direction.y < 0 ? AttackType.Downwards : AttackType.Upwards;
             }
             
             return attackType;
@@ -145,21 +150,18 @@ namespace PlayerController
         private void ApplyAttackForces(EntityHealth entityHealth)
         { 
             if (_lastAttackInfo.Type == AttackType.Downwards
-                && entityHealth.GiveUpwardForce
+                && entityHealth.giveUpwardForce
                 && !_playerMovement.IsGrounded)
             {
-                _playerMovement.ApplyUpwardsKnockBack(_attackData.upwardsForce);
+                _playerMovement.ApplyPogoJump();
             }
             else if (_lastAttackInfo.Type == AttackType.Horizontal)
             {
-                _playerMovement.ApplyHorizontalKnockBack(
-                    _attackData.horizontalKnockBackSpeed,
-                    _lastAttackInfo.Direction * -1f,
-                    _attackData.horizontalKnockBackTime);
+                _playerMovement.ApplyRecoil(_lastAttackInfo.Direction * -1f);
             }
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(_horizontalAttackPoint.position, _attackRadius);

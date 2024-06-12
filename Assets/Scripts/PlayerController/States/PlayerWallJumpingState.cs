@@ -42,6 +42,9 @@ namespace PlayerController.States
 
         public override PlayerStates GetNextState()
         {
+            if (Context.IsTakingDamage)
+                return PlayerStates.Damaged;
+            
             if (Context.Velocity.y < 0)
                 return PlayerStates.Falling;
             

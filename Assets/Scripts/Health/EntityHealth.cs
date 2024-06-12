@@ -6,24 +6,24 @@ namespace Health
     public class EntityHealth : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private bool _damageable;
-        [SerializeField] private int _maxHealth;
-        [SerializeField] private float _invulnerabiltyTime;
-        [field: SerializeField] public bool GiveUpwardForce { get; private set; }
-
-        private bool _hit;
+        public bool giveUpwardForce;
+        public bool damageable;
+        public int maxHealth;
+        public float invulnerabilityTime;
 
         [Space(10)]
         [SerializeField] private HealthController _health;
+        
+        private bool _hit;
 
         private void Start()
         {
-            _health = new HealthController(_maxHealth);
+            _health = new HealthController(maxHealth);
         }
 
         public void Damage(int amount)
         {
-            if (_damageable && !_hit && _health.CurrentHealth > 0) // se podria quitar la ultima condicion
+            if (damageable && !_hit && _health.CurrentHealth > 0) // se podria quitar la ultima condicion
             {
                 _hit = true;
                 _health.Damage(amount);
@@ -36,7 +36,7 @@ namespace Health
 
         private IEnumerator TurnOffHit()
         {
-            yield return new WaitForSeconds(_invulnerabiltyTime);
+            yield return new WaitForSeconds(invulnerabilityTime);
             _hit = false;
         }
     }
