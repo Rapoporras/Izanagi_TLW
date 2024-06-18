@@ -16,7 +16,7 @@ namespace PlayerController.States
 
         public override void EnterState()
         {
-            _movingTimer = Context.Data.wallSlideReleaseTime;
+            _movingTimer = Context.MovementData.wallSlideReleaseTime;
             _leftSide = Context.LeftWallHit;
             
             Context.ResetAdditionalJumps();
@@ -32,7 +32,7 @@ namespace PlayerController.States
             }
             else
             {
-                _movingTimer = Context.Data.wallSlideReleaseTime;
+                _movingTimer = Context.MovementData.wallSlideReleaseTime;
             }
         }
 
@@ -54,7 +54,7 @@ namespace PlayerController.States
             if (Context.IsGrounded)
                 return PlayerStates.Grounded;
 
-            if (Context.JumpRequest)
+            if (Context.JumpRequest && Context.AbilitiesData.wallJump)
                 return PlayerStates.WallJumping;
 
             if (!Context.LeftWallHit && !Context.RightWallHit)

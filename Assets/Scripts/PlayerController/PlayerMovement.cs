@@ -11,8 +11,11 @@ namespace PlayerController
     {
         
         #region Serialized Fields
-        [field: Header("Dependencies")]
-        [field: SerializeField] public PlayerMovementData Data { get; private set; }
+        [field: Header("Data")]
+        [field: SerializeField] public PlayerMovementData MovementData { get; private set; }
+        [field: SerializeField] public PlayerAbilitiesData AbilitiesData { get; private set; }
+        
+        [Space(10), Header("Settings")]
         [SerializeField] private float _xInputDeadZone = 0.25f;
         #endregion
         
@@ -70,7 +73,7 @@ namespace PlayerController
         public int AdditionalJumpsAvailable
         {
             get => _additionalJumps;
-            set => _additionalJumps = Mathf.Clamp(value, 0, Data.additionalJumps);
+            set => _additionalJumps = Mathf.Clamp(value, 0, MovementData.additionalJumps);
         }
         #endregion
         
@@ -92,7 +95,7 @@ namespace PlayerController
         protected override void Start()
         {
             base.Start();
-            SetGravityScale(Data.gravityScale);
+            SetGravityScale(MovementData.gravityScale);
 
             IsFacingRight = true;
         }
@@ -167,24 +170,24 @@ namespace PlayerController
             if (IsGrounded)
             {
                 accelRate = Mathf.Abs(targetSpeed) > 0.01f
-                    ? Data.runAccelAmount
-                    : Data.runDecelAmount;
+                    ? MovementData.runAccelAmount
+                    : MovementData.runDecelAmount;
             }
             else
             {
-                float accel = UseKnockBackAccelInAir ? Data.kbAccelInArMult : Data.accelInAirMult;
-                float decel = UseKnockBackAccelInAir ? Data.kbDecelInArMult : Data.decelInAirMult;
+                float accel = UseKnockBackAccelInAir ? MovementData.kbAccelInArMult : MovementData.accelInAirMult;
+                float decel = UseKnockBackAccelInAir ? MovementData.kbDecelInArMult : MovementData.decelInAirMult;
                 
                 accelRate = Mathf.Abs(targetSpeed) > 0.01f
-                    ? Data.runAccelAmount * accel
-                    : Data.runDecelAmount * decel;
+                    ? MovementData.runAccelAmount * accel
+                    : MovementData.runDecelAmount * decel;
             }
             
-            if (canAddBonusJumpApex && Mathf.Abs(_rb2d.velocity.y) < Data.jumpHangTimeThreshold)
+            if (canAddBonusJumpApex && Mathf.Abs(_rb2d.velocity.y) < MovementData.jumpHangTimeThreshold)
             {
                 // makes the jump feels a bit more bouncy, responsive and natural
-                accelRate *= Data.jumpHangAcceleration;
-                targetSpeed *= Data.jumpHangMaxSpeedMult;
+                accelRate *= MovementData.jumpHangAcceleration;
+                targetSpeed *= MovementData.jumpHangMaxSpeedMult;
             }
             
             float speedDif = targetSpeed - _rb2d.velocity.x;
@@ -206,8 +209,8 @@ namespace PlayerController
             if (_rb2d.velocity.y > 0)
                 _rb2d.AddForce(-_rb2d.velocity.y * Vector2.up, ForceMode2D.Impulse);
 
-            float speedDif = Data.slideSpeed - _rb2d.velocity.y;
-            float movement = speedDif * Data.slideAccel;
+            float speedDif = MovementData.slideSpeed - _rb2d.velocity.y;
+            float movement = speedDif * MovementData.slideAccel;
             
             //The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called. For more info research how force are applied to rigidbodies.
             movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
@@ -217,7 +220,7 @@ namespace PlayerController
 
         private float GetTargetSpeed()
         {
-            float targetSpeed = MovementDirection.x * Data.runMaxSpeed;
+            float targetSpeed = MovementDirection.x * MovementData.runMaxSpeed;
             if (_inKnockBack)
                 targetSpeed = _lastKnockBackSpeed;
             return targetSpeed;
@@ -229,7 +232,7 @@ namespace PlayerController
         {
             JumpRequest = false;
             
-            float force = Data.jumpForce;
+            float force = MovementData.jumpForce;
             
             // avoid shorter jumps when falling and jumping with coyote time
             if (_rb2d.velocity.y < 0)
@@ -240,7 +243,7 @@ namespace PlayerController
 
         public void WallJump(int dir)
         {
-            Vector2 force = Data.wallJumpForce;
+            Vector2 force = MovementData.wallJumpForce;
             force.x *= dir;
 
             if (Mathf.Sign(_rb2d.velocity.x) != Mathf.Sign(force.x))
@@ -254,7 +257,12 @@ namespace PlayerController
 
         public void ResetAdditionalJumps()
         {
-            AdditionalJumpsAvailable = Data.additionalJumps;
+            AdditionalJumpsAvailable = MovementData.additionalJumps;
+        }
+
+        public bool CanPerformExtraJump()
+        {
+            return AdditionalJumpsAvailable > 0 && AbilitiesData.doubleJump;
         }
         
         private void OnJumpAction(InputAction.CallbackContext context)
@@ -262,7 +270,7 @@ namespace PlayerController
             if (context.ReadValueAsButton())
             {
                 JumpRequest = true;
-                _lastPressedJumpTime = Data.jumpInputBufferTime;
+                _lastPressedJumpTime = MovementData.jumpInputBufferTime;
             }
             
             HandleLongJumps = context.ReadValueAsButton();
@@ -299,7 +307,7 @@ namespace PlayerController
         private IEnumerator PerformRefillDash()
         {
             _isDashRefilling = true;
-            yield return new WaitForSeconds(Data.dashRefillTime);
+            yield return new WaitForSeconds(MovementData.dashRefillTime);
             _isDashRefilling = false;
         }
         
@@ -308,7 +316,7 @@ namespace PlayerController
             if (context.ReadValueAsButton())
             {
                 DashRequest = true;
-                _lastPressedDashTime = Data.dashInputBufferTime;
+                _lastPressedDashTime = MovementData.dashInputBufferTime;
             }
         }
 
@@ -327,24 +335,24 @@ namespace PlayerController
         #region Attack Movement Functions
         public void ApplyRecoil(Vector2 direction)
         {
-            StartCoroutine(SetTemporalMaxSpeed(Data.recoilSpeed * direction.x, Data.recoilDuration));
-            _rb2d.AddForce(Data.recoilSpeed * 50 * direction, ForceMode2D.Force);
+            StartCoroutine(SetTemporalMaxSpeed(MovementData.recoilSpeed * direction.x, MovementData.recoilDuration));
+            _rb2d.AddForce(MovementData.recoilSpeed * 50 * direction, ForceMode2D.Force);
         }
         
         public void ApplyPogoJump()
         {
             _rb2d.velocity = new Vector2(_rb2d.velocity.x, 0f);
-            _rb2d.AddForce(Vector2.up * Data.pogoForce, ForceMode2D.Impulse);
+            _rb2d.AddForce(Vector2.up * MovementData.pogoForce, ForceMode2D.Impulse);
         }
 
         public void ApplyDamageKnockBack(int xDirection) // xDirection: -1, 1
         {
             IsTakingDamage = true;
             
-            Vector2 velocity = Data.knockBackVelocity;
+            Vector2 velocity = MovementData.knockBackVelocity;
             velocity.x *= xDirection;
             
-            StartCoroutine(SetTemporalMaxSpeed(velocity.x, Data.knockBackDuration));
+            StartCoroutine(SetTemporalMaxSpeed(velocity.x, MovementData.knockBackDuration));
             _rb2d.velocity = new Vector2(0f, 0f);
             _rb2d.AddForce(velocity, ForceMode2D.Impulse);
         }

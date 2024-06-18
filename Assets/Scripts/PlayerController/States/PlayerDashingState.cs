@@ -15,7 +15,7 @@ namespace PlayerController.States
             _timeInState = 0f;
             
             Context.IsDashActive = false;
-            Context.Sleep(Context.Data.dashSleepTime); // add small reaction time to the player
+            Context.Sleep(Context.MovementData.dashSleepTime); // add small reaction time to the player
 
             if (Context.MovementDirection.x != 0f)
                 _direction = Context.MovementDirection.x < 0 ? Vector2.left : Vector2.right;
@@ -28,7 +28,7 @@ namespace PlayerController.States
         public override void UpdateState()
         {
             _timeInState += Time.deltaTime;
-            Context.Velocity = _direction * Context.Data.dashSpeed;
+            Context.Velocity = _direction * Context.MovementData.dashSpeed;
         }
 
         public override void FixedUpdateState() { }
@@ -43,7 +43,7 @@ namespace PlayerController.States
             if (Context.IsTakingDamage)
                 return PlayerStates.Damaged;
             
-            if (_timeInState >= Context.Data.dashTime)
+            if (_timeInState >= Context.MovementData.dashTime)
             {
                 if (Context.IsGrounded)
                     return PlayerStates.Grounded;

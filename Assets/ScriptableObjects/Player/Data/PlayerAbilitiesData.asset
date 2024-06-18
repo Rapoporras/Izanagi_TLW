@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0236a059f38833b4394364b1ce93587c, type: 3}
+  m_Name: PlayerAbilitiesData
+  m_EditorClassIdentifier: 
+  doubleJump: 0
+  basicFireAttack: 0
+  ultimateFireAttack: 0
+  breakWalls: 0
+  basicGroundAttack: 0
+  ultimateGroundAttack: 0
+  airDash: 0
+  basicAirAttack: 0
+  ultimateAirAttack: 0
+  wallJump: 0
+  basicWaterAttack: 0
+  ultimateWaterAttack: 0

@@ -2,7 +2,7 @@
 
 namespace PlayerController
 {
-    [CreateAssetMenu(fileName = "New PlayerAttackData", menuName = "Player Data/Attack Data")]
+    [CreateAssetMenu(fileName = "New PlayerAttackData", menuName = "Player/Data/Attack")]
     public class PlayerAttackData : ScriptableObject
     {
         [Header("SETTINGS")]

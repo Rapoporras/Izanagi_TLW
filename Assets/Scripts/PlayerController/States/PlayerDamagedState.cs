@@ -29,7 +29,7 @@ namespace PlayerController.States
 
         public override PlayerStates GetNextState()
         {
-            if (_timeInState >= Context.Data.knockBackDuration)
+            if (_timeInState >= Context.MovementData.knockBackDuration)
             {
                 if (Context.IsGrounded)
                     return PlayerStates.Grounded;

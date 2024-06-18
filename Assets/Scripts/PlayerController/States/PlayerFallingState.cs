@@ -21,7 +21,7 @@ namespace PlayerController.States
         public override void UpdateState()
         { 
             // coyote time
-            if (_timeInState <= Context.Data.coyoteTime)
+            if (_timeInState <= Context.MovementData.coyoteTime)
             {
                 _timeInState += Time.deltaTime;
             }
@@ -30,11 +30,11 @@ namespace PlayerController.States
                 Context.IsActiveCoyoteTime = false;
             }
             
-            float gravityScale = Context.Data.gravityScale;
+            float gravityScale = Context.MovementData.gravityScale;
             if (Context.MovementDirection.y < 0) // higher gravity if holding down
-                gravityScale *= Context.Data.fastFallGravityMult;
+                gravityScale *= Context.MovementData.fastFallGravityMult;
             else
-                gravityScale *= Context.Data.fallGravityMult;
+                gravityScale *= Context.MovementData.fallGravityMult;
                 
             Context.SetGravityScale(gravityScale);
         }
@@ -42,10 +42,10 @@ namespace PlayerController.States
         public override void FixedUpdateState()
         {
             // limit vertical velocity
-            float terminalVelocity = -Context.Data.maxFallSpeed;
+            float terminalVelocity = -Context.MovementData.maxFallSpeed;
             // higher fall velocity if holding down
             if (Context.MovementDirection.y < 0)
-                terminalVelocity = -Context.Data.maxFastFallSpeed;
+                terminalVelocity = -Context.MovementData.maxFastFallSpeed;
             
             Context.Velocity = new Vector2(
                 Context.Velocity.x,
@@ -72,7 +72,7 @@ namespace PlayerController.States
                 if (Context.IsActiveCoyoteTime)
                     return PlayerStates.Jumping;
 
-                if (Context.AdditionalJumpsAvailable > 0)
+                if (Context.CanPerformExtraJump())
                 {
                     Context.AdditionalJumpsAvailable--;
                     return PlayerStates.Jumping;
@@ -83,7 +83,7 @@ namespace PlayerController.States
                 && Context.MovementDirection != Vector2.zero)
                 return PlayerStates.WallSliding;
             
-            if (Context.DashRequest && Context.CanDash)
+            if (Context.DashRequest && Context.CanDash && Context.AbilitiesData.airDash)
                 return PlayerStates.Dashing;
             
             return StateKey;

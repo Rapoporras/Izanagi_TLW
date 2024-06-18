@@ -14,7 +14,7 @@ namespace PlayerController.States
         public override void EnterState()
         {
             Context.ResetAdditionalJumps();
-            Context.SetGravityScale(Context.Data.gravityScale);
+            Context.SetGravityScale(Context.MovementData.gravityScale);
 
             Context.IsDashActive = true;
         }

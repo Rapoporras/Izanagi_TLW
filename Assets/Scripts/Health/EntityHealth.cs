@@ -23,7 +23,7 @@ namespace Health
 
         public void Damage(int amount)
         {
-            if (damageable && !_hit && _health.CurrentHealth > 0) // se podria quitar la ultima condicion
+            if (damageable && !_hit && _health.CurrentHealth > 0)
             {
                 _hit = true;
                 _health.Damage(amount);

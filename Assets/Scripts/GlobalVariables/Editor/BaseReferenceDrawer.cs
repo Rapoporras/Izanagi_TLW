@@ -28,7 +28,6 @@ namespace GlobalVariables.Editor
             EditorGUI.BeginChangeCheck();
 
             // Get properties
-            SerializedProperty useConstant = property.FindPropertyRelative("useConstant");
             SerializedProperty valueType = property.FindPropertyRelative("valueType");
             SerializedProperty constantValue = property.FindPropertyRelative("constantValue");
             SerializedProperty variable = property.FindPropertyRelative("variableValue");

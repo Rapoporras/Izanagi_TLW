@@ -16,12 +16,12 @@ public class PlayerHealthUI : MonoBehaviour
 
     private void OnEnable()
     {
-        _currentHealth.variableValue.OnValueChanged += UpdateHealthText;
+        _currentHealth.AddListener(UpdateHealthText);
     }
 
     private void OnDisable()
     {
-        _currentHealth.variableValue.OnValueChanged -= UpdateHealthText;
+        _currentHealth.RemoveListener(UpdateHealthText);
     }
 
     private void UpdateHealthText(int value)

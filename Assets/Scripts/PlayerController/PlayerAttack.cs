@@ -12,9 +12,11 @@ namespace PlayerController
             Horizontal, Downwards, Upwards
         }
 
+        [Header("Data")]
         [SerializeField] private PlayerAttackData _attackData;
+        [SerializeField] private PlayerAbilitiesData _abilitiesData;
         
-        [Space(10)]
+        [Space(10), Header("Settings")]
         [SerializeField] private Transform _horizontalAttackPoint;
         [SerializeField] private Transform _upperAttackPoint;
         [SerializeField] private Transform _bottomAttackPoint;
@@ -77,8 +79,6 @@ namespace PlayerController
                     attackType = AttackType.Upwards;
                 else if (!_playerMovement.IsGrounded)
                     attackType = AttackType.Downwards;
-                
-                // attackType = direction.y < 0 ? AttackType.Downwards : AttackType.Upwards;
             }
             
             return attackType;

@@ -24,6 +24,8 @@ namespace GlobalVariables
             constantValue = value;
         }
 
+        public event Action<T> OnConstantValueChanged;
+
         public T Value
         {
             get
@@ -45,6 +47,7 @@ namespace GlobalVariables
                 switch (valueType)
                 {
                     case ValueType.Constant:
+                        OnConstantValueChanged?.Invoke(value);
                         constantValue = value;
                         break;
                     case ValueType.Variable:
@@ -54,6 +57,38 @@ namespace GlobalVariables
                         variableValue.Value = value;
                         break;
                 }
+            }
+        }
+
+        public void AddListener(Action<T> listener)
+        {
+            switch (valueType)
+            {
+                case ValueType.Constant:
+                    OnConstantValueChanged += listener;
+                    break;
+                case ValueType.Variable:
+                    variableValue.OnValueChanged += listener;
+                    break;
+                case ValueType.Component:
+                    componentValue.OnValueChanged += listener;
+                    break;
+            }
+        }
+
+        public void RemoveListener(Action<T> listener)
+        {
+            switch (valueType)
+            {
+                case ValueType.Constant:
+                    OnConstantValueChanged -= listener;
+                    break;
+                case ValueType.Variable:
+                    variableValue.OnValueChanged -= listener;
+                    break;
+                case ValueType.Component:
+                    componentValue.OnValueChanged -= listener;
+                    break;
             }
         }
 
