@@ -1,4 +1,5 @@
-﻿using Health;
+﻿using GlobalVariables;
+using Health;
 using PlayerController.States;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,6 +16,12 @@ namespace PlayerController
         [Header("Data")]
         [SerializeField] private PlayerAttackData _attackData;
         [SerializeField] private PlayerAbilitiesData _abilitiesData;
+
+        [Header("Manna")]
+        [SerializeField] private IntReference _currentManna;
+        [SerializeField] private IntReference _maxManna;
+        [SerializeField] private IntReference _mannaContainers;
+        [SerializeField] private int _mannaPerAttack;
         
         [Space(10), Header("Settings")]
         [SerializeField] private Transform _horizontalAttackPoint;
@@ -32,6 +39,8 @@ namespace PlayerController
         private bool _isPlayerAttacking;
         private bool _hasCollided;
         private AttackInfo _lastAttackInfo;
+
+        private int _mannaContainersFilled;
 
         struct AttackInfo
         {
@@ -66,6 +75,7 @@ namespace PlayerController
             _movementAction.Enable();
         }
 
+        #region ATTACK
         private AttackType GetAttackType()
         {
             Vector2 direction = _movementAction.ReadValue<Vector2>().normalized;
@@ -131,7 +141,12 @@ namespace PlayerController
             {
                 if (entity.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
                 {
-                    entityHealth.Damage(_attackData.attackDamage);
+                    if (!entityHealth.IsInvulnerable)
+                    {
+                        entityHealth.Damage(_attackData.attackDamage);
+                        UpdateMannaPoints(_mannaPerAttack);
+                    }
+                    
                     if (!_hasCollided)
                     {
                         _hasCollided = true;
@@ -161,7 +176,17 @@ namespace PlayerController
                 _playerMovement.ApplyRecoil(_lastAttackInfo.Direction * -1f);
             }
         }
+        #endregion
 
+        #region MANNA
+        private void UpdateMannaPoints(int amount)
+        {
+            _currentManna.Value = Mathf.Clamp(_currentManna + amount, 0, _maxManna);
+            _mannaContainersFilled = _currentManna * _mannaContainers / _maxManna;
+        }
+        #endregion
+
+        #region DEBUG
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
@@ -169,5 +194,6 @@ namespace PlayerController
             Gizmos.DrawWireSphere(_upperAttackPoint.position, _attackRadius);
             Gizmos.DrawWireSphere(_bottomAttackPoint.position, _attackRadius);
         }
+        #endregion
     }
 }

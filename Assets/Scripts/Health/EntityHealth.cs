@@ -16,6 +16,8 @@ namespace Health
         
         private bool _hit;
 
+        public bool IsInvulnerable => _hit;
+
         private void Start()
         {
             _health = new HealthController(maxHealth);

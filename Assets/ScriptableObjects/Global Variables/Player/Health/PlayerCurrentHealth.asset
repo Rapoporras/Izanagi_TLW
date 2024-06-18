@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerCurrentHealth
   m_EditorClassIdentifier: 
   _developerDescription: 
-  _value: 0
+  _value: 50

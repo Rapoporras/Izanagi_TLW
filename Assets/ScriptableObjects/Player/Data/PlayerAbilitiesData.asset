@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0236a059f38833b4394364b1ce93587c, type: 3}
   m_Name: PlayerAbilitiesData
   m_EditorClassIdentifier: 
-  doubleJump: 0
+  doubleJump: 1
   basicFireAttack: 0
   ultimateFireAttack: 0
   breakWalls: 0
   basicGroundAttack: 0
   ultimateGroundAttack: 0
-  airDash: 0
+  airDash: 1
   basicAirAttack: 0
   ultimateAirAttack: 0
-  wallJump: 0
+  wallJump: 1
   basicWaterAttack: 0
   ultimateWaterAttack: 0
