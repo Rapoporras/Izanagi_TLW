@@ -15,7 +15,6 @@ namespace PlayerController.States
             _timeInState = 0f;
             
             Context.IsDashActive = false;
-            Context.Sleep(Context.MovementData.dashSleepTime); // add small reaction time to the player
 
             if (Context.MovementDirection.x != 0f)
                 _direction = Context.MovementDirection.x < 0 ? Vector2.left : Vector2.right;

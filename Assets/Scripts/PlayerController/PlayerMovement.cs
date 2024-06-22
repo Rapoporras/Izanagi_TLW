@@ -31,8 +31,9 @@ namespace PlayerController
         #endregion
 
         public PlayerStates CurrentState => _currentState.StateKey;
+        [field: SerializeField] public bool HandleWallImpulse { get; private set; }
         
-        #region Dash Parameters
+        #region Dash Properties
         private float _lastPressedDashTime;
         private bool _isDashRefilling;
         public bool IsDashActive { get; set; } // set to true when grounded, and false when dashing
@@ -40,7 +41,7 @@ namespace PlayerController
         public bool DashRequest { get; private set; }
         #endregion
         
-        #region Movement Parameters
+        #region Movement Properties
 
         public Vector2 MovementDirection
         {
@@ -62,7 +63,7 @@ namespace PlayerController
         public bool IsFacingRight { get; private set; }
         #endregion
         
-        #region Jump Parameters
+        #region Jump Properties
         private float _lastPressedJumpTime;
         private int _additionalJumps;
         public bool IsGrounded => _raycastInfo.HitInfo.Below;
@@ -77,7 +78,7 @@ namespace PlayerController
         }
         #endregion
         
-        #region KonckBack Parameters
+        #region KonckBack Properties
         public bool IsTakingDamage { get; set; }
         public bool UseKnockBackAccelInAir { get; set; }
         #endregion
@@ -106,9 +107,15 @@ namespace PlayerController
             
             ManageJumpBuffer();
             ManageDashBuffer();
-            
-            if (MovementDirection.x != 0 && _currentState.StateKey != PlayerStates.Dashing)
+
+            if (MovementDirection.x != 0
+                && _currentState.StateKey != PlayerStates.Dashing
+                && _currentState.StateKey != PlayerStates.WallImpulse)
+            {
                 SetDirectionToFace(MovementDirection.x > 0);
+            }
+            
+            HandleWallImpulse = _playerInputActions.Player.WallImpulse.IsPressed();
         }
 
         private void OnEnable()
@@ -132,6 +139,7 @@ namespace PlayerController
             States.Add(PlayerStates.WallJumping, new PlayerWallJumpingState(PlayerStates.WallJumping, this));
             States.Add(PlayerStates.Dashing, new PlayerDashingState(PlayerStates.Dashing, this));
             States.Add(PlayerStates.Damaged, new PlayerDamagedState(PlayerStates.Damaged, this));
+            States.Add(PlayerStates.WallImpulse, new PlayerWallImpulseState(PlayerStates.WallImpulse, this));
             
             _currentState = States[PlayerStates.Grounded];
         }
@@ -149,6 +157,9 @@ namespace PlayerController
 
             _playerInputActions.Player.Dash.performed += OnDashAction;
             _playerInputActions.Player.Dash.Enable();
+
+            _playerInputActions.Player.WallImpulse.Enable();
+            // input will be updated in Update with IsPressed() function
         }
 
         private void DisableInput()
@@ -156,6 +167,7 @@ namespace PlayerController
             _movementAction.Disable();
             _playerInputActions.Player.Jump.Disable();
             _playerInputActions.Player.Dash.Disable();
+            _playerInputActions.Player.WallImpulse.Disable();
         }
         #endregion
         

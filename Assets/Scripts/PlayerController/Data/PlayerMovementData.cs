@@ -88,7 +88,12 @@ namespace PlayerController
         public float dashSpeed;
         public float dashTime;
         public float dashRefillTime; // after dashing
-        public float dashSleepTime;
+        #endregion
+        
+        #region WALL IMPULSE
+        [Space(20), Header("WALL IMPULSE")]
+        public float wallImpulseVelocity;
+        public float wallImpulseChargeTime;
         #endregion
         
         #region ATTACK

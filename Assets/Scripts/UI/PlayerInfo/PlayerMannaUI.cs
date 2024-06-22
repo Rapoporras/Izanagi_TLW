@@ -1,5 +1,4 @@
-﻿using System;
-using GlobalVariables;
+﻿using GlobalVariables;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -54,13 +54,16 @@ namespace PlayerController.States
             if (Context.IsGrounded)
                 return PlayerStates.Grounded;
 
-            if (Context.JumpRequest && Context.AbilitiesData.wallJump)
+            if (Context.JumpRequest)
                 return PlayerStates.WallJumping;
 
             if (!Context.LeftWallHit && !Context.RightWallHit)
                 return PlayerStates.Falling;
+
+            if (Context.HandleWallImpulse)
+                return PlayerStates.WallImpulse;
             
-            return PlayerStates.WallSliding;
+            return StateKey;
         }
     }
 }

@@ -79,8 +79,7 @@ namespace PlayerController.States
                 }
             }
 
-            if ((Context.LeftWallHit || Context.RightWallHit)
-                && Context.MovementDirection != Vector2.zero)
+            if (Context.CanWallSlide())
                 return PlayerStates.WallSliding;
             
             if (Context.DashRequest && Context.CanDash && Context.AbilitiesData.airDash)

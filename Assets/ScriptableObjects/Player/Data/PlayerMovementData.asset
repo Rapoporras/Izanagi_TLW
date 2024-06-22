@@ -43,7 +43,8 @@ MonoBehaviour:
   dashSpeed: 20
   dashTime: 0.15
   dashRefillTime: 0.2
-  dashSleepTime: 0
+  wallImpulseVelocity: 30
+  wallImpulseChargeTime: 1
   recoilSpeed: 5
   recoilDuration: 0.1
   pogoForce: 15

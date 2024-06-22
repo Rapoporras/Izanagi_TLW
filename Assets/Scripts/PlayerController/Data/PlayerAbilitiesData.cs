@@ -21,7 +21,7 @@ namespace PlayerController
         public bool ultimateAirAttack;
         
         [Header("WATER")]
-        public bool wallJump;
+        public bool wallImpulse;
         public bool basicWaterAttack;
         public bool ultimateWaterAttack;
 
@@ -76,7 +76,7 @@ namespace PlayerController
         [ContextMenu("Activate WATER")]
         public void ActivateWaterAbilities()
         {
-            wallJump = true;
+            wallImpulse = true;
             basicWaterAttack = true;
             ultimateWaterAttack = true;
         }
@@ -84,7 +84,7 @@ namespace PlayerController
         [ContextMenu("Deactivate WATER")]
         public void DeactivateWaterAbilities()
         {
-            wallJump = false;
+            wallImpulse = false;
             basicWaterAttack = false;
             ultimateWaterAttack = false;
         }

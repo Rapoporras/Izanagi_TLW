@@ -141,7 +141,7 @@ namespace PlayerController
             {
                 if (entity.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
                 {
-                    if (!entityHealth.IsInvulnerable)
+                    if (!entityHealth.IsInvulnerable && entityHealth.damageable)
                     {
                         entityHealth.Damage(_attackData.attackDamage);
                         UpdateMannaPoints(_mannaPerAttack);
