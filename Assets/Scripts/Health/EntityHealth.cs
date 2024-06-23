@@ -1,4 +1,7 @@
 ﻿using System.Collections;
+using CameraSystem;
+using Cinemachine;
+using GameEvents;
 using UnityEngine;
 
 namespace Health
@@ -14,6 +17,13 @@ namespace Health
         [Space(10)]
         [SerializeField] private HealthController _health;
         
+        [Header("Screen Shake")]
+        public ScreenShakeProfile screenShakeProfile;
+        public ScreenShakeDataEvent screenShakeEvent;
+        
+        private CinemachineImpulseSource _impulseSource;
+        private ScreenShakeData _screenShakeData;
+        
         private bool _hit;
 
         public bool IsInvulnerable => _hit;
@@ -21,6 +31,10 @@ namespace Health
         private void Start()
         {
             _health = new HealthController(maxHealth);
+
+            _impulseSource = GetComponent<CinemachineImpulseSource>();
+            _screenShakeData.profile = screenShakeProfile;
+            _screenShakeData.impulseSource = _impulseSource;
         }
 
         public void Damage(int amount)
@@ -31,6 +45,9 @@ namespace Health
                 _health.Damage(amount);
                 if (_health.CurrentHealth > 0)
                 {
+                    if (screenShakeEvent)
+                        screenShakeEvent.Raise(_screenShakeData);
+                    
                     StartCoroutine(TurnOffHit());
                 }
             }

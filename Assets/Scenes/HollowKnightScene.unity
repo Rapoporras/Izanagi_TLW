@@ -4136,6 +4136,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 366121989468471004, guid: d6f349dfac1476344a4b22b980b6b8fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1946185007}
+    - targetCorrespondingSourceObject: {fileID: 366121989468471004, guid: d6f349dfac1476344a4b22b980b6b8fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1946185009}
+    - targetCorrespondingSourceObject: {fileID: 366121989468471004, guid: d6f349dfac1476344a4b22b980b6b8fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1946185008}
   m_SourcePrefab: {fileID: 100100000, guid: d6f349dfac1476344a4b22b980b6b8fc, type: 3}
 --- !u!1 &1767008158
 GameObject:
@@ -4741,8 +4747,48 @@ MonoBehaviour:
     m_SecondaryNoise: {fileID: 0}
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
-    m_Duration: 1
+    m_Duration: 0.35
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &1946185008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946185003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4518aa1fd5d484cbb72f768446ce186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1946185009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946185003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ebb254fa5c8ba45904254f39dbe374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 724bff74c8bdcfb419aef34872635f27, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1946185008}
+        m_TargetAssemblyTypeName: CameraSystem.CameraShakeController, Assembly-CSharp
+        m_MethodName: ScreenShakeFromProfile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2079044121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,6 +4977,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3085501486090063315, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      propertyPath: _screenShakeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 724bff74c8bdcfb419aef34872635f27, type: 2}
+    - target: {fileID: 3085501486090063315, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      propertyPath: _screenShakeProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ddd4abf40a86034d8fbb15c85d63403, type: 2}
     - target: {fileID: 3687132239636878760, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.5
@@ -5030,13 +5084,74 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 2137210370}
   m_SourcePrefab: {fileID: 100100000, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
 --- !u!4 &2137210368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3687132239636878760, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
   m_PrefabInstance: {fileID: 2137210367}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2137210369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+  m_PrefabInstance: {fileID: 2137210367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2137210370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137210369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.35
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: -1, y: -1, z: 0}
 --- !u!1 &2139046658
 GameObject:
   m_ObjectHideFlags: 0
