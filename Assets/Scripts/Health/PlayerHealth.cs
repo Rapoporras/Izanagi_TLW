@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using CameraSystem;
-using Cinemachine;
-using GameEvents;
 using GlobalVariables;
 using PlayerController;
 using UnityEngine;
@@ -16,29 +13,20 @@ namespace Health
         [SerializeField] private IntReference _currentHealth;
         [SerializeField] private float _invulnerabilityTime;
 
-        [Header("Screen Shake")]
-        [SerializeField] private ScreenShakeProfile _screenShakeProfile;
-        [SerializeField] private ScreenShakeDataEvent _screenShakeEvent;
-
         private PlayerMovement _playerMovement;
-        
-        private CinemachineImpulseSource _impulseSource;
-        private ScreenShakeData _screenShakeData;
+        private ScreenShakeSource _screenShakeSource;
         
         private bool _hit;
 
         private void Awake()
         {
             _playerMovement = GetComponent<PlayerMovement>();
-            _impulseSource = GetComponent<CinemachineImpulseSource>();
+            _screenShakeSource = GetComponent<ScreenShakeSource>();
         }
 
         private void Start()
         {
             _currentHealth.Value = _maxHealth.Value;
-
-            _screenShakeData.profile = _screenShakeProfile;
-            _screenShakeData.impulseSource = _impulseSource;
         }
 
         public void Damage(int amount, int attackDirection)
@@ -50,8 +38,8 @@ namespace Health
                 _playerMovement.ApplyDamageKnockBack(attackDirection);
                 if (_currentHealth > 0)
                 {
-                    if (_screenShakeEvent)
-                        _screenShakeEvent.Raise(_screenShakeData);
+                    if (_screenShakeSource)
+                        _screenShakeSource.TriggerScreenShake();
                     
                     StartCoroutine(TurnOffHit());
                 }

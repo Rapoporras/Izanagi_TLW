@@ -1,8 +1,6 @@
 using CameraSystem;
 using GameEvents;
 using UnityEditor;
-using UnityEngine;
-
 
 namespace Health
 {
@@ -23,11 +21,6 @@ namespace Health
                 entityHealth.maxHealth = EditorGUILayout.IntField("Max Health", entityHealth.maxHealth);
                 entityHealth.invulnerabilityTime = EditorGUILayout.FloatField("Invulnerability Time", entityHealth.invulnerabilityTime);
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_health"), true);
-                
-                EditorGUILayout.Space(10);
-                
-                entityHealth.screenShakeProfile = (ScreenShakeProfile) EditorGUILayout.ObjectField("Screen Shake Profile", entityHealth.screenShakeProfile ,typeof(ScreenShakeProfile));
-                entityHealth.screenShakeEvent = (ScreenShakeDataEvent) EditorGUILayout.ObjectField("Screen Shake Event", entityHealth.screenShakeEvent ,typeof(ScreenShakeDataEvent));
                 
                 EditorGUI.indentLevel--;
             }

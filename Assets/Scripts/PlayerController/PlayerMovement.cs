@@ -31,7 +31,7 @@ namespace PlayerController
         #endregion
 
         public PlayerStates CurrentState => _currentState.StateKey;
-        [field: SerializeField] public bool HandleWallImpulse { get; private set; }
+        public bool HandleWallImpulse { get; private set; }
         
         #region Dash Properties
         private float _lastPressedDashTime;

@@ -4199,9 +4199,10 @@ GameObject:
   - component: {fileID: 1785072214}
   - component: {fileID: 1785072212}
   - component: {fileID: 1785072211}
+  - component: {fileID: 1785072216}
+  - component: {fileID: 1785072217}
   - component: {fileID: 1785072210}
   - component: {fileID: 1785072215}
-  - component: {fileID: 1785072216}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -4352,7 +4353,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    m_ImpulseDuration: 0.2
+    m_ImpulseDuration: 0.35
     m_ImpulseType: 0
     m_DissipationRate: 0.25
     m_RawSignal: {fileID: 0}
@@ -4383,7 +4384,21 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0, y: -1, z: 0}
+  m_DefaultVelocity: {x: -1, y: -1, z: 0}
+--- !u!114 &1785072217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785072209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77255dae37214196a78f0986d6047cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _screenShakeProfile: {fileID: 11400000, guid: 2ddd4abf40a86034d8fbb15c85d63403, type: 2}
+  _screenShakeEvent: {fileID: 11400000, guid: 724bff74c8bdcfb419aef34872635f27, type: 2}
 --- !u!1 &1785447296
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,14 +4992,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3085501486090063315, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _screenShakeEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 724bff74c8bdcfb419aef34872635f27, type: 2}
-    - target: {fileID: 3085501486090063315, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _screenShakeProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 2ddd4abf40a86034d8fbb15c85d63403, type: 2}
     - target: {fileID: 3687132239636878760, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.5
@@ -5025,69 +5032,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4867072972385552419, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: <MovementData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: d1bbc272b4d5e7743bf6dbae6c2d447c, type: 2}
-    - target: {fileID: 4867072972385552419, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: <AbilitiesData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
     - target: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _abilitiesData
-      value: 
-      objectReference: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _mannaPerAttack
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _maxManna.valueType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _currentManna.valueType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _maxManna.variableValue
-      value: 
-      objectReference: {fileID: 11400000, guid: f8eb4bb3febbfbc4fa5085f3ea59e0fa, type: 2}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _mannaBarsFilled.valueType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _mannaContainers.valueType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _currentManna.variableValue
-      value: 
-      objectReference: {fileID: 11400000, guid: b1dbc2e366f255a49968aeadeeb94369, type: 2}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _currentManna.componentValue
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _mannaBarsFilled.variableValue
-      value: 
-      objectReference: {fileID: 11400000, guid: cb1813ff3ee5a5149baed0d70fbd6a47, type: 2}
-    - target: {fileID: 8441323540536899230, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      propertyPath: _mannaContainers.variableValue
-      value: 
-      objectReference: {fileID: 11400000, guid: cb1813ff3ee5a5149baed0d70fbd6a47, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 2137210370}
+      insertIndex: 5
+      addedObject: {fileID: 2137210371}
   m_SourcePrefab: {fileID: 100100000, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
 --- !u!4 &2137210368 stripped
 Transform:
@@ -5099,7 +5054,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
   m_PrefabInstance: {fileID: 2137210367}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2137210370
+--- !u!114 &2137210371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5108,50 +5063,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2137210369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Script: {fileID: 11500000, guid: 77255dae37214196a78f0986d6047cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ImpulseDefinition:
-    m_ImpulseChannel: 1
-    m_ImpulseShape: 2
-    m_CustomImpulseShape:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_ImpulseDuration: 0.35
-    m_ImpulseType: 0
-    m_DissipationRate: 0.25
-    m_RawSignal: {fileID: 0}
-    m_AmplitudeGain: 1
-    m_FrequencyGain: 1
-    m_RepeatMode: 0
-    m_Randomize: 1
-    m_TimeEnvelope:
-      m_AttackShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_DecayShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_AttackTime: 0
-      m_SustainTime: 0.2
-      m_DecayTime: 0.7
-      m_ScaleWithImpact: 1
-      m_HoldForever: 0
-    m_ImpactRadius: 100
-    m_DirectionMode: 0
-    m_DissipationMode: 2
-    m_DissipationDistance: 100
-    m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: -1, y: -1, z: 0}
+  _screenShakeProfile: {fileID: 11400000, guid: 2ddd4abf40a86034d8fbb15c85d63403, type: 2}
+  _screenShakeEvent: {fileID: 11400000, guid: 724bff74c8bdcfb419aef34872635f27, type: 2}
 --- !u!1 &2139046658
 GameObject:
   m_ObjectHideFlags: 0
