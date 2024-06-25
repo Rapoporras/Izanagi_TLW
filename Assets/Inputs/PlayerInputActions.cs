@@ -71,6 +71,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PowerAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f17df53-f1e0-4613-ac29-4a7c8ad694bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -264,11 +273,22 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fee11e16-6543-4a3e-b42c-7886a8220cf4"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""WallImpulse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d69e786-9ab0-4c6b-ba2a-36a523e1472e"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PowerAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -284,6 +304,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_WallImpulse = m_Player.FindAction("WallImpulse", throwIfNotFound: true);
+        m_Player_PowerAttack = m_Player.FindAction("PowerAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -350,6 +371,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_WallImpulse;
+    private readonly InputAction m_Player_PowerAttack;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -359,6 +381,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @WallImpulse => m_Wrapper.m_Player_WallImpulse;
+        public InputAction @PowerAttack => m_Wrapper.m_Player_PowerAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -383,6 +406,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @WallImpulse.started += instance.OnWallImpulse;
             @WallImpulse.performed += instance.OnWallImpulse;
             @WallImpulse.canceled += instance.OnWallImpulse;
+            @PowerAttack.started += instance.OnPowerAttack;
+            @PowerAttack.performed += instance.OnPowerAttack;
+            @PowerAttack.canceled += instance.OnPowerAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -402,6 +428,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @WallImpulse.started -= instance.OnWallImpulse;
             @WallImpulse.performed -= instance.OnWallImpulse;
             @WallImpulse.canceled -= instance.OnWallImpulse;
+            @PowerAttack.started -= instance.OnPowerAttack;
+            @PowerAttack.performed -= instance.OnPowerAttack;
+            @PowerAttack.canceled -= instance.OnPowerAttack;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -426,5 +455,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnWallImpulse(InputAction.CallbackContext context);
+        void OnPowerAttack(InputAction.CallbackContext context);
     }
 }

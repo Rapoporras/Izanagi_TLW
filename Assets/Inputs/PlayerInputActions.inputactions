@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PowerAttack",
+                    "type": "Button",
+                    "id": "0f17df53-f1e0-4613-ac29-4a7c8ad694bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -242,11 +251,22 @@
                 {
                     "name": "",
                     "id": "fee11e16-6543-4a3e-b42c-7886a8220cf4",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "WallImpulse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d69e786-9ab0-4c6b-ba2a-36a523e1472e",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PowerAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

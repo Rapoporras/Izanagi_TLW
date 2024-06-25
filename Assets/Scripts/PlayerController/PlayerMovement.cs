@@ -23,7 +23,6 @@ namespace PlayerController
         private Rigidbody2D _rb2d;
         private RaycastInfo _raycastInfo;
 
-        private PlayerInputActions _playerInputActions;
         private InputAction _movementAction;
 
         private bool _inKnockBack;
@@ -89,8 +88,6 @@ namespace PlayerController
             _rb2d = GetComponent<Rigidbody2D>();
             _rb2d.gravityScale = 0f;
             _raycastInfo = GetComponent<RaycastInfo>();
-
-            _playerInputActions = new PlayerInputActions();
         }
 
         protected override void Start()
@@ -115,7 +112,7 @@ namespace PlayerController
                 SetDirectionToFace(MovementDirection.x > 0);
             }
             
-            HandleWallImpulse = _playerInputActions.Player.WallImpulse.IsPressed();
+            HandleWallImpulse = InputManager.Instance.PlayerActions.WallImpulse.IsPressed();
         }
 
         private void OnEnable()
@@ -148,26 +145,20 @@ namespace PlayerController
         #region Input
         private void EnableInput()
         {
-            _movementAction = _playerInputActions.Player.Movement;
-            _movementAction.Enable();
+            _movementAction = InputManager.Instance.PlayerActions.Movement;
 
-            _playerInputActions.Player.Jump.started += OnJumpAction;
-            _playerInputActions.Player.Jump.canceled += OnJumpAction;
-            _playerInputActions.Player.Jump.Enable();
-
-            _playerInputActions.Player.Dash.performed += OnDashAction;
-            _playerInputActions.Player.Dash.Enable();
-
-            _playerInputActions.Player.WallImpulse.Enable();
-            // input will be updated in Update with IsPressed() function
+            InputManager.Instance.PlayerActions.Jump.started += OnJumpAction;
+            InputManager.Instance.PlayerActions.Jump.canceled += OnJumpAction;
+            
+            InputManager.Instance.PlayerActions.Dash.performed += OnDashAction;
         }
 
         private void DisableInput()
         {
-            _movementAction.Disable();
-            _playerInputActions.Player.Jump.Disable();
-            _playerInputActions.Player.Dash.Disable();
-            _playerInputActions.Player.WallImpulse.Disable();
+            InputManager.Instance.PlayerActions.Jump.started -= OnJumpAction;
+            InputManager.Instance.PlayerActions.Jump.canceled -= OnJumpAction;
+            
+            InputManager.Instance.PlayerActions.Dash.performed -= OnDashAction;
         }
         #endregion
         

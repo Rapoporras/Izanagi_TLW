@@ -29,11 +29,9 @@ namespace PlayerController
         [SerializeField] private Transform _bottomAttackPoint;
         [SerializeField] private float _attackRadius;
         
-        private Rigidbody2D _rb2d;
         private PlayerAnimations _playerAnimations;
         private PlayerMovement _playerMovement;
         
-        private PlayerInputActions _playerInputActions;
         private InputAction _movementAction;
 
         private bool _isPlayerAttacking;
@@ -50,11 +48,9 @@ namespace PlayerController
 
         private void Awake()
         {
-            _rb2d = GetComponent<Rigidbody2D>();
             _playerAnimations = GetComponent<PlayerAnimations>();
             _playerMovement = GetComponent<PlayerMovement>();
             
-            _playerInputActions = new PlayerInputActions();
             _isPlayerAttacking = false;
         }
 
@@ -68,11 +64,14 @@ namespace PlayerController
 
         private void OnEnable()
         {
-            _playerInputActions.Player.Attack.started += Attack;
-            _playerInputActions.Player.Attack.Enable();
+            InputManager.Instance.PlayerActions.Attack.started += Attack;
+            
+            _movementAction = InputManager.Instance.PlayerActions.Movement;
+        }
 
-            _movementAction = _playerInputActions.Player.Movement;
-            _movementAction.Enable();
+        private void OnDisable()
+        {
+            InputManager.Instance.PlayerActions.Attack.started -= Attack;
         }
 
         #region ATTACK
@@ -110,8 +109,8 @@ namespace PlayerController
         private void Attack(InputAction.CallbackContext context)
         {
             if (_isPlayerAttacking) return;
-            if (_playerMovement.CurrentState == PlayerStates.Dashing) return;
-            if (_playerMovement.CurrentState == PlayerStates.Damaged) return;
+            // if (_playerMovement.CurrentState == PlayerStates.Dashing) return;
+            // if (_playerMovement.CurrentState == PlayerStates.Damaged) return;
             
             _lastAttackInfo.Type = GetAttackType();
             _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);
@@ -184,6 +183,8 @@ namespace PlayerController
             _currentManna.Value = Mathf.Clamp(_currentManna + amount, 0, _maxManna);
             _mannaContainersFilled = _currentManna * _mannaContainers / _maxManna;
         }
+        
+        
         #endregion
 
         #region DEBUG

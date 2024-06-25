@@ -12,6 +12,8 @@ namespace PlayerController.States
         public override void EnterState()
         {
             _timeInState = 0f;
+            
+            InputManager.Instance.PlayerActions.Attack.Disable();
         }
 
         public override void UpdateState()
@@ -25,6 +27,8 @@ namespace PlayerController.States
         {
             Context.IsTakingDamage = false;
             Context.UseKnockBackAccelInAir = true;
+            
+            InputManager.Instance.PlayerActions.Attack.Enable();
         }
 
         public override PlayerStates GetNextState()

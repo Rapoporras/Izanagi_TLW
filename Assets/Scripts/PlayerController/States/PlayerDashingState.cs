@@ -22,6 +22,8 @@ namespace PlayerController.States
                 _direction = Context.IsFacingRight ? Vector2.right : Vector2.left;
             
             Context.SetDirectionToFace(_direction.x > 0);
+            
+            InputManager.Instance.PlayerActions.Attack.Disable();
         }
 
         public override void UpdateState()
@@ -35,6 +37,8 @@ namespace PlayerController.States
         public override void ExitState()
         {
             Context.RefillDash();
+            
+            InputManager.Instance.PlayerActions.Attack.Enable();
         }
 
         public override PlayerStates GetNextState()

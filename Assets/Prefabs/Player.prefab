@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 720043948753868714}
   - component: {fileID: 930869929174576627}
   - component: {fileID: 2221842299422760943}
+  - component: {fileID: 3347994123410321909}
   - component: {fileID: 4426323846036877206}
   - component: {fileID: 4867072972385552419}
   - component: {fileID: 610528215668057195}
@@ -447,6 +448,20 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: -1, y: -1, z: 0}
+--- !u!114 &3347994123410321909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801932908582284163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77255dae37214196a78f0986d6047cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _screenShakeProfile: {fileID: 11400000, guid: 2ddd4abf40a86034d8fbb15c85d63403, type: 2}
+  _screenShakeEvent: {fileID: 11400000, guid: 724bff74c8bdcfb419aef34872635f27, type: 2}
 --- !u!114 &4426323846036877206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +502,6 @@ MonoBehaviour:
   <MovementData>k__BackingField: {fileID: 11400000, guid: d1bbc272b4d5e7743bf6dbae6c2d447c, type: 2}
   <AbilitiesData>k__BackingField: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
   _xInputDeadZone: 0.25
-  <HandleWallImpulse>k__BackingField: 0
 --- !u!114 &610528215668057195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,8 +571,6 @@ MonoBehaviour:
     variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
     componentValue: {fileID: 0}
   _invulnerabilityTime: 0.5
-  _screenShakeProfile: {fileID: 11400000, guid: 2ddd4abf40a86034d8fbb15c85d63403, type: 2}
-  _screenShakeEvent: {fileID: 11400000, guid: 724bff74c8bdcfb419aef34872635f27, type: 2}
 --- !u!1 &7833533766894049470
 GameObject:
   m_ObjectHideFlags: 0

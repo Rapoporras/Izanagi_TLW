@@ -25,6 +25,8 @@ namespace PlayerController.States
             // set direction
             Context.SetDirectionToFace(Context.LeftWallHit);
             _direction = Context.LeftWallHit ? Vector2.right : Vector2.left;
+            
+            InputManager.Instance.PlayerActions.Attack.Disable();
         }
 
         public override void UpdateState()
@@ -45,7 +47,10 @@ namespace PlayerController.States
 
         public override void FixedUpdateState() { }
 
-        public override void ExitState() { }
+        public override void ExitState()
+        {
+            InputManager.Instance.PlayerActions.Attack.Enable();
+        }
 
         public override PlayerStates GetNextState()
         {
