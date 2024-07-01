@@ -51,9 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PowerAttack",
+                    "name": "AbilityAction",
                     "type": "Button",
                     "id": "0f17df53-f1e0-4613-ac29-4a7c8ad694bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeAbility",
+                    "type": "Button",
+                    "id": "99136ce5-dc74-40cd-abbd-8184bd525500",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -266,7 +275,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PowerAttack",
+                    "action": "AbilityAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6bd55f25-b419-465f-9651-c42c8815a6ab",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

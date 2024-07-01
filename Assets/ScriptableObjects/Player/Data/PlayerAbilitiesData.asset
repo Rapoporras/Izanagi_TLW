@@ -13,14 +13,10 @@ MonoBehaviour:
   m_Name: PlayerAbilitiesData
   m_EditorClassIdentifier: 
   doubleJump: 1
-  basicFireAttack: 0
-  ultimateFireAttack: 0
-  breakWalls: 0
-  basicGroundAttack: 0
-  ultimateGroundAttack: 0
+  fireAbility: 1
+  breakWalls: 1
+  groundAbility: 1
   airDash: 1
-  basicAirAttack: 0
-  ultimateAirAttack: 0
-  wallJump: 1
-  basicWaterAttack: 0
-  ultimateWaterAttack: 0
+  airAbility: 1
+  wallImpulse: 1
+  waterAbility: 1

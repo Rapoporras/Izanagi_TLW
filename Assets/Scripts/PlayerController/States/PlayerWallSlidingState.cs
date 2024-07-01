@@ -60,7 +60,7 @@ namespace PlayerController.States
             if (!Context.LeftWallHit && !Context.RightWallHit)
                 return PlayerStates.Falling;
 
-            if (Context.HandleWallImpulse)
+            if (Context.HandleWallImpulse && Context.AbilitiesData.wallImpulse)
                 return PlayerStates.WallImpulse;
             
             return StateKey;

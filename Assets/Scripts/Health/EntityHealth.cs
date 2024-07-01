@@ -31,7 +31,7 @@ namespace Health
             _health = new HealthController(maxHealth);
         }
 
-        public void Damage(int amount)
+        public void Damage(int amount, bool screenShake)
         {
             if (damageable && !_hit && _health.CurrentHealth > 0)
             {
@@ -39,7 +39,7 @@ namespace Health
                 _health.Damage(amount);
                 if (_health.CurrentHealth > 0)
                 {
-                    if (_screenShakeSource)
+                    if (_screenShakeSource && screenShake)
                         _screenShakeSource.TriggerScreenShake();
                     
                     StartCoroutine(TurnOffHit());

@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 610528215668057195}
   - component: {fileID: 8441323540536899230}
   - component: {fileID: 3085501486090063315}
+  - component: {fileID: 4846970282278479726}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -571,6 +572,40 @@ MonoBehaviour:
     variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
     componentValue: {fileID: 0}
   _invulnerabilityTime: 0.5
+--- !u!114 &4846970282278479726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801932908582284163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0db6ca22461486a9ad6d1d3f168d021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAbilitiesData: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
+  _currentAbility:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: ac45e565291965d4684ce7fe2a77c856, type: 2}
+    componentValue: {fileID: 0}
+  _abilities:
+  - {fileID: 11400000, guid: ffedbe206755b9a4c832a19502d21812, type: 2}
+  - {fileID: 11400000, guid: d7e3563d9cb37fd48a59df4f7ee61732, type: 2}
+  - {fileID: 11400000, guid: 127ed23738009d142bf4d13b40011d1d, type: 2}
+  - {fileID: 11400000, guid: d284cf5d99bc8e144b8ebfcc4b285f27, type: 2}
+  - {fileID: 11400000, guid: 94ac9eba51fa16c46823f856d5532a5a, type: 2}
+  _cooldownProgress:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: 61078382b2e84934e8161174a981f584, type: 2}
+    componentValue: {fileID: 0}
+  _currentMannaAmount:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: b1dbc2e366f255a49968aeadeeb94369, type: 2}
+    componentValue: {fileID: 0}
 --- !u!1 &7833533766894049470
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +796,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.6622641, b: 0.6622641, a: 1}
+  m_Color: {r: 1, g: 0.65882355, b: 0.65882355, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -1,6 +1,6 @@
 ﻿using GlobalVariables;
 using Health;
-using PlayerController.States;
+using PlayerController.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,11 +8,6 @@ namespace PlayerController
 {
     public class PlayerAttack : MonoBehaviour
     {
-        private enum AttackType
-        {
-            Horizontal, Downwards, Upwards
-        }
-
         [Header("Data")]
         [SerializeField] private PlayerAttackData _attackData;
         [SerializeField] private PlayerAbilitiesData _abilitiesData;
@@ -20,7 +15,6 @@ namespace PlayerController
         [Header("Manna")]
         [SerializeField] private IntReference _currentManna;
         [SerializeField] private IntReference _maxManna;
-        [SerializeField] private IntReference _mannaContainers;
         [SerializeField] private int _mannaPerAttack;
         
         [Space(10), Header("Settings")]
@@ -38,8 +32,11 @@ namespace PlayerController
         private bool _hasCollided;
         private AttackInfo _lastAttackInfo;
 
-        private int _mannaContainersFilled;
-
+        private enum AttackType
+        {
+            Horizontal, Downwards, Upwards
+        }
+        
         struct AttackInfo
         {
             public AttackType Type;
@@ -109,8 +106,6 @@ namespace PlayerController
         private void Attack(InputAction.CallbackContext context)
         {
             if (_isPlayerAttacking) return;
-            // if (_playerMovement.CurrentState == PlayerStates.Dashing) return;
-            // if (_playerMovement.CurrentState == PlayerStates.Damaged) return;
             
             _lastAttackInfo.Type = GetAttackType();
             _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);
@@ -142,7 +137,7 @@ namespace PlayerController
                 {
                     if (!entityHealth.IsInvulnerable && entityHealth.damageable)
                     {
-                        entityHealth.Damage(_attackData.attackDamage);
+                        entityHealth.Damage(_attackData.attackDamage, true);
                         UpdateMannaPoints(_mannaPerAttack);
                     }
                     
@@ -176,15 +171,12 @@ namespace PlayerController
             }
         }
         #endregion
-
+        
         #region MANNA
         private void UpdateMannaPoints(int amount)
         {
             _currentManna.Value = Mathf.Clamp(_currentManna + amount, 0, _maxManna);
-            _mannaContainersFilled = _currentManna * _mannaContainers / _maxManna;
         }
-        
-        
         #endregion
 
         #region DEBUG

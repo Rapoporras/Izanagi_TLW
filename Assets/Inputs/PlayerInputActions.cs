@@ -73,9 +73,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PowerAttack"",
+                    ""name"": ""AbilityAction"",
                     ""type"": ""Button"",
                     ""id"": ""0f17df53-f1e0-4613-ac29-4a7c8ad694bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""99136ce5-dc74-40cd-abbd-8184bd525500"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -288,7 +297,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PowerAttack"",
+                    ""action"": ""AbilityAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6bd55f25-b419-465f-9651-c42c8815a6ab"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -304,7 +324,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_WallImpulse = m_Player.FindAction("WallImpulse", throwIfNotFound: true);
-        m_Player_PowerAttack = m_Player.FindAction("PowerAttack", throwIfNotFound: true);
+        m_Player_AbilityAction = m_Player.FindAction("AbilityAction", throwIfNotFound: true);
+        m_Player_ChangeAbility = m_Player.FindAction("ChangeAbility", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -371,7 +392,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_WallImpulse;
-    private readonly InputAction m_Player_PowerAttack;
+    private readonly InputAction m_Player_AbilityAction;
+    private readonly InputAction m_Player_ChangeAbility;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -381,7 +403,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @WallImpulse => m_Wrapper.m_Player_WallImpulse;
-        public InputAction @PowerAttack => m_Wrapper.m_Player_PowerAttack;
+        public InputAction @AbilityAction => m_Wrapper.m_Player_AbilityAction;
+        public InputAction @ChangeAbility => m_Wrapper.m_Player_ChangeAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -406,9 +429,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @WallImpulse.started += instance.OnWallImpulse;
             @WallImpulse.performed += instance.OnWallImpulse;
             @WallImpulse.canceled += instance.OnWallImpulse;
-            @PowerAttack.started += instance.OnPowerAttack;
-            @PowerAttack.performed += instance.OnPowerAttack;
-            @PowerAttack.canceled += instance.OnPowerAttack;
+            @AbilityAction.started += instance.OnAbilityAction;
+            @AbilityAction.performed += instance.OnAbilityAction;
+            @AbilityAction.canceled += instance.OnAbilityAction;
+            @ChangeAbility.started += instance.OnChangeAbility;
+            @ChangeAbility.performed += instance.OnChangeAbility;
+            @ChangeAbility.canceled += instance.OnChangeAbility;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -428,9 +454,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @WallImpulse.started -= instance.OnWallImpulse;
             @WallImpulse.performed -= instance.OnWallImpulse;
             @WallImpulse.canceled -= instance.OnWallImpulse;
-            @PowerAttack.started -= instance.OnPowerAttack;
-            @PowerAttack.performed -= instance.OnPowerAttack;
-            @PowerAttack.canceled -= instance.OnPowerAttack;
+            @AbilityAction.started -= instance.OnAbilityAction;
+            @AbilityAction.performed -= instance.OnAbilityAction;
+            @AbilityAction.canceled -= instance.OnAbilityAction;
+            @ChangeAbility.started -= instance.OnChangeAbility;
+            @ChangeAbility.performed -= instance.OnChangeAbility;
+            @ChangeAbility.canceled -= instance.OnChangeAbility;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -455,6 +484,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnWallImpulse(InputAction.CallbackContext context);
-        void OnPowerAttack(InputAction.CallbackContext context);
+        void OnAbilityAction(InputAction.CallbackContext context);
+        void OnChangeAbility(InputAction.CallbackContext context);
     }
 }

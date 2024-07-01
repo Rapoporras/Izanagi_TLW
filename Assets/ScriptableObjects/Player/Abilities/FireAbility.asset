@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa41c238d9d422399bd7cd667ab66fc, type: 3}
+  m_Name: FireAbility
+  m_EditorClassIdentifier: 
+  <Animator>k__BackingField: {fileID: 22100000, guid: cb84277a7cf4d974faa47bd9e6d0ed85, type: 2}
+  <CooldownDuration>k__BackingField: 1
+  <MannaCost>k__BackingField: 200
+  <AbilityDuration>k__BackingField: 1
+  _fireAttackPrefab: {fileID: 8210049640917677948, guid: 5fea042a20ed2984fb8cad1ef3001dda, type: 3}
+  _damage: 10

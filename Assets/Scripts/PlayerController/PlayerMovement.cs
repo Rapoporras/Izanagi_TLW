@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using PlayerController.Data;
 using PlayerController.States;
 using StateMachine;
 using UnityEngine;
