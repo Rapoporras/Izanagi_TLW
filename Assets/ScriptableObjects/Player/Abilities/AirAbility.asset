@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 22100000, guid: 7c2e2ba5ed0aebb42b2366ed6ea422c5, type: 2}
   <CooldownDuration>k__BackingField: 2
-  <MannaCost>k__BackingField: 100
+  <MannaCost>k__BackingField: 50
+  <AbilityDuration>k__BackingField: 5
+  _damageMultiplier: 1.5

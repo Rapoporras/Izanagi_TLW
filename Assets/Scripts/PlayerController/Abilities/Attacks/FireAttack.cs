@@ -5,7 +5,6 @@ namespace PlayerController.Abilities
 {
     public class FireAttack : BaseAreaAttack
     {
-
         private float _timer;
         
         public float Duration { get; set; }

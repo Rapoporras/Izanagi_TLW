@@ -22,6 +22,8 @@ namespace PlayerController
         [SerializeField] private Transform _upperAttackPoint;
         [SerializeField] private Transform _bottomAttackPoint;
         [SerializeField] private float _attackRadius;
+
+        [Space(10), SerializeField] private GameObject _boostIcon;
         
         private PlayerAnimations _playerAnimations;
         private PlayerMovement _playerMovement;
@@ -31,6 +33,18 @@ namespace PlayerController
         private bool _isPlayerAttacking;
         private bool _hasCollided;
         private AttackInfo _lastAttackInfo;
+
+        private float _damageMultiplier = 1f;
+
+        public float DamageMultiplier
+        {
+            get => _damageMultiplier;
+            set
+            {
+                _damageMultiplier = value;
+                _boostIcon.SetActive(value != 1f);
+            }
+        }
 
         private enum AttackType
         {
@@ -137,7 +151,8 @@ namespace PlayerController
                 {
                     if (!entityHealth.IsInvulnerable && entityHealth.damageable)
                     {
-                        entityHealth.Damage(_attackData.attackDamage, true);
+                        int damage = Mathf.CeilToInt(_attackData.attackDamage * DamageMultiplier);
+                        entityHealth.Damage(damage, true);
                         UpdateMannaPoints(_mannaPerAttack);
                     }
                     
