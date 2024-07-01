@@ -12,6 +12,8 @@ namespace PlayerController
     {
         [Header("Dependencies")]
         [SerializeField] private PlayerAbilitiesData _playerAbilitiesData;
+        [SerializeField] private GameObject _boostIcon;
+        [SerializeField] private GameObject _shield;
         
         [Header("Settings")]
         [SerializeField] private AbilityTypeReference _currentAbility;
@@ -83,9 +85,11 @@ namespace PlayerController
 
             if (ability.MannaCost <= _currentMannaAmount.Value)
             {
-                _currentMannaAmount.Value -= ability.MannaCost;
-                ability.PerformAction(gameObject);
-                StartCoroutine(RechargeAbility(ability.CooldownDuration));
+                if (ability.PerformAction(gameObject))
+                {
+                    _currentMannaAmount.Value -= ability.MannaCost;
+                    StartCoroutine(RechargeAbility(ability.CooldownDuration));
+                }
             }
             else
             {
@@ -130,6 +134,16 @@ namespace PlayerController
             }
             
             return false;
+        }
+
+        public void ShowBoostIcon(bool activate)
+        {
+            _boostIcon.SetActive(activate);
+        }
+
+        public void ShowShield(bool activate)
+        {
+            _shield.SetActive(activate);
         }
     }
 }

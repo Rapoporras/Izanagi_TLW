@@ -22,8 +22,6 @@ namespace PlayerController
         [SerializeField] private Transform _upperAttackPoint;
         [SerializeField] private Transform _bottomAttackPoint;
         [SerializeField] private float _attackRadius;
-
-        [Space(10), SerializeField] private GameObject _boostIcon;
         
         private PlayerAnimations _playerAnimations;
         private PlayerMovement _playerMovement;
@@ -34,17 +32,7 @@ namespace PlayerController
         private bool _hasCollided;
         private AttackInfo _lastAttackInfo;
 
-        private float _damageMultiplier = 1f;
-
-        public float DamageMultiplier
-        {
-            get => _damageMultiplier;
-            set
-            {
-                _damageMultiplier = value;
-                _boostIcon.SetActive(value != 1f);
-            }
-        }
+        public float DamageMultiplier { get; set; }
 
         private enum AttackType
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using CameraSystem;
 using GlobalVariables;
 using PlayerController;
@@ -18,6 +19,19 @@ namespace Health
         
         private bool _hit;
 
+        public event Action OnShieldLost;
+        private bool _hasShield;
+        public bool HasShield
+        {
+            get => _hasShield;
+            set
+            {
+                _hasShield = value;
+                if (!_hasShield)
+                    OnShieldLost?.Invoke();
+            }
+        }
+
         private void Awake()
         {
             _playerMovement = GetComponent<PlayerMovement>();
@@ -34,15 +48,20 @@ namespace Health
             if (!_hit && _currentHealth.Value > 0)
             {
                 _hit = true;
-                UpdateHealth(-amount);
-                _playerMovement.ApplyDamageKnockBack(attackDirection);
-                if (_currentHealth > 0)
+                if (HasShield)
                 {
-                    if (_screenShakeSource)
-                        _screenShakeSource.TriggerScreenShake();
-                    
-                    StartCoroutine(TurnOffHit());
+                    HasShield = false;
                 }
+                else
+                {
+                    UpdateHealth(-amount);
+                }
+                
+                _playerMovement.ApplyDamageKnockBack(attackDirection);
+                if (_screenShakeSource)
+                    _screenShakeSource.TriggerScreenShake();
+                
+                StartCoroutine(TurnOffHit());
             }
         }
 

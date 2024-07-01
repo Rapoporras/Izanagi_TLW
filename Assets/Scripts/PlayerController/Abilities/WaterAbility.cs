@@ -7,9 +7,16 @@ namespace PlayerController.Abilities
     {
         public override AbilityType Type => AbilityType.Water;
         
-        public override void PerformAction(GameObject target)
+        public override bool PerformAction(GameObject target)
         {
             Debug.Log("Water ability");
+
+            return true;
+        }
+
+        protected override void Initialize(GameObject target)
+        {
+            
         }
     }
 }

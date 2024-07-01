@@ -9,21 +9,44 @@ namespace PlayerController.Abilities
         [SerializeField, Range(1f, 2f)] private float _damageMultiplier;
         
         public override AbilityType Type => AbilityType.Air;
+
+        private PlayerAttack _playerAttack;
+        private PlayerAbilities _playerAbilities;
+
+        private bool _boostActive;
         
-        public override void PerformAction(GameObject target)
+        public override bool PerformAction(GameObject target)
         {
-            if (target.TryGetComponent(out PlayerAttack playerAttack))
-            {
-                Debug.Log("Air ability");
-                playerAttack.DamageMultiplier = _damageMultiplier;
-                playerAttack.StartCoroutine(HandlePlayerBoost(playerAttack));
-            }
+            if (_boostActive) return false;
+            
+            Initialize(target);
+            
+            Debug.Log("Air ability");
+            _playerAttack.DamageMultiplier = _damageMultiplier;
+            _playerAttack.StartCoroutine(HandlePlayerBoost(target));
+
+            return true;
         }
 
-        private IEnumerator HandlePlayerBoost(PlayerAttack playerAttack)
+        protected override void Initialize(GameObject target)
         {
+            if (_playerAttack == null)
+                _playerAttack = target.GetComponent<PlayerAttack>();
+            
+            if (_playerAbilities == null)
+                _playerAbilities = target.GetComponent<PlayerAbilities>();
+        }
+
+        private IEnumerator HandlePlayerBoost(GameObject target)
+        {
+            _boostActive = true;
+            
+            _playerAbilities.ShowBoostIcon(true);
             yield return new WaitForSeconds(AbilityDuration);
-            playerAttack.DamageMultiplier = 1f;
+            _playerAttack.DamageMultiplier = 1f;
+            _playerAbilities.ShowBoostIcon(false);
+
+            _boostActive = false;
         }
     }
 }

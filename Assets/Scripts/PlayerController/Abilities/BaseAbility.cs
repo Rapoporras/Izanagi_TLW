@@ -16,6 +16,7 @@ namespace PlayerController.Abilities
         
         public abstract AbilityType Type { get; }
 
-        public abstract void PerformAction(GameObject target);
+        public abstract bool PerformAction(GameObject target);
+        protected abstract void Initialize(GameObject target);
     }
 }

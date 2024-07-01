@@ -10,22 +10,38 @@ namespace PlayerController.Abilities
         [SerializeField] private int _damage;
         
         public override AbilityType Type => AbilityType.Fire;
+
+        private PlayerMovement _playerMovement;
+        private PlayerAbilities _playerAbilities;
         
-        public override void PerformAction(GameObject target)
+        public override bool PerformAction(GameObject target)
         {
-            if (!target.GetComponent<PlayerMovement>().IsGrounded) return;
+            Initialize(target);
+            
+            if (!_playerMovement.IsGrounded) return false;
             
             Debug.Log("Fire ability");
             FireAttack attack = Instantiate(_fireAttackPrefab, target.transform.position, target.transform.rotation);
             attack.Damage = _damage;
             attack.Duration = AbilityDuration;
             
-            target.GetComponent<PlayerAbilities>().StartCoroutine(HandlePlayerInput());
+            _playerAbilities.StartCoroutine(HandlePlayerInput());
+
+            return true;
+        }
+
+        protected override void Initialize(GameObject target)
+        {
+            if (_playerMovement == null)
+                _playerMovement = target.GetComponent<PlayerMovement>();
+            
+            if (_playerAbilities == null)
+                _playerAbilities = target.GetComponent<PlayerAbilities>();
         }
 
         private IEnumerator HandlePlayerInput()
         {
-            // TODO: freeze player in current position
+            // TODO: freeze player in current position in air
             
             InputManager.Instance.PlayerActions.Disable();
             yield return new WaitForSeconds(AbilityDuration);
