@@ -47,6 +47,12 @@ namespace PlayerController
             // _cooldownTimer = _cooldownDuration;
             _cooldownProgress.Value = 1f;
             _isRechargingAbility = false;
+            
+            // initialize abilities
+            foreach (var ability in _abilities)
+            {
+                ability.Initialize(gameObject);
+            }
         }
 
         private void OnEnable()

@@ -18,6 +18,9 @@ namespace PlayerController
         
         [Space(10), Header("Settings")]
         [SerializeField] private float _xInputDeadZone = 0.25f;
+
+        [Space(10)] public GameObject wallImpulseArrow;
+        
         #endregion
         
         #region Private variables

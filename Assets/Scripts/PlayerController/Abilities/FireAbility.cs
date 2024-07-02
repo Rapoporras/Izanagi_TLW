@@ -16,8 +16,6 @@ namespace PlayerController.Abilities
         
         public override bool PerformAction(GameObject target)
         {
-            Initialize(target);
-            
             if (!_playerMovement.IsGrounded) return false;
             
             Debug.Log("Fire ability");
@@ -30,7 +28,7 @@ namespace PlayerController.Abilities
             return true;
         }
 
-        protected override void Initialize(GameObject target)
+        public override void Initialize(GameObject target)
         {
             if (_playerMovement == null)
                 _playerMovement = target.GetComponent<PlayerMovement>();

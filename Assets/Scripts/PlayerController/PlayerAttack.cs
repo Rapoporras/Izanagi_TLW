@@ -22,6 +22,7 @@ namespace PlayerController
         [SerializeField] private Transform _upperAttackPoint;
         [SerializeField] private Transform _bottomAttackPoint;
         [SerializeField] private float _attackRadius;
+        [SerializeField] private LayerMask _hurtboxLayer;
         
         private PlayerAnimations _playerAnimations;
         private PlayerMovement _playerMovement;
@@ -32,7 +33,7 @@ namespace PlayerController
         private bool _hasCollided;
         private AttackInfo _lastAttackInfo;
 
-        public float DamageMultiplier { get; set; }
+        public float DamageMultiplier { get; set; } = 1f;
 
         private enum AttackType
         {
@@ -132,10 +133,10 @@ namespace PlayerController
                 _ => Vector3.zero
             };
             
-            Collider2D[] entities = Physics2D.OverlapCircleAll(position, _attackRadius);
+            Collider2D[] entities = Physics2D.OverlapCircleAll(position, _attackRadius, _hurtboxLayer);
             foreach (var entity in entities)
             {
-                if (entity.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
+                if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
                 {
                     if (!entityHealth.IsInvulnerable && entityHealth.damageable)
                     {

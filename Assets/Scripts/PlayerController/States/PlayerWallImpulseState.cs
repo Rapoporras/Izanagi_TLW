@@ -27,6 +27,8 @@ namespace PlayerController.States
             _direction = Context.LeftWallHit ? Vector2.right : Vector2.left;
             
             InputManager.Instance.PlayerActions.Attack.Disable();
+            
+            Context.wallImpulseArrow.SetActive(false);
         }
 
         public override void UpdateState()
@@ -36,6 +38,7 @@ namespace PlayerController.States
             else
             {
                 Debug.Log("IMPULSE CHARGED");
+                Context.wallImpulseArrow.SetActive(true);
                 if (!Context.HandleWallImpulse && !_impulseReleased)
                 {
                     _impulseReleased = true;
@@ -50,6 +53,7 @@ namespace PlayerController.States
         public override void ExitState()
         {
             InputManager.Instance.PlayerActions.Attack.Enable();
+            Context.wallImpulseArrow.SetActive(false);
         }
 
         public override PlayerStates GetNextState()

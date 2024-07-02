@@ -13,8 +13,6 @@ namespace PlayerController.Abilities
         
         public override bool PerformAction(GameObject target)
         {
-            Initialize(target);
-
             if (_playerHealth.HasShield) return false;
             
             Debug.Log("Ground ability");
@@ -24,19 +22,20 @@ namespace PlayerController.Abilities
             return true;
         }
 
-        protected override void Initialize(GameObject target)
+        public override void Initialize(GameObject target)
         {
             if (_playerHealth == null)
                 _playerHealth = target.GetComponent<PlayerHealth>();
             
-            _playerHealth.OnShieldLost += HideShield;
-
             if (_playerAbilities == null)
                 _playerAbilities = target.GetComponent<PlayerAbilities>();
+            
+            _playerHealth.OnShieldLost += HideShield;
         }
 
         private void HideShield()
         {
+            Debug.Log("hide shield");
             _playerAbilities.ShowShield(false);
         }
     }

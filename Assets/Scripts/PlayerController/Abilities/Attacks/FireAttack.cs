@@ -6,9 +6,6 @@ namespace PlayerController.Abilities
     public class FireAttack : BaseAreaAttack
     {
         private float _timer;
-        
-        public float Duration { get; set; }
-        public int Damage { get; set; }
 
         private void Start()
         {
@@ -20,10 +17,10 @@ namespace PlayerController.Abilities
             _timer -= Time.deltaTime;
             if (_timer > 0)
             {
-                Collider2D[] entities = Physics2D.OverlapAreaAll(_pointA.position, _pointB.position);
+                Collider2D[] entities = Physics2D.OverlapAreaAll(_hitbox.bounds.min, _hitbox.bounds.max, _hurtboxLayer);
                 foreach (var entity in entities)
                 {
-                    if (entity.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
+                    if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
                     {
                         if (!entityHealth.IsInvulnerable && entityHealth.damageable)
                         {

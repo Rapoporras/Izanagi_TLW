@@ -19,8 +19,6 @@ namespace PlayerController.Abilities
         {
             if (_boostActive) return false;
             
-            Initialize(target);
-            
             Debug.Log("Air ability");
             _playerAttack.DamageMultiplier = _damageMultiplier;
             _playerAttack.StartCoroutine(HandlePlayerBoost(target));
@@ -28,7 +26,7 @@ namespace PlayerController.Abilities
             return true;
         }
 
-        protected override void Initialize(GameObject target)
+        public override void Initialize(GameObject target)
         {
             if (_playerAttack == null)
                 _playerAttack = target.GetComponent<PlayerAttack>();

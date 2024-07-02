@@ -14,7 +14,7 @@ namespace PlayerController.Abilities
             return true;
         }
 
-        protected override void Initialize(GameObject target)
+        public override void Initialize(GameObject target)
         {
             
         }
