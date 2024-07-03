@@ -55,6 +55,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""WallImpulse"",
+                    ""type"": ""Button"",
+                    ""id"": ""9cb8afa9-7025-4637-b78a-b321b501c0ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""b74fece8-ba58-4754-8785-8f0b24a28081"",
@@ -64,9 +73,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""WallImpulse"",
+                    ""name"": ""WallBreaking"",
                     ""type"": ""Button"",
-                    ""id"": ""9cb8afa9-7025-4637-b78a-b321b501c0ac"",
+                    ""id"": ""f1e67c76-4af8-43db-bdc9-bd5a682feaf6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -281,17 +290,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fee11e16-6543-4a3e-b42c-7886a8220cf4"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WallImpulse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3d69e786-9ab0-4c6b-ba2a-36a523e1472e"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
@@ -311,6 +309,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ChangeAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fee11e16-6543-4a3e-b42c-7886a8220cf4"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WallImpulse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afd1bd8a-8428-4ba8-bca4-5489e8d2b17b"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WallBreaking"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -322,8 +342,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_WallImpulse = m_Player.FindAction("WallImpulse", throwIfNotFound: true);
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_WallBreaking = m_Player.FindAction("WallBreaking", throwIfNotFound: true);
         m_Player_AbilityAction = m_Player.FindAction("AbilityAction", throwIfNotFound: true);
         m_Player_ChangeAbility = m_Player.FindAction("ChangeAbility", throwIfNotFound: true);
     }
@@ -390,8 +411,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_WallImpulse;
+    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_WallBreaking;
     private readonly InputAction m_Player_AbilityAction;
     private readonly InputAction m_Player_ChangeAbility;
     public struct PlayerActions
@@ -401,8 +423,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @WallImpulse => m_Wrapper.m_Player_WallImpulse;
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @WallBreaking => m_Wrapper.m_Player_WallBreaking;
         public InputAction @AbilityAction => m_Wrapper.m_Player_AbilityAction;
         public InputAction @ChangeAbility => m_Wrapper.m_Player_ChangeAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -423,12 +446,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
-            @Attack.started += instance.OnAttack;
-            @Attack.performed += instance.OnAttack;
-            @Attack.canceled += instance.OnAttack;
             @WallImpulse.started += instance.OnWallImpulse;
             @WallImpulse.performed += instance.OnWallImpulse;
             @WallImpulse.canceled += instance.OnWallImpulse;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @WallBreaking.started += instance.OnWallBreaking;
+            @WallBreaking.performed += instance.OnWallBreaking;
+            @WallBreaking.canceled += instance.OnWallBreaking;
             @AbilityAction.started += instance.OnAbilityAction;
             @AbilityAction.performed += instance.OnAbilityAction;
             @AbilityAction.canceled += instance.OnAbilityAction;
@@ -448,12 +474,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
-            @Attack.started -= instance.OnAttack;
-            @Attack.performed -= instance.OnAttack;
-            @Attack.canceled -= instance.OnAttack;
             @WallImpulse.started -= instance.OnWallImpulse;
             @WallImpulse.performed -= instance.OnWallImpulse;
             @WallImpulse.canceled -= instance.OnWallImpulse;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @WallBreaking.started -= instance.OnWallBreaking;
+            @WallBreaking.performed -= instance.OnWallBreaking;
+            @WallBreaking.canceled -= instance.OnWallBreaking;
             @AbilityAction.started -= instance.OnAbilityAction;
             @AbilityAction.performed -= instance.OnAbilityAction;
             @AbilityAction.canceled -= instance.OnAbilityAction;
@@ -482,8 +511,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
         void OnWallImpulse(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnWallBreaking(InputAction.CallbackContext context);
         void OnAbilityAction(InputAction.CallbackContext context);
         void OnChangeAbility(InputAction.CallbackContext context);
     }

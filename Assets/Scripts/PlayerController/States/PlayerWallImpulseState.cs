@@ -16,8 +16,6 @@ namespace PlayerController.States
             _timeInState = 0f;
             _impulseReleased = false;
             
-            Debug.Log("CHARGING WALL IMPULSE");
-            
             // freeze player movement
             Context.SetGravityScale(0f);
             Context.Velocity = Vector2.zero;
@@ -37,12 +35,10 @@ namespace PlayerController.States
                 _timeInState += Time.deltaTime;
             else
             {
-                Debug.Log("IMPULSE CHARGED");
                 Context.wallImpulseArrow.SetActive(true);
                 if (!Context.HandleWallImpulse && !_impulseReleased)
                 {
                     _impulseReleased = true;
-                    Debug.Log("IMPULSE");
                     Context.Velocity = _direction * Context.MovementData.wallImpulseVelocity;
                 }
             }

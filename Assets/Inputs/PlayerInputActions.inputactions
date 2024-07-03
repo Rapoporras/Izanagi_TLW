@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "WallImpulse",
+                    "type": "Button",
+                    "id": "9cb8afa9-7025-4637-b78a-b321b501c0ac",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "b74fece8-ba58-4754-8785-8f0b24a28081",
@@ -42,9 +51,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "WallImpulse",
+                    "name": "WallBreaking",
                     "type": "Button",
-                    "id": "9cb8afa9-7025-4637-b78a-b321b501c0ac",
+                    "id": "f1e67c76-4af8-43db-bdc9-bd5a682feaf6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -259,17 +268,6 @@
                 },
                 {
                     "name": "",
-                    "id": "fee11e16-6543-4a3e-b42c-7886a8220cf4",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WallImpulse",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3d69e786-9ab0-4c6b-ba2a-36a523e1472e",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
@@ -287,6 +285,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fee11e16-6543-4a3e-b42c-7886a8220cf4",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallImpulse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afd1bd8a-8428-4ba8-bca4-5489e8d2b17b",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallBreaking",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

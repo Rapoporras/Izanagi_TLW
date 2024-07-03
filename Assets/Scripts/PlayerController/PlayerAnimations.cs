@@ -17,6 +17,7 @@ namespace PlayerController
         
         private int _attackHash;
         private int _attackTypeHash;
+        private int _wallAttackHash;
         
         private void Awake()
         {
@@ -32,6 +33,7 @@ namespace PlayerController
             
             _attackHash = Animator.StringToHash("attack");
             _attackTypeHash = Animator.StringToHash("attackType");
+            _wallAttackHash = Animator.StringToHash("wallAttack");
         }
 
         private void Update()
@@ -54,6 +56,11 @@ namespace PlayerController
         {
             _animator.SetInteger(_attackTypeHash, attackType);
             _animator.SetTrigger(_attackHash);
+        }
+
+        public void SetWallAttackAnimation()
+        {
+            _animator.SetTrigger(_wallAttackHash);
         }
     }
 }

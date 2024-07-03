@@ -33,6 +33,8 @@ namespace PlayerController
         private bool _hasCollided;
         private AttackInfo _lastAttackInfo;
 
+        private bool _isPlayerWallAttacking;
+
         public float DamageMultiplier { get; set; } = 1f;
 
         private enum AttackType
@@ -52,6 +54,7 @@ namespace PlayerController
             _playerMovement = GetComponent<PlayerMovement>();
             
             _isPlayerAttacking = false;
+            _isPlayerWallAttacking = false;
         }
 
         private void Update()
@@ -60,11 +63,17 @@ namespace PlayerController
             {
                 CheckAttackCollisions();
             }
+
+            if (_isPlayerWallAttacking)
+            {
+                CheckBreakableWalls();
+            }
         }
 
         private void OnEnable()
         {
             InputManager.Instance.PlayerActions.Attack.started += Attack;
+            InputManager.Instance.PlayerActions.WallBreaking.started += WallAttack;
             
             _movementAction = InputManager.Instance.PlayerActions.Movement;
         }
@@ -72,6 +81,7 @@ namespace PlayerController
         private void OnDisable()
         {
             InputManager.Instance.PlayerActions.Attack.started -= Attack;
+            InputManager.Instance.PlayerActions.WallBreaking.started -= WallAttack;
         }
 
         #region ATTACK
@@ -108,7 +118,7 @@ namespace PlayerController
 
         private void Attack(InputAction.CallbackContext context)
         {
-            if (_isPlayerAttacking) return;
+            if (_isPlayerAttacking || _isPlayerWallAttacking) return;
             
             _lastAttackInfo.Type = GetAttackType();
             _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);
@@ -180,6 +190,43 @@ namespace PlayerController
         private void UpdateMannaPoints(int amount)
         {
             _currentManna.Value = Mathf.Clamp(_currentManna + amount, 0, _maxManna);
+        }
+        #endregion
+        
+        #region WALL BREAKING
+        private void WallAttack(InputAction.CallbackContext context)
+        {
+            if (!_abilitiesData.breakWalls) return;
+            if (_isPlayerWallAttacking || _isPlayerAttacking) return;
+            
+            if (context.ReadValueAsButton())
+            {
+                _isPlayerWallAttacking = true;
+                _playerAnimations.SetWallAttackAnimation();
+            }
+        }
+
+        private void CheckBreakableWalls()
+        {
+            Collider2D[] walls = Physics2D.OverlapCircleAll(_horizontalAttackPoint.position, _attackRadius);
+            foreach (var wall in walls)
+            {
+                if (wall.CompareTag("BreakableWall") && wall.TryGetComponent(out BreakableWall breakableWall))
+                {
+                    if (!_hasCollided)
+                    {
+                        _hasCollided = true;
+                        breakableWall.ApplyHit();
+                    }
+                }
+            }
+        }
+        
+        // called at the end of the attack animation
+        private void StopWallAttack()
+        {
+            _isPlayerWallAttacking = false;
+            _hasCollided = false;
         }
         #endregion
 
