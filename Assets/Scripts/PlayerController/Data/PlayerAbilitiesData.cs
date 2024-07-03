@@ -1,3 +1,4 @@
+using PlayerController.Abilities;
 using UnityEngine;
 
 namespace PlayerController.Data
@@ -21,60 +22,44 @@ namespace PlayerController.Data
         public bool wallImpulse;
         public bool waterAbility;
 
-        [ContextMenu("Activate FIRE")]
-        public void ActivateFireAbilities()
+        public void UnlockAbility(AbilityType type)
         {
-            doubleJump = true;
-            fireAbility = true;
+            switch (type)
+            {
+                case AbilityType.Air:
+                    airDash = true;
+                    airAbility = true;
+                    break;
+                case AbilityType.Fire:
+                    doubleJump = true;
+                    fireAbility = true;
+                    break;
+                case AbilityType.Ground:
+                    breakWalls = true;
+                    groundAbility = true;
+                    break;
+                case AbilityType.Water:
+                    wallImpulse = true;
+                    waterAbility = true;
+                    break;
+            }
         }
 
-        [ContextMenu("Deactivate FIRE")]
-        public void DeactivateFireAbilities()
+        public bool IsAbilityUnlock(AbilityType type)
         {
-            doubleJump = false;
-            fireAbility = false;
-        }
-        
-        [ContextMenu("Activate GROUND")]
-        public void ActivateGroundAbilities()
-        {
-            breakWalls = true;
-            groundAbility = true;
-        }
-
-        [ContextMenu("Deactivate GROUND")]
-        public void DeactivateGroundAbilities()
-        {
-            breakWalls = false;
-            groundAbility = false;
-        }
-        
-        [ContextMenu("Activate AIR")]
-        public void ActivateAirAbilities()
-        {
-            airDash = true;
-            airAbility = true;
-        }
-
-        [ContextMenu("Deactivate AIR")]
-        public void DeactivateAirAbilities()
-        {
-            airDash = false;
-            airAbility = false;
-        }
-        
-        [ContextMenu("Activate WATER")]
-        public void ActivateWaterAbilities()
-        {
-            wallImpulse = true;
-            waterAbility = true;
-        }
-
-        [ContextMenu("Deactivate WATER")]
-        public void DeactivateWaterAbilities()
-        {
-            wallImpulse = false;
-            waterAbility = false;
+            switch (type)
+            {
+                case AbilityType.Air:
+                    return airDash && airAbility;
+                case AbilityType.Fire:
+                    return doubleJump && fireAbility;
+                case AbilityType.Ground:
+                    return breakWalls && groundAbility;
+                case AbilityType.Water:
+                    return wallImpulse && waterAbility;
+                default:
+                    return false;
+            }
         }
     }
 }
