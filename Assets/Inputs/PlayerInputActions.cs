@@ -98,6 +98,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Potion"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b721627-bc08-45b6-80fd-ca075ca11576"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -331,6 +340,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""WallBreaking"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df2bda24-ba76-44c9-aa85-179ec7217226"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Potion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -347,6 +367,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_WallBreaking = m_Player.FindAction("WallBreaking", throwIfNotFound: true);
         m_Player_AbilityAction = m_Player.FindAction("AbilityAction", throwIfNotFound: true);
         m_Player_ChangeAbility = m_Player.FindAction("ChangeAbility", throwIfNotFound: true);
+        m_Player_Potion = m_Player.FindAction("Potion", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -416,6 +437,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_WallBreaking;
     private readonly InputAction m_Player_AbilityAction;
     private readonly InputAction m_Player_ChangeAbility;
+    private readonly InputAction m_Player_Potion;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -428,6 +450,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @WallBreaking => m_Wrapper.m_Player_WallBreaking;
         public InputAction @AbilityAction => m_Wrapper.m_Player_AbilityAction;
         public InputAction @ChangeAbility => m_Wrapper.m_Player_ChangeAbility;
+        public InputAction @Potion => m_Wrapper.m_Player_Potion;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -461,6 +484,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ChangeAbility.started += instance.OnChangeAbility;
             @ChangeAbility.performed += instance.OnChangeAbility;
             @ChangeAbility.canceled += instance.OnChangeAbility;
+            @Potion.started += instance.OnPotion;
+            @Potion.performed += instance.OnPotion;
+            @Potion.canceled += instance.OnPotion;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -489,6 +515,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ChangeAbility.started -= instance.OnChangeAbility;
             @ChangeAbility.performed -= instance.OnChangeAbility;
             @ChangeAbility.canceled -= instance.OnChangeAbility;
+            @Potion.started -= instance.OnPotion;
+            @Potion.performed -= instance.OnPotion;
+            @Potion.canceled -= instance.OnPotion;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -516,5 +545,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnWallBreaking(InputAction.CallbackContext context);
         void OnAbilityAction(InputAction.CallbackContext context);
         void OnChangeAbility(InputAction.CallbackContext context);
+        void OnPotion(InputAction.CallbackContext context);
     }
 }

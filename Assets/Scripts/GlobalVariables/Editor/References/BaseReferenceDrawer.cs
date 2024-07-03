@@ -43,10 +43,8 @@ namespace GlobalVariables.Editor
             int indent = EditorGUI.indentLevel;
             EditorGUI.indentLevel = 0;
             
-            // int result = EditorGUI.Popup(buttonRect, useConstant.boolValue ? 0 : 1, popupOptions, popupStyle);
             int result = EditorGUI.Popup(buttonRect, valueType.enumValueIndex, popupOptions, popupStyle);
             
-            // useConstant.boolValue = result == 0;
             valueType.enumValueIndex = result;
 
             SerializedProperty selectedProperty = constantValue;
@@ -55,10 +53,7 @@ namespace GlobalVariables.Editor
             else if (valueType.enumValueIndex == 2)
                 selectedProperty = component;
 
-            EditorGUI.PropertyField(position, 
-                // useConstant.boolValue ? constantValue : variable,
-                selectedProperty,
-                GUIContent.none);
+            EditorGUI.PropertyField(position, selectedProperty, GUIContent.none);
 
             if (EditorGUI.EndChangeCheck())
                 property.serializedObject.ApplyModifiedProperties();
