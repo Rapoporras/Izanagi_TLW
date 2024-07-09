@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 8441323540536899230}
   - component: {fileID: 3085501486090063315}
   - component: {fileID: 4846970282278479726}
+  - component: {fileID: 8757022484067511555}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -673,6 +674,11 @@ MonoBehaviour:
   <AbilitiesData>k__BackingField: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
   _xInputDeadZone: 0.25
   wallImpulseArrow: {fileID: 6331964705804656040}
+  dashInvulnerability:
+    valueType: 2
+    constantValue: 0
+    variableValue: {fileID: 0}
+    componentValue: {fileID: 8757022484067511555}
 --- !u!114 &610528215668057195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,6 +746,11 @@ MonoBehaviour:
     variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
     componentValue: {fileID: 0}
   _invulnerabilityTime: 0.5
+  _dashInvulnerability:
+    valueType: 2
+    constantValue: 0
+    variableValue: {fileID: 0}
+    componentValue: {fileID: 8757022484067511555}
   _potionsAmount:
     valueType: 1
     constantValue: 0
@@ -788,6 +799,20 @@ MonoBehaviour:
     constantValue: 0
     variableValue: {fileID: 11400000, guid: b1dbc2e366f255a49968aeadeeb94369, type: 2}
     componentValue: {fileID: 0}
+--- !u!114 &8757022484067511555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801932908582284163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5087105268074597b40e0c463783886b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <VariableName>k__BackingField: Dash Invulnerability
+  _value: 0
 --- !u!1 &7017688677903369985
 GameObject:
   m_ObjectHideFlags: 0
