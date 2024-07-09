@@ -69,6 +69,16 @@ namespace Health
         {
             _health.OnDeathEvent -= listener;
         }
+
+        public void AddListenerOnHit(Action listener)
+        {
+            _health.OnHealthUpdated += listener;
+        }
+        
+        public void RemoveListenerOnHit(Action listener)
+        {
+            _health.OnHealthUpdated -= listener;
+        }
         
         private void OnValidate()
         {
