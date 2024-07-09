@@ -8369,7 +8369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1785072210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10625,10 +10625,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4792765537137481511, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7007aede401aa9a4f8548e11253f939a, type: 2}
     - target: {fileID: 5285831966719656282, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
       propertyPath: player
       value: 
