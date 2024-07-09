@@ -32,7 +32,7 @@ public class BossController : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         
         _headHealth = GetComponent<EntityHealth>();
         _remainingParts = 3;

@@ -34,7 +34,7 @@ public class BossClaw : MonoBehaviour
     private void Awake()
     {
         _health = GetComponent<EntityHealth>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()

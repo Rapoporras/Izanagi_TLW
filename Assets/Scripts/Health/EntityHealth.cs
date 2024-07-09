@@ -17,6 +17,7 @@ namespace Health
         [SerializeField] private HealthController _health;
 
         private ScreenShakeSource _screenShakeSource;
+        private FlashEffect _flashEffect;
         
         private bool _hit;
 
@@ -25,6 +26,8 @@ namespace Health
         private void Awake()
         {
             _screenShakeSource = GetComponent<ScreenShakeSource>();
+            _flashEffect = GetComponent<FlashEffect>();
+            
             _health = new HealthController(maxHealth);
         }
 
@@ -34,16 +37,15 @@ namespace Health
             {
                 _hit = true;
                 _health.Damage(amount);
+                
                 if (_health.CurrentHealth > 0)
-                {
-                    if (_screenShakeSource && screenShake)
-                    {
-                        Debug.Log("Screen shake");
-                        _screenShakeSource.TriggerScreenShake();
-                    }
-                    
                     StartCoroutine(TurnOffHit());
-                }
+                
+                if (_screenShakeSource && screenShake)
+                    _screenShakeSource.TriggerScreenShake();
+
+                if (_flashEffect)
+                    _flashEffect.CallDamageFlash();
             }
         }
 

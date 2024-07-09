@@ -1,5 +1,3 @@
-using CameraSystem;
-using GameEvents;
 using UnityEditor;
 
 namespace Health
@@ -20,6 +18,7 @@ namespace Health
                 
                 entityHealth.maxHealth = EditorGUILayout.IntField("Max Health", entityHealth.maxHealth);
                 entityHealth.invulnerabilityTime = EditorGUILayout.FloatField("Invulnerability Time", entityHealth.invulnerabilityTime);
+                
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_health"), true);
                 
                 EditorGUI.indentLevel--;

@@ -45,7 +45,7 @@ MonoBehaviour:
   dashRefillTime: 0.2
   wallImpulseVelocity: 30
   wallImpulseChargeTime: 1
-  recoilSpeed: 5
+  recoilSpeed: 2
   recoilDuration: 0.1
   pogoForce: 15
   knockBackVelocity: {x: 12, y: 10}
