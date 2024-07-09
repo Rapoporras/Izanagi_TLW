@@ -1,8 +1,10 @@
-﻿using GlobalVariables;
+﻿using System.Collections;
+using GlobalVariables;
 using Health;
 using PlayerController.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils;
 
 namespace PlayerController
 {
@@ -29,13 +31,17 @@ namespace PlayerController
         
         private InputAction _movementAction;
 
-        private bool _isPlayerAttacking;
         private bool _hasCollided;
         private AttackInfo _lastAttackInfo;
+        
+        private bool _isPlayerAttacking;
+        private Timer _attackTimer;
 
         private bool _isPlayerWallAttacking;
+        private Timer _wallAttackTimer;
 
         public float DamageMultiplier { get; set; } = 1f;
+        public bool IsAttacking => _isPlayerAttacking || _isPlayerWallAttacking;
 
         private enum AttackType
         {
@@ -55,18 +61,24 @@ namespace PlayerController
             
             _isPlayerAttacking = false;
             _isPlayerWallAttacking = false;
+
+            _attackTimer = new Timer(_attackData.attackDuration);
+            _wallAttackTimer = new Timer(_attackData.wallAttackDuration);
         }
 
         private void Update()
         {
+            
             if (_isPlayerAttacking)
             {
                 CheckAttackCollisions();
+                _attackTimer.Tick(Time.deltaTime);
             }
 
             if (_isPlayerWallAttacking)
             {
                 CheckBreakableWalls();
+                _wallAttackTimer.Tick(Time.deltaTime);
             }
         }
 
@@ -76,12 +88,18 @@ namespace PlayerController
             InputManager.Instance.PlayerActions.WallBreaking.started += WallAttack;
             
             _movementAction = InputManager.Instance.PlayerActions.Movement;
+
+            _attackTimer.OnTimerEnd += StopAttack;
+            _wallAttackTimer.OnTimerEnd += StopWallAttack;
         }
 
         private void OnDisable()
         {
             InputManager.Instance.PlayerActions.Attack.started -= Attack;
             InputManager.Instance.PlayerActions.WallBreaking.started -= WallAttack;
+            
+            _attackTimer.OnTimerEnd -= StopAttack;
+            _wallAttackTimer.OnTimerEnd -= StopWallAttack;
         }
 
         #region ATTACK
@@ -118,7 +136,7 @@ namespace PlayerController
 
         private void Attack(InputAction.CallbackContext context)
         {
-            if (_isPlayerAttacking || _isPlayerWallAttacking) return;
+            if (IsAttacking) return;
             
             _lastAttackInfo.Type = GetAttackType();
             _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);
@@ -169,6 +187,7 @@ namespace PlayerController
         {
             _isPlayerAttacking = false;
             _hasCollided = false;
+            _attackTimer.Reset();
         }
 
         private void ApplyAttackForces(EntityHealth entityHealth)
@@ -197,7 +216,7 @@ namespace PlayerController
         private void WallAttack(InputAction.CallbackContext context)
         {
             if (!_abilitiesData.breakWalls) return;
-            if (_isPlayerWallAttacking || _isPlayerAttacking) return;
+            if (IsAttacking) return;
             
             if (context.ReadValueAsButton())
             {
@@ -227,6 +246,7 @@ namespace PlayerController
         {
             _isPlayerWallAttacking = false;
             _hasCollided = false;
+            _wallAttackTimer.Reset();
         }
         #endregion
 

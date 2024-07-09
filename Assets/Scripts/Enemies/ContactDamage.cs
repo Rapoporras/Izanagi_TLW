@@ -1,5 +1,4 @@
 using Health;
-using PlayerController;
 using UnityEngine;
 
 public class ContactDamage : MonoBehaviour
@@ -10,11 +9,11 @@ public class ContactDamage : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log(other.name);
             if (other.transform.root.TryGetComponent(out PlayerHealth playerHealth))
             {
                 int xDirection = (int) Mathf.Sign(other.transform.position.x - transform.position.x);
                 playerHealth.Damage(_damage, xDirection);
-                // playerMovement.ApplyDamageKnockBack(xDirection);
             }
         }
     }

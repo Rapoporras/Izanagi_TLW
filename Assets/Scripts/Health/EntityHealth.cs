@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using CameraSystem;
 using UnityEngine;
 
@@ -24,12 +25,12 @@ namespace Health
         private void Awake()
         {
             _screenShakeSource = GetComponent<ScreenShakeSource>();
-        }
-
-        private void Start()
-        {
             _health = new HealthController(maxHealth);
         }
+
+        // private void Start()
+        // {
+        // }
 
         public void Damage(int amount, bool screenShake)
         {
@@ -51,6 +52,31 @@ namespace Health
         {
             yield return new WaitForSeconds(invulnerabilityTime);
             _hit = false;
+        }
+
+        public void AddListenerDeathEvent(Action listener)
+        {
+            _health.OnDeathEvent += listener;
+        }
+        
+        public void RemoveListenerDeathEvent(Action listener)
+        {
+            _health.OnDeathEvent -= listener;
+        }
+        
+        private void OnValidate()
+        {
+            Transform hurtboxTransform = transform.Find("Hurtbox");
+            if (!hurtboxTransform)
+            {
+                GameObject hurtbox = new GameObject("Hurtbox");
+                hurtbox.transform.parent = transform;
+                hurtbox.transform.localPosition = Vector3.zero;
+
+                hurtbox.layer = LayerMask.NameToLayer("Hurtbox");
+                BoxCollider2D hurtboxCollider = hurtbox.AddComponent<BoxCollider2D>();
+                hurtboxCollider.isTrigger = true;
+            }
         }
     }
 }

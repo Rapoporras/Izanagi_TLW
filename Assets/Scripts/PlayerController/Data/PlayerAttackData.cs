@@ -8,5 +8,7 @@ namespace PlayerController.Data
         [Header("SETTINGS")]
         public float angleDirectionOffset;
         public int attackDamage;
+        public float attackDuration;
+        public float wallAttackDuration;
     }
 }

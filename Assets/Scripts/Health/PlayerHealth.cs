@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections;
 using CameraSystem;
+using GameEvents;
 using GlobalVariables;
 using PlayerController;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 namespace Health
 {
@@ -20,6 +20,9 @@ namespace Health
         [SerializeField] private IntReference _potionsAmount;
         [SerializeField] private IntReference _maxPotionsAmount;
         [SerializeField] private int _potionsHealth;
+
+        [Header("Events")]
+        [SerializeField] private VoidEvent _onPlayerDeathEvent;
 
         private PlayerMovement _playerMovement;
         private ScreenShakeSource _screenShakeSource;
@@ -101,6 +104,8 @@ namespace Health
             if (_currentHealth.Value <= 0)
             {
                 Debug.Log("Has muerto");
+                if (_onPlayerDeathEvent != null)
+                    _onPlayerDeathEvent.Raise();
             }
         }
         

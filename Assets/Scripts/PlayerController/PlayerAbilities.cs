@@ -44,7 +44,6 @@ namespace PlayerController
             _animator.runtimeAnimatorController = currentInfo.Animator;
             _abilityIndex = _abilities.IndexOf(currentInfo);
 
-            // _cooldownTimer = _cooldownDuration;
             _cooldownProgress.Value = 1f;
             _isRechargingAbility = false;
             

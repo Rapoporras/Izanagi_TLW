@@ -378,24 +378,11 @@ namespace PlayerController
         {
             _rb2d.gravityScale = scale;
         }
-
-        public void Sleep(float duration)
-        {
-            StartCoroutine(nameof(PerformSleep), duration);
-        }
-
-        private IEnumerator PerformSleep(float duration)
-        {
-            Time.timeScale = 0;
-            yield return new WaitForSecondsRealtime(duration);
-            Time.timeScale = 1;
-        }
         
         public void SetDirectionToFace(bool isMovingRight)
         {
             if (isMovingRight != IsFacingRight)
             {
-                // IsFacingRight = isMovingRight;
                 IsFacingRight = !IsFacingRight;
                 transform.rotation = Quaternion.Euler(
                     0f,

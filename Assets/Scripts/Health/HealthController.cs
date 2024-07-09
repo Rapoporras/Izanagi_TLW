@@ -9,8 +9,8 @@ namespace Health
         [field: SerializeField, ReadOnly] public int MaxHealth { get; private set; }
         [field: SerializeField, ReadOnly] public int CurrentHealth { get; private set; }
 
-        public event Action OnDeathEvent;
-        public event Action OnHealthUpdated;
+        public event Action OnDeathEvent = delegate { };
+        public event Action OnHealthUpdated = delegate { };
 
         public HealthController(int maxHealth)
         {
@@ -21,10 +21,10 @@ namespace Health
         private void UpdateHealth(int amount)
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, MaxHealth);
-            OnHealthUpdated?.Invoke();
+            OnHealthUpdated.Invoke();
             if (CurrentHealth == 0)
             {
-                OnDeathEvent?.Invoke();
+                OnDeathEvent.Invoke();
             }
         }
 

@@ -22,9 +22,9 @@ public class PlayerPotionsUI : MonoBehaviour
     {
         Vector2 size = new Vector2(_potionImageUIWidth * _maxPotionsAmount, _potionImageUIWidth);
         
-        _rectTransform.sizeDelta = size;
-        _foregroundImage.sizeDelta = size;
-        _backgroundImage.sizeDelta = size;
+        _rectTransform.sizeDelta = new Vector2(_potionImageUIWidth * _maxPotionsAmount, _potionImageUIWidth);
+        _foregroundImage.sizeDelta = new Vector2(_potionImageUIWidth * _potionsAvailable, _potionImageUIWidth);
+        _backgroundImage.sizeDelta = new Vector2(_potionImageUIWidth * _maxPotionsAmount, _potionImageUIWidth);
     }
 
     private void OnEnable()
