@@ -34,6 +34,11 @@ namespace Health
             }
         }
 
+        public float GetHealthPercent()
+        {
+            return _health.CurrentHealth * 1f / maxHealth;
+        }
+
         private IEnumerator TurnOffHit()
         {
             yield return new WaitForSeconds(invulnerabilityTime);
