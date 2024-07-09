@@ -15,6 +15,7 @@ namespace Health
         [SerializeField] private IntReference _maxHealth;
         [SerializeField] private IntReference _currentHealth;
         [SerializeField] private float _invulnerabilityTime;
+        [SerializeField] private BoolReference _dashInvulnerability;
 
         [Header("Potions settings")]
         [SerializeField] private IntReference _potionsAmount;
@@ -67,7 +68,11 @@ namespace Health
         #region HEALTH METHODS
         public void Damage(int amount, int attackDirection)
         {
-            if (!_hit && _currentHealth.Value > 0)
+            if (_dashInvulnerability)
+            {
+                _dashInvulnerability.Value = false;
+            }
+            else if (!_hit && _currentHealth.Value > 0)
             {
                 _hit = true;
                 if (HasShield)

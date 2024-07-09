@@ -21,6 +21,8 @@ namespace PlayerController.States
             
             Context.ResetAdditionalJumps();
             Context.SetGravityScale(0);
+            
+            Context.IsDashActive = true;
         }
 
         public override void UpdateState()

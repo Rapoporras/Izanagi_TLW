@@ -54,7 +54,7 @@ namespace GlobalVariables
                         variableValue.Value = value;
                         break;
                     case ValueType.Component:
-                        variableValue.Value = value;
+                        componentValue.Value = value;
                         break;
                 }
             }

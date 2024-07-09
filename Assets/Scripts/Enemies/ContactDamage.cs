@@ -9,7 +9,6 @@ public class ContactDamage : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log(other.name);
             if (other.transform.root.TryGetComponent(out PlayerHealth playerHealth))
             {
                 int xDirection = (int) Mathf.Sign(other.transform.position.x - transform.position.x);

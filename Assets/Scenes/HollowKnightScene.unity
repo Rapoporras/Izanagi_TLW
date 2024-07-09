@@ -4221,6 +4221,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1566341694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+  m_PrefabInstance: {fileID: 2137210367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1567572463
 GameObject:
   m_ObjectHideFlags: 0
@@ -10017,6 +10022,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3085501486090063315, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      propertyPath: _dashInvulnerability.valueType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085501486090063315, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      propertyPath: _dashInvulnerability.componentValue
+      value: 
+      objectReference: {fileID: 2137210380}
     - target: {fileID: 3687132239636878760, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.5
@@ -10057,6 +10070,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4867072972385552419, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      propertyPath: dashInvulnerability.valueType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867072972385552419, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      propertyPath: dashInvulnerability.componentValue
+      value: 
+      objectReference: {fileID: 2137210380}
     - target: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10064,13 +10085,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2137210380}
   m_SourcePrefab: {fileID: 100100000, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
 --- !u!4 &2137210368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3687132239636878760, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
   m_PrefabInstance: {fileID: 2137210367}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2137210380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566341694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5087105268074597b40e0c463783886b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <VariableName>k__BackingField: Dash Invulnerability
+  _value: 0
 --- !u!1 &2139046658
 GameObject:
   m_ObjectHideFlags: 0

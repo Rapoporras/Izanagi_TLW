@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using GlobalVariables;
 using PlayerController.Data;
 using PlayerController.States;
 using StateMachine;
@@ -20,6 +21,9 @@ namespace PlayerController
         [SerializeField] private float _xInputDeadZone = 0.25f;
 
         [Space(10)] public GameObject wallImpulseArrow;
+
+        [Space(10)]
+        public BoolReference dashInvulnerability;
         
         #endregion
         
@@ -350,6 +354,9 @@ namespace PlayerController
         {
             _rb2d.velocity = new Vector2(_rb2d.velocity.x, 0f);
             _rb2d.AddForce(Vector2.up * MovementData.pogoForce, ForceMode2D.Impulse);
+            
+            ResetAdditionalJumps();
+            IsDashActive = true;
         }
 
         public void ApplyDamageKnockBack(int xDirection) // xDirection: -1, 1

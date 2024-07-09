@@ -15,6 +15,7 @@ namespace PlayerController.States
             _timeInState = 0f;
             
             Context.IsDashActive = false;
+            Context.dashInvulnerability.Value = true;
 
             if (Context.MovementDirection.x != 0f)
                 _direction = Context.MovementDirection.x < 0 ? Vector2.left : Vector2.right;
@@ -37,6 +38,7 @@ namespace PlayerController.States
         public override void ExitState()
         {
             Context.RefillDash();
+            Context.dashInvulnerability.Value = false;
             
             InputManager.Instance.PlayerActions.Attack.Enable();
         }
