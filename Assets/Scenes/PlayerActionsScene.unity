@@ -6003,7 +6003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1785072210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7094,6 +7094,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Fight Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1592734608036861529, guid: 66b66bf7b64d35944a1d765b08199b2c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592734608036861529, guid: 66b66bf7b64d35944a1d765b08199b2c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5967118754501733981, guid: 66b66bf7b64d35944a1d765b08199b2c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.5
@@ -7401,6 +7409,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2137210369}
+    - target: {fileID: 5285831966719656282, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
+      propertyPath: jumpForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285831966719656282, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285831966719656282, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
+      propertyPath: onHitStunTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285831966719656282, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
+      propertyPath: knockbackStrength
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
