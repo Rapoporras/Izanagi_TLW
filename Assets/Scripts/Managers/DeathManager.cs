@@ -1,7 +1,9 @@
-﻿using GlobalVariables;
+﻿using GameEvents;
+using GlobalVariables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(VoidListener))]
 public class DeathManager : MonoBehaviour
 {
     [Header("Variables")]
