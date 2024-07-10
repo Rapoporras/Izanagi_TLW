@@ -70,7 +70,7 @@ namespace Enemies.BehaviourTree
         
         public Node.Status Process()
         {
-            PlayerDetectorEnemy detector = _enemy.GetComponent<PlayerDetectorEnemy>();
+            DetectorEnemy detector = _enemy.GetComponent<DetectorEnemy>();
             if (detector.IsPlayerDetected()) return Node.Status.Success;
             if (_currentPoint == _patrolPoints.Count) return Node.Status.Success;
             Transform targetPoint = _patrolPoints[_currentPoint];
@@ -143,7 +143,7 @@ namespace Enemies.BehaviourTree
             
             Rigidbody2D rb = _enemy.GetComponent<Rigidbody2D>();
             
-            _isGrounded = Physics2D.Raycast(_enemyTransform.position, Vector2.down, 0.5f, _groundLayer);
+            _isGrounded = Physics2D.Raycast(_enemyTransform.position, Vector2.down, 0.1f, _groundLayer);
 
             float playerDirection = Mathf.Sign(_playerTransform.position.x - _enemyTransform.position.x);
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class PlayerDetectorEnemy : MonoBehaviour
+    public class DetectorEnemy : MonoBehaviour
     {
         public virtual bool IsPlayerDetected()
         {

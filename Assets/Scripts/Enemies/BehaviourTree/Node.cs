@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Enemies.BehaviourTree
 {
     public class Node {
-        public enum Status { Success, Failure, Running }
+        public enum Status { Success, Failure, Running, Paused }
         
         public readonly string name;
         public readonly int priority;
@@ -89,19 +89,37 @@ namespace Enemies.BehaviourTree
     public class BehaviourTree : Node
     {
         private readonly IPolicy _policy;
+        private bool _paused;
 
         public BehaviourTree(string name, IPolicy policy = null) : base(name) {
             _policy = policy ?? Policies.RunForever;
         }
 
-        public override Status Process() {
-            Status status = children[currentChild].Process();
-            if (_policy.ShouldReturn(status)) {
-                return status;
+        public override Status Process()
+        {
+            if (!_paused)
+            {
+               Status status = children[currentChild].Process();
+
+               if (_policy.ShouldReturn(status)) {
+                   return status;
+               }
+               
+               currentChild = (currentChild + 1) % children.Count;
+               return Status.Running; 
             }
-            
-            currentChild = (currentChild + 1) % children.Count;
-            return Status.Running;
+
+            return Status.Paused;
+        }
+
+        public void Pause()
+        {
+            _paused = true;
+        }
+
+        public void Unpause()
+        {
+            _paused = false;
         }
     }
     

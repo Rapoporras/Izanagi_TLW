@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class KappaAI : PlayerDetectorEnemy
+    public class KappaAI : DetectorEnemy
     {
         [Header("Reference to the player")]
         [SerializeField] private GameObject player;
