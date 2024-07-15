@@ -152,7 +152,8 @@ namespace Enemies
             int i = 0;
             foreach (Transform point in patrolPoints)
             {
-                Handles.Label(point.position, i.ToString());
+                //TODO: Comentado porque daba error en la build
+                // Handles.Label(point.position, i.ToString());
                 i++;
             }
         
