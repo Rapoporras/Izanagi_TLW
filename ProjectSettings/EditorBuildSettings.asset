@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PlayerActionsScene.unity
-    guid: a58be72045bcae0429febd131c949b99
-  - enabled: 1
     path: Assets/Scenes/WaterLevel.unity
     guid: 44a0b49c4aa91894d81cc027af44e04d
+  - enabled: 1
+    path: Assets/Scenes/PlayerActionsScene.unity
+    guid: a58be72045bcae0429febd131c949b99
   m_configObjects: {}
