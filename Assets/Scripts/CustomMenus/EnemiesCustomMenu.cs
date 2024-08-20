@@ -12,13 +12,13 @@ namespace CustomMenus
         private static string basicEnemyPath = basePath + "BasicEnemy.prefab";
         private static string chaserPath = basePath + "Chaser.prefab";
 
-        [MenuItem("GameObject/IzanagiTLW/Enemies/Chaser", false, 10)]
+        [MenuItem("GameObject/IzanagiTLW/Enemies/Chaser", false, 0)]
         private static void CreateChaser()
         {
             InstantiatePrefabAtPath(chaserPath);
         }
         
-        [MenuItem("GameObject/IzanagiTLW/Enemies/Basic", false, 10)]
+        [MenuItem("GameObject/IzanagiTLW/Enemies/Basic", false, 0)]
         private static void CreateBasicEnemy()
         {
             InstantiatePrefabAtPath(basicEnemyPath);

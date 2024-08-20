@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PlayerController.Abilities
 {
-    public class WaterAttack : BaseAreaAttack
+    public class WaterAbilityAttack : BaseAreaAttack
     {
         [SerializeField] private LayerMask _collisionLayers;
         [SerializeField] private float _skinWidth = 0.015f;
@@ -52,8 +52,9 @@ namespace PlayerController.Abilities
 
         private void ApplyDamage()
         {
-            Collider2D[] entities = Physics2D.OverlapAreaAll(_hitbox.bounds.min, _hitbox.bounds.max, _hurtboxLayer);
-            foreach (var entity in entities)
+            _overlappedColliders.Clear();
+            Physics2D.OverlapCollider(_hitbox, _contactFilter, _overlappedColliders);
+            foreach (var entity in _overlappedColliders)
             {
                 if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
                 {

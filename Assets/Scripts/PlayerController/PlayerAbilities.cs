@@ -58,12 +58,14 @@ namespace PlayerController
         {
             InputManager.Instance.PlayerActions.ChangeAbility.performed += OnChangeAbility;
             InputManager.Instance.PlayerActions.AbilityAction.performed += OnAbilityAction;
+            InputManager.Instance.PlayerActions.Ultimate.performed += OnUltimateAction;
         }
 
         private void OnDisable()
         {
             InputManager.Instance.PlayerActions.ChangeAbility.performed -= OnChangeAbility;
             InputManager.Instance.PlayerActions.AbilityAction.performed -= OnAbilityAction;
+            InputManager.Instance.PlayerActions.Ultimate.performed -= OnUltimateAction;
         }
 
         private void OnChangeAbility(InputAction.CallbackContext context)
@@ -88,17 +90,37 @@ namespace PlayerController
             
             BaseAbility ability = _abilities[_abilityIndex];
 
-            if (ability.MannaCost <= _currentMannaAmount.Value)
+            if (ability.AbilityMannaCost <= _currentMannaAmount.Value)
             {
-                if (ability.PerformAction(gameObject))
+                if (ability.PerformAbility(gameObject))
                 {
-                    _currentMannaAmount.Value -= ability.MannaCost;
+                    _currentMannaAmount.Value -= ability.AbilityMannaCost;
                     StartCoroutine(RechargeAbility(ability.CooldownDuration));
                 }
             }
             else
             {
-                Debug.Log($"[NOT ENOUGH MANNA] Ability cost: {ability.MannaCost} - Manna amount: {_currentMannaAmount.Value}");
+                Debug.Log($"[NOT ENOUGH MANNA] Ability cost: {ability.AbilityMannaCost} - Manna amount: {_currentMannaAmount.Value}");
+            }
+        }
+        
+        private void OnUltimateAction(InputAction.CallbackContext context)
+        {
+            if (_isRechargingAbility) return;
+
+            BaseAbility ability = _abilities[_abilityIndex];
+            
+            if (ability.UltimateMannaCost <= _currentMannaAmount.Value)
+            {
+                if (ability.PerformUltimate(gameObject))
+                {
+                    _currentMannaAmount.Value -= ability.UltimateMannaCost;
+                    StartCoroutine(RechargeAbility(ability.CooldownDuration));
+                }
+            }
+            else
+            {
+                Debug.Log($"[NOT ENOUGH MANNA] Ultimate cost: {ability.UltimateMannaCost} - Manna amount: {_currentMannaAmount.Value}");
             }
         }
 

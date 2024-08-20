@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PlayerController.Abilities
 {
-    public class FireAttack : BaseAreaAttack
+    public class FireAbilityAttack : BaseAreaAttack
     {
         private float _timer;
 
@@ -17,8 +17,9 @@ namespace PlayerController.Abilities
             _timer -= Time.deltaTime;
             if (_timer > 0)
             {
-                Collider2D[] entities = Physics2D.OverlapAreaAll(_hitbox.bounds.min, _hitbox.bounds.max, _hurtboxLayer);
-                foreach (var entity in entities)
+                _overlappedColliders.Clear();
+                Physics2D.OverlapCollider(_hitbox, _contactFilter, _overlappedColliders);
+                foreach (var entity in _overlappedColliders)
                 {
                     if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
                     {

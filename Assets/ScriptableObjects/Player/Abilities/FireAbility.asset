@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 22100000, guid: cb84277a7cf4d974faa47bd9e6d0ed85, type: 2}
   <CooldownDuration>k__BackingField: 1
-  <MannaCost>k__BackingField: 200
+  <AbilityMannaCost>k__BackingField: 0
   <AbilityDuration>k__BackingField: 1
-  _fireAttackPrefab: {fileID: 8210049640917677948, guid: 5fea042a20ed2984fb8cad1ef3001dda, type: 3}
-  _damage: 10
+  <UltimateMannaCost>k__BackingField: 0
+  <UltimateDuration>k__BackingField: 0
+  _fireAbilityAttackPrefab: {fileID: 8210049640917677948, guid: 5fea042a20ed2984fb8cad1ef3001dda, type: 3}
+  _abilityDamage: 10
+  _fireUltimateAttackPrefab: {fileID: 4633329929111491939, guid: 99b780b938736c24cb7d2a611ecae42e, type: 3}
+  _ultimateDamage: 50
