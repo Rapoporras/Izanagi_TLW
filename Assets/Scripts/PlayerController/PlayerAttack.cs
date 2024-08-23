@@ -1,17 +1,18 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using GlobalVariables;
 using Health;
 using PlayerController.Data;
+using PlayerController.States;
+using StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Utils;
 
 namespace PlayerController
 {
-    public class PlayerAttack : MonoBehaviour
+    public class PlayerAttack : BaseStateMachine<PlayerAttackStates>
     {
-        [Header("Data")]
-        [SerializeField] private PlayerAttackData _attackData;
+        [field: Header("Data")]
+        [field: SerializeField] public PlayerAttackData AttackData { get; private set; }
         [SerializeField] private PlayerAbilitiesData _abilitiesData;
 
         [Header("Manna")]
@@ -20,11 +21,9 @@ namespace PlayerController
         [SerializeField] private int _mannaPerAttack;
         
         [Space(10), Header("Settings")]
-        [SerializeField] private Transform _horizontalAttackPoint;
-        [SerializeField] private Transform _upperAttackPoint;
-        [SerializeField] private Transform _bottomAttackPoint;
-        [SerializeField] private float _attackRadius;
         [SerializeField] private LayerMask _hurtboxLayer;
+        [SerializeField] private LayerMask _breakableWallLayer;
+        [SerializeField] private Collider2D _attackArea;
         
         private PlayerAnimations _playerAnimations;
         private PlayerMovement _playerMovement;
@@ -33,53 +32,46 @@ namespace PlayerController
 
         private bool _hasCollided;
         private AttackInfo _lastAttackInfo;
+        public AttackInfo LastAttackInfo => _lastAttackInfo;
         
-        private bool _isPlayerAttacking;
-        private Timer _attackTimer;
+        private List<Collider2D> _overlappedColliders = new List<Collider2D>();
+        private ContactFilter2D _contactFilterEnemies;
+        private ContactFilter2D _contactFilterBreakableWall;
 
-        private bool _isPlayerWallAttacking;
-        private Timer _wallAttackTimer;
+        public bool attackInput;
+        public bool wallAttackInput;
 
         public float DamageMultiplier { get; set; } = 1f;
-        public bool IsAttacking => _isPlayerAttacking || _isPlayerWallAttacking;
-
-        private enum AttackType
+        public bool IsGrounded => _playerMovement.IsGrounded;
+        private bool IsAttacking => _currentState.StateKey != PlayerAttackStates.NotAttacking;
+        private bool AttackWindowActive => _playerAnimations.AttackWindowActive;
+        
+        public enum AttackType
         {
             Horizontal, Downwards, Upwards
         }
         
-        struct AttackInfo
+        public struct AttackInfo
         {
             public AttackType Type;
             public Vector2 Direction;
         }
 
+        #region UNITY METHODS
         private void Awake()
         {
             _playerAnimations = GetComponent<PlayerAnimations>();
             _playerMovement = GetComponent<PlayerMovement>();
             
-            _isPlayerAttacking = false;
-            _isPlayerWallAttacking = false;
+            _contactFilterEnemies = new ContactFilter2D();
+            _contactFilterEnemies.SetLayerMask(_hurtboxLayer);
+            _contactFilterEnemies.useTriggers = true;
 
-            _attackTimer = new Timer(_attackData.attackDuration);
-            _wallAttackTimer = new Timer(_attackData.wallAttackDuration);
-        }
-
-        private void Update()
-        {
+            _contactFilterBreakableWall = new ContactFilter2D();
+            _contactFilterEnemies.SetLayerMask(_breakableWallLayer);
             
-            if (_isPlayerAttacking)
-            {
-                CheckAttackCollisions();
-                _attackTimer.Tick(Time.deltaTime);
-            }
-
-            if (_isPlayerWallAttacking)
-            {
-                CheckBreakableWalls();
-                _wallAttackTimer.Tick(Time.deltaTime);
-            }
+            attackInput = false;
+            wallAttackInput = false;
         }
 
         private void OnEnable()
@@ -88,21 +80,143 @@ namespace PlayerController
             InputManager.Instance.PlayerActions.WallBreaking.started += WallAttack;
             
             _movementAction = InputManager.Instance.PlayerActions.Movement;
-
-            _attackTimer.OnTimerEnd += StopAttack;
-            _wallAttackTimer.OnTimerEnd += StopWallAttack;
         }
 
         private void OnDisable()
         {
             InputManager.Instance.PlayerActions.Attack.started -= Attack;
             InputManager.Instance.PlayerActions.WallBreaking.started -= WallAttack;
-            
-            _attackTimer.OnTimerEnd -= StopAttack;
-            _wallAttackTimer.OnTimerEnd -= StopWallAttack;
         }
+        #endregion
+        
+        #region STATE MACHINE
+        protected override void SetStates()
+        {
+            States.Add(PlayerAttackStates.NotAttacking, new PlayerNotAttackingState(PlayerAttackStates.NotAttacking, this));
+            States.Add(PlayerAttackStates.AttackEntry, new PlayerAttackEntryState(PlayerAttackStates.AttackEntry, this));
+            States.Add(PlayerAttackStates.AttackCombo, new PlayerAttackComboState(PlayerAttackStates.AttackCombo, this));
+            States.Add(PlayerAttackStates.AttackFinisher, new PlayerAttackFinisherState(PlayerAttackStates.AttackFinisher, this));
+            States.Add(PlayerAttackStates.WallAttack, new PlayerWallAttackState(PlayerAttackStates.WallAttack, this));
+
+            _currentState = States[PlayerAttackStates.NotAttacking];
+        }
+        #endregion
 
         #region ATTACK
+        private void Attack(InputAction.CallbackContext context)
+        {
+            _lastAttackInfo.Type = GetAttackType();
+            _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);
+            
+            if (context.ReadValueAsButton() && AttackWindowActive)
+            {
+                if (_lastAttackInfo.Type == AttackType.Downwards && _playerMovement.IsGrounded)
+                    return;
+                
+                attackInput = true;
+            }
+        }
+
+        public void ApplyDamage()
+        {
+            _overlappedColliders.Clear();
+            Physics2D.OverlapCollider(_attackArea, _contactFilterEnemies, _overlappedColliders);
+            foreach (var entity in _overlappedColliders)
+            {
+                if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
+                {
+                    if (!entityHealth.IsInvulnerable && entityHealth.damageable)
+                    {
+                        int damage = Mathf.CeilToInt(AttackData.attackDamage * DamageMultiplier);
+                        entityHealth.Damage(damage, true);
+                        UpdateMannaPoints(_mannaPerAttack);
+                    }
+                    
+                    if (!_hasCollided)
+                    {
+                        _hasCollided = true;
+                        ApplyAttackForces(entityHealth);
+                    }
+                }
+            }
+        }
+
+        public void StopAttack()
+        {
+            attackInput = false;
+            _hasCollided = false;
+        }
+
+        private void ApplyAttackForces(EntityHealth entityHealth)
+        { 
+            if (_lastAttackInfo.Type == AttackType.Downwards
+                && entityHealth.giveUpwardForce
+                && !_playerMovement.IsGrounded)
+            {
+                _playerMovement.ApplyPogoJump();
+            }
+            else if (_lastAttackInfo.Type == AttackType.Horizontal)
+            {
+                _playerMovement.ApplyRecoil(_lastAttackInfo.Direction * -1f);
+            }
+        }
+        #endregion
+        
+        #region WALL BREAKING
+        private void WallAttack(InputAction.CallbackContext context)
+        {
+            if (!_abilitiesData.breakWalls) return;
+            if (IsAttacking) return;
+            
+            if (context.ReadValueAsButton())
+            {
+                wallAttackInput = true;
+            }
+        }
+
+        public void CheckBreakableWalls()
+        {
+            _overlappedColliders.Clear();
+            Physics2D.OverlapCollider(_attackArea, _contactFilterBreakableWall, _overlappedColliders);
+            foreach (var wall in _overlappedColliders)
+            {
+                if (wall.CompareTag("BreakableWall") && wall.TryGetComponent(out BreakableWall breakableWall))
+                {
+                    if (!_hasCollided)
+                    {
+                        _hasCollided = true;
+                        breakableWall.ApplyHit();
+                    }
+                }
+            }
+        }
+        
+        public void StopWallAttack()
+        {
+            wallAttackInput = false;
+            _hasCollided = false;
+        }
+        #endregion
+        
+        #region MANNA
+        private void UpdateMannaPoints(int amount)
+        {
+            _currentManna.Value = Mathf.Clamp(_currentManna + amount, 0, _maxManna);
+        }
+        #endregion
+        
+        #region UTILS
+        public void SetAttackAnimation()
+        {
+            _playerAnimations.SetAttackAnimation(
+                (int) _lastAttackInfo.Type, (int) _currentState.StateKey);
+        }
+
+        public void SetWallAttackAnimation()
+        {
+            _playerAnimations.SetWallAttackAnimation();
+        }
+        
         private AttackType GetAttackType()
         {
             Vector2 direction = _movementAction.ReadValue<Vector2>().normalized;
@@ -110,7 +224,7 @@ namespace PlayerController
 
             AttackType attackType = AttackType.Horizontal;
 
-            if (angle >= _attackData.angleDirectionOffset)
+            if (angle >= AttackData.angleDirectionOffset)
             {
                 if (direction.y > 0)
                     attackType = AttackType.Upwards;
@@ -133,131 +247,18 @@ namespace PlayerController
 
             return dir;
         }
-
-        private void Attack(InputAction.CallbackContext context)
-        {
-            if (IsAttacking) return;
-            
-            _lastAttackInfo.Type = GetAttackType();
-            _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);
-            
-            if (context.ReadValueAsButton())
-            {
-                if (_lastAttackInfo.Type == AttackType.Downwards && _playerMovement.IsGrounded)
-                    return;
-                
-                _isPlayerAttacking = true;
-                _playerAnimations.SetAttackAnimation((int) _lastAttackInfo.Type);
-            }
-        }
-
-        private void CheckAttackCollisions()
-        {
-            Vector3 position = _lastAttackInfo.Type switch
-            {
-                AttackType.Downwards => _bottomAttackPoint.position,
-                AttackType.Upwards => _upperAttackPoint.position,
-                AttackType.Horizontal => _horizontalAttackPoint.position,
-                _ => Vector3.zero
-            };
-            
-            Collider2D[] entities = Physics2D.OverlapCircleAll(position, _attackRadius, _hurtboxLayer);
-            foreach (var entity in entities)
-            {
-                if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
-                {
-                    if (!entityHealth.IsInvulnerable && entityHealth.damageable)
-                    {
-                        int damage = Mathf.CeilToInt(_attackData.attackDamage * DamageMultiplier);
-                        entityHealth.Damage(damage, true);
-                        UpdateMannaPoints(_mannaPerAttack);
-                    }
-                    
-                    if (!_hasCollided)
-                    {
-                        _hasCollided = true;
-                        ApplyAttackForces(entityHealth);
-                    }
-                }
-            }
-        }
-
-        // called at the end of the attack animation
-        private void StopAttack()
-        {
-            _isPlayerAttacking = false;
-            _hasCollided = false;
-            _attackTimer.Reset();
-        }
-
-        private void ApplyAttackForces(EntityHealth entityHealth)
-        { 
-            if (_lastAttackInfo.Type == AttackType.Downwards
-                && entityHealth.giveUpwardForce
-                && !_playerMovement.IsGrounded)
-            {
-                _playerMovement.ApplyPogoJump();
-            }
-            else if (_lastAttackInfo.Type == AttackType.Horizontal)
-            {
-                _playerMovement.ApplyRecoil(_lastAttackInfo.Direction * -1f);
-            }
-        }
-        #endregion
-        
-        #region MANNA
-        private void UpdateMannaPoints(int amount)
-        {
-            _currentManna.Value = Mathf.Clamp(_currentManna + amount, 0, _maxManna);
-        }
-        #endregion
-        
-        #region WALL BREAKING
-        private void WallAttack(InputAction.CallbackContext context)
-        {
-            if (!_abilitiesData.breakWalls) return;
-            if (IsAttacking) return;
-            
-            if (context.ReadValueAsButton())
-            {
-                _isPlayerWallAttacking = true;
-                _playerAnimations.SetWallAttackAnimation();
-            }
-        }
-
-        private void CheckBreakableWalls()
-        {
-            Collider2D[] walls = Physics2D.OverlapCircleAll(_horizontalAttackPoint.position, _attackRadius);
-            foreach (var wall in walls)
-            {
-                if (wall.CompareTag("BreakableWall") && wall.TryGetComponent(out BreakableWall breakableWall))
-                {
-                    if (!_hasCollided)
-                    {
-                        _hasCollided = true;
-                        breakableWall.ApplyHit();
-                    }
-                }
-            }
-        }
-        
-        // called at the end of the attack animation
-        private void StopWallAttack()
-        {
-            _isPlayerWallAttacking = false;
-            _hasCollided = false;
-            _wallAttackTimer.Reset();
-        }
         #endregion
 
         #region DEBUG
-        private void OnDrawGizmosSelected()
+#if UNITY_EDITOR
+        private void OnGUI()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(_horizontalAttackPoint.position, _attackRadius);
-            Gizmos.DrawWireSphere(_upperAttackPoint.position, _attackRadius);
-            Gizmos.DrawWireSphere(_bottomAttackPoint.position, _attackRadius);
+            GUILayout.BeginArea(new Rect(10, 150, 500, 50));
+            string rootStateName = _currentState.Name;
+            GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
+            GUILayout.EndArea();
         }
+#endif
         #endregion
     }
 }
