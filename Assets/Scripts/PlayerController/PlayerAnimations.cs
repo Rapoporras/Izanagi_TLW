@@ -17,7 +17,12 @@ namespace PlayerController
         
         private int _attackHash;
         private int _attackTypeHash;
+        private int _attackComboHash;
         private int _wallAttackHash;
+
+        private int _attackWindowActiveHash;
+
+        public bool AttackWindowActive => _animator.GetBool(_attackWindowActiveHash);
         
         private void Awake()
         {
@@ -33,7 +38,10 @@ namespace PlayerController
             
             _attackHash = Animator.StringToHash("attack");
             _attackTypeHash = Animator.StringToHash("attackType");
+            _attackComboHash = Animator.StringToHash("attackCombo");
             _wallAttackHash = Animator.StringToHash("wallAttack");
+
+            _attackWindowActiveHash = Animator.StringToHash("attackWindowActive");
         }
 
         private void Update()
@@ -52,15 +60,26 @@ namespace PlayerController
             _animator.SetBool(_isTakingDamageHash, _player.IsTakingDamage);
         }
 
-        public void SetAttackAnimation(int attackType)
+        public void SetAttackAnimation(int attackType, int attackCombo)
         {
             _animator.SetInteger(_attackTypeHash, attackType);
+            _animator.SetInteger(_attackComboHash, attackCombo);
             _animator.SetTrigger(_attackHash);
         }
 
         public void SetWallAttackAnimation()
         {
             _animator.SetTrigger(_wallAttackHash);
+        }
+
+        public void ActivateAttackWindow()
+        {
+            _animator.SetBool(_attackWindowActiveHash, true);
+        }
+        
+        public void DeactivateAttackWindow()
+        {
+            _animator.SetBool(_attackWindowActiveHash, false);
         }
     }
 }

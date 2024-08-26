@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleDirectionOffset: 30
   attackDamage: 10
-  attackDuration: 0.4
+  attackEntryDuration: 0.4
+  attackMiddleDuration: 0.4
+  attackFinisherDuration: 0.4
   wallAttackDuration: 0.4

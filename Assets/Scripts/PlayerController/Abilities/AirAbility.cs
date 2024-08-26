@@ -6,6 +6,7 @@ namespace PlayerController.Abilities
     [CreateAssetMenu(menuName = "Player/Abilities/Air")]
     public class AirAbility : BaseAbility
     {
+        [Header("Ability Settings")]
         [SerializeField, Range(1f, 2f)] private float _damageMultiplier;
         
         public override AbilityType Type => AbilityType.Air;
@@ -15,7 +16,16 @@ namespace PlayerController.Abilities
 
         private bool _boostActive;
         
-        public override bool PerformAction(GameObject target)
+        public override void Initialize(GameObject target)
+        {
+            if (_playerAttack == null)
+                _playerAttack = target.GetComponent<PlayerAttack>();
+            
+            if (_playerAbilities == null)
+                _playerAbilities = target.GetComponent<PlayerAbilities>();
+        }
+        
+        public override bool PerformAbility(GameObject target)
         {
             if (_boostActive) return false;
             
@@ -26,13 +36,9 @@ namespace PlayerController.Abilities
             return true;
         }
 
-        public override void Initialize(GameObject target)
+        public override bool PerformUltimate(GameObject target)
         {
-            if (_playerAttack == null)
-                _playerAttack = target.GetComponent<PlayerAttack>();
-            
-            if (_playerAbilities == null)
-                _playerAbilities = target.GetComponent<PlayerAbilities>();
+            return false;
         }
 
         private IEnumerator HandlePlayerBoost(GameObject target)
