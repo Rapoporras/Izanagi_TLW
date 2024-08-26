@@ -110,7 +110,7 @@ namespace PlayerController
             
             if (context.ReadValueAsButton() && AttackWindowActive)
             {
-                if (_lastAttackInfo.Type == AttackType.Downwards && _playerMovement.IsGrounded)
+                if (_lastAttackInfo.Type == AttackType.Downwards && IsGrounded)
                     return;
                 
                 attackInput = true;
@@ -151,7 +151,7 @@ namespace PlayerController
         { 
             if (_lastAttackInfo.Type == AttackType.Downwards
                 && entityHealth.giveUpwardForce
-                && !_playerMovement.IsGrounded)
+                && !IsGrounded)
             {
                 _playerMovement.ApplyPogoJump();
             }
@@ -228,7 +228,7 @@ namespace PlayerController
             {
                 if (direction.y > 0)
                     attackType = AttackType.Upwards;
-                else if (!_playerMovement.IsGrounded)
+                else if (!IsGrounded)
                     attackType = AttackType.Downwards;
             }
             

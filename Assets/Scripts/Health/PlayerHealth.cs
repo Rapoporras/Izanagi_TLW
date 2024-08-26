@@ -26,6 +26,7 @@ namespace Health
         [SerializeField] private VoidEvent _onPlayerDeathEvent;
 
         private PlayerMovement _playerMovement;
+        private PlayerAnimations _playerAnimations;
         private ScreenShakeSource _screenShakeSource;
         
         private bool _hit;
@@ -46,6 +47,7 @@ namespace Health
         private void Awake()
         {
             _playerMovement = GetComponent<PlayerMovement>();
+            _playerAnimations = GetComponent<PlayerAnimations>();
             _screenShakeSource = GetComponent<ScreenShakeSource>();
         }
 
@@ -92,16 +94,6 @@ namespace Health
             }
         }
 
-        private void RecoverWithPotion(InputAction.CallbackContext context)
-        {
-            if (context.ReadValueAsButton())
-            {
-                if (_potionsAmount <= 0) return;
-                
-                _potionsAmount.Value = Mathf.Clamp(_potionsAmount.Value - 1, 0, _maxPotionsAmount);
-                UpdateHealth(_potionsHealth);
-            }
-        }
 
         private void UpdateHealth(int amount)
         {
@@ -118,6 +110,29 @@ namespace Health
         {
             yield return new WaitForSeconds(_invulnerabilityTime);
             _hit = false;
+        }
+        #endregion
+        
+        #region POTION METHODS
+        private void RecoverWithPotion(InputAction.CallbackContext context)
+        {
+            if (context.ReadValueAsButton())
+            {
+                if (_potionsAmount <= 0) return;
+                if (!_playerMovement.IsGrounded) return;
+                
+                InputManager.Instance.PlayerActions.Disable();
+                _playerAnimations.SetRecoverHealthAnimation();
+            }
+        }
+
+        public void ApplyPotionEffect() // called in animation keyframe
+        {
+            if (_potionsAmount <= 0) return;
+            
+            _potionsAmount.Value = Mathf.Clamp(_potionsAmount.Value - 1, 0, _maxPotionsAmount);
+            UpdateHealth(_potionsHealth);
+            InputManager.Instance.PlayerActions.Enable();
         }
         #endregion
     }
