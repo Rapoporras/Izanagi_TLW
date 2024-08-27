@@ -14,6 +14,8 @@ namespace PlayerController
         private int _isSlidingHash;
         private int _isDashingHash;
         private int _isTakingDamageHash;
+
+        private int _recoverHealthHash;
         
         private int _attackHash;
         private int _attackTypeHash;
@@ -35,6 +37,8 @@ namespace PlayerController
             _isSlidingHash = Animator.StringToHash("isSliding");
             _isDashingHash = Animator.StringToHash("isDashing");
             _isTakingDamageHash = Animator.StringToHash("isTakingDamage");
+
+            _recoverHealthHash = Animator.StringToHash("recoverHealth");
             
             _attackHash = Animator.StringToHash("attack");
             _attackTypeHash = Animator.StringToHash("attackType");
@@ -60,6 +64,7 @@ namespace PlayerController
             _animator.SetBool(_isTakingDamageHash, _player.IsTakingDamage);
         }
 
+        #region PLAY ANIMATIONS
         public void SetAttackAnimation(int attackType, int attackCombo)
         {
             _animator.SetInteger(_attackTypeHash, attackType);
@@ -72,6 +77,11 @@ namespace PlayerController
             _animator.SetTrigger(_wallAttackHash);
         }
 
+        public void SetRecoverHealthAnimation()
+        {
+            _animator.SetTrigger(_recoverHealthHash);
+        }
+
         public void ActivateAttackWindow()
         {
             _animator.SetBool(_attackWindowActiveHash, true);
@@ -81,5 +91,6 @@ namespace PlayerController
         {
             _animator.SetBool(_attackWindowActiveHash, false);
         }
+        #endregion
     }
 }
