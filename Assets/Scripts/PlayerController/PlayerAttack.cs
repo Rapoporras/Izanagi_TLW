@@ -77,7 +77,7 @@ namespace PlayerController
         private void OnEnable()
         {
             InputManager.Instance.PlayerActions.Attack.started += Attack;
-            InputManager.Instance.PlayerActions.WallBreaking.started += WallAttack;
+            // InputManager.Instance.PlayerActions.WallBreaking.started += WallAttack;
             
             _movementAction = InputManager.Instance.PlayerActions.Movement;
         }
@@ -85,7 +85,7 @@ namespace PlayerController
         private void OnDisable()
         {
             InputManager.Instance.PlayerActions.Attack.started -= Attack;
-            InputManager.Instance.PlayerActions.WallBreaking.started -= WallAttack;
+            // InputManager.Instance.PlayerActions.WallBreaking.started -= WallAttack;
         }
         #endregion
         
