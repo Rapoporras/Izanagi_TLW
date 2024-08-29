@@ -24,7 +24,11 @@ namespace PlayerController
 
         private int _attackWindowActiveHash;
 
-        public bool AttackWindowActive => _animator.GetBool(_attackWindowActiveHash);
+        public bool AttackWindowActive
+        {
+            get => _animator.GetBool(_attackWindowActiveHash);
+            set => _animator.SetBool(_attackWindowActiveHash, value);
+        }
         
         private void Awake()
         {

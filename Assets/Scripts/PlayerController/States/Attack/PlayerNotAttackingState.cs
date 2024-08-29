@@ -13,6 +13,7 @@
 
         public override void ExitState()
         {
+            Context.ActivateAttackWindow();
             Context.attackInput = false;
             Context.wallAttackInput = false;
         }
