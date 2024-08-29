@@ -12,7 +12,7 @@ namespace PlayerController.States
         protected float _lerpAmount;
         protected bool _canAddBonusJumpApex;
         
-        public PlayerMovement Context { get; private set; }
+        protected PlayerMovement Context { get; private set; }
         
         protected PlayerMovementBaseState(PlayerStates key, PlayerMovement context)
             : base(key)

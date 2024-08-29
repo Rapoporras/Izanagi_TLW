@@ -37,7 +37,7 @@ namespace PlayerController
         
         private List<Collider2D> _overlappedColliders = new List<Collider2D>();
         private ContactFilter2D _attackContactFilter;
-        private ContactFilter2D _contactFilterBreakableWall;
+        // private ContactFilter2D _contactFilterBreakableWall;
 
         [HideInInspector] public bool attackInput;
         [HideInInspector] public bool wallAttackInput;
@@ -69,8 +69,8 @@ namespace PlayerController
             _attackContactFilter.useTriggers = true;
             
             
-            _contactFilterBreakableWall = new ContactFilter2D();
-            _contactFilterBreakableWall.SetLayerMask(_breakableWallLayer);
+            // _contactFilterBreakableWall = new ContactFilter2D();
+            // _contactFilterBreakableWall.SetLayerMask(_breakableWallLayer);
             
             attackInput = false;
             wallAttackInput = false;
