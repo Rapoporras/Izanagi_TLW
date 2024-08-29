@@ -22,6 +22,7 @@ namespace Health
         private bool _hit;
 
         public bool IsInvulnerable => _hit;
+        public int CurrentHealth => _health.CurrentHealth;
 
         private void Awake()
         {

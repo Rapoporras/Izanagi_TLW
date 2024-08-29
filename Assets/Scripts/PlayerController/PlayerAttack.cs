@@ -38,8 +38,8 @@ namespace PlayerController
         private ContactFilter2D _contactFilterEnemies;
         private ContactFilter2D _contactFilterBreakableWall;
 
-        public bool attackInput;
-        public bool wallAttackInput;
+        [HideInInspector] public bool attackInput;
+        [HideInInspector] public bool wallAttackInput;
 
         public float DamageMultiplier { get; set; } = 1f;
         public bool IsGrounded => _playerMovement.IsGrounded;
@@ -68,7 +68,7 @@ namespace PlayerController
             _contactFilterEnemies.useTriggers = true;
 
             _contactFilterBreakableWall = new ContactFilter2D();
-            _contactFilterEnemies.SetLayerMask(_breakableWallLayer);
+            _contactFilterBreakableWall.SetLayerMask(_breakableWallLayer);
             
             attackInput = false;
             wallAttackInput = false;
@@ -77,7 +77,7 @@ namespace PlayerController
         private void OnEnable()
         {
             InputManager.Instance.PlayerActions.Attack.started += Attack;
-            InputManager.Instance.PlayerActions.WallBreaking.started += WallAttack;
+            // InputManager.Instance.PlayerActions.WallBreaking.started += WallAttack;
             
             _movementAction = InputManager.Instance.PlayerActions.Movement;
         }
@@ -85,7 +85,7 @@ namespace PlayerController
         private void OnDisable()
         {
             InputManager.Instance.PlayerActions.Attack.started -= Attack;
-            InputManager.Instance.PlayerActions.WallBreaking.started -= WallAttack;
+            // InputManager.Instance.PlayerActions.WallBreaking.started -= WallAttack;
         }
         #endregion
         
@@ -123,11 +123,12 @@ namespace PlayerController
             Physics2D.OverlapCollider(_attackArea, _contactFilterEnemies, _overlappedColliders);
             foreach (var entity in _overlappedColliders)
             {
-                if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
+                if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth)
+                    && !entity.CompareTag("Player"))
                 {
                     if (!entityHealth.IsInvulnerable && entityHealth.damageable)
                     {
-                        int damage = Mathf.CeilToInt(AttackData.attackDamage * DamageMultiplier);
+                        int damage = Mathf.CeilToInt(AttackData.attackDamage * AttackData.attackMultiplier * DamageMultiplier);
                         entityHealth.Damage(damage, true);
                         UpdateMannaPoints(_mannaPerAttack);
                     }
@@ -215,6 +216,11 @@ namespace PlayerController
         public void SetWallAttackAnimation()
         {
             _playerAnimations.SetWallAttackAnimation();
+        }
+
+        public void ActivateAttackWindow()
+        {
+            _playerAnimations.AttackWindowActive = true;
         }
         
         private AttackType GetAttackType()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GlobalVariables;
+using UnityEngine;
 
 namespace PlayerController.Data
 {
@@ -8,6 +9,7 @@ namespace PlayerController.Data
         [Header("GENERAL")]
         public float angleDirectionOffset;
         public int attackDamage;
+        public FloatReference attackMultiplier;
         
         [Header("COMBO ATTACKS")]
         public float attackEntryDuration;
