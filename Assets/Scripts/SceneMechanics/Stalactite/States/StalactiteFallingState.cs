@@ -1,4 +1,5 @@
-﻿
+﻿using UnityEngine;
+
 namespace SceneMechanics.Stalactite
 {
     public class StalactiteFallingState : StalactiteBaseState
@@ -18,7 +19,9 @@ namespace SceneMechanics.Stalactite
 
         public override void FixedUpdateState()
         {
-            // Context.ApplyFallingMovement();
+            Context.Velocity = new Vector2(
+                Context.Velocity.x,
+                Mathf.Max(Context.Velocity.y, Context.maxFallingVelocity * -1f));
         }
 
         public override void ExitState()

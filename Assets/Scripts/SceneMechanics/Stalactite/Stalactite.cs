@@ -1,4 +1,6 @@
-﻿using PlayerController;
+﻿using System;
+using Health;
+using PlayerController;
 using StateMachine;
 using UnityEngine;
 
@@ -16,7 +18,7 @@ namespace SceneMechanics.Stalactite
         [Header("States Settings")]
         public float detachingDuration = 0.5f;
         [SerializeField] private float _fallingAcceleration = 40f;
-        [SerializeField] private float _maxFallingVelocity = 30f;
+        public float maxFallingVelocity = 30f;
         
         [Header("States (Debugging)")] 
         [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -34,6 +36,7 @@ namespace SceneMechanics.Stalactite
 
         private Rigidbody2D _rb2d;
         private RaycastInfo _raycastInfo;
+        private EntityHealth _entityHealth;
         private ContactDamage _contactDamage;
 
         private float _fallVel;
@@ -43,16 +46,33 @@ namespace SceneMechanics.Stalactite
             get => _contactDamage.isActive;
             set => _contactDamage.isActive = value;
         }
+        
+        public Vector2 Velocity
+        {
+            get => _rb2d.velocity;
+            set => _rb2d.velocity = value;
+        }
 
         public bool IsGrounded => _raycastInfo.HitInfo.Below;
 
         private void Awake()
         {
-            _contactDamage = GetComponent<ContactDamage>();
             _rb2d = GetComponent<Rigidbody2D>();
             _raycastInfo = GetComponent<RaycastInfo>();
+            _entityHealth = GetComponent<EntityHealth>();
+            _contactDamage = GetComponent<ContactDamage>();
 
             fallGravityScale = Mathf.Abs(_fallingAcceleration / Physics2D.gravity.y);
+        }
+
+        private void OnEnable()
+        {
+            _entityHealth.AddListenerDeathEvent(DestroyObject);
+        }
+
+        private void OnDisable()
+        {
+            _entityHealth.RemoveListenerDeathEvent(DestroyObject);
         }
 
         protected override void SetStates()
@@ -63,6 +83,12 @@ namespace SceneMechanics.Stalactite
             States.Add(StalactiteStates.Grounded, new StalactiteGroundedState(StalactiteStates.Grounded, this));
             
             _currentState = States[StalactiteStates.Idle];
+        }
+
+        private void DestroyObject()
+        {
+            // add effects here
+            Destroy(gameObject);
         }
         
         public void CheckRaycasts()
