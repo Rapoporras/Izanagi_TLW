@@ -23,6 +23,7 @@ namespace InteractionSystem
             if (other.TryGetComponent(out IInteractable interactable))
             {
                 _interactables.Add(interactable);
+                interactable.ShowInteractionUI(true);
             }
         }
 
@@ -31,6 +32,7 @@ namespace InteractionSystem
             if (other.TryGetComponent(out IInteractable interactable))
             {
                 _interactables.Remove(interactable);
+                interactable.ShowInteractionUI(false);
             }
         }
 
