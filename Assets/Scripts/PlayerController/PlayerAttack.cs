@@ -31,11 +31,12 @@ namespace PlayerController
         private InputAction _movementAction;
 
         private bool _hasCollided;
+        private bool _breakableWallHit;
         private AttackInfo _lastAttackInfo;
         public AttackInfo LastAttackInfo => _lastAttackInfo;
         
         private List<Collider2D> _overlappedColliders = new List<Collider2D>();
-        private ContactFilter2D _contactFilterEnemies;
+        private ContactFilter2D _attackContactFilter;
         private ContactFilter2D _contactFilterBreakableWall;
 
         [HideInInspector] public bool attackInput;
@@ -63,10 +64,11 @@ namespace PlayerController
             _playerAnimations = GetComponent<PlayerAnimations>();
             _playerMovement = GetComponent<PlayerMovement>();
             
-            _contactFilterEnemies = new ContactFilter2D();
-            _contactFilterEnemies.SetLayerMask(_hurtboxLayer);
-            _contactFilterEnemies.useTriggers = true;
-
+            _attackContactFilter = new ContactFilter2D();
+            _attackContactFilter.SetLayerMask(_hurtboxLayer | _breakableWallLayer);
+            _attackContactFilter.useTriggers = true;
+            
+            
             _contactFilterBreakableWall = new ContactFilter2D();
             _contactFilterBreakableWall.SetLayerMask(_breakableWallLayer);
             
@@ -96,8 +98,7 @@ namespace PlayerController
             States.Add(PlayerAttackStates.AttackEntry, new PlayerAttackEntryState(PlayerAttackStates.AttackEntry, this));
             States.Add(PlayerAttackStates.AttackCombo, new PlayerAttackComboState(PlayerAttackStates.AttackCombo, this));
             States.Add(PlayerAttackStates.AttackFinisher, new PlayerAttackFinisherState(PlayerAttackStates.AttackFinisher, this));
-            States.Add(PlayerAttackStates.WallAttack, new PlayerWallAttackState(PlayerAttackStates.WallAttack, this));
-
+            
             _currentState = States[PlayerAttackStates.NotAttacking];
         }
         #endregion
@@ -120,10 +121,11 @@ namespace PlayerController
         public void ApplyDamage()
         {
             _overlappedColliders.Clear();
-            Physics2D.OverlapCollider(_attackArea, _contactFilterEnemies, _overlappedColliders);
+            Physics2D.OverlapCollider(_attackArea, _attackContactFilter, _overlappedColliders);
             foreach (var entity in _overlappedColliders)
             {
-                if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth)
+                if (entity.transform.parent // check if game object has a parent
+                    && entity.transform.parent.TryGetComponent(out EntityHealth entityHealth)
                     && !entity.CompareTag("Player"))
                 {
                     if (!entityHealth.IsInvulnerable && entityHealth.damageable)
@@ -139,6 +141,15 @@ namespace PlayerController
                         ApplyAttackForces(entityHealth);
                     }
                 }
+                
+                if (entity.CompareTag("BreakableWall") && entity.TryGetComponent(out BreakableWall breakableWall))
+                {
+                    if (!_breakableWallHit)
+                    {
+                        breakableWall.ApplyHit();
+                        _breakableWallHit = true;
+                    }
+                }
             }
         }
 
@@ -146,6 +157,7 @@ namespace PlayerController
         {
             attackInput = false;
             _hasCollided = false;
+            _breakableWallHit = false;
         }
 
         private void ApplyAttackForces(EntityHealth entityHealth)
@@ -160,42 +172,6 @@ namespace PlayerController
             {
                 _playerMovement.ApplyRecoil(_lastAttackInfo.Direction * -1f);
             }
-        }
-        #endregion
-        
-        #region WALL BREAKING
-        private void WallAttack(InputAction.CallbackContext context)
-        {
-            if (!_abilitiesData.breakWalls) return;
-            if (IsAttacking) return;
-            
-            if (context.ReadValueAsButton())
-            {
-                wallAttackInput = true;
-            }
-        }
-
-        public void CheckBreakableWalls()
-        {
-            _overlappedColliders.Clear();
-            Physics2D.OverlapCollider(_attackArea, _contactFilterBreakableWall, _overlappedColliders);
-            foreach (var wall in _overlappedColliders)
-            {
-                if (wall.CompareTag("BreakableWall") && wall.TryGetComponent(out BreakableWall breakableWall))
-                {
-                    if (!_hasCollided)
-                    {
-                        _hasCollided = true;
-                        breakableWall.ApplyHit();
-                    }
-                }
-            }
-        }
-        
-        public void StopWallAttack()
-        {
-            wallAttackInput = false;
-            _hasCollided = false;
         }
         #endregion
         
