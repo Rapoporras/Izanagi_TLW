@@ -75,12 +75,19 @@ namespace CustomMenus
         
         #region SCENE ELEMENTS
         private const string BreakableWallPath = BasePath + "Scene Elements/Breakable Wall.prefab";
+        private const string BrittleSoilPath = BasePath + "Scene Elements/Brittle Soil.prefab";
         private const string StalactitePath = BasePath + "Scene Elements/Stalactite.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/Scene Elements/Breakable Wall", false, 0)]
         private static void CreateBreakableWall()
         {
             InstantiatePrefabAtPath(BreakableWallPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Brittle Soil", false, 0)]
+        private static void CreateBrittleSoil()
+        {
+            InstantiatePrefabAtPath(BrittleSoilPath);
         }
         
         [MenuItem("GameObject/IzanagiTLW/Scene Elements/Stalactite", false, 0)]

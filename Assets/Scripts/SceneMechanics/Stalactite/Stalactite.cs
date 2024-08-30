@@ -1,5 +1,4 @@
-﻿using System;
-using Health;
+﻿using Health;
 using PlayerController;
 using StateMachine;
 using UnityEngine;
