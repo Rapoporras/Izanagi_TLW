@@ -21,7 +21,7 @@ namespace CustomMenus
             }
 
             GameObject instance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
-            if (!instance)
+            if (instance)
             {
                 Undo.RegisterCreatedObjectUndo(instance, $"Create {instance.name}");
                 Selection.activeObject = instance;
