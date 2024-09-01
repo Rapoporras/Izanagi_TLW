@@ -60,6 +60,8 @@ namespace CustomMenus
         private const string BasicEnemyPath = BasePath + "Enemies/BasicEnemy.prefab";
         private const string ChaserPath = BasePath + "Enemies/Chaser.prefab";
 
+        private const string MiniKappaSpawnerPath = BasePath + "Enemies/Kappas/MiniKappas Spawner.prefab";
+
         [MenuItem("GameObject/IzanagiTLW/Enemies/Chaser", false, 0)]
         private static void CreateChaser()
         {
@@ -70,6 +72,12 @@ namespace CustomMenus
         private static void CreateBasicEnemy()
         {
             InstantiatePrefabAtPath(BasicEnemyPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Enemies/Kappas/Mini Kappas Spawner", false, 0)]
+        private static void CreateMiniKappasSpawner()
+        {
+            InstantiatePrefabAtPath(MiniKappaSpawnerPath);
         }
         #endregion
         

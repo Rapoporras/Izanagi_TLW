@@ -12,7 +12,7 @@ namespace SceneMechanics.Stalactite
         [SerializeField] private LayerMask _groundLayer;
         [Space(5)]
         [SerializeField, Min(0.1f)] private float _verticalOffset = 0.1f;
-        [SerializeField, Min(0.5f)] private float _horizontalDistance = 2f;
+        [SerializeField, Min(0.5f)] private float _horizontalDistance = 1f;
 
         [Header("States Settings")]
         public float detachingDuration = 0.5f;
@@ -92,11 +92,11 @@ namespace SceneMechanics.Stalactite
         
         public void CheckRaycasts()
         {
+            _raySpacing = _horizontalDistance / (RayCount - 1);
+            
             Vector3 startRayOrigin = transform.position;
             startRayOrigin.x -= _raySpacing;
             startRayOrigin.y -= _verticalOffset;
-            
-            _raySpacing = _horizontalDistance / (RayCount - 1);
 
             for (int i = 0; i < RayCount; i++)
             {
@@ -106,15 +106,14 @@ namespace SceneMechanics.Stalactite
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, Mathf.Infinity,
                     _playerLayer | _groundLayer);
 
-                if (hit.transform.CompareTag("Player"))
+                if (hit && hit.transform.CompareTag("Player"))
                 {
                     playerDetected = true;
                     return;
                 }
                 
 #if UNITY_EDITOR
-                Color rayColor = playerDetected ? Color.green : Color.red;
-                Debug.DrawLine(rayOrigin, rayOrigin + (Vector2.down * hit.distance), rayColor);
+                Debug.DrawLine(rayOrigin, rayOrigin + (Vector2.down * hit.distance), Color.red);
 #endif
             }
         }
