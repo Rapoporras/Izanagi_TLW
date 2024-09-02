@@ -11,7 +11,6 @@ namespace PlayerController.Data
         public bool fireAbility;
         
         [Header("GROUND")]
-        public bool breakWalls;
         public bool groundAbility;
         
         [Header("AIR")]
@@ -35,7 +34,6 @@ namespace PlayerController.Data
                     fireAbility = true;
                     break;
                 case AbilityType.Ground:
-                    breakWalls = true;
                     groundAbility = true;
                     break;
                 case AbilityType.Water:
@@ -54,7 +52,7 @@ namespace PlayerController.Data
                 case AbilityType.Fire:
                     return doubleJump && fireAbility;
                 case AbilityType.Ground:
-                    return breakWalls && groundAbility;
+                    return groundAbility;
                 case AbilityType.Water:
                     return wallImpulse && waterAbility;
                 default:

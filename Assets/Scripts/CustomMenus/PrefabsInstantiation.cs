@@ -21,7 +21,7 @@ namespace CustomMenus
             }
 
             GameObject instance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
-            if (!instance)
+            if (instance)
             {
                 Undo.RegisterCreatedObjectUndo(instance, $"Create {instance.name}");
                 Selection.activeObject = instance;
@@ -60,6 +60,8 @@ namespace CustomMenus
         private const string BasicEnemyPath = BasePath + "Enemies/BasicEnemy.prefab";
         private const string ChaserPath = BasePath + "Enemies/Chaser.prefab";
 
+        private const string MiniKappaSpawnerPath = BasePath + "Enemies/Kappas/MiniKappas Spawner.prefab";
+
         [MenuItem("GameObject/IzanagiTLW/Enemies/Chaser", false, 0)]
         private static void CreateChaser()
         {
@@ -70,6 +72,36 @@ namespace CustomMenus
         private static void CreateBasicEnemy()
         {
             InstantiatePrefabAtPath(BasicEnemyPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Enemies/Kappas/Mini Kappas Spawner", false, 0)]
+        private static void CreateMiniKappasSpawner()
+        {
+            InstantiatePrefabAtPath(MiniKappaSpawnerPath);
+        }
+        #endregion
+        
+        #region SCENE ELEMENTS
+        private const string BreakableWallPath = BasePath + "Scene Elements/Breakable Wall.prefab";
+        private const string BrittleSoilPath = BasePath + "Scene Elements/Brittle Soil.prefab";
+        private const string StalactitePath = BasePath + "Scene Elements/Stalactite.prefab";
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Breakable Wall", false, 0)]
+        private static void CreateBreakableWall()
+        {
+            InstantiatePrefabAtPath(BreakableWallPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Brittle Soil", false, 0)]
+        private static void CreateBrittleSoil()
+        {
+            InstantiatePrefabAtPath(BrittleSoilPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Stalactite", false, 0)]
+        private static void CreateStalactite()
+        {
+            InstantiatePrefabAtPath(StalactitePath);
         }
         #endregion
     }

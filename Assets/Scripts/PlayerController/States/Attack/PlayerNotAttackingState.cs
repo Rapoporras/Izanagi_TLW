@@ -23,8 +23,8 @@
             if (Context.attackInput)
                 return PlayerAttackStates.AttackEntry;
             
-            if (Context.wallAttackInput)
-                return PlayerAttackStates.WallAttack;
+            // if (Context.wallAttackInput)
+            //     return PlayerAttackStates.WallAttack;
             
             return StateKey;
         }
