@@ -104,6 +104,16 @@ namespace CustomMenus
             InstantiatePrefabAtPath(StalactitePath);
         }
         #endregion
+        
+        #region UI
+        private const string DialogueCanvasPath = BasePath + "UI/Dialogue Canvas.prefab";
+        
+        [MenuItem("GameObject/IzanagiTLW/UI/Dialogue Canvas", false, 0)]
+        private static void CreateDialogueCanvas()
+        {
+            InstantiatePrefabAtPath(DialogueCanvasPath);
+        }
+        #endregion
     }
 }
 #endif
