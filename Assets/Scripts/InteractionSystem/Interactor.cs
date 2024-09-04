@@ -40,6 +40,7 @@ namespace InteractionSystem
         {
             if (_interactables.Count == 0) return;
 
+            _interactables[0].ShowInteractionUI(false); // hide UI after interaction
             _interactables[0].Interact(this);
         }
 
