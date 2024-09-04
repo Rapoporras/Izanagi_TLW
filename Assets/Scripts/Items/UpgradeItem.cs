@@ -25,7 +25,6 @@ namespace Items
             _currentItemAmount.Value += _amountToAdd;
             
             _used = true;
-            _interactUIText.SetActive(false);
             
             // add here some animation
             Destroy(gameObject);

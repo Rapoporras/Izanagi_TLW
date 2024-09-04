@@ -154,7 +154,7 @@ namespace PlayerController
         private void EnableInput()
         {
             _movementAction = InputManager.Instance.PlayerActions.Movement;
-
+            
             InputManager.Instance.PlayerActions.Jump.started += OnJumpAction;
             InputManager.Instance.PlayerActions.Jump.canceled += OnJumpAction;
             

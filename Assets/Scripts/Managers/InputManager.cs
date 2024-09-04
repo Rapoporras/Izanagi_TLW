@@ -2,9 +2,25 @@
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager Instance { get; private set; }
+    // public static PlayerInputActions.PlayerActions PlayerActions => PlayerInputActions.Player;
+    // public static PlayerInputActions.UIActions UIActions => PlayerInputActions.UI;
+    //
+    // private static PlayerInputActions _playerInputActions;
+    // private static PlayerInputActions PlayerInputActions
+    // {
+    //     get
+    //     {
+    //         Debug.Log("hola");
+    //         if (_playerInputActions == null)
+    //             _playerInputActions = new PlayerInputActions();
+    //         return _playerInputActions;
+    //     }
+    // }
 
+    public static InputManager Instance { get; private set; }
+    
     public PlayerInputActions.PlayerActions PlayerActions => PlayerInputActions.Player;
+    public PlayerInputActions.UIActions UIActions => PlayerInputActions.UI;
     
     private PlayerInputActions _playerInputActions;
     private PlayerInputActions PlayerInputActions
@@ -16,7 +32,7 @@ public class InputManager : MonoBehaviour
             return _playerInputActions;
         }
     }
-
+    
     private void Awake()
     {
         if (Instance == null)
@@ -29,12 +45,12 @@ public class InputManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     private void OnEnable()
     {
         PlayerActions.Enable();
     }
-
+    
     private void OnDisable()
     {
         PlayerActions.Disable();
