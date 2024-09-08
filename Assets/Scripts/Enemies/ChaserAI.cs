@@ -56,7 +56,7 @@ namespace Enemies
         
             Leaf isPlayerInDetectionRadius =
                 new Leaf("IsPlayerInDetectionRadius", new ConditionStrategy(IsPlayerDetected));
-            Leaf moveToPlayer = new Leaf("MoveToPlayer", new ChaseStrategy(gameObject, player, detectionRadius,
+            Leaf moveToPlayer = new Leaf("MoveToPlayer", new ChaseStrategyWithJump(gameObject, player, detectionRadius,
                 chaseSpeed, timeToStopChase, groundLayer, jumpForce, areaWidth, areaHeigth));
         
             Sequence chasePlayer = new Sequence("ChasePlayer");
