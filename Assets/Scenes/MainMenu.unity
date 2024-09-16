@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522cb5dddf8947cdb0dc21b6dd430027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fristSceneName: SpecialAttacksScene
+  _firstSceneName: SpecialAttacksScene
   _newGameButton: {fileID: 1637999414}
   _continueGameButton: {fileID: 1255586888}
 --- !u!1 &301956374
@@ -1872,7 +1872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4874892667120326444, guid: e0904c85b799a5a41a7566cb63e1d5cf, type: 3}
       propertyPath: m_Name
-      value: Variables Initializer
+      value: Game Initializer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

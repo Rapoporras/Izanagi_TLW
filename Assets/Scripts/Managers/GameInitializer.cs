@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class VariablesInitializer : MonoBehaviour, IDataPersistence
+    public class GameInitializer : MonoBehaviour, IDataPersistence
     {
         [Header("Health Variables")]
         [SerializeField] private IntReference _playerMaxHealth;
@@ -22,7 +22,7 @@ namespace Managers
         [Header("Player Data")]
         [SerializeField] private PlayerAbilitiesData _playerAbilitiesData;
 
-        private static VariablesInitializer _instance;
+        private static GameInitializer _instance;
         private bool _variablesLoaded;
 
         private void Awake()
@@ -56,6 +56,8 @@ namespace Managers
                 _playerAbilitiesData.UnlockAbility((AbilityType) ability);
             }
 
+            data.deadEnemies.Clear();
+            
             _variablesLoaded = true;
         }
 

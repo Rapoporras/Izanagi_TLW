@@ -9,6 +9,8 @@ namespace SaveSystem
         public GlobalVariables variables = new GlobalVariables();
 
         public SerializableDictionary<string, bool> upgradeItemsCollected = new SerializableDictionary<string, bool>();
+        public SerializableDictionary<string, bool> deadEnemies = new SerializableDictionary<string, bool>();
+        public SerializableDictionary<string, bool> sceneEvents = new SerializableDictionary<string, bool>();
     }
 
     [System.Serializable]

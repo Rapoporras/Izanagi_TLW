@@ -8,7 +8,7 @@ namespace MainMenu
     public class MainMenu : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private string _fristSceneName;
+        [SerializeField] private string _firstSceneName;
 
         [Header("UI")]
         [SerializeField] private Button _newGameButton;
@@ -24,7 +24,7 @@ namespace MainMenu
         
         public void OnNewGameClicked()
         {
-            if (string.IsNullOrEmpty(_fristSceneName))
+            if (string.IsNullOrEmpty(_firstSceneName))
             {
                 Debug.LogError("There is no scene to load. Set the scene name in the inspector.");
             }
@@ -32,13 +32,13 @@ namespace MainMenu
             {
                 DisableMenuButtons();
                 DataPersistenceManager.Instance.NewGame();
-                SceneManager.LoadSceneAsync(_fristSceneName);
+                SceneManager.LoadSceneAsync(_firstSceneName);
             }
         }
 
         public void OnContinueGameClicked()
         {
-            if (string.IsNullOrEmpty(_fristSceneName))
+            if (string.IsNullOrEmpty(_firstSceneName))
             {
                 Debug.LogError("There is no scene to load. Set the scene name in the inspector.");
             }
@@ -46,7 +46,7 @@ namespace MainMenu
             {
                 DisableMenuButtons();
                 DataPersistenceManager.Instance.LoadGame(); // initialize variables
-                SceneManager.LoadSceneAsync(_fristSceneName);
+                SceneManager.LoadSceneAsync(_firstSceneName);
             }
         }
 
