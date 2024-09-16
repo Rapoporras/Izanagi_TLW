@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayerActionsScene.unity
     guid: a58be72045bcae0429febd131c949b99
+  - enabled: 1
+    path: Assets/Scenes/SpecialAttacksScene.unity
+    guid: 0e0111c3603adda4fbc3a21062e5771a
   m_configObjects: {}

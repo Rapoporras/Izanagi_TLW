@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4874892667120326444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4827613595748050191}
+  - component: {fileID: 3782076587405322058}
+  m_Layer: 0
+  m_Name: Variables Initializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4827613595748050191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874892667120326444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3782076587405322058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874892667120326444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760348c42c7d4651a436f889013f6e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMaxHealth:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: cdf76693782567042be1e72ac46a828e, type: 2}
+    componentValue: {fileID: 0}
+  _playerCurrentHealth:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
+    componentValue: {fileID: 0}
+  _playerMaxPotions:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: 545d094ae96d0264ba9012e3d446b339, type: 2}
+    componentValue: {fileID: 0}
+  _playerPotionsAvailable:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: 5c3764712534c4b49b41d3a4565151a3, type: 2}
+    componentValue: {fileID: 0}
+  _attackItemAmount:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: b94a69a384817144d9144deec2fc923e, type: 2}
+    componentValue: {fileID: 0}
+  _healthItemAmount:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: 06ed35693b2d11d4dbe368cbbb0cef6f, type: 2}
+    componentValue: {fileID: 0}
+  _playerAbilitiesData: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}

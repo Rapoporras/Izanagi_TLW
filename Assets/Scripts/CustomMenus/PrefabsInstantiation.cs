@@ -1,6 +1,8 @@
 ﻿#if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 using UnityEngine;
+using Path = Ink.Runtime.Path;
 
 namespace CustomMenus
 {
@@ -112,6 +114,44 @@ namespace CustomMenus
         private static void CreateDialogueCanvas()
         {
             InstantiatePrefabAtPath(DialogueCanvasPath);
+        }
+        #endregion
+        
+        #region MANAGERS
+        private const string DeathManagerPath = BasePath + "Managers/Death Manager.prefab";
+        private const string InputManagerPath = BasePath + "Managers/Input Manager.prefab";
+        private const string ItemManagerPath = BasePath + "Managers/Item Manager.prefab";
+        private const string SaveManagerPath = BasePath + "Managers/Save Manager.prefab";
+        private const string VariablesInitializerPath = BasePath + "Managers/Variables Initializer.prefab";
+        
+        [MenuItem("GameObject/IzanagiTLW/Managers/Death Manager", false, 0)]
+        private static void CreateDeathManager()
+        {
+            InstantiatePrefabAtPath(DeathManagerPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Managers/Input Manager", false, 0)]
+        private static void CreateInputManager()
+        {
+            InstantiatePrefabAtPath(InputManagerPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Managers/Item Manager", false, 0)]
+        private static void CreateItemManager()
+        {
+            InstantiatePrefabAtPath(ItemManagerPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Managers/Save Manager", false, 0)]
+        private static void CreateSaveManager()
+        {
+            InstantiatePrefabAtPath(SaveManagerPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Managers/Variables Initializer", false, 0)]
+        private static void CreateVariablesInitializer()
+        {
+            InstantiatePrefabAtPath(VariablesInitializerPath);
         }
         #endregion
     }
