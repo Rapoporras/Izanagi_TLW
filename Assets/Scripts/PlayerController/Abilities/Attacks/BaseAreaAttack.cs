@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace PlayerController.Abilities
 {
@@ -9,11 +10,18 @@ namespace PlayerController.Abilities
         public float Duration { get; set; }
         public int Damage { get; set; }
 
-        protected BoxCollider2D _hitbox;
+        protected Collider2D _hitbox;
+        protected ContactFilter2D _contactFilter;
+
+        protected List<Collider2D> _overlappedColliders = new List<Collider2D>();
 
         protected virtual void Awake()
         {
-            _hitbox = GetComponent<BoxCollider2D>();
+            _hitbox = GetComponent<Collider2D>();
+
+            _contactFilter = new ContactFilter2D();
+            _contactFilter.SetLayerMask(_hurtboxLayer);
+            _contactFilter.useTriggers = true;
         }
     }
 }

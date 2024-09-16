@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleDirectionOffset: 30
   attackDamage: 10
-  attackDuration: 0.4
+  attackMultiplier:
+    valueType: 0
+    constantValue: 1
+    variableValue: {fileID: 0}
+    componentValue: {fileID: 0}
+  attackEntryDuration: 0.4
+  attackMiddleDuration: 0.4
+  attackFinisherDuration: 0.4
   wallAttackDuration: 0.4

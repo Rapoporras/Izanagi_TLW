@@ -14,10 +14,21 @@ namespace PlayerController
         private int _isSlidingHash;
         private int _isDashingHash;
         private int _isTakingDamageHash;
+
+        private int _recoverHealthHash;
         
         private int _attackHash;
         private int _attackTypeHash;
+        private int _attackComboHash;
         private int _wallAttackHash;
+
+        private int _attackWindowActiveHash;
+
+        public bool AttackWindowActive
+        {
+            get => _animator.GetBool(_attackWindowActiveHash);
+            set => _animator.SetBool(_attackWindowActiveHash, value);
+        }
         
         private void Awake()
         {
@@ -30,10 +41,15 @@ namespace PlayerController
             _isSlidingHash = Animator.StringToHash("isSliding");
             _isDashingHash = Animator.StringToHash("isDashing");
             _isTakingDamageHash = Animator.StringToHash("isTakingDamage");
+
+            _recoverHealthHash = Animator.StringToHash("recoverHealth");
             
             _attackHash = Animator.StringToHash("attack");
             _attackTypeHash = Animator.StringToHash("attackType");
+            _attackComboHash = Animator.StringToHash("attackCombo");
             _wallAttackHash = Animator.StringToHash("wallAttack");
+
+            _attackWindowActiveHash = Animator.StringToHash("attackWindowActive");
         }
 
         private void Update()
@@ -52,9 +68,11 @@ namespace PlayerController
             _animator.SetBool(_isTakingDamageHash, _player.IsTakingDamage);
         }
 
-        public void SetAttackAnimation(int attackType)
+        #region PLAY ANIMATIONS
+        public void SetAttackAnimation(int attackType, int attackCombo)
         {
             _animator.SetInteger(_attackTypeHash, attackType);
+            _animator.SetInteger(_attackComboHash, attackCombo);
             _animator.SetTrigger(_attackHash);
         }
 
@@ -62,5 +80,21 @@ namespace PlayerController
         {
             _animator.SetTrigger(_wallAttackHash);
         }
+
+        public void SetRecoverHealthAnimation()
+        {
+            _animator.SetTrigger(_recoverHealthHash);
+        }
+
+        public void ActivateAttackWindow()
+        {
+            _animator.SetBool(_attackWindowActiveHash, true);
+        }
+        
+        public void DeactivateAttackWindow()
+        {
+            _animator.SetBool(_attackWindowActiveHash, false);
+        }
+        #endregion
     }
 }

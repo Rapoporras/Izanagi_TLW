@@ -3,16 +3,30 @@ using UnityEngine;
 
 public class ContactDamage : MonoBehaviour
 {
+    [Header("Settings")]
+    public bool isActive = true;
+    [Space(5)]
     [SerializeField] private int _damage;
+    [SerializeField] private bool _canDamageEnemies = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!isActive) return;
+        
         if (other.CompareTag("Player"))
         {
-            if (other.transform.root.TryGetComponent(out PlayerHealth playerHealth))
+            if (other.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
             {
                 int xDirection = (int) Mathf.Sign(other.transform.position.x - transform.position.x);
                 playerHealth.Damage(_damage, xDirection);
+            }
+        }
+
+        if (_canDamageEnemies && other.CompareTag("Enemy") && other.transform.parent != transform)
+        {
+            if (other.transform.parent.TryGetComponent(out EntityHealth enemyHealth))
+            {
+                enemyHealth.Damage(_damage, true);
             }
         }
     }

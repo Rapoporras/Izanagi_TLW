@@ -17,5 +17,16 @@ namespace StateMachine
         public abstract void FixedUpdateState();
         public abstract void ExitState();
         public abstract EState GetNextState();
+
+        /// <summary>
+        /// Must be called in GetNextState when transitioning to the same state
+        /// </summary>
+        /// <returns>Current state</returns>
+        protected EState ResetState()
+        {
+            ExitState();
+            EnterState();
+            return StateKey;
+        }
     }
 }

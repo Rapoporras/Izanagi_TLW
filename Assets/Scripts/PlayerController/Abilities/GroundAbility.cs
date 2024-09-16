@@ -11,7 +11,18 @@ namespace PlayerController.Abilities
         private PlayerHealth _playerHealth;
         private PlayerAbilities _playerAbilities;
         
-        public override bool PerformAction(GameObject target)
+        public override void Initialize(GameObject target)
+        {
+            if (_playerHealth == null)
+                _playerHealth = target.GetComponent<PlayerHealth>();
+            
+            if (_playerAbilities == null)
+                _playerAbilities = target.GetComponent<PlayerAbilities>();
+            
+            _playerHealth.OnShieldLost += HideShield;
+        }
+        
+        public override bool PerformAbility(GameObject target)
         {
             if (_playerHealth.HasShield) return false;
             
@@ -22,15 +33,10 @@ namespace PlayerController.Abilities
             return true;
         }
 
-        public override void Initialize(GameObject target)
+        
+        public override bool PerformUltimate(GameObject target)
         {
-            if (_playerHealth == null)
-                _playerHealth = target.GetComponent<PlayerHealth>();
-            
-            if (_playerAbilities == null)
-                _playerAbilities = target.GetComponent<PlayerAbilities>();
-            
-            _playerHealth.OnShieldLost += HideShield;
+            return false;
         }
 
         private void HideShield()

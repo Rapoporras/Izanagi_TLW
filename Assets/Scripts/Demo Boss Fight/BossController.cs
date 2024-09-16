@@ -5,6 +5,7 @@ using Health;
 using PlayerController.Abilities;
 using PlayerController.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
@@ -71,6 +72,8 @@ public class BossController : MonoBehaviour
         }
         
         Destroy(gameObject);
+        //TODO: Eliminar despues de la demo
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void CheckRemainingParts()

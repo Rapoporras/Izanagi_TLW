@@ -154,7 +154,7 @@ namespace PlayerController
         private void EnableInput()
         {
             _movementAction = InputManager.Instance.PlayerActions.Movement;
-
+            
             InputManager.Instance.PlayerActions.Jump.started += OnJumpAction;
             InputManager.Instance.PlayerActions.Jump.canceled += OnJumpAction;
             
@@ -403,14 +403,12 @@ namespace PlayerController
         #if UNITY_EDITOR
         private void OnGUI()
         {
-            GUILayout.BeginHorizontal();
+            GUILayout.BeginArea(new Rect(10, 10, 500, 200));
             string rootStateName = _currentState.Name;
             GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
-            GUILayout.EndHorizontal();
             
-            GUILayout.BeginHorizontal();
             GUILayout.Label($"<color=black><size=30>Input: {MovementDirection}</size></color>");
-            GUILayout.EndHorizontal();
+            GUILayout.EndArea();
         }
         #endif
         #endregion
