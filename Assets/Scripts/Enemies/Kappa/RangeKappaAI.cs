@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace Enemies.Kappa
 {
-    public class RangeKappaAI : MonoBehaviour
+    public class RangeKappaAI : BaseEnemy
     {
         [Header("Reference to the player")]
         [SerializeField] private GameObject player;
@@ -38,7 +38,6 @@ namespace Enemies.Kappa
         [SerializeField] private LayerMask hurtboxLayer;
     
         private BehaviourTree.BehaviourTree _kappaBehaviourTree;
-        private EntityHealth _entityHealth;
         
         private Rigidbody2D _rb;
         private Animator _animator;
@@ -56,18 +55,19 @@ namespace Enemies.Kappa
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
         }
+        
 
         private void OnDisable()
         {
-            _entityHealth.RemoveListenerDeathEvent(() => Destroy(gameObject));
+            base.OnDisable();
+            _entityHealth.RemoveListenerOnHit(OnHitKnockback);
         }
 
         void Start()
         {
-        
-            _entityHealth.AddListenerDeathEvent(() => Destroy(gameObject));
             _entityHealth.AddListenerOnHit(OnHitKnockback);
-        
+            _entityHealth.AddListenerDeathEvent(() => EnemyDie());
+            
             _kappaBehaviourTree = new BehaviourTree.BehaviourTree("Kappa", Policies.RunForever);
 
             Selector actionToDo = new Selector("ActionToDo");
@@ -101,7 +101,7 @@ namespace Enemies.Kappa
     
         void Update()
         {
-            _kappaBehaviourTree.Process();
+            if (!_isEnemyDead) _kappaBehaviourTree.Process();
         }
         
         void MoveTowardsPlayer()

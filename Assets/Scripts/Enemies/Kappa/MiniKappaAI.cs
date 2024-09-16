@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Enemies.Kappa
 {
-    public class MiniKappaAI : MonoBehaviour
+    public class MiniKappaAI : BaseEnemy
     {
         [Header("Reference to the player")]
         [SerializeField] private GameObject player;
@@ -28,7 +28,6 @@ namespace Enemies.Kappa
         [SerializeField] private LayerMask hurtboxLayer;
     
         private BehaviourTree.BehaviourTree _miniKappaBehaviourTree;
-        private EntityHealth _entityHealth;
         
         private Rigidbody2D _rb;
         private Animator _animator;
@@ -46,19 +45,19 @@ namespace Enemies.Kappa
             _animator = GetComponent<Animator>();
             
         }
+        
 
         private void OnDisable()
         {
-            _entityHealth.RemoveListenerDeathEvent(() => Destroy(gameObject));
-            
+            base.OnDisable();
+            _entityHealth.RemoveListenerOnHit(OnHitKnockback);
         }
 
         private void Start()
         {
-        
-            _entityHealth.AddListenerDeathEvent(() => Destroy(gameObject));
             _entityHealth.AddListenerOnHit(OnHitKnockback);
-        
+            _entityHealth.AddListenerDeathEvent(() => EnemyDie());
+            
             _miniKappaBehaviourTree = new BehaviourTree.BehaviourTree("MiniKappa", Policies.RunForever);
         
             Leaf isPlayerInDetectionRadius =
@@ -84,7 +83,7 @@ namespace Enemies.Kappa
     
         private void Update()
         {
-            _miniKappaBehaviourTree.Process();
+            if (!_isEnemyDead) _miniKappaBehaviourTree.Process();
         }
         
         private void MoveTowardsPlayer()
