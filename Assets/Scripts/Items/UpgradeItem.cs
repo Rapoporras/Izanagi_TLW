@@ -46,12 +46,6 @@ namespace Items
             id = System.Guid.NewGuid().ToString();
         }
 
-        private void OnValidate()
-        {
-            if (string.IsNullOrEmpty(id))
-                GenerateGuid();
-        }
-
         public void LoadData(GameData data)
         {
             data.upgradeItemsCollected.TryGetValue(id, out _collected);

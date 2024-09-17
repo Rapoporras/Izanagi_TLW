@@ -1,12 +1,16 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Health;
+using SaveSystem;
 using UnityEngine;
 
-public class BaseEnemy : MonoBehaviour
+public class BaseEnemy : MonoBehaviour, IDataPersistence
 {
-
+    [SerializeField, ReadOnly] private string id;
+    [Space(10)]
+    
+    [Header("Spawn Settings")]
+    [SerializeField] private bool _alwaysRespawn;
+    
     protected EntityHealth _entityHealth;
     protected bool _isEnemyDead;
     
@@ -27,5 +31,33 @@ public class BaseEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
+    }
+    
+    [ContextMenu("Generate guid for id")]
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (_alwaysRespawn) return;
+        
+        data.deadEnemies.TryGetValue(id, out _isEnemyDead);
+        if (_isEnemyDead)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (data.deadEnemies.ContainsKey(id))
+        {
+            data.deadEnemies.Remove(id);
+        }
+        
+        if (!_alwaysRespawn)
+            data.deadEnemies.Add(id, _isEnemyDead);
     }
 }

@@ -31,12 +31,6 @@ namespace SceneMechanics
             id = System.Guid.NewGuid().ToString();
         }
 
-        private void OnValidate()
-        {
-            if (string.IsNullOrEmpty(id))
-                GenerateGuid();
-        }
-
         public void LoadData(GameData data)
         {
             data.sceneEvents.TryGetValue(id, out _eventActivated);
