@@ -2,21 +2,6 @@
 
 public class InputManager : MonoBehaviour
 {
-    // public static PlayerInputActions.PlayerActions PlayerActions => PlayerInputActions.Player;
-    // public static PlayerInputActions.UIActions UIActions => PlayerInputActions.UI;
-    //
-    // private static PlayerInputActions _playerInputActions;
-    // private static PlayerInputActions PlayerInputActions
-    // {
-    //     get
-    //     {
-    //         Debug.Log("hola");
-    //         if (_playerInputActions == null)
-    //             _playerInputActions = new PlayerInputActions();
-    //         return _playerInputActions;
-    //     }
-    // }
-
     public static InputManager Instance { get; private set; }
     
     public PlayerInputActions.PlayerActions PlayerActions => PlayerInputActions.Player;

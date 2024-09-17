@@ -510,7 +510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cdddad6934ca54e9231339ddf96905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   _damage: 20
+  _canDamageEnemies: 0
 --- !u!114 &2991623237131917909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a091f68ef4a7a6f41833501762592331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   player: {fileID: 0}
   detectionRadius: 15
   rollingSpeed: 10

@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 5802709841991266586}
   - component: {fileID: 2207580352895944526}
   - component: {fileID: 1296302766672696059}
+  - component: {fileID: 8570864886583803765}
   m_Layer: 10
   m_Name: BasicEnemy
   m_TagString: Enemy
@@ -372,7 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cdddad6934ca54e9231339ddf96905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   _damage: 10
+  _canDamageEnemies: 0
 --- !u!114 &1296302766672696059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +414,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8570864886583803765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512373484249086022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6f0ae3675ba4043bab882052254aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
 --- !u!1 &6202509171393526835
 GameObject:
   m_ObjectHideFlags: 0
