@@ -1,8 +1,6 @@
 ﻿#if UNITY_EDITOR
-using System.IO;
 using UnityEditor;
 using UnityEngine;
-using Path = Ink.Runtime.Path;
 
 namespace CustomMenus
 {
@@ -123,6 +121,7 @@ namespace CustomMenus
         private const string ItemManagerPath = BasePath + "Managers/Item Manager.prefab";
         private const string SaveManagerPath = BasePath + "Managers/Save Manager.prefab";
         private const string GameInitializerPath = BasePath + "Managers/Game Initializer.prefab";
+        private const string SceneInitializerPath = BasePath + "Managers/Scene Initializer.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/Managers/Death Manager", false, 0)]
         private static void CreateDeathManager()
@@ -152,6 +151,12 @@ namespace CustomMenus
         private static void CreateGameInitializer()
         {
             InstantiatePrefabAtPath(GameInitializerPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Managers/Scene Initializer", false, 0)]
+        private static void CreateSceneInitializer()
+        {
+            InstantiatePrefabAtPath(SceneInitializerPath);
         }
         #endregion
     }

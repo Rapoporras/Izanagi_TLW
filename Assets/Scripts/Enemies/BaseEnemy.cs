@@ -6,7 +6,6 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour, IDataPersistence
 {
     [SerializeField, ReadOnly] private string id;
-    [Space(10)]
     
     [Header("Spawn Settings")]
     [SerializeField] private bool _alwaysRespawn;

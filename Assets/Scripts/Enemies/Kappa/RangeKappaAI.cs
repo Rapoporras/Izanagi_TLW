@@ -57,7 +57,7 @@ namespace Enemies.Kappa
         }
         
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
             base.OnDisable();
             _entityHealth.RemoveListenerOnHit(OnHitKnockback);
