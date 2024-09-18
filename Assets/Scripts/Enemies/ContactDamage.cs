@@ -8,10 +8,13 @@ public class ContactDamage : MonoBehaviour
     [Space(5)]
     [SerializeField] private int _damage;
     [SerializeField] private bool _canDamageEnemies = false;
+    [SerializeField] private LayerMask _hurtboxLayer;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!isActive) return;
+
+        if (other.gameObject.layer != _hurtboxLayer) return;
         
         if (other.CompareTag("Player"))
         {

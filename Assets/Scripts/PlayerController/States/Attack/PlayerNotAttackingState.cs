@@ -5,7 +5,10 @@
         public PlayerNotAttackingState(PlayerAttackStates key, PlayerAttack context)
             : base(key, context) { }
 
-        public override void EnterState() { }
+        public override void EnterState()
+        {
+            Context.ActivateAttackWindow();
+        }
 
         public override void UpdateState() { }
 
@@ -13,18 +16,14 @@
 
         public override void ExitState()
         {
-            Context.ActivateAttackWindow();
+            // Context.ActivateAttackWindow();
             Context.attackInput = false;
-            Context.wallAttackInput = false;
         }
 
         public override PlayerAttackStates GetNextState()
         {
             if (Context.attackInput)
                 return PlayerAttackStates.AttackEntry;
-            
-            // if (Context.wallAttackInput)
-            //     return PlayerAttackStates.WallAttack;
             
             return StateKey;
         }
