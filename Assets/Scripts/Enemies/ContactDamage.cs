@@ -13,8 +13,8 @@ public class ContactDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!isActive) return;
-
-        if (other.gameObject.layer != _hurtboxLayer) return;
+        
+        if ((1 << other.gameObject.layer) != _hurtboxLayer) return;
         
         if (other.CompareTag("Player"))
         {

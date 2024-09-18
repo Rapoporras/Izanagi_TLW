@@ -772,10 +772,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 176054247}
     m_Modifications:
-    - target: {fileID: 2207580352895944526, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: _hurtboxLayer.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
     - target: {fileID: 4512373484249086022, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
       propertyPath: m_Name
       value: BasicEnemy
