@@ -8,15 +8,20 @@ public class ContactDamage : MonoBehaviour
     [Space(5)]
     [SerializeField] private int _damage;
     [SerializeField] private bool _canDamageEnemies = false;
+    [SerializeField] private LayerMask _hurtboxLayer;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!isActive) return;
+
+        if (other.gameObject.layer != _hurtboxLayer) return;
         
         if (other.CompareTag("Player"))
         {
             if (other.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
             {
+                Debug.Log($"Applying damage to: {other.name} --> {other.transform.parent.name}");
+                
                 int xDirection = (int) Mathf.Sign(other.transform.position.x - transform.position.x);
                 playerHealth.Damage(_damage, xDirection);
             }

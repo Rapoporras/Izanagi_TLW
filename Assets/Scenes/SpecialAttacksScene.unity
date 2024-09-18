@@ -772,6 +772,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 176054247}
     m_Modifications:
+    - target: {fileID: 2207580352895944526, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
+      propertyPath: _hurtboxLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 4512373484249086022, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
       propertyPath: m_Name
       value: BasicEnemy
@@ -5659,12 +5663,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5749661993784811515, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7164229126803751347, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a362fcca0212aff43925f1b48074a7c3, type: 2}
     - target: {fileID: 8252386998518686686, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
       propertyPath: m_IsActive
       value: 1

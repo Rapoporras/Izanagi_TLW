@@ -34,20 +34,25 @@ namespace Enemies.Kappa
         private static readonly int AttackHash = Animator.StringToHash("attack");
         private static readonly int IsMovingHash = Animator.StringToHash("isMoving");
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player");
             }
-            _entityHealth = GetComponent<EntityHealth>();
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            
         }
         
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            _entityHealth.AddListenerOnHit(OnHitKnockback);
+        }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
             base.OnDisable();
             _entityHealth.RemoveListenerOnHit(OnHitKnockback);
@@ -55,9 +60,6 @@ namespace Enemies.Kappa
 
         private void Start()
         {
-            _entityHealth.AddListenerOnHit(OnHitKnockback);
-            _entityHealth.AddListenerDeathEvent(() => EnemyDie());
-            
             _miniKappaBehaviourTree = new BehaviourTree.BehaviourTree("MiniKappa", Policies.RunForever);
         
             Leaf isPlayerInDetectionRadius =

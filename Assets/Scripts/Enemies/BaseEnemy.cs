@@ -13,16 +13,34 @@ public class BaseEnemy : MonoBehaviour, IDataPersistence
     
     protected EntityHealth _entityHealth;
     protected bool _isEnemyDead;
+
+
+    /// <summary>
+    /// Make sure to call base.Awake() in override if you need Awake.
+    /// </summary>
+    protected virtual void Awake()
+    {
+        _entityHealth = GetComponent<EntityHealth>();
+    }
     
+    /// <summary>
+    /// Make sure to call base.OnEnable() in override if you need OnEnable.
+    /// </summary>
+    protected virtual void OnEnable()
+    {
+        _entityHealth.AddListenerDeathEvent(EnemyDie);
+    }
+    
+    /// <summary>
+    /// Make sure to call base.OnDisable() in override if you need OnDisable.
+    /// </summary>
     protected virtual void OnDisable()
     {
-        Debug.Log("script was disabled");
-        _entityHealth.RemoveListenerDeathEvent(() => EnemyDie());
+        _entityHealth.RemoveListenerDeathEvent(EnemyDie);
     }
 
     protected void EnemyDie()
     {
-        Debug.Log("Enemy slain");
         _isEnemyDead = true;
         StartCoroutine(PlayDeathAnimation());
     }
