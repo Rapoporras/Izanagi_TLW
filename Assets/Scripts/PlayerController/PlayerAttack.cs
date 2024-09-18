@@ -37,10 +37,8 @@ namespace PlayerController
         
         private List<Collider2D> _overlappedColliders = new List<Collider2D>();
         private ContactFilter2D _attackContactFilter;
-        // private ContactFilter2D _contactFilterBreakableWall;
 
         [HideInInspector] public bool attackInput;
-        [HideInInspector] public bool wallAttackInput;
 
         public float DamageMultiplier { get; set; } = 1f;
         public bool IsGrounded => _playerMovement.IsGrounded;
@@ -68,18 +66,12 @@ namespace PlayerController
             _attackContactFilter.SetLayerMask(_hurtboxLayer | _breakableWallLayer);
             _attackContactFilter.useTriggers = true;
             
-            
-            // _contactFilterBreakableWall = new ContactFilter2D();
-            // _contactFilterBreakableWall.SetLayerMask(_breakableWallLayer);
-            
             attackInput = false;
-            wallAttackInput = false;
         }
 
         private void OnEnable()
         {
             InputManager.Instance.PlayerActions.Attack.started += Attack;
-            // InputManager.Instance.PlayerActions.WallBreaking.started += WallAttack;
             
             _movementAction = InputManager.Instance.PlayerActions.Movement;
         }
@@ -87,7 +79,6 @@ namespace PlayerController
         private void OnDisable()
         {
             InputManager.Instance.PlayerActions.Attack.started -= Attack;
-            // InputManager.Instance.PlayerActions.WallBreaking.started -= WallAttack;
         }
         #endregion
         
@@ -187,11 +178,6 @@ namespace PlayerController
         {
             _playerAnimations.SetAttackAnimation(
                 (int) _lastAttackInfo.Type, (int) _currentState.StateKey);
-        }
-
-        public void SetWallAttackAnimation()
-        {
-            _playerAnimations.SetWallAttackAnimation();
         }
 
         public void ActivateAttackWindow()

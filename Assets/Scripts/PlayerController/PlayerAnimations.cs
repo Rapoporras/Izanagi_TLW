@@ -20,7 +20,6 @@ namespace PlayerController
         private int _attackHash;
         private int _attackTypeHash;
         private int _attackComboHash;
-        private int _wallAttackHash;
 
         private int _attackWindowActiveHash;
 
@@ -47,7 +46,6 @@ namespace PlayerController
             _attackHash = Animator.StringToHash("attack");
             _attackTypeHash = Animator.StringToHash("attackType");
             _attackComboHash = Animator.StringToHash("attackCombo");
-            _wallAttackHash = Animator.StringToHash("wallAttack");
 
             _attackWindowActiveHash = Animator.StringToHash("attackWindowActive");
         }
@@ -76,22 +74,17 @@ namespace PlayerController
             _animator.SetTrigger(_attackHash);
         }
 
-        public void SetWallAttackAnimation()
-        {
-            _animator.SetTrigger(_wallAttackHash);
-        }
-
         public void SetRecoverHealthAnimation()
         {
             _animator.SetTrigger(_recoverHealthHash);
         }
 
-        public void ActivateAttackWindow()
+        public void ActivateAttackWindow() // called in animation keyframe
         {
             _animator.SetBool(_attackWindowActiveHash, true);
         }
         
-        public void DeactivateAttackWindow()
+        public void DeactivateAttackWindow() // called in animation keyframe
         {
             _animator.SetBool(_attackWindowActiveHash, false);
         }
