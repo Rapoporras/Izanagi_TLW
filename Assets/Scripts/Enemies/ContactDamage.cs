@@ -17,6 +17,8 @@ public class ContactDamage : MonoBehaviour
         {
             if (other.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
             {
+                Debug.Log($"Applying damage to: {other.name} --> {other.transform.parent.name}");
+                
                 int xDirection = (int) Mathf.Sign(other.transform.position.x - transform.position.x);
                 playerHealth.Damage(_damage, xDirection);
             }

@@ -43,15 +43,23 @@ namespace Enemies.Kappa
         private bool _isRolling;
         private bool _isChasingPlayer;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player");
             }
-            _entityHealth = GetComponent<EntityHealth>();
+            
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+        }
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            _entityHealth.AddListenerOnHit(OnHitKnockback);
         }
 
         protected override void OnDisable()
@@ -63,7 +71,6 @@ namespace Enemies.Kappa
         void Start()
         {
             _entityHealth.AddListenerOnHit(OnHitKnockback);
-            _entityHealth.AddListenerDeathEvent(() => EnemyDie());
             
             _kappaBehaviourTree = new BehaviourTree.BehaviourTree("Kappa", Policies.RunForever);
 
