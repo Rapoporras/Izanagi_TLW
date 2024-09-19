@@ -14,24 +14,24 @@ namespace SceneLoaderSystem
         // Function that will be called from a listener
         public void OnLoadMenuRequest(LoadSceneRequest request)
         {
-            if (!IsSceneAlreadyLoaded(request.Scene))
+            if (!IsSceneAlreadyLoaded(request.scene))
             {
                 // Menus are loaded instantly
-                SceneManager.LoadScene(request.Scene.sceneName);
+                SceneManager.LoadScene(request.scene.sceneName);
             }
         }
 
         // Function that will be called from a listener
         public void OnLoadLevelRequest(LoadSceneRequest request)
         {
-            if (IsSceneAlreadyLoaded(request.Scene))
+            if (IsSceneAlreadyLoaded(request.scene))
             {
                 // Level is already loaded. Activate it
                 ActivateLevel(request);
             }
             else // Level is not loaded
             {
-                if (request.LoadingScreen)
+                if (request.loadingScreen)
                 {
                     // If a loading screen is requested, then show it and wait
                     _pendingRequest = request;
@@ -64,12 +64,12 @@ namespace SceneLoaderSystem
 
         private IEnumerator ProcessLevelLoading(LoadSceneRequest request)
         {
-            if (request.Scene)
+            if (request.scene)
             {
                 var currentLoadedLevel = SceneManager.GetActiveScene();
                 SceneManager.UnloadSceneAsync(currentLoadedLevel);
 
-                AsyncOperation loadSceneProcess = SceneManager.LoadSceneAsync(request.Scene.name, LoadSceneMode.Additive);
+                AsyncOperation loadSceneProcess = SceneManager.LoadSceneAsync(request.scene.name, LoadSceneMode.Additive);
 
                 // Level is being loaded, it could take some seconds (or not). Waiting until is fully loaded
                 while (!loadSceneProcess.isDone)
@@ -85,11 +85,11 @@ namespace SceneLoaderSystem
         private void ActivateLevel(LoadSceneRequest request)
         {
             // Set active
-            var loadedLevel = SceneManager.GetSceneByName(request.Scene.name);
+            var loadedLevel = SceneManager.GetSceneByName(request.scene.name);
             SceneManager.SetActiveScene(loadedLevel);
 
             // Hide black loading screen
-            if (request.LoadingScreen)
+            if (request.loadingScreen)
             {
                 _loadingScreenUI.ToggleScreen(false);
             }

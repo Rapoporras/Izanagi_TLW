@@ -3,13 +3,13 @@
     [System.Serializable]
     public class LoadSceneRequest
     {
-        public SceneSO Scene { get; private set; }
-        public bool LoadingScreen { get; private set; }
+        public SceneSO scene;
+        public bool loadingScreen;
 
         public LoadSceneRequest(SceneSO scene, bool loadingScreen)
         {
-            Scene = scene;
-            LoadingScreen = loadingScreen;
+            this.scene = scene;
+            this.loadingScreen = loadingScreen;
         }
     }
 }

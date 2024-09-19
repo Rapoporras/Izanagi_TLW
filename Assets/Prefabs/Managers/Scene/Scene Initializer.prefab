@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecacd8789ee742949f277b0da88e3c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneDependencies:
-  - {fileID: 11400000, guid: 68de0eea82321224694efb1c09513806, type: 2}
+  _sceneDependencies: []
   _onDependenciesLoaded:
     m_PersistentCalls:
       m_Calls:
@@ -91,7 +90,7 @@ GameObject:
   m_Layer: 0
   m_Name: Default Entrance
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

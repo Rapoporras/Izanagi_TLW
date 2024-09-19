@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace CustomMenus
 {
-    
     public static class PrefabsInstantiation
     {
         #region BASE
@@ -107,35 +106,43 @@ namespace CustomMenus
         
         #region UI
         private const string DialogueCanvasPath = BasePath + "UI/Dialogue Canvas.prefab";
+        private const string LoadingScreenCanvasPath = BasePath + "UI/Loading Screen Canvas.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/UI/Dialogue Canvas", false, 0)]
         private static void CreateDialogueCanvas()
         {
             InstantiatePrefabAtPath(DialogueCanvasPath);
         }
+        
+        [MenuItem("GameObject/IzanagiTLW/UI/Loading Screen Canvas", false, 0)]
+        private static void CreateLoadingScreenCanvas()
+        {
+            InstantiatePrefabAtPath(LoadingScreenCanvasPath);
+        }
         #endregion
         
         #region MANAGERS
-        private const string DeathManagerPath = BasePath + "Managers/Death Manager.prefab";
-        private const string InputManagerPath = BasePath + "Managers/Input Manager.prefab";
-        private const string ItemManagerPath = BasePath + "Managers/Item Manager.prefab";
+        private const string DeathManagerPath = BasePath + "Managers/Gameplay/Death Manager.prefab";
+        private const string InputManagerPath = BasePath + "Managers/Gameplay/Input Manager.prefab";
+        private const string ItemManagerPath = BasePath + "Managers/Gameplay/Item Manager.prefab";
         private const string SaveManagerPath = BasePath + "Managers/Save Manager.prefab";
         private const string GameInitializerPath = BasePath + "Managers/Game Initializer.prefab";
-        private const string SceneInitializerPath = BasePath + "Managers/Scene Initializer.prefab";
+        private const string SceneInitializerPath = BasePath + "Managers/Scene/Scene Initializer.prefab";
+        private const string SceneLoaderManagerPath = BasePath + "Managers/Scene/Scene Loader Manager.prefab";
         
-        [MenuItem("GameObject/IzanagiTLW/Managers/Death Manager", false, 0)]
+        [MenuItem("GameObject/IzanagiTLW/Managers/Gameplay/Death Manager", false, 0)]
         private static void CreateDeathManager()
         {
             InstantiatePrefabAtPath(DeathManagerPath);
         }
         
-        [MenuItem("GameObject/IzanagiTLW/Managers/Input Manager", false, 0)]
+        [MenuItem("GameObject/IzanagiTLW/Managers/Gameplay/Input Manager", false, 0)]
         private static void CreateInputManager()
         {
             InstantiatePrefabAtPath(InputManagerPath);
         }
         
-        [MenuItem("GameObject/IzanagiTLW/Managers/Item Manager", false, 0)]
+        [MenuItem("GameObject/IzanagiTLW/Managers/Gameplay/Item Manager", false, 0)]
         private static void CreateItemManager()
         {
             InstantiatePrefabAtPath(ItemManagerPath);
@@ -153,10 +160,50 @@ namespace CustomMenus
             InstantiatePrefabAtPath(GameInitializerPath);
         }
         
-        [MenuItem("GameObject/IzanagiTLW/Managers/Scene Initializer", false, 0)]
+        [MenuItem("GameObject/IzanagiTLW/Managers/Scene/Scene Initializer", false, 0)]
         private static void CreateSceneInitializer()
         {
             InstantiatePrefabAtPath(SceneInitializerPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Managers/Scene/Scene Loader Manager", false, 0)]
+        private static void CreateSceneLoaderManager()
+        {
+            InstantiatePrefabAtPath(SceneLoaderManagerPath);
+        }
+        #endregion
+        
+        #region CAMERA SYSTEM
+        private const string CameraPath = BasePath + "CameraSystem/Cameras.prefab";
+        private const string LightPointPath = BasePath + "CameraSystem/LightPoint/LightPoint.prefab";
+        
+        [MenuItem("GameObject/IzanagiTLW/CameraSystem/Cameras", false, 0)]
+        private static void CreateCamera()
+        {
+            InstantiatePrefabAtPath(CameraPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/CameraSystem/LightPoint/LightPoint", false, 0)]
+        private static void CreateLightPoint()
+        {
+            InstantiatePrefabAtPath(LightPointPath);
+        }
+        #endregion
+        
+        #region LEVEL
+        private const string LevelEntrancePath = BasePath + "Level/Level Entrance.prefab";
+        private const string LevelExitPath = BasePath + "Level/Level Exit.prefab";
+        
+        [MenuItem("GameObject/IzanagiTLW/Level/Entrance", false, 0)]
+        private static void CreateLevelEntrance()
+        {
+            InstantiatePrefabAtPath(LevelEntrancePath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Level/Exit", false, 0)]
+        private static void CreateLevelExit()
+        {
+            InstantiatePrefabAtPath(LevelExitPath);
         }
         #endregion
     }

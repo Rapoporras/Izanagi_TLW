@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8066e76f3995cea49af94851db657c30, type: 3}
-  m_Name: SpecialAttackSceneFromRight
+  m_Script: {fileID: 11500000, guid: b03b7906f90747f1b5758275b43934ac, type: 3}
+  m_Name: Test1Scene
   m_EditorClassIdentifier: 
+  sceneName: Test1Scene

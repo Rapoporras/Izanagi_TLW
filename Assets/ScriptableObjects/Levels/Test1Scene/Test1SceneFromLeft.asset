@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa9a5dedfa834f9ca3740d174a66c7ba, type: 3}
-  m_Name: PlayerPath
+  m_Script: {fileID: 11500000, guid: 8066e76f3995cea49af94851db657c30, type: 3}
+  m_Name: Test1SceneFromLeft
   m_EditorClassIdentifier: 
-  levelEntrance: {fileID: 0}
+  setPlayerFacingRight: 1

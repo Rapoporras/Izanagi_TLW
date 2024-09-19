@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using PlayerController;
 using UnityEngine;
 
 namespace SceneLoaderSystem
@@ -19,8 +20,21 @@ namespace SceneLoaderSystem
             player.transform.position = entrance.transform.position;
             player.transform.parent = _playerParent.transform;
             _followCamera.Follow = player.transform;
+            
+            if (player.TryGetComponent(out PlayerMovement movement))
+            {
+                bool isMovingRight = false;
+                if (_playerPath.levelEntrance)
+                    isMovingRight = _playerPath.levelEntrance.setPlayerFacingRight;
+                
+                movement.SetDirectionToFace(isMovingRight);
+            }
 
             _playerPath.levelEntrance = null;
+            
+            // all dependencies must be loaded at this point
+            // there must be an InputManager
+            InputManager.Instance.PlayerActions.Enable();
         }
 
         private GameObject GetPlayer()
@@ -43,7 +57,7 @@ namespace SceneLoaderSystem
                 return transform.GetChild(0).transform;
             }
 
-            var levelEntrances = GameObject.FindObjectsOfType<LevelEntrance>();
+            var levelEntrances = FindObjectsOfType<LevelEntrance>();
             
             foreach (var levelEntrance in levelEntrances)
             {
