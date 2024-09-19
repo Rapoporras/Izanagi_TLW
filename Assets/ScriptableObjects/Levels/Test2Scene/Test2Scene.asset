@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03b7906f90747f1b5758275b43934ac, type: 3}
   m_Name: Test2Scene
   m_EditorClassIdentifier: 
-  sceneName: Test1Scene
+  sceneName: Test2Scene

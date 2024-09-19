@@ -1,4 +1,7 @@
-﻿using SaveSystem;
+﻿using System.Collections;
+using GameEvents;
+using SaveSystem;
+using SceneLoaderSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,15 +10,21 @@ namespace MainMenu
 {
     public class MainMenu : MonoBehaviour
     {
-        [Header("Settings")]
-        [SerializeField] private string _firstSceneName;
-
         [Header("UI")]
         [SerializeField] private Button _newGameButton;
         [SerializeField] private Button _continueGameButton;
 
-        private void Start()
+        [Header("Load Scenes")]
+        [SerializeField] private SceneSO _firstGameScene;
+        [SerializeField] private SceneSO _sceneToLoad;
+
+        [Header("Events")]
+        [SerializeField] private LoadSceneRequestEvent _loadSceneRequestEvent;
+
+        private IEnumerator Start()
         {
+            yield return new WaitForSeconds(0.1f);
+            
             if (!DataPersistenceManager.Instance.HasGameData())
             {
                 _continueGameButton.interactable = false;
@@ -24,29 +33,37 @@ namespace MainMenu
         
         public void OnNewGameClicked()
         {
-            if (string.IsNullOrEmpty(_firstSceneName))
+            if (_firstGameScene)
             {
-                Debug.LogError("There is no scene to load. Set the scene name in the inspector.");
+                DisableMenuButtons();
+                DataPersistenceManager.Instance.NewGame(_firstGameScene.sceneName);
+
+                LoadSceneRequest request = new LoadSceneRequest(_firstGameScene, true);
+                if (_loadSceneRequestEvent)
+                    _loadSceneRequestEvent.Raise(request);
             }
             else
             {
-                DisableMenuButtons();
-                DataPersistenceManager.Instance.NewGame();
-                SceneManager.LoadSceneAsync(_firstSceneName);
+                Debug.LogError("There is no scene to load. Set the SceneSO in the inspector.");
             }
         }
 
         public void OnContinueGameClicked()
         {
-            if (string.IsNullOrEmpty(_firstSceneName))
-            {
-                Debug.LogError("There is no scene to load. Set the scene name in the inspector.");
-            }
-            else
+            string sceneNameToLoad = DataPersistenceManager.Instance.gameData.lastSaveScene;
+            if (ValidSceneName(sceneNameToLoad))
             {
                 DisableMenuButtons();
                 DataPersistenceManager.Instance.LoadGame(); // initialize variables
-                SceneManager.LoadSceneAsync(_firstSceneName);
+
+                _sceneToLoad.sceneName = sceneNameToLoad;
+                LoadSceneRequest request = new LoadSceneRequest(_sceneToLoad, true);
+                if (_loadSceneRequestEvent)
+                    _loadSceneRequestEvent.Raise(request);
+            }
+            else
+            {
+                Debug.LogError($"The scene from the save file doesn't exit -> {sceneNameToLoad}");
             }
         }
 
@@ -54,6 +71,20 @@ namespace MainMenu
         {
             _newGameButton.interactable = false;
             _continueGameButton.interactable = false;
+        }
+
+        private bool ValidSceneName(string sceneName)
+        {
+            for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
+                string sceneFileName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+
+                if (sceneFileName == sceneName)
+                    return true;
+            }
+
+            return false;
         }
     }
 }
