@@ -107,6 +107,7 @@ namespace CustomMenus
         #region UI
         private const string DialogueCanvasPath = BasePath + "UI/Dialogue Canvas.prefab";
         private const string LoadingScreenCanvasPath = BasePath + "UI/Loading Screen Canvas.prefab";
+        private const string PlayerCanvasPath = BasePath + "UI/Player Canvas.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/UI/Dialogue Canvas", false, 0)]
         private static void CreateDialogueCanvas()
@@ -118,6 +119,12 @@ namespace CustomMenus
         private static void CreateLoadingScreenCanvas()
         {
             InstantiatePrefabAtPath(LoadingScreenCanvasPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/UI/Player Canvas", false, 0)]
+        private static void CreatePlayerCanvas()
+        {
+            InstantiatePrefabAtPath(PlayerCanvasPath);
         }
         #endregion
         

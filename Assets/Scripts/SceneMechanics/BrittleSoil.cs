@@ -1,13 +1,12 @@
 ﻿using SaveSystem;
 using UnityEngine;
+using Utils;
 
 namespace SceneMechanics
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    public class BrittleSoil : MonoBehaviour, IDataPersistence
+    public class BrittleSoil : IdentifiableObject, IDataPersistence
     {
-        [SerializeField, ReadOnly] private string id;
-
         private bool _eventActivated;
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -23,12 +22,6 @@ namespace SceneMechanics
             // add some effects here
             _eventActivated = true;
             gameObject.SetActive(false);
-        }
-        
-        [ContextMenu("Generate guid for id")]
-        private void GenerateGuid()
-        {
-            id = System.Guid.NewGuid().ToString();
         }
 
         public void LoadData(GameData data)

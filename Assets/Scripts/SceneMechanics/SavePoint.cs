@@ -2,7 +2,6 @@
 using SaveSystem;
 using SceneLoaderSystem;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace SceneMechanics
 {
@@ -17,6 +16,8 @@ namespace SceneMechanics
         public void Interact(Interactor interactor)
         {
             DataPersistenceManager.Instance.gameData.lastSaveScene = _currentScene.sceneName;
+            DataPersistenceManager.Instance.gameData.deadEnemies.Clear();
+            
             DataPersistenceManager.Instance.SaveGame();
             
             Debug.Log("Saving game . . .");

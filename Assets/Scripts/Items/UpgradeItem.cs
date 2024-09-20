@@ -3,14 +3,12 @@ using UnityEngine;
 using InteractionSystem;
 using SaveSystem;
 using UnityEngine.Serialization;
+using Utils;
 
 namespace Items
 {
-    public class UpgradeItem : MonoBehaviour, IInteractable, IDataPersistence
+    public class UpgradeItem : IdentifiableObject, IInteractable, IDataPersistence
     {
-        [SerializeField, ReadOnly] private string id;
-        [Space(10)]
-        
         [Header("Settings")]
         [SerializeField] private IntReference _currentItemAmount;
         [SerializeField, Min(0)] private int _amountToAdd = 1;
@@ -38,12 +36,6 @@ namespace Items
         {
             if (_collected) return;
             _interactUIText.SetActive(showUI);
-        }
-
-        [ContextMenu("Generate guid for id")]
-        private void GenerateGuid()
-        {
-            id = System.Guid.NewGuid().ToString();
         }
 
         public void LoadData(GameData data)
