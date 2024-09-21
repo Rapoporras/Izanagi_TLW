@@ -14,7 +14,7 @@ namespace Health
         public float invulnerabilityTime;
 
         [Space(10)]
-        [SerializeField] private HealthController _health;
+        [SerializeField] private HealthController _health = new HealthController();
 
         private ScreenShakeSource _screenShakeSource;
         private FlashEffect _flashEffect;
@@ -29,7 +29,8 @@ namespace Health
             _screenShakeSource = GetComponent<ScreenShakeSource>();
             _flashEffect = GetComponent<FlashEffect>();
             
-            _health = new HealthController(maxHealth);
+            // _health = new HealthController(maxHealth);
+            _health.ResetHealth(maxHealth);
         }
 
         public void Damage(int amount, bool screenShake)

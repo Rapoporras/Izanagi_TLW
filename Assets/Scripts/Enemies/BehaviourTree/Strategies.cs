@@ -48,61 +48,7 @@ namespace Enemies.BehaviourTree
         }
     }
 
-    public class PatrolStrategy : IStrategy
-    {
-        private GameObject _enemy;
-        private Transform _enemyTransform;
-        private List<Transform> _patrolPoints;
-        private float _waitTime;
-        private float _waitTimer;
-        private float _patrolSpeed;
-        private int _currentPoint;
-
-        public PatrolStrategy(GameObject enemy, List<Transform> patrolPoints, float waitTime, float patrolSpeed = 5f)
-        {
-            _enemy = enemy;
-            _enemyTransform = enemy.transform;
-            _patrolPoints = patrolPoints;
-            _waitTime = waitTime;
-            _patrolSpeed = patrolSpeed;
-            _waitTimer = _waitTime;
-        }
-        
-        public Node.Status Process()
-        {
-            DetectorEnemy detector = _enemy.GetComponent<DetectorEnemy>();
-            if (detector.IsPlayerDetected()) return Node.Status.Success;
-            if (_currentPoint == _patrolPoints.Count) return Node.Status.Success;
-            Transform targetPoint = _patrolPoints[_currentPoint];
-            float sign = Mathf.Sign(targetPoint.position.x - _enemyTransform.position.x);
-            detector.ChangeDirection(sign);
-            
-            if (Vector3.Distance(_enemyTransform.transform.position, targetPoint.transform.position) > 0.5f)
-            {
-                _enemyTransform.position = Vector3.MoveTowards(_enemyTransform.transform.position,
-                    new Vector3(targetPoint.position.x, _enemyTransform.position.y, 0), _patrolSpeed * Time.deltaTime);
-            }
-            else
-            {
-                _waitTimer -= Time.deltaTime;
-                if (_waitTimer <= 0)
-                {
-                    _currentPoint++;
-                    _waitTimer = _waitTime;
-                }
-            }
-            
-            return Node.Status.Running;
-        }
-
-        public void Reset()
-        {
-            _currentPoint = 0;
-        }
-        
-    }
-
-    public class ChaseStrategy : IStrategy
+    public class ChaseStrategyWithJump : IStrategy
     {
         private GameObject _enemy;
         private Transform _enemyTransform;
@@ -122,7 +68,7 @@ namespace Enemies.BehaviourTree
         
         
 
-        public ChaseStrategy(GameObject enemy, GameObject player, float detectionRadius, float chaseSpeed,
+        public ChaseStrategyWithJump(GameObject enemy, GameObject player, float detectionRadius, float chaseSpeed,
             float timeToStopChase, LayerMask groundLayer, float jumpForce, float areaWidth, float areaHeight)
         {
             _enemy = enemy;
@@ -193,6 +139,131 @@ namespace Enemies.BehaviourTree
         public void Reset()
         {
             _stopChaseTimer = _timeToStopChase;
+        }
+    }
+    
+    public class ChaseStrategy : IStrategy
+    {
+        private GameObject _enemy;
+        private Transform _enemyTransform;
+        private Transform _playerTransform;
+        private float _detectionRadius;
+        private float _chaseSpeed;
+        private float _timeToStopChase;
+        private float _stopChaseTimer;
+
+        private float _areaWidth;
+        private float _areaHeight;
+        
+        public ChaseStrategy(GameObject enemy, GameObject player, float detectionRadius, float chaseSpeed,
+            float timeToStopChase)
+        {
+            _enemy = enemy;
+            _enemyTransform = enemy.transform;
+            _playerTransform = player.transform;
+            _detectionRadius = detectionRadius;
+            _chaseSpeed = chaseSpeed;
+            _timeToStopChase = timeToStopChase;
+            _stopChaseTimer = _timeToStopChase;
+        }
+
+        public Node.Status Process()
+        {
+            
+            Rigidbody2D rb = _enemy.GetComponent<Rigidbody2D>();
+
+            float playerDirection = Mathf.Sign(_playerTransform.position.x - _enemyTransform.position.x);
+            
+            if (_stopChaseTimer > 0)
+            {
+                if (Vector3.Distance(_enemyTransform.position, _playerTransform.position) > _detectionRadius)
+                {
+                    // if it's out of range start decreasing timer
+                    _stopChaseTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    // if it's in range reset timer
+                    _stopChaseTimer = _timeToStopChase;
+                }
+
+                rb.velocity = new Vector2(playerDirection * _chaseSpeed, rb.velocity.y);
+
+            }
+            else
+            {
+                //chase ended, node returns
+                Debug.Log("Chase ended");
+                rb.velocity -= new Vector2(1f, 1f);
+                return Node.Status.Success;
+            }
+
+            return Node.Status.Running;
+        }
+
+        public void Reset()
+        {
+            _stopChaseTimer = _timeToStopChase;
+        }
+    }
+
+    public class RollStrategy : IStrategy
+    {
+        
+        private Transform _enemyTransform;
+        private Transform _playerTransform;
+        private float _goalDirection;
+        private Vector2 _goalPosition;
+        private float _rollingSpeed;
+        private float _rollingDistance;
+
+        private bool _isRollCalculated;
+        
+        private Rigidbody2D _rb;
+
+        public RollStrategy(GameObject enemy, GameObject player, float rollingSpeed, float rollingDistance)
+        {
+            _enemyTransform = enemy.transform;
+            _playerTransform = player.transform;
+            _rollingSpeed = rollingSpeed;
+            _rollingDistance = rollingDistance;
+            
+            _rb = enemy.GetComponent<Rigidbody2D>();
+        }
+
+        public Node.Status Process()
+        {
+            if (!_isRollCalculated)
+            {
+                Vector2 enemyPosition = _enemyTransform.position;
+                _goalDirection = Mathf.Sign(_playerTransform.position.x - enemyPosition.x);
+                _goalPosition =
+                    new Vector2(enemyPosition.x + (_rollingDistance * _goalDirection), enemyPosition.y);
+                _isRollCalculated = true;
+            }
+            
+            if (_goalDirection > 0 && _enemyTransform.localScale.x > 0)
+            {
+                _enemyTransform.localScale = new Vector2(-_enemyTransform.localScale.x, _enemyTransform.localScale.y);
+            } else if (_goalDirection < 0 && _enemyTransform.localScale.x < 0)
+            {
+                _enemyTransform.localScale = new Vector2(-_enemyTransform.localScale.x, _enemyTransform.localScale.y);
+            }
+            
+            _rb.velocity = new Vector2(_goalDirection * _rollingSpeed, _rb.velocity.y);
+
+            if (Mathf.Abs(_goalPosition.x - _enemyTransform.position.x) <= 0.2f)
+            {
+                _rb.velocity = Vector2.zero;
+                return Node.Status.Success;
+            }
+            
+            return Node.Status.Running;
+        }
+
+        public void Reset()
+        {
+            _isRollCalculated = false;
         }
     }
 }

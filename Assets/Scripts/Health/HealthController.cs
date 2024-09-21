@@ -12,6 +12,13 @@ namespace Health
         public event Action OnDeathEvent = delegate { };
         public event Action OnHealthUpdated = delegate { };
 
+        public HealthController()
+        {
+            // default values
+            MaxHealth = 1;
+            CurrentHealth = 1;
+        }
+        
         public HealthController(int maxHealth)
         {
             MaxHealth = maxHealth;
@@ -36,6 +43,16 @@ namespace Health
         public void Recover(int amount)
         {
             UpdateHealth(amount);
+        }
+
+        /// <summary>
+        /// Reset MaxHealth and CurrentHealth with the new value
+        /// </summary>
+        /// <param name="newMaxHealth">New health value</param>
+        public void ResetHealth(int newMaxHealth)
+        {
+            MaxHealth = newMaxHealth;
+            CurrentHealth = newMaxHealth;
         }
     }
 }

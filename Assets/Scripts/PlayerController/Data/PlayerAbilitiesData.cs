@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using PlayerController.Abilities;
 using UnityEngine;
 
@@ -58,6 +60,20 @@ namespace PlayerController.Data
                 default:
                     return false;
             }
+        }
+
+        public List<int> GetAbilitiesList()
+        {
+            List<int> unlockedAbilities = new List<int>();
+            AbilityType[] abilities = (AbilityType[])Enum.GetValues(typeof(AbilityType));
+
+            foreach (var ability in abilities)
+            {
+                if (IsAbilityUnlock(ability))
+                    unlockedAbilities.Add((int) ability);
+            }
+            
+            return unlockedAbilities;
         }
     }
 }

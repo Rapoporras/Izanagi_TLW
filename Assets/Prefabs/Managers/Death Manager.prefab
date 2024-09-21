@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4819123178013451028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8067348367134318487}
+  - component: {fileID: 2543437222017630867}
+  - component: {fileID: 3942364818169680972}
+  m_Layer: 0
+  m_Name: Death Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8067348367134318487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819123178013451028}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2543437222017630867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819123178013451028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c516e24f94074cb198eeb81b9306b093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerManna:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: b1dbc2e366f255a49968aeadeeb94369, type: 2}
+    componentValue: {fileID: 0}
+  _playerHealth:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
+    componentValue: {fileID: 0}
+  _playerMaxHealth:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: cdf76693782567042be1e72ac46a828e, type: 2}
+    componentValue: {fileID: 0}
+  _playerPotions:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: 5c3764712534c4b49b41d3a4565151a3, type: 2}
+    componentValue: {fileID: 0}
+  _playerMaxPotions:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: 545d094ae96d0264ba9012e3d446b339, type: 2}
+    componentValue: {fileID: 0}
+--- !u!114 &3942364818169680972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819123178013451028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e805b8814a055994ca46ec2bc84a3dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 444dc0c36f0617c4baabd78362ab082d, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2543437222017630867}
+        m_TargetAssemblyTypeName: DeathManager, Assembly-CSharp
+        m_MethodName: ResetScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
