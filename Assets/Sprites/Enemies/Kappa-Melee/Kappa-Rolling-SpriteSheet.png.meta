@@ -1,0 +1,994 @@
+fileFormatVersion: 2
+guid: d7b8bae913dde8d418995bb439a952b2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 7186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f372d3e889994a4a992ca24b22b3fae
+      internalID: 1108416517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 7186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15664fbd0037fdd44928fa58a089bb99
+      internalID: -2010850173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 7186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66419d5f76089fa4491649a8fdccb76d
+      internalID: -1017219214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 7186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fa052c70b6d474784bea7db42409bf
+      internalID: -883591231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 4100
+        y: 7186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f529b2897d5fa49aaa2456561134cd
+      internalID: 649795824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 7186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4309d438d3a07d3449376bcd9e543aae
+      internalID: 1358058996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 6100
+        y: 7186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54852278d4a31d0468edb0bd24503ff5
+      internalID: 333929168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 7100
+        y: 7186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3cb1b6f0aec9b4ab950a4d1a816e17
+      internalID: 805447231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 6186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229a6c445c3686d4aa5a5fbbb16e4ed5
+      internalID: 291804958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 6186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83442fa5eb37c004388419723b562411
+      internalID: -975126790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 6186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f252616b3e270e4478ff4a13a8cc9694
+      internalID: -1469153839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 6186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c8e53e6820ed74f9b057979c28aed3
+      internalID: -984715276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 4100
+        y: 6186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42cd4250486d0a46ba41d5ebcb5f4b3
+      internalID: -1769626310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 6186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0214418108104ff4ba3ed331f1f0fc73
+      internalID: 2097095440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 6100
+        y: 6186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235e382c4f703064bb185897ecf2cc63
+      internalID: -110283657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 7100
+        y: 6186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b45dfca7aefe1b6428dccf5f8767bede
+      internalID: -514595841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 5186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4362d5c87fbde3d4388686a1a8fb61e1
+      internalID: 699906606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 5186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 301103f9e62f74b42b31fb75a8acf7e8
+      internalID: -1327208111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 5186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb15b7b5e961b5e438c3f2aa8885a5ea
+      internalID: 630289610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 5186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193b6ac8668ae954398def0698295be5
+      internalID: -639929867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 4100
+        y: 5186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ec33d9dc4335a4f8bc741452c457ec
+      internalID: -410709313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 5186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3deaa722a73a3a4abf66a25cd4c231d
+      internalID: 1067936928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 6100
+        y: 5186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba1a7647cdbca3478bc2ce4d824f3b4
+      internalID: 430066825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 7100
+        y: 5186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64201f671b6e2e14f9c5814a00f5f32c
+      internalID: -1540922820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 4186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4153581d0155f2a4a936c724ffded14b
+      internalID: 1769140729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 4186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5b038506a952247af601d99de2b5b4
+      internalID: -169952649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 4186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f65bec83ca8a74899919fc0a4b391c
+      internalID: 140896679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 4186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267d3c2acb2cd6c41b9c57f39aed6b0b
+      internalID: 251157530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 4100
+        y: 4186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9717a1ae59d5434e95b52fbcbfa7250
+      internalID: 146778680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 4186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46678d6e5c0cc64fa03368d828f6dfc
+      internalID: 145498707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 6100
+        y: 4186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e8e970a4c05fe144bde4f0fdba356ed
+      internalID: -1319731613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 7100
+        y: 4186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e8a1e919da79724488569e936da93ac
+      internalID: -1793957856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 3186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47709dc11309c4149b89e204b0e7db7c
+      internalID: 207581635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 3186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7703ea9680d27eb43a32a51b057035b0
+      internalID: -205575964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 3186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de03e649335870f4f80bcb06b8ca8951
+      internalID: -867561774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 3186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ca3b43fd217ba4591dba5fa8798d27
+      internalID: 1175895098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 4100
+        y: 3186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f69e6d9211119e4ca682f0d6960c9f8
+      internalID: 639061692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 3186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b47cf1fece8f04419a3e4380276728c
+      internalID: -1319320341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 6100
+        y: 3186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3399f5ac4564ff459d63185c4846cd9
+      internalID: -731996970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Rolling-SpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 7100
+        y: 3186
+        width: 1000
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6683b0927400954d88751fffb820bac
+      internalID: -1536655819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Kappa-Rolling-SpriteSheet_0: 1108416517
+      Kappa-Rolling-SpriteSheet_1: -2010850173
+      Kappa-Rolling-SpriteSheet_10: -1469153839
+      Kappa-Rolling-SpriteSheet_11: -984715276
+      Kappa-Rolling-SpriteSheet_12: -1769626310
+      Kappa-Rolling-SpriteSheet_13: 2097095440
+      Kappa-Rolling-SpriteSheet_14: -110283657
+      Kappa-Rolling-SpriteSheet_15: -514595841
+      Kappa-Rolling-SpriteSheet_16: 699906606
+      Kappa-Rolling-SpriteSheet_17: -1327208111
+      Kappa-Rolling-SpriteSheet_18: 630289610
+      Kappa-Rolling-SpriteSheet_19: -639929867
+      Kappa-Rolling-SpriteSheet_2: -1017219214
+      Kappa-Rolling-SpriteSheet_20: -410709313
+      Kappa-Rolling-SpriteSheet_21: 1067936928
+      Kappa-Rolling-SpriteSheet_22: 430066825
+      Kappa-Rolling-SpriteSheet_23: -1540922820
+      Kappa-Rolling-SpriteSheet_24: 1769140729
+      Kappa-Rolling-SpriteSheet_25: -169952649
+      Kappa-Rolling-SpriteSheet_26: 140896679
+      Kappa-Rolling-SpriteSheet_27: 251157530
+      Kappa-Rolling-SpriteSheet_28: 146778680
+      Kappa-Rolling-SpriteSheet_29: 145498707
+      Kappa-Rolling-SpriteSheet_3: -883591231
+      Kappa-Rolling-SpriteSheet_30: -1319731613
+      Kappa-Rolling-SpriteSheet_31: -1793957856
+      Kappa-Rolling-SpriteSheet_32: 207581635
+      Kappa-Rolling-SpriteSheet_33: -205575964
+      Kappa-Rolling-SpriteSheet_34: -867561774
+      Kappa-Rolling-SpriteSheet_35: 1175895098
+      Kappa-Rolling-SpriteSheet_36: 639061692
+      Kappa-Rolling-SpriteSheet_37: -1319320341
+      Kappa-Rolling-SpriteSheet_38: -731996970
+      Kappa-Rolling-SpriteSheet_39: -1536655819
+      Kappa-Rolling-SpriteSheet_4: 649795824
+      Kappa-Rolling-SpriteSheet_5: 1358058996
+      Kappa-Rolling-SpriteSheet_6: 333929168
+      Kappa-Rolling-SpriteSheet_7: 805447231
+      Kappa-Rolling-SpriteSheet_8: 291804958
+      Kappa-Rolling-SpriteSheet_9: -975126790
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -380,6 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43a991e514b4f81a4c9037b064528bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   _currentItemAmount:
     valueType: 1
     constantValue: 0
