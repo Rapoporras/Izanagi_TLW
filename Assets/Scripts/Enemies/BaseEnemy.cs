@@ -2,18 +2,15 @@ using System.Collections;
 using Health;
 using SaveSystem;
 using UnityEngine;
+using Utils;
 
-public class BaseEnemy : MonoBehaviour, IDataPersistence
+public class BaseEnemy : IdentifiableObject, IDataPersistence
 {
-    [SerializeField, ReadOnly] private string id;
-    [Space(10)]
-    
     [Header("Spawn Settings")]
     [SerializeField] private bool _alwaysRespawn;
     
     protected EntityHealth _entityHealth;
     protected bool _isEnemyDead;
-
 
     /// <summary>
     /// Make sure to call base.Awake() in override if you need Awake.
@@ -49,12 +46,6 @@ public class BaseEnemy : MonoBehaviour, IDataPersistence
     {
         yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
-    }
-    
-    [ContextMenu("Generate guid for id")]
-    private void GenerateGuid()
-    {
-        id = System.Guid.NewGuid().ToString();
     }
 
     public void LoadData(GameData data)

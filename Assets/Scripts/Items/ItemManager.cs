@@ -20,17 +20,17 @@ namespace Items
         [SerializeField] private IntReference _playerCurrentHealth;
         [Space(5)]
         [SerializeField] private FloatReference _attackMultiplier;
-        
-        public static ItemManager Instance { get; private set; }
+
+        private static ItemManager _instance;
 
         private void Awake()
         {
-            if (Instance == null)
+            if (_instance == null)
             {
-                Instance = this;
-                DontDestroyOnLoad(this);
+                _instance = this;
+                // DontDestroyOnLoad(this);
             }
-            else if (Instance != this)
+            else if (_instance != this)
             {
                 Destroy(gameObject);
             }

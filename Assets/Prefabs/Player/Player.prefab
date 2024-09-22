@@ -766,7 +766,6 @@ MonoBehaviour:
     m_Bits: 64
   _attackArea: {fileID: 5048390860225983703}
   attackInput: 0
-  wallAttackInput: 0
 --- !u!114 &3085501486090063315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,7 +1002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7586405278329656608
 Transform:
   m_ObjectHideFlags: 0
