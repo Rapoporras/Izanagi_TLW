@@ -37,6 +37,7 @@ namespace MainMenu
             {
                 DisableMenuButtons();
                 DataPersistenceManager.Instance.NewGame(_firstGameScene.sceneName);
+                DataPersistenceManager.Instance.LoadGame(); // initialize variables with default values
 
                 LoadSceneRequest request = new LoadSceneRequest(_firstGameScene, true);
                 if (_loadSceneRequestEvent)
@@ -50,11 +51,11 @@ namespace MainMenu
 
         public void OnContinueGameClicked()
         {
-            string sceneNameToLoad = DataPersistenceManager.Instance.gameData.lastSaveScene;
+            string sceneNameToLoad = DataPersistenceManager.Instance.GetGameData().lastSaveScene;
             if (ValidSceneName(sceneNameToLoad))
             {
                 DisableMenuButtons();
-                DataPersistenceManager.Instance.LoadGame(); // initialize variables
+                DataPersistenceManager.Instance.LoadGame(); // initialize variables with saved data
 
                 _sceneToLoad.sceneName = sceneNameToLoad;
                 LoadSceneRequest request = new LoadSceneRequest(_sceneToLoad, true);

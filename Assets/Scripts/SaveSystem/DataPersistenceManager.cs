@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace SaveSystem
 {
@@ -12,7 +11,7 @@ namespace SaveSystem
         
         private List<IDataPersistence> _dataPersistenceObjects = new List<IDataPersistence>();
         private FileDataHandler _dataHandler;
-
+        
         public GameData gameData;
         public static DataPersistenceManager Instance { get; private set; }
 
@@ -31,28 +30,17 @@ namespace SaveSystem
             _dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         }
 
-        private void OnEnable()
-        {
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        
-        private void OnDisable()
-        {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
+        // private void OnApplicationQuit()
+        // {
+        //     SaveGame();
+        // }
 
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        public void OnSceneLoaded() // called from listener
         {
             _dataPersistenceObjects = FindAllDataPersistenceObjects();
             LoadGame();
-            SaveGame();
         }
-
-        private void OnApplicationQuit()
-        {
-            SaveGame();
-        }
-
+        
         private List<IDataPersistence> FindAllDataPersistenceObjects()
         {
             IEnumerable<IDataPersistence> dataPersistenceObjects = 
@@ -65,7 +53,7 @@ namespace SaveSystem
         {
             gameData = new GameData();
             gameData.lastSaveScene = firstSceneName;
-            SaveGame();
+            _dataHandler.Save(gameData);
         }
 
         public void LoadGame()
@@ -108,6 +96,11 @@ namespace SaveSystem
         public bool HasGameData()
         {
             return _dataHandler.ExistsFile();
+        }
+
+        public GameData GetGameData()
+        {
+            return _dataHandler.Load();
         }
     }
 }

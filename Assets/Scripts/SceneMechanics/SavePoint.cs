@@ -16,7 +16,7 @@ namespace SceneMechanics
         public void Interact(Interactor interactor)
         {
             DataPersistenceManager.Instance.gameData.lastSaveScene = _currentScene.sceneName;
-            DataPersistenceManager.Instance.gameData.deadEnemies.Clear();
+            TemporalDataManager.Instance.temporalData.EnemiesStatus.Clear();
             
             DataPersistenceManager.Instance.SaveGame();
             

@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43a991e514b4f81a4c9037b064528bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: 165ad2e3-e4a0-49ec-acdc-9c0cf008261c
   _currentItemAmount:
     valueType: 1
     constantValue: 0
@@ -388,3 +388,4 @@ MonoBehaviour:
     componentValue: {fileID: 0}
   _amountToAdd: 1
   _interactUIText: {fileID: 867247177785789771}
+  _onItemCollected: {fileID: 11400000, guid: 4614f357762765345a08e9596a60d868, type: 2}

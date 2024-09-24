@@ -75,3 +75,4 @@ MonoBehaviour:
     variableValue: {fileID: 11400000, guid: 06ed35693b2d11d4dbe368cbbb0cef6f, type: 2}
     componentValue: {fileID: 0}
   _playerAbilitiesData: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
+  _temporalData: {fileID: 11400000, guid: 96582c86cfb6c8d4cb2915e9f54e305a, type: 2}

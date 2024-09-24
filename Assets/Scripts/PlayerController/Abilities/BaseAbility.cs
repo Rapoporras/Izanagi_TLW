@@ -2,6 +2,13 @@
 
 namespace PlayerController.Abilities
 {
+    /// <summary>
+    /// <para>0 -> NoAbility</para>
+    /// <para>1 -> Fire</para>
+    /// <para>2 -> Ground</para>
+    /// <para>3 -> Air</para>
+    /// <para>4 -> Water</para>
+    /// </summary>
     public enum AbilityType
     {
         NoAbility, Fire, Ground, Air, Water

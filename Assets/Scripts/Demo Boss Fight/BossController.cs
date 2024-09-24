@@ -66,7 +66,7 @@ public class BossController : MonoBehaviour
         
         if (!_abilitiesData.IsAbilityUnlock(_abilityToUnlock))
         {
-            _abilitiesData.UnlockAbility(_abilityToUnlock);
+            _abilitiesData.SetAbilityStatus(_abilityToUnlock, true);
             if (_abilityUnlockEvent)
                 _abilityUnlockEvent.Raise(_abilityToUnlock);
         }

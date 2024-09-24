@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46885d52ad934905acdf43595e9a007c, type: 3}
-  m_Name: PlayerMaxHealth
+  m_Script: {fileID: 11500000, guid: a69148401d60aa34c932f06ebf2c2e75, type: 3}
+  m_Name: OnLevelLoadedEvent
   m_EditorClassIdentifier: 
-  _developerDescription: 
-  _value: 200

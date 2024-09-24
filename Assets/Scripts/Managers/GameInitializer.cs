@@ -1,4 +1,5 @@
-﻿using GlobalVariables;
+﻿using System.Collections.Generic;
+using GlobalVariables;
 using PlayerController.Abilities;
 using PlayerController.Data;
 using SaveSystem;
@@ -19,8 +20,17 @@ namespace Managers
         [SerializeField] private IntReference _attackItemAmount;
         [SerializeField] private IntReference _healthItemAmount;
 
+        [Header("Manna Variables")]
+        [SerializeField] private IntReference _currentManna;
+
+        [Header("Player Attack")]
+        [SerializeField] private FloatReference _attackMultiplier;
+
         [Header("Player Data")]
         [SerializeField] private PlayerAbilitiesData _playerAbilitiesData;
+
+        [Header("Temporal Data")]
+        [SerializeField] private TemporalDataSO _temporalData;
 
         private static GameInitializer _instance;
         private bool _variablesLoaded;
@@ -50,13 +60,18 @@ namespace Managers
             
             _attackItemAmount.Value = data.variables.attackItemAmount;
             _healthItemAmount.Value = data.variables.healthItemAmount;
-            
-            foreach (var ability in data.abilitiesUnlocked)
+
+            _currentManna.Value = 0;
+
+            _attackMultiplier.Value = data.variables.attackMultiplier;
+
+            List<int> abilities = _playerAbilitiesData.GetAbilitiesList();
+            foreach (var ability in abilities)
             {
-                _playerAbilitiesData.UnlockAbility((AbilityType) ability);
+                _playerAbilitiesData.SetAbilityStatus((AbilityType) ability, data.abilitiesUnlocked.Contains(ability));
             }
 
-            data.deadEnemies.Clear();
+            _temporalData.Clear();
             
             _variablesLoaded = true;
         }
@@ -68,6 +83,8 @@ namespace Managers
             
             data.variables.attackItemAmount = _attackItemAmount;
             data.variables.healthItemAmount = _healthItemAmount;
+
+            data.variables.attackMultiplier = Mathf.Round(_attackMultiplier * 100f) / 100f;
 
             data.abilitiesUnlocked = _playerAbilitiesData.GetAbilitiesList();
         }

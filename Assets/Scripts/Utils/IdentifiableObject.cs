@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -7,7 +8,7 @@ namespace Utils
 {
     public abstract class IdentifiableObject : MonoBehaviour
     {
-        [SerializeField, ReadOnly] protected string id;
+        [ReadOnly] public string id;
 
         /// <summary>
         /// Make sure to call base.OnValidate() in override if you need OnValidate.
@@ -15,9 +16,29 @@ namespace Utils
         protected virtual void OnValidate()
         {
             #if UNITY_EDITOR
-            if (string.IsNullOrEmpty(id) && !PrefabUtility.IsPartOfPrefabAsset(gameObject))
+            if (!PrefabUtility.IsPartOfPrefabAsset(gameObject) && !Application.isPlaying)
             {
-                GenerateGuid();
+                // creating a new object
+                if (string.IsNullOrEmpty(id))
+                {
+                    GenerateGuid();
+                }
+                // duplicating object in scene
+                else
+                {
+                    
+                    var identifiableObjects = FindObjectsOfType<IdentifiableObject>();
+                    var ids = identifiableObjects
+                        .Where(obj => obj != this)
+                        .Select(obj => obj.id)
+                        .ToList();
+                    
+                    // avoid having same id when duplicating object
+                    while (ids.Contains(id))
+                    {
+                        GenerateGuid();
+                    }
+                }
             }
             #endif
         }

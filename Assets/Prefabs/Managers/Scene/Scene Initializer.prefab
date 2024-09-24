@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneDependencies: []
+  _onSceneLoadedEvent: {fileID: 11400000, guid: 4fb60be405cea0648a17ba464a82bfd8, type: 2}
   _onDependenciesLoaded:
     m_PersistentCalls:
       m_Calls:
