@@ -33,14 +33,12 @@ namespace Managers
         [SerializeField] private TemporalDataSO _temporalData;
 
         private static GameInitializer _instance;
-        private bool _variablesLoaded;
 
         private void Awake()
         {
             if (_instance == null)
             {
                 _instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             else if (_instance != this)
             {
@@ -50,8 +48,6 @@ namespace Managers
 
         public void LoadData(GameData data)
         {
-            if (_variablesLoaded) return;
-            
             _playerMaxHealth.Value = data.variables.maxHealth;
             _playerCurrentHealth.Value = data.variables.maxHealth;
             
@@ -72,21 +68,9 @@ namespace Managers
             }
 
             _temporalData.Clear();
-            
-            _variablesLoaded = true;
         }
 
-        public void SaveData(ref GameData data)
-        {
-            data.variables.maxHealth = _playerMaxHealth;
-            data.variables.maxPotions = _playerMaxPotions;
-            
-            data.variables.attackItemAmount = _attackItemAmount;
-            data.variables.healthItemAmount = _healthItemAmount;
-
-            data.variables.attackMultiplier = Mathf.Round(_attackMultiplier * 100f) / 100f;
-
-            data.abilitiesUnlocked = _playerAbilitiesData.GetAbilitiesList();
-        }
+        // don't need to save any data
+        public void SaveData(ref GameData data) { }
     }
 }

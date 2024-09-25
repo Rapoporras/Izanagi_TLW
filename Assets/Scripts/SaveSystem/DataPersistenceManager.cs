@@ -12,7 +12,7 @@ namespace SaveSystem
         private List<IDataPersistence> _dataPersistenceObjects = new List<IDataPersistence>();
         private FileDataHandler _dataHandler;
         
-        public GameData gameData;
+        [HideInInspector] public GameData gameData;
         public static DataPersistenceManager Instance { get; private set; }
 
         private void Awake()

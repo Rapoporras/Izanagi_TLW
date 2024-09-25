@@ -31,6 +31,7 @@ namespace SceneLoaderSystem
             {
                 if (request.loadingScreen)
                 {
+                    Debug.Log($"Load level: {request.scene.sceneName}");
                     _pendingRequest = request;
                     _loadingScreenUI.ToggleScreen(true);
                 }

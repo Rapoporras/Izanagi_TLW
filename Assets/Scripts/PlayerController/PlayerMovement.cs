@@ -37,7 +37,7 @@ namespace PlayerController
         private float _lastKnockBackSpeed;
         #endregion
 
-        public PlayerStates CurrentState => _currentState.StateKey;
+        public PlayerStates CurrentState => _currentState == null ? PlayerStates.Grounded : _currentState.StateKey;
         public bool HandleWallImpulse { get; private set; }
         
         #region Dash Properties
