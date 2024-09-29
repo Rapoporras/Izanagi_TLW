@@ -58,10 +58,7 @@ public class MainMenu : MonoBehaviour
             _sceneToLoad.sceneName = sceneNameToLoad;
             LoadSceneRequest request = new LoadSceneRequest(_sceneToLoad, true);
             if (_loadSceneRequestEvent)
-            {
-                Debug.Log($"Load scene: {_sceneToLoad.sceneName}");
                 _loadSceneRequestEvent.Raise(request);
-            }
         }
         else
         {

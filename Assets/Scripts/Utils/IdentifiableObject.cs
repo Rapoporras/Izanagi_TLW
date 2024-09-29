@@ -18,6 +18,7 @@ namespace Utils
             #if UNITY_EDITOR
             if (!PrefabUtility.IsPartOfPrefabAsset(gameObject) && !Application.isPlaying)
             {
+                Debug.Log("hola");
                 // creating a new object
                 if (string.IsNullOrEmpty(id))
                 {
@@ -47,6 +48,12 @@ namespace Utils
         private void GenerateGuid()
         {
             id = System.Guid.NewGuid().ToString();
+        }
+        
+        [ContextMenu("Clear object id")]
+        private void ClearGuid()
+        {
+            id = string.Empty;
         }
     }
 }
