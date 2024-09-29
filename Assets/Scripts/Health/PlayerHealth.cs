@@ -51,11 +51,11 @@ namespace Health
             _screenShakeSource = GetComponent<ScreenShakeSource>();
         }
 
-        private void Start()
-        {
-            _currentHealth.Value = _maxHealth.Value;
-            _potionsAmount.Value = Mathf.Clamp(_potionsAmount.Value, 0, _maxPotionsAmount.Value);
-        }
+        // private void Start()
+        // {
+        //     _currentHealth.Value = _maxHealth.Value;
+        //     _potionsAmount.Value = Mathf.Clamp(_potionsAmount.Value, 0, _maxPotionsAmount.Value);
+        // }
 
         private void OnEnable()
         {

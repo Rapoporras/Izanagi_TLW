@@ -1,8 +1,8 @@
-﻿using GlobalVariables;
+﻿using GameEvents;
+using GlobalVariables;
 using UnityEngine;
 using InteractionSystem;
 using SaveSystem;
-using UnityEngine.Serialization;
 using Utils;
 
 namespace Items
@@ -13,9 +13,11 @@ namespace Items
         [SerializeField] private IntReference _currentItemAmount;
         [SerializeField, Min(0)] private int _amountToAdd = 1;
 
-        [FormerlySerializedAs("_interactText")]
         [Header("UI")]
         [SerializeField] private GameObject _interactUIText;
+
+        [Header("Events")]
+        [SerializeField] private IntEvent _onItemCollected;
 
         private bool _collected;
         
@@ -28,8 +30,11 @@ namespace Items
             
             _collected = true;
             
+            if (_onItemCollected)
+                _onItemCollected.Raise(_currentItemAmount.Value);
+            
             // add here some animation
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         public void ShowInteractionUI(bool showUI)

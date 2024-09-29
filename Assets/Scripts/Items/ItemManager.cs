@@ -28,7 +28,6 @@ namespace Items
             if (_instance == null)
             {
                 _instance = this;
-                // DontDestroyOnLoad(this);
             }
             else if (_instance != this)
             {
@@ -36,34 +35,24 @@ namespace Items
             }
         }
 
-        private void OnEnable()
+        public void UpdateHealthData(int amount) // called from listener
         {
-            _healthItems.AddListener(UpdateHealthData);
-            _attackItems.AddListener(UpdateAttackData);
-        }
-
-        private void OnDisable()
-        {
-            _healthItems.RemoveListener(UpdateHealthData);
-            _attackItems.RemoveListener(UpdateAttackData);
-        }
-
-        private void UpdateHealthData(int amount)
-        {
-            if (amount % _healthItemsAmountToUpgrade == 0)
+            if (amount >= _healthItemsAmountToUpgrade)
             {
-                // upgrade health
                 _playerMaxHealth.Value += _healthAmountToAdd;
                 _playerCurrentHealth.Value = _playerMaxHealth;
+
+                _healthItems.Value -= _healthItemsAmountToUpgrade;
             }
         }
         
-        private void UpdateAttackData(int amount)
+        public void UpdateAttackData(int amount) // called from listener
         {
-            if (amount % _attackItemsAmountToUpgrade == 0)
+            if (amount >= _attackItemsAmountToUpgrade)
             {
-                // upgrade attack
                 _attackMultiplier.Value += _attackMultiplierToAdd;
+
+                _attackItems.Value -= _attackItemsAmountToUpgrade;
             }
         }
     }

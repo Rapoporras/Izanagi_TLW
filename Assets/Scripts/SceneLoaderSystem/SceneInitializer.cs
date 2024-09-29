@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using GameEvents;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ namespace SceneLoaderSystem
     {
         [Header("Dependencies")]
         [SerializeField] private SceneSO[] _sceneDependencies;
+        [SerializeField] private VoidEvent _onSceneLoadedEvent;
 
         [Header("On Scene Ready")]
         [SerializeField] private UnityEvent _onDependenciesLoaded;
@@ -34,6 +36,9 @@ namespace SceneLoaderSystem
             }
 
             _onDependenciesLoaded?.Invoke();
+            
+            if (_onSceneLoadedEvent)
+                _onSceneLoadedEvent.Raise();
         }
     }
 }

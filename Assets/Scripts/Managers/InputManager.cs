@@ -34,10 +34,12 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerActions.Enable();
+        UIActions.Enable();
     }
     
     private void OnDisable()
     {
         PlayerActions.Disable();
+        UIActions.Disable();
     }
 }

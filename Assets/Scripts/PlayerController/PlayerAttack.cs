@@ -13,7 +13,7 @@ namespace PlayerController
     {
         [field: Header("Data")]
         [field: SerializeField] public PlayerAttackData AttackData { get; private set; }
-        [SerializeField] private PlayerAbilitiesData _abilitiesData;
+        // [SerializeField] private PlayerAbilitiesData _abilitiesData;
 
         [Header("Manna")]
         [SerializeField] private IntReference _currentManna;
@@ -40,7 +40,7 @@ namespace PlayerController
 
         [HideInInspector] public bool attackInput;
 
-        public float DamageMultiplier { get; set; } = 1f;
+        public float AttackAirBoost { get; set; } = 1f;
         public bool IsGrounded => _playerMovement.IsGrounded;
         private bool IsAttacking => _currentState.StateKey != PlayerAttackStates.NotAttacking;
         private bool AttackWindowActive => _playerAnimations.AttackWindowActive;
@@ -121,7 +121,7 @@ namespace PlayerController
                 {
                     if (!entityHealth.IsInvulnerable && entityHealth.damageable)
                     {
-                        int damage = Mathf.CeilToInt(AttackData.attackDamage * AttackData.attackMultiplier * DamageMultiplier);
+                        int damage = Mathf.CeilToInt(AttackData.AttackDamage * AttackAirBoost);
                         entityHealth.Damage(damage, true);
                         UpdateMannaPoints(_mannaPerAttack);
                     }

@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43a991e514b4f81a4c9037b064528bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: acbb1282-b2d4-4933-b904-58d096283045
   _currentItemAmount:
     valueType: 1
     constantValue: 0
@@ -286,6 +286,7 @@ MonoBehaviour:
     componentValue: {fileID: 0}
   _amountToAdd: 1
   _interactUIText: {fileID: 2156632478255155180}
+  _onItemCollected: {fileID: 11400000, guid: 76109a046aa56d14d9ff8ebb4be41ef7, type: 2}
 --- !u!1 &7829389262154523894
 GameObject:
   m_ObjectHideFlags: 0

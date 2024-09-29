@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: PlayerAttackData
   m_EditorClassIdentifier: 
   angleDirectionOffset: 30
-  attackDamage: 10
+  baseAttackDamage: 10
   attackMultiplier:
-    valueType: 0
+    valueType: 1
     constantValue: 1
-    variableValue: {fileID: 0}
+    variableValue: {fileID: 11400000, guid: 0ad98a406c656c7419bf3a27b50edaa8, type: 2}
     componentValue: {fileID: 0}
   attackEntryDuration: 0.4
   attackMiddleDuration: 0.4
   attackFinisherDuration: 0.4
-  wallAttackDuration: 0.4
