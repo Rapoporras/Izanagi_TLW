@@ -23,24 +23,24 @@ namespace PlayerController.Data
         public bool wallImpulse;
         public bool waterAbility;
 
-        public void UnlockAbility(AbilityType type)
+        public void SetAbilityStatus(AbilityType type, bool unlocked)
         {
             switch (type)
             {
                 case AbilityType.Air:
-                    airDash = true;
-                    airAbility = true;
+                    airDash = unlocked;
+                    airAbility = unlocked;
                     break;
                 case AbilityType.Fire:
-                    doubleJump = true;
-                    fireAbility = true;
+                    doubleJump = unlocked;
+                    fireAbility = unlocked;
                     break;
                 case AbilityType.Ground:
-                    groundAbility = true;
+                    groundAbility = unlocked;
                     break;
                 case AbilityType.Water:
-                    wallImpulse = true;
-                    waterAbility = true;
+                    wallImpulse = unlocked;
+                    waterAbility = unlocked;
                     break;
             }
         }

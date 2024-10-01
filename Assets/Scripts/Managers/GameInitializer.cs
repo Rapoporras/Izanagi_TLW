@@ -1,4 +1,5 @@
-﻿using GlobalVariables;
+﻿using System.Collections.Generic;
+using GlobalVariables;
 using PlayerController.Abilities;
 using PlayerController.Data;
 using SaveSystem;
@@ -19,18 +20,25 @@ namespace Managers
         [SerializeField] private IntReference _attackItemAmount;
         [SerializeField] private IntReference _healthItemAmount;
 
+        [Header("Manna Variables")]
+        [SerializeField] private IntReference _currentManna;
+
+        [Header("Player Attack")]
+        [SerializeField] private FloatReference _attackMultiplier;
+
         [Header("Player Data")]
         [SerializeField] private PlayerAbilitiesData _playerAbilitiesData;
 
+        [Header("Temporal Data")]
+        [SerializeField] private TemporalDataSO _temporalData;
+
         private static GameInitializer _instance;
-        private bool _variablesLoaded;
 
         private void Awake()
         {
             if (_instance == null)
             {
                 _instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             else if (_instance != this)
             {
@@ -40,8 +48,6 @@ namespace Managers
 
         public void LoadData(GameData data)
         {
-            if (_variablesLoaded) return;
-            
             _playerMaxHealth.Value = data.variables.maxHealth;
             _playerCurrentHealth.Value = data.variables.maxHealth;
             
@@ -50,26 +56,21 @@ namespace Managers
             
             _attackItemAmount.Value = data.variables.attackItemAmount;
             _healthItemAmount.Value = data.variables.healthItemAmount;
-            
-            foreach (var ability in data.abilitiesUnlocked)
+
+            _currentManna.Value = 0;
+
+            _attackMultiplier.Value = data.variables.attackMultiplier;
+
+            List<int> abilities = _playerAbilitiesData.GetAbilitiesList();
+            foreach (var ability in abilities)
             {
-                _playerAbilitiesData.UnlockAbility((AbilityType) ability);
+                _playerAbilitiesData.SetAbilityStatus((AbilityType) ability, data.abilitiesUnlocked.Contains(ability));
             }
 
-            data.deadEnemies.Clear();
-            
-            _variablesLoaded = true;
+            _temporalData.Clear();
         }
 
-        public void SaveData(ref GameData data)
-        {
-            data.variables.maxHealth = _playerMaxHealth;
-            data.variables.maxPotions = _playerMaxPotions;
-            
-            data.variables.attackItemAmount = _attackItemAmount;
-            data.variables.healthItemAmount = _healthItemAmount;
-
-            data.abilitiesUnlocked = _playerAbilitiesData.GetAbilitiesList();
-        }
+        // don't need to save any data
+        public void SaveData(ref GameData data) { }
     }
 }

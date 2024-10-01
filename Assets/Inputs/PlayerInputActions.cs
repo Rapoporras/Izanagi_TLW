@@ -738,6 +738,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""4c528cde-0c66-4420-b9ff-65475a6495be"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""Gamepad"",
                     ""id"": ""09abe2b6-123b-4298-8b51-89e8c951a989"",
                     ""path"": ""2DVector"",
