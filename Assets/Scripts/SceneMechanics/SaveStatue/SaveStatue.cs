@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using GlobalVariables;
 using InteractionSystem;
+using PlayerController;
+using PlayerController.Data;
 using SaveSystem;
 using SceneLoaderSystem;
 using UnityEngine;
 
-namespace SceneMechanics
+namespace SceneMechanics.SaveStatue
 {
-    public class SavePoint : MonoBehaviour, IInteractable
+    public class SaveStatue : MonoBehaviour, IInteractable, IDataPersistence
     {
         [Header("Health Variables")]
         [SerializeField] private IntReference _playerMaxHealth;
@@ -22,6 +24,12 @@ namespace SceneMechanics
         [Header("UI")]
         [SerializeField] private GameObject _interactUIText;
 
+        [Header("Abilities Data")]
+        [SerializeField] private PlayerAbilitiesData _abilitiesData;
+
+        [Header("Symbols")]
+        [SerializeField] private List<AbilitySymbol> _abilitySymbols;
+
         private List<BaseEnemy> _sceneEnemies = new List<BaseEnemy>();
 
         private void Awake()
@@ -34,12 +42,13 @@ namespace SceneMechanics
             _playerCurrentHealth.Value = _playerMaxHealth;
             _playerPotionsAvailable.Value = _playerMaxPotions;
             
-            TemporalDataManager.Instance.temporalData.EnemiesStatus.Clear();
-            
             DataPersistenceManager.Instance.gameData.lastSaveScene = _currentScene.sceneName;
             DataPersistenceManager.Instance.SaveGame();
 
+            TemporalDataManager.Instance.temporalData.EnemiesStatus.Clear();
             RespawnEnemiesInScene();
+
+            ActivateSymbols();
             
             Debug.Log("Game saved . . .");
         }
@@ -63,5 +72,26 @@ namespace SceneMechanics
                 enemy.gameObject.SetActive(true);
             }
         }
+        
+        private void ActivateSymbols()
+        {
+            foreach (var symbol in _abilitySymbols)
+            {
+                if (_abilitiesData.IsAbilityUnlock(symbol.AbilityType))
+                    symbol.TurnOn();
+                else
+                    symbol.TurnOff();
+            }
+        }
+
+        public void LoadData(GameData data)
+        {
+            if (data.lastSaveScene == _currentScene.sceneName)
+            {
+                ActivateSymbols();
+            }
+        }
+
+        public void SaveData(ref GameData data) { }
     }
 }

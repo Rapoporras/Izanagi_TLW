@@ -84,6 +84,7 @@ namespace CustomMenus
         private const string BreakableWallPath = BasePath + "Scene Elements/Breakable Wall.prefab";
         private const string BrittleSoilPath = BasePath + "Scene Elements/Brittle Soil.prefab";
         private const string StalactitePath = BasePath + "Scene Elements/Stalactite.prefab";
+        private const string SaveStatuePath = BasePath + "Scene Elements/Save Statue.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/Scene Elements/Breakable Wall", false, 0)]
         private static void CreateBreakableWall()
@@ -101,6 +102,12 @@ namespace CustomMenus
         private static void CreateStalactite()
         {
             InstantiatePrefabAtPath(StalactitePath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Save Statue", false, 0)]
+        private static void CreateSaveStatue()
+        {
+            InstantiatePrefabAtPath(SaveStatuePath);
         }
         #endregion
         
