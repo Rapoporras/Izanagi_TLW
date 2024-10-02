@@ -1,0 +1,730 @@
+fileFormatVersion: 2
+guid: 7186fa7454018224183cf509881d092a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kappa-Walking_0
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 3387
+        width: 489
+        height: 641
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25126746454f9f44593761c0a7ab5b73
+      internalID: -1009149267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_1
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 3387
+        width: 489
+        height: 635
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abcb067711ef6a3438aaf78858fa69ec
+      internalID: -1037667151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_2
+      rect:
+        serializedVersion: 2
+        x: 2281
+        y: 3387
+        width: 490
+        height: 630
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ee608fc68ed38429d76b5c3af90471
+      internalID: -435925611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_3
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 3387
+        width: 488
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ec912311c8b064d998ef787d2dcc30
+      internalID: -991306482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_4
+      rect:
+        serializedVersion: 2
+        x: 3682
+        y: 3387
+        width: 489
+        height: 638
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac739a614c076a9409c5c60b98288c28
+      internalID: 668743247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_5
+      rect:
+        serializedVersion: 2
+        x: 4381
+        y: 3387
+        width: 489
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b13b998b635f66d4aa5c17fb3e483caf
+      internalID: -2077664624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_6
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 2637
+        width: 489
+        height: 648
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb93ab2ebe17e174f997387f8b033c55
+      internalID: 32923756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_7
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 2637
+        width: 488
+        height: 653
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a93b54a371445047a39800b028df273
+      internalID: 1219078552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_8
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 2637
+        width: 489
+        height: 662
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736a8273fd90ee94b851aeb7890d296a
+      internalID: 24277467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_9
+      rect:
+        serializedVersion: 2
+        x: 2281
+        y: 2637
+        width: 490
+        height: 658
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b80265c02e72514cae10b444244dd29
+      internalID: 1259788072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_10
+      rect:
+        serializedVersion: 2
+        x: 2981
+        y: 2637
+        width: 489
+        height: 649
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea46d58447e0cf6468e460c708ca5f19
+      internalID: 1160634124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_11
+      rect:
+        serializedVersion: 2
+        x: 3682
+        y: 2637
+        width: 488
+        height: 647
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c61f734a906a34c9d6e2bcfdd9d665
+      internalID: 163642235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_12
+      rect:
+        serializedVersion: 2
+        x: 4382
+        y: 2637
+        width: 489
+        height: 641
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af06a401895355c4eab92c406a10b54d
+      internalID: -1965552454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_13
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 1888
+        width: 489
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734ed24e9eede2844ad88aa5e92e4791
+      internalID: 696329880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_14
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 1888
+        width: 488
+        height: 629
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695feec12f7049242ba78c7499d4dd76
+      internalID: 1331439599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_15
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 1888
+        width: 490
+        height: 631
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cabf3e0e1416f428598d33ee6b354c
+      internalID: -880168907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_16
+      rect:
+        serializedVersion: 2
+        x: 2281
+        y: 1888
+        width: 490
+        height: 636
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05449e6e07862824b93a6a69734c533f
+      internalID: 403481992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_17
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 1888
+        width: 488
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad5d8f4b8c7f694e9e0f9911a370b83
+      internalID: 805412881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_18
+      rect:
+        serializedVersion: 2
+        x: 3682
+        y: 1888
+        width: 489
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b98616042580cd4798d5b8c2198a427
+      internalID: -536730785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_19
+      rect:
+        serializedVersion: 2
+        x: 4382
+        y: 1888
+        width: 489
+        height: 648
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 902c74ec7ae36c64abbf0713425d1c5a
+      internalID: 1344505716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_20
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 1138
+        width: 489
+        height: 652
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca5a757782875644967d6728cc835fd
+      internalID: 1122802766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_21
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 1138
+        width: 488
+        height: 648
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7e894878354834d93981e7afd16580
+      internalID: 56049338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_22
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 1138
+        width: 490
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5b36479b832874c97551b4569ff4f1
+      internalID: 686672072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_23
+      rect:
+        serializedVersion: 2
+        x: 2281
+        y: 1138
+        width: 490
+        height: 640
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a7f5ef03b7aab14e90af534a125c05a
+      internalID: -595865759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_24
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 1138
+        width: 488
+        height: 636
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771705ab8a389df459cbb7999439ceac
+      internalID: 1429651171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_25
+      rect:
+        serializedVersion: 2
+        x: 3682
+        y: 1138
+        width: 489
+        height: 632
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a980c48800afe94988cb27d31344702
+      internalID: -1908722369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_26
+      rect:
+        serializedVersion: 2
+        x: 4382
+        y: 1138
+        width: 489
+        height: 629
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a401862cd6e9383448a70a4adbfd296d
+      internalID: 1938091142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kappa-Walking_27
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 388
+        width: 489
+        height: 629
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e194a14935765e4d8b556d5ca793cc0
+      internalID: 1095550402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Kappa-Walking_0: -1009149267
+      Kappa-Walking_1: -1037667151
+      Kappa-Walking_10: 1160634124
+      Kappa-Walking_11: 163642235
+      Kappa-Walking_12: -1965552454
+      Kappa-Walking_13: 696329880
+      Kappa-Walking_14: 1331439599
+      Kappa-Walking_15: -880168907
+      Kappa-Walking_16: 403481992
+      Kappa-Walking_17: 805412881
+      Kappa-Walking_18: -536730785
+      Kappa-Walking_19: 1344505716
+      Kappa-Walking_2: -435925611
+      Kappa-Walking_20: 1122802766
+      Kappa-Walking_21: 56049338
+      Kappa-Walking_22: 686672072
+      Kappa-Walking_23: -595865759
+      Kappa-Walking_24: 1429651171
+      Kappa-Walking_25: -1908722369
+      Kappa-Walking_26: 1938091142
+      Kappa-Walking_27: 1095550402
+      Kappa-Walking_3: -991306482
+      Kappa-Walking_4: 668743247
+      Kappa-Walking_5: -2077664624
+      Kappa-Walking_6: 32923756
+      Kappa-Walking_7: 1219078552
+      Kappa-Walking_8: 24277467
+      Kappa-Walking_9: 1259788072
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
