@@ -18,7 +18,6 @@ namespace Utils
             #if UNITY_EDITOR
             if (!PrefabUtility.IsPartOfPrefabAsset(gameObject) && !Application.isPlaying)
             {
-                Debug.Log("hola");
                 // creating a new object
                 if (string.IsNullOrEmpty(id))
                 {
