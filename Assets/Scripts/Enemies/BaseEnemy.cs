@@ -50,8 +50,7 @@ public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 
     public void LoadTemporalData(TemporalDataSO temporalData)
     {
-        temporalData.EnemiesStatus.TryGetValue(id, out _isEnemyDead);
-        if (_isEnemyDead)
+        if (temporalData.DeadEnemies.Contains(id))
         {
             gameObject.SetActive(false);
         }
@@ -59,10 +58,14 @@ public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 
     public void SaveTemporalData(TemporalDataSO temporalData)
     {
-        if (temporalData.EnemiesStatus.ContainsKey(id))
+        bool containsId = temporalData.DeadEnemies.Contains(id);
+        if (_isEnemyDead && !containsId)
         {
-            temporalData.EnemiesStatus.Remove(id);
+            temporalData.DeadEnemies.Add(id);
         }
-        temporalData.EnemiesStatus.Add(id, _isEnemyDead);
+        else if (!_isEnemyDead && containsId)
+        {
+            temporalData.DeadEnemies.Remove(id);
+        }
     }
 }

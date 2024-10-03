@@ -23,22 +23,31 @@ namespace SceneLoaderSystem
         // called from listener
         public void OnLoadLevelRequest(LoadSceneRequest request)
         {
-            if (IsSceneAlreadyLoaded(request.scene))
+            if (request.loadingScreen)
             {
-                ActivateLevel(request);
+                _pendingRequest = request;
+                _loadingScreenUI.ToggleScreen(true);
             }
             else
             {
-                if (request.loadingScreen)
-                {
-                    _pendingRequest = request;
-                    _loadingScreenUI.ToggleScreen(true);
-                }
-                else
-                {
-                    StartCoroutine(ProcessLevelLoading(request));
-                }
+                StartCoroutine(ProcessLevelLoading(request));
             }
+            // if (IsSceneAlreadyLoaded(request.scene))
+            // {
+            //     ActivateLevel(request);
+            // }
+            // else
+            // {
+            //     if (request.loadingScreen)
+            //     {
+            //         _pendingRequest = request;
+            //         _loadingScreenUI.ToggleScreen(true);
+            //     }
+            //     else
+            //     {
+            //         StartCoroutine(ProcessLevelLoading(request));
+            //     }
+            // }
         }
 
         // called from listener

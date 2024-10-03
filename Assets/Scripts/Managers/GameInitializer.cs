@@ -3,6 +3,7 @@ using GlobalVariables;
 using PlayerController.Abilities;
 using PlayerController.Data;
 using SaveSystem;
+using SceneLoaderSystem;
 using UnityEngine;
 
 namespace Managers
@@ -23,11 +24,12 @@ namespace Managers
         [Header("Manna Variables")]
         [SerializeField] private IntReference _currentManna;
 
-        [Header("Player Attack")]
+        [Header("Player")]
         [SerializeField] private FloatReference _attackMultiplier;
-
-        [Header("Player Data")]
+        [Space(5)]
         [SerializeField] private PlayerAbilitiesData _playerAbilitiesData;
+        [Space(5)]
+        [SerializeField] private PlayerPathSO _playerPath;
 
         [Header("Temporal Data")]
         [SerializeField] private TemporalDataSO _temporalData;
@@ -67,6 +69,7 @@ namespace Managers
                 _playerAbilitiesData.SetAbilityStatus((AbilityType) ability, data.abilitiesUnlocked.Contains(ability));
             }
 
+            _playerPath.Clear();
             _temporalData.Clear();
         }
 

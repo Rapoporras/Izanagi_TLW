@@ -79,6 +79,31 @@ MonoBehaviour:
   _playerPrefab: {fileID: 6801932908582284163, guid: 5b6552a899f5d8147817dd58d48c6b05, type: 3}
   _followCamera: {fileID: 0}
   _playerParent: {fileID: 0}
+  _playerHealth:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
+    componentValue: {fileID: 0}
+  _playerMaxHealth:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: cdf76693782567042be1e72ac46a828e, type: 2}
+    componentValue: {fileID: 0}
+  _playerPotions:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: 5c3764712534c4b49b41d3a4565151a3, type: 2}
+    componentValue: {fileID: 0}
+  _playerMaxPotions:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: 545d094ae96d0264ba9012e3d446b339, type: 2}
+    componentValue: {fileID: 0}
+  _playerManna:
+    valueType: 1
+    constantValue: 0
+    variableValue: {fileID: 11400000, guid: b1dbc2e366f255a49968aeadeeb94369, type: 2}
+    componentValue: {fileID: 0}
 --- !u!1 &2345888546779031315
 GameObject:
   m_ObjectHideFlags: 0

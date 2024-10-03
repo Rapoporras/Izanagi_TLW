@@ -4468,6 +4468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Save Statue
       objectReference: {fileID: 0}
+    - target: {fileID: 6891822753318531037, guid: bd3cd2652dd7af948ae6d2ceddce36d5, type: 3}
+      propertyPath: entrance
+      value: 
+      objectReference: {fileID: 11400000, guid: 5509189f6d89b4f43a3097d6af3fcbcd, type: 2}
     - target: {fileID: 7126595393873523317, guid: bd3cd2652dd7af948ae6d2ceddce36d5, type: 3}
       propertyPath: _currentScene
       value: 
