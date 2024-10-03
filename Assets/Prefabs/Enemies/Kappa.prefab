@@ -312,6 +312,9 @@ MonoBehaviour:
   isActive: 1
   _damage: 20
   _canDamageEnemies: 0
+  _hurtboxLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &6284408763877366267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
+  _alwaysRespawn: 0
   player: {fileID: 0}
   detectionRadius: 10
   chaseSpeed: 6
@@ -453,7 +457,7 @@ Animator:
   m_GameObject: {fileID: 1591144379479836508}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 26315999e50372a439198b4788921705, type: 2}
+  m_Controller: {fileID: 9100000, guid: c043f965bc0a3aa428592f45dc0c98ba, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
