@@ -50,6 +50,8 @@ public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 
     public void LoadTemporalData(TemporalDataSO temporalData)
     {
+        if (_alwaysRespawn) return;
+        
         if (temporalData.DeadEnemies.Contains(id))
         {
             gameObject.SetActive(false);

@@ -51,9 +51,7 @@ namespace SceneLoaderSystem
 
         private void SetPlayerVariables()
         {
-            if (_playerPath.levelEntrance == null) return;
-            
-            if (_playerPath.levelEntrance.respawnFromDeath)
+            if (_playerPath.levelEntrance == null || _playerPath.levelEntrance.respawnFromDeath)
             {
                 _playerHealth.Value = _playerMaxHealth;
                 _playerPotions.Value = _playerMaxPotions;

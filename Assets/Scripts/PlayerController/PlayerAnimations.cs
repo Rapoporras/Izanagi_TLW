@@ -14,7 +14,10 @@ namespace PlayerController
         private int _isSlidingHash;
         private int _isDashingHash;
         private int _isTakingDamageHash;
-
+        
+        private int _isDeadHash;
+        private int _deathHash;
+        
         private int _recoverHealthHash;
         
         private int _attackHash;
@@ -40,8 +43,12 @@ namespace PlayerController
             _isSlidingHash = Animator.StringToHash("isSliding");
             _isDashingHash = Animator.StringToHash("isDashing");
             _isTakingDamageHash = Animator.StringToHash("isTakingDamage");
+            
+            _isDeadHash = Animator.StringToHash("isDead");
+            _deathHash = Animator.StringToHash("death");
 
             _recoverHealthHash = Animator.StringToHash("recoverHealth");
+
             
             _attackHash = Animator.StringToHash("attack");
             _attackTypeHash = Animator.StringToHash("attackType");
@@ -74,7 +81,7 @@ namespace PlayerController
             _animator.SetTrigger(_attackHash);
         }
 
-        public void SetRecoverHealthAnimation()
+        public void PlayRecoverHealthAnimation()
         {
             _animator.SetTrigger(_recoverHealthHash);
         }
@@ -87,6 +94,13 @@ namespace PlayerController
         public void DeactivateAttackWindow() // called in animation keyframe
         {
             _animator.SetBool(_attackWindowActiveHash, false);
+        }
+
+        public void SetIsDeadVariable(bool isDead)
+        {
+            _animator.SetBool(_isDeadHash, isDead);
+            if (isDead)
+                _animator.SetTrigger(_deathHash);
         }
         #endregion
     }

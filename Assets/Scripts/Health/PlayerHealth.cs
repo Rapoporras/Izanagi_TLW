@@ -51,12 +51,6 @@ namespace Health
             _screenShakeSource = GetComponent<ScreenShakeSource>();
         }
 
-        // private void Start()
-        // {
-        //     _currentHealth.Value = _maxHealth.Value;
-        //     _potionsAmount.Value = Mathf.Clamp(_potionsAmount.Value, 0, _maxPotionsAmount.Value);
-        // }
-
         private void OnEnable()
         {
             InputManager.Instance.PlayerActions.Potion.started += RecoverWithPotion;
@@ -100,9 +94,11 @@ namespace Health
             _currentHealth.Value = Mathf.Clamp(_currentHealth.Value + amount, 0, _maxHealth);
             if (_currentHealth.Value <= 0)
             {
-                Debug.Log("Has muerto");
-                if (_onPlayerDeathEvent != null)
-                    _onPlayerDeathEvent.Raise();
+                _playerAnimations.SetIsDeadVariable(true);
+                InputManager.Instance.PlayerActions.Disable();
+                InputManager.Instance.UIActions.Disable();
+                // if (_onPlayerDeathEvent != null)
+                //     _onPlayerDeathEvent.Raise();
             }
         }
         
@@ -110,6 +106,13 @@ namespace Health
         {
             yield return new WaitForSeconds(_invulnerabilityTime);
             _hit = false;
+        }
+
+        public void TriggerDeathEvent()
+        {
+            Debug.Log("hola");
+            if (_onPlayerDeathEvent != null)
+                _onPlayerDeathEvent.Raise();
         }
         #endregion
         
@@ -122,7 +125,7 @@ namespace Health
                 if (!_playerMovement.IsGrounded) return;
                 
                 InputManager.Instance.PlayerActions.Disable();
-                _playerAnimations.SetRecoverHealthAnimation();
+                _playerAnimations.PlayRecoverHealthAnimation();
             }
         }
 
