@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemies.Kappa;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -209,7 +210,7 @@ namespace Enemies.BehaviourTree
 
     public class RollStrategy : IStrategy
     {
-        
+        private KappaAI _enemyAI;
         private Transform _enemyTransform;
         private Transform _playerTransform;
         private float _goalDirection;
@@ -223,6 +224,7 @@ namespace Enemies.BehaviourTree
 
         public RollStrategy(GameObject enemy, GameObject player, float rollingSpeed, float rollingDistance)
         {
+            _enemyAI = enemy.GetComponent<KappaAI>();
             _enemyTransform = enemy.transform;
             _playerTransform = player.transform;
             _rollingSpeed = rollingSpeed;
@@ -240,6 +242,18 @@ namespace Enemies.BehaviourTree
                 _goalPosition =
                     new Vector2(enemyPosition.x + (_rollingDistance * _goalDirection), enemyPosition.y);
                 _isRollCalculated = true;
+            }
+            
+            Collider2D[] entities = Physics2D.OverlapCircleAll(_enemyAI.CollisionDetectionCenter.position, _enemyAI.CollisionDetectionRadius);
+
+            foreach (var e in entities)
+            {
+                if (!e.CompareTag("Enemy"))
+                {
+                    Debug.Log(e + " belonging to " + e.gameObject);
+                    _rb.velocity = Vector2.zero;
+                    return Node.Status.Success;
+                }
             }
             
             if (_goalDirection > 0 && _enemyTransform.localScale.x > 0)
