@@ -16,10 +16,24 @@ public class KappaProjectile : MonoBehaviour
         Destroy(gameObject, _lifetime);
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if ((1 << other.gameObject.layer) == LayerMask.NameToLayer("Ignore Raycast")) return;
+        
+        if (!other.collider.CompareTag("Enemy"))
+        {
+            Debug.Log(other.collider.tag);
+            Debug.Log(other.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log(other.tag);
+            Debug.Log(other.gameObject);
             Destroy(gameObject);
         }
     }

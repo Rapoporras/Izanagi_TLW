@@ -19,11 +19,20 @@ namespace Enemies.Kappa
         [Tooltip("Strength of the knockback applied to the enemy on hit")]
         [SerializeField] private float knockbackStrength;
         
+        [Header("Roll parameters")]
         [Tooltip("Speed of the roll")]
         [SerializeField] private float rollingSpeed;
         [Tooltip("Distance that the kappa rolls")]
         [SerializeField] private float rollingDistance;
-        
+        [Tooltip("Center of the collision detection radius")]
+        [SerializeField] private Transform collisionDetectionCenter;
+        [Tooltip("Radius of the attack")]
+        [SerializeField] private float collisionDetectionRadius;
+
+        public Transform CollisionDetectionCenter => collisionDetectionCenter;
+
+        public float CollisionDetectionRadius => collisionDetectionRadius;
+
         [Header("Attack parameters")]
         [Tooltip("Center of the attack radius")]
         [SerializeField] private Transform attackCenter;
@@ -237,6 +246,8 @@ namespace Enemies.Kappa
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackCenter.position, attackRadius);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(collisionDetectionCenter.position, collisionDetectionRadius);
         }
     
     }

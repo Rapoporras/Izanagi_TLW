@@ -45,8 +45,10 @@ namespace Enemies.Kappa
         private static readonly int RangeAttackHash = Animator.StringToHash("rangeAttack");
         private static readonly int IsRollingHash = Animator.StringToHash("isRolling");
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player");
@@ -116,17 +118,22 @@ namespace Enemies.Kappa
             }
             else
             {
-                if (playerDirection > 0 && transform.localScale.x > 0)
-                {
-                    transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-                } else if (playerDirection < 0 && transform.localScale.x < 0)
-                {
-                    transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-                }
+                FaceTowardsPlayer(playerDirection);
                 _rb.velocity = new Vector2(playerDirection * rollingSpeed, _rb.velocity.y);
                 _animator.SetBool(IsRollingHash, true);
             }
                 
+        }
+
+        void FaceTowardsPlayer(float playerDirection)
+        {
+            if (playerDirection > 0 && transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            } else if (playerDirection < 0 && transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            }
         }
 
         bool IsPlayerInMeleeRange()
@@ -168,8 +175,9 @@ namespace Enemies.Kappa
         
         void StartRangeAttack()
         {
-            _kappaBehaviourTree.Pause();
             _animator.SetTrigger(RangeAttackHash);
+            _animator.SetBool(IsRollingHash, false);
+            _kappaBehaviourTree.Pause();
         }
 
         void RangeAttack()
@@ -178,6 +186,7 @@ namespace Enemies.Kappa
             KappaProjectile kappaProjectileInstance = instance.GetComponent<KappaProjectile>();
             float xDifference = player.transform.position.x - transform.position.x;
             float playerDirection = Mathf.Sign(xDifference);
+            FaceTowardsPlayer(playerDirection);
             kappaProjectileInstance.Speed = playerDirection * projectileSpeed;
             kappaProjectileInstance.Lifetime = projectileLifetime;
         }
@@ -210,7 +219,8 @@ namespace Enemies.Kappa
         
         private bool IsPlayerInAttackRangeRadius()
         {
-            return Vector3.Distance(transform.position, player.transform.position) <= attackRangeRadius;
+            float xDifference = player.transform.position.x - transform.position.x;
+            return Mathf.Abs(xDifference) <= attackRangeRadius;
         }
         
     
