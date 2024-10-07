@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
@@ -34,10 +34,12 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerActions.Enable();
+        UIActions.Enable();
     }
     
     private void OnDisable()
     {
         PlayerActions.Disable();
+        UIActions.Disable();
     }
 }

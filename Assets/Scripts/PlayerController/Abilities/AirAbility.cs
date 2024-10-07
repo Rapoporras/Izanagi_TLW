@@ -30,7 +30,7 @@ namespace PlayerController.Abilities
             if (_boostActive) return false;
             
             Debug.Log("Air ability");
-            _playerAttack.DamageMultiplier = _damageMultiplier;
+            _playerAttack.AttackAirBoost = _damageMultiplier;
             _playerAttack.StartCoroutine(HandlePlayerBoost(target));
 
             return true;
@@ -47,7 +47,7 @@ namespace PlayerController.Abilities
             
             _playerAbilities.ShowBoostIcon(true);
             yield return new WaitForSeconds(AbilityDuration);
-            _playerAttack.DamageMultiplier = 1f;
+            _playerAttack.AttackAirBoost = 1f;
             _playerAbilities.ShowBoostIcon(false);
 
             _boostActive = false;

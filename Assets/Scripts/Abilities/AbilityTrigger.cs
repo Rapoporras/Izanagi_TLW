@@ -15,7 +15,7 @@ namespace Abilities
         {
             if (other.CompareTag("Player") && !_abilitiesData.IsAbilityUnlock(_abilityToUnlock))
             {
-                _abilitiesData.UnlockAbility(_abilityToUnlock);
+                _abilitiesData.SetAbilityStatus(_abilityToUnlock, true);
                 if (_abilityUnlockEvent != null)
                     _abilityUnlockEvent.Raise(_abilityToUnlock);
             }

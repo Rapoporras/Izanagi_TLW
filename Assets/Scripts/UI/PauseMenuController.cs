@@ -1,25 +1,32 @@
+using GameEvents;
+using SceneLoaderSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PauseMenuController : MonoBehaviour
 {
-    private bool isPaused = false;
+    [Header("UI")]
+    [SerializeField] private GameObject _panel;
 
-    [SerializeField] private GameObject pauseMenuUI;
+    [Header("Load Scene")]
+    [SerializeField] private SceneSO _mainMenuScene;
+    [SerializeField] private LoadSceneRequestEvent _loadSceneRequestEvent;
+    
+    private bool _isPaused;
 
     private void OnEnable()
     {
-        InputManager.Instance.PlayerActions.Pause.performed += OnPause;
+        InputManager.Instance.UIActions.Pause.performed += OnPause;
     }
 
     private void OnDisable()
     {
-        InputManager.Instance.PlayerActions.Pause.performed -= OnPause;
+        InputManager.Instance.UIActions.Pause.performed -= OnPause;
     }
 
     private void OnPause(InputAction.CallbackContext context)
     {
-        if (isPaused)
+        if (_isPaused)
         {
             Resume();
         }
@@ -31,20 +38,26 @@ public class PauseMenuController : MonoBehaviour
 
     private void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        InputManager.Instance.PlayerActions.Disable();
+        _panel.SetActive(true);
         Time.timeScale = 0f;
-        isPaused = true;
+        _isPaused = true;
     }
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        InputManager.Instance.PlayerActions.Enable();
+        _panel.SetActive(false);
         Time.timeScale = 1f;
-        isPaused = false;
+        _isPaused = false;
     }
 
-    public void QuitGame()
+    public void Exit()
     {
-        Application.Quit();
+        // Application.Quit();
+        Time.timeScale = 1f;
+        LoadSceneRequest request = new LoadSceneRequest(_mainMenuScene, true);
+        if (_loadSceneRequestEvent)
+            _loadSceneRequestEvent.Raise(request);
     }
 }

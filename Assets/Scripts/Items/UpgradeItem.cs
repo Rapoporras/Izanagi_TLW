@@ -1,23 +1,23 @@
-﻿using GlobalVariables;
+﻿using GameEvents;
+using GlobalVariables;
 using UnityEngine;
 using InteractionSystem;
 using SaveSystem;
-using UnityEngine.Serialization;
+using Utils;
 
 namespace Items
 {
-    public class UpgradeItem : MonoBehaviour, IInteractable, IDataPersistence
+    public class UpgradeItem : IdentifiableObject, IInteractable, IDataPersistence
     {
-        [SerializeField, ReadOnly] private string id;
-        [Space(10)]
-        
         [Header("Settings")]
         [SerializeField] private IntReference _currentItemAmount;
         [SerializeField, Min(0)] private int _amountToAdd = 1;
 
-        [FormerlySerializedAs("_interactText")]
         [Header("UI")]
         [SerializeField] private GameObject _interactUIText;
+
+        [Header("Events")]
+        [SerializeField] private IntEvent _onItemCollected;
 
         private bool _collected;
         
@@ -30,20 +30,17 @@ namespace Items
             
             _collected = true;
             
+            if (_onItemCollected)
+                _onItemCollected.Raise(_currentItemAmount.Value);
+            
             // add here some animation
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         public void ShowInteractionUI(bool showUI)
         {
             if (_collected) return;
             _interactUIText.SetActive(showUI);
-        }
-
-        [ContextMenu("Generate guid for id")]
-        private void GenerateGuid()
-        {
-            id = System.Guid.NewGuid().ToString();
         }
 
         public void LoadData(GameData data)

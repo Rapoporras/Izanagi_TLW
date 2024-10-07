@@ -37,7 +37,7 @@ namespace PlayerController
         private float _lastKnockBackSpeed;
         #endregion
 
-        public PlayerStates CurrentState => _currentState.StateKey;
+        public PlayerStates CurrentState => _currentState == null ? PlayerStates.Grounded : _currentState.StateKey;
         public bool HandleWallImpulse { get; private set; }
         
         #region Dash Properties
@@ -67,7 +67,7 @@ namespace PlayerController
             get => _rb2d.velocity;
             set => _rb2d.velocity = value;
         }
-        public bool IsFacingRight { get; private set; }
+        public bool IsFacingRight { get; private set; } = true;
         #endregion
         
         #region Jump Properties
@@ -102,8 +102,6 @@ namespace PlayerController
         {
             base.Start();
             SetGravityScale(MovementData.gravityScale);
-
-            IsFacingRight = true;
         }
 
         protected override void Update()
@@ -385,7 +383,7 @@ namespace PlayerController
         {
             _rb2d.gravityScale = scale;
         }
-        
+
         public void SetDirectionToFace(bool isMovingRight)
         {
             if (isMovingRight != IsFacingRight)

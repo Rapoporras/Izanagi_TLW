@@ -20,50 +20,39 @@ namespace Items
         [SerializeField] private IntReference _playerCurrentHealth;
         [Space(5)]
         [SerializeField] private FloatReference _attackMultiplier;
-        
-        public static ItemManager Instance { get; private set; }
+
+        private static ItemManager _instance;
 
         private void Awake()
         {
-            if (Instance == null)
+            if (_instance == null)
             {
-                Instance = this;
-                DontDestroyOnLoad(this);
+                _instance = this;
             }
-            else if (Instance != this)
+            else if (_instance != this)
             {
                 Destroy(gameObject);
             }
         }
 
-        private void OnEnable()
+        public void UpdateHealthData(int amount) // called from listener
         {
-            _healthItems.AddListener(UpdateHealthData);
-            _attackItems.AddListener(UpdateAttackData);
-        }
-
-        private void OnDisable()
-        {
-            _healthItems.RemoveListener(UpdateHealthData);
-            _attackItems.RemoveListener(UpdateAttackData);
-        }
-
-        private void UpdateHealthData(int amount)
-        {
-            if (amount % _healthItemsAmountToUpgrade == 0)
+            if (amount >= _healthItemsAmountToUpgrade)
             {
-                // upgrade health
                 _playerMaxHealth.Value += _healthAmountToAdd;
                 _playerCurrentHealth.Value = _playerMaxHealth;
+
+                _healthItems.Value -= _healthItemsAmountToUpgrade;
             }
         }
         
-        private void UpdateAttackData(int amount)
+        public void UpdateAttackData(int amount) // called from listener
         {
-            if (amount % _attackItemsAmountToUpgrade == 0)
+            if (amount >= _attackItemsAmountToUpgrade)
             {
-                // upgrade attack
                 _attackMultiplier.Value += _attackMultiplierToAdd;
+
+                _attackItems.Value -= _attackItemsAmountToUpgrade;
             }
         }
     }

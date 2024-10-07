@@ -5,11 +5,18 @@ namespace SaveSystem
     [System.Serializable]
     public class GameData
     {
-        public List<int> abilitiesUnlocked = new List<int>();
+        /*
+         * fire ability unlocked
+         * 1 -> fire
+         * 2 -> ground
+         * 3 -> air
+         * 4 -> water
+         */
+        public List<int> abilitiesUnlocked = new List<int>() { 1 };
         public GlobalVariables variables = new GlobalVariables();
+        public string lastSaveScene;
 
         public SerializableDictionary<string, bool> upgradeItemsCollected = new SerializableDictionary<string, bool>();
-        public SerializableDictionary<string, bool> deadEnemies = new SerializableDictionary<string, bool>();
         public SerializableDictionary<string, bool> sceneEvents = new SerializableDictionary<string, bool>();
     }
 
@@ -21,5 +28,7 @@ namespace SaveSystem
 
         public int attackItemAmount = 0;
         public int healthItemAmount = 0;
+
+        public float attackMultiplier = 1f;
     }
 }
