@@ -6,5 +6,12 @@ namespace SceneLoaderSystem
     public class PlayerPathSO : ScriptableObject
     {
         public LevelEntranceSO levelEntrance;
+        public LevelEntranceSO lastSavePoint;
+
+        public void Clear()
+        {
+            levelEntrance = null;
+            lastSavePoint = null;
+        }
     }
 }

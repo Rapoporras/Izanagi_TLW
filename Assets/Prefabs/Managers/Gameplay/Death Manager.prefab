@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819123178013451028}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,31 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: {fileID: 11400000, guid: cafe69faf63b7ee43878c791b23edcf8, type: 2}
   _loadSceneRequestEvent: {fileID: 11400000, guid: 52641e5cf7bf10d4c9a00b36e5c7617f, type: 2}
-  _playerManna:
-    valueType: 1
-    constantValue: 0
-    variableValue: {fileID: 11400000, guid: b1dbc2e366f255a49968aeadeeb94369, type: 2}
-    componentValue: {fileID: 0}
-  _playerHealth:
-    valueType: 1
-    constantValue: 0
-    variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
-    componentValue: {fileID: 0}
-  _playerMaxHealth:
-    valueType: 1
-    constantValue: 0
-    variableValue: {fileID: 11400000, guid: cdf76693782567042be1e72ac46a828e, type: 2}
-    componentValue: {fileID: 0}
-  _playerPotions:
-    valueType: 1
-    constantValue: 0
-    variableValue: {fileID: 11400000, guid: 5c3764712534c4b49b41d3a4565151a3, type: 2}
-    componentValue: {fileID: 0}
-  _playerMaxPotions:
-    valueType: 1
-    constantValue: 0
-    variableValue: {fileID: 11400000, guid: 545d094ae96d0264ba9012e3d446b339, type: 2}
-    componentValue: {fileID: 0}
+  _playerPath: {fileID: 11400000, guid: 7b198a95120b9dd41b69ff27c6bf0079, type: 2}
 --- !u!114 &3942364818169680972
 MonoBehaviour:
   m_ObjectHideFlags: 0

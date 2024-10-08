@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using GlobalVariables;
 using PlayerController;
 using UnityEngine;
 
@@ -11,6 +12,15 @@ namespace SceneLoaderSystem
         [SerializeField] private GameObject _playerPrefab;
         [SerializeField] private CinemachineVirtualCamera _followCamera;
         [SerializeField] private GameObject _playerParent;
+
+        [Header("Variables")]
+        [SerializeField] private IntReference _playerHealth;
+        [SerializeField] private IntReference _playerMaxHealth;
+        [Space(5)]
+        [SerializeField] private IntReference _playerPotions;
+        [SerializeField] private IntReference _playerMaxPotions;
+        [Space(5)]
+        [SerializeField] private IntReference _playerManna;
 
         public void InstantiatePlayerOnLevel()
         {
@@ -30,11 +40,23 @@ namespace SceneLoaderSystem
                 movement.SetDirectionToFace(isMovingRight);
             }
 
+            SetPlayerVariables();
+
             _playerPath.levelEntrance = null;
             
             // all dependencies must be loaded at this point
             // there must be an InputManager
             InputManager.Instance.PlayerActions.Enable();
+        }
+
+        private void SetPlayerVariables()
+        {
+            if (_playerPath.levelEntrance == null || _playerPath.levelEntrance.respawnFromDeath)
+            {
+                _playerHealth.Value = _playerMaxHealth;
+                _playerPotions.Value = _playerMaxPotions;
+                _playerManna.Value = 0;
+            }
         }
 
         private GameObject GetPlayer()

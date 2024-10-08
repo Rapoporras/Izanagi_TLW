@@ -6,5 +6,6 @@ namespace SceneLoaderSystem
     public class LevelEntranceSO : ScriptableObject
     {
         public bool setPlayerFacingRight;
+        public bool respawnFromDeath;
     }
 }

@@ -30,11 +30,6 @@ namespace SaveSystem
             _dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         }
 
-        // private void OnApplicationQuit()
-        // {
-        //     SaveGame();
-        // }
-
         public void OnSceneLoaded() // called from listener
         {
             _dataPersistenceObjects = FindAllDataPersistenceObjects();
