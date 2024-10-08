@@ -29,8 +29,7 @@ namespace Health
             _screenShakeSource = GetComponent<ScreenShakeSource>();
             _flashEffect = GetComponent<FlashEffect>();
             
-            // _health = new HealthController(maxHealth);
-            _health.ResetHealth(maxHealth);
+            ResetHealth();
         }
 
         public void Damage(int amount, bool screenShake)
@@ -49,6 +48,11 @@ namespace Health
                 if (_flashEffect)
                     _flashEffect.CallDamageFlash();
             }
+        }
+
+        public void ResetHealth()
+        {
+            _health.ResetHealth(maxHealth);
         }
 
         public float GetHealthPercent()

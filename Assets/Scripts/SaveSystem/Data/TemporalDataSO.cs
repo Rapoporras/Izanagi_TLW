@@ -10,6 +10,7 @@ namespace SaveSystem
 
         public void Clear()
         {
+            Debug.Log("Clear temporal data");
             DeadEnemies.Clear();
         }
     }

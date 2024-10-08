@@ -15,13 +15,12 @@ public class DeathManager : MonoBehaviour
     
     public void ResetScene()
     {
-        Debug.Log("el player ha muerto");
         _playerPath.levelEntrance = _playerPath.lastSavePoint;
         
         TemporalDataManager.Instance.temporalData.Clear();
         
         _sceneToLoad.sceneName = DataPersistenceManager.Instance.gameData.lastSaveScene;
-        LoadSceneRequest request = new LoadSceneRequest(_sceneToLoad, true);
+        LoadSceneRequest request = new LoadSceneRequest(_sceneToLoad, true, true);
         
         if (_loadSceneRequestEvent)
             _loadSceneRequestEvent.Raise(request);

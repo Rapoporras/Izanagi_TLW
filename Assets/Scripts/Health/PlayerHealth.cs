@@ -110,7 +110,6 @@ namespace Health
 
         public void TriggerDeathEvent()
         {
-            Debug.Log("hola");
             if (_onPlayerDeathEvent != null)
                 _onPlayerDeathEvent.Raise();
         }

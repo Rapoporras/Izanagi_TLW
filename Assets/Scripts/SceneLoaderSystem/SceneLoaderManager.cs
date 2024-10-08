@@ -32,22 +32,6 @@ namespace SceneLoaderSystem
             {
                 StartCoroutine(ProcessLevelLoading(request));
             }
-            // if (IsSceneAlreadyLoaded(request.scene))
-            // {
-            //     ActivateLevel(request);
-            // }
-            // else
-            // {
-            //     if (request.loadingScreen)
-            //     {
-            //         _pendingRequest = request;
-            //         _loadingScreenUI.ToggleScreen(true);
-            //     }
-            //     else
-            //     {
-            //         StartCoroutine(ProcessLevelLoading(request));
-            //     }
-            // }
         }
 
         // called from listener
