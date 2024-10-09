@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SceneLoaderSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -25,11 +26,6 @@ namespace SaveSystem
             {
                 Destroy(gameObject);
             }
-        }
-
-        private void OnApplicationQuit()
-        {
-            SaveGame();
         }
         
         public void OnSceneLoaded()
@@ -66,6 +62,13 @@ namespace SaveSystem
             {
                 temporalDataObject.SaveTemporalData(temporalData);
             }
+        }
+
+        public void SaveGameWithRequest(LoadSceneRequest request)
+        {
+            if (request.requestFromDeath) return;
+            
+            SaveGame();
         }
     }
 }

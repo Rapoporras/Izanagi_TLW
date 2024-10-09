@@ -525,7 +525,7 @@ Animator:
   m_GameObject: {fileID: 6801932908582284163}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 22601b4e3cee2f643ad431bdd336c36a, type: 2}
+  m_Controller: {fileID: 22100000, guid: a362fcca0212aff43925f1b48074a7c3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -733,6 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0059a44cab4140f1b2cc1a30c5f984d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
 --- !u!114 &8441323540536899230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +747,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <AttackData>k__BackingField: {fileID: 11400000, guid: 1bc0595dfc0cdf74cac3c3da6ac30b17, type: 2}
-  _abilitiesData: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
   _currentManna:
     valueType: 1
     constantValue: 0

@@ -108,6 +108,8 @@ namespace CustomMenus
         private static void CreateSaveStatue()
         {
             InstantiatePrefabAtPath(SaveStatuePath);
+            Debug.LogWarning("[SAVE STATUE] New save statue instantiated, set LevelEntrance (in child object Entrance)" +
+                             " and CurrentScene manually.");
         }
         #endregion
         
