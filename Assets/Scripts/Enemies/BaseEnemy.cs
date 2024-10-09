@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Health;
 using SaveSystem;
@@ -6,6 +7,9 @@ using Utils;
 
 public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 {
+    [Header("Reference to the player")]
+    public GameObject player;
+    
     [Header("Spawn Settings")]
     [SerializeField] private bool _alwaysRespawn;
     
@@ -34,6 +38,11 @@ public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
     protected virtual void OnDisable()
     {
         _entityHealth.RemoveListenerDeathEvent(EnemyDie);
+    }
+
+    public virtual void SetUpBehaviourTree()
+    {
+        throw new NotImplementedException();
     }
 
     protected void EnemyDie()

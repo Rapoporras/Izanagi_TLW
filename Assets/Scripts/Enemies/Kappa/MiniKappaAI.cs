@@ -7,9 +7,6 @@ namespace Enemies.Kappa
 {
     public class MiniKappaAI : BaseEnemy
     {
-        [Header("Reference to the player")]
-        [SerializeField] private GameObject player;
-   
         [Header("Chase parameters")]
         [Tooltip("Radius where the player will be detected")]
         [SerializeField] private float detectionRadius;
@@ -58,7 +55,7 @@ namespace Enemies.Kappa
             _entityHealth.RemoveListenerOnHit(OnHitKnockback);
         }
 
-        private void Start()
+        public override void SetUpBehaviourTree()
         {
             _miniKappaBehaviourTree = new BehaviourTree.BehaviourTree("MiniKappa", Policies.RunForever);
         

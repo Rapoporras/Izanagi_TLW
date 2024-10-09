@@ -7,9 +7,6 @@ namespace Enemies.Kappa
 {
     public class KappaAI : BaseEnemy
     {
-        [Header("Reference to the player")]
-        [SerializeField] private GameObject player;
-   
         [Header("Chase parameters")]
         [Tooltip("Radius where the player will be detected")]
         [SerializeField] private float detectionRadius;
@@ -77,7 +74,7 @@ namespace Enemies.Kappa
             _entityHealth.RemoveListenerOnHit(OnHitKnockback);
         }
 
-        void Start()
+        public override void SetUpBehaviourTree()
         {
             _entityHealth.AddListenerOnHit(OnHitKnockback);
             
@@ -110,6 +107,8 @@ namespace Enemies.Kappa
             actionToDo.AddChild(chasePlayer);
             
             _kappaBehaviourTree.AddChild(actionToDo);
+            
+            Debug.Log(_kappaBehaviourTree);
         }
     
         void Update()
