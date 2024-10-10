@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Enemies.Kappa;
+using Unity.Mathematics;
+using UnityEngine;
 using Utils;
 
 namespace Enemies.Kappas
@@ -8,6 +10,7 @@ namespace Enemies.Kappas
         [Header("Spawner settings")]
         [SerializeField] private int _kappasToSpawn = 3;
         [SerializeField] private float _spawnDuration = 1f;
+        [SerializeField] private GameObject _miniKappaPrefab;
 
         [Header("Player Detection Settings")]
         [SerializeField] private LayerMask _playerLayer;
@@ -57,6 +60,8 @@ namespace Enemies.Kappas
         private void SpawnMiniKappa()
         {
             // instantiate here the mini kappa
+            GameObject miniKappaInstance = Instantiate(_miniKappaPrefab, transform.position, quaternion.identity);
+            miniKappaInstance.GetComponent<MiniKappaAI>().SetUpBehaviourTree();
             _miniKappasSpawned++;
             Debug.Log($"Instantiating mini kappa -- {_miniKappasSpawned}");
             

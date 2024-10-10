@@ -43,6 +43,13 @@ namespace SceneLoaderSystem
             SetPlayerVariables();
 
             _playerPath.levelEntrance = null;
+
+            BaseEnemy[] enemies = FindObjectsOfType<BaseEnemy>();
+            foreach (var enemy in enemies)
+            {
+                enemy.player = player;
+                enemy.SetUpBehaviourTree();
+            }
             
             // all dependencies must be loaded at this point
             // there must be an InputManager
