@@ -161,7 +161,7 @@ namespace Enemies.Kappa
             {
                 if (entity.CompareTag("Player"))
                 {
-                    if (entity.transform.root.TryGetComponent(out PlayerHealth playerHealth))
+                    if (entity.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
                     {
                         int xDirection = (int) Mathf.Sign(entity.transform.position.x - transform.position.x);
                         playerHealth.Damage(attackDamage, xDirection);
