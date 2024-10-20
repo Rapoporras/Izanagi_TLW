@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using CameraSystem;
 using GlobalVariables;
 using PlayerController.Data;
 using PlayerController.States;
@@ -24,7 +25,9 @@ namespace PlayerController
 
         [Space(10)]
         public BoolReference dashInvulnerability;
-        
+
+        [Space(10)]
+        [SerializeField] private CameraFollowObject _cameraFollowObject;
         #endregion
         
         #region Private variables
@@ -35,10 +38,14 @@ namespace PlayerController
 
         private bool _inKnockBack;
         private float _lastKnockBackSpeed;
+
+        private float _fallSpeedYDampingChangeThreshold;
         #endregion
 
         public PlayerStates CurrentState => _currentState == null ? PlayerStates.Grounded : _currentState.StateKey;
         public bool HandleWallImpulse { get; private set; }
+        public Transform CameraTarget => _cameraFollowObject.transform;
+        // public Transform CameraTarget => transform;
         
         #region Dash Properties
         private float _lastPressedDashTime;
@@ -96,12 +103,17 @@ namespace PlayerController
             _rb2d = GetComponent<Rigidbody2D>();
             _rb2d.gravityScale = 0f;
             _raycastInfo = GetComponent<RaycastInfo>();
+
+            _cameraFollowObject.Initialize(_rb2d, IsFacingRight);
+            _cameraFollowObject.transform.parent = null;
         }
 
         protected override void Start()
         {
             base.Start();
             SetGravityScale(MovementData.gravityScale);
+            
+            _fallSpeedYDampingChangeThreshold = CameraManager.Instance.fallSpeedYDampingChangeThreshold;
         }
 
         protected override void Update()
@@ -119,6 +131,18 @@ namespace PlayerController
             }
             
             HandleWallImpulse = InputManager.Instance.PlayerActions.WallImpulse.IsPressed();
+
+            if (_rb2d.velocity.y < _fallSpeedYDampingChangeThreshold && !CameraManager.Instance.IsLerpingYDamping
+                && !CameraManager.Instance.LerpedFromPlayerFalling)
+            {
+                CameraManager.Instance.LerpYDamping(true);
+            }
+            if (_rb2d.velocity.y >= 0f && !CameraManager.Instance.IsLerpingYDamping
+                && CameraManager.Instance.LerpedFromPlayerFalling)
+            {
+                CameraManager.Instance.LerpedFromPlayerFalling = false;
+                CameraManager.Instance.LerpYDamping(false);
+            }
         }
 
         private void OnEnable()
@@ -393,6 +417,8 @@ namespace PlayerController
                     0f,
                     IsFacingRight ? 0 : 180f,
                     0f);
+                
+                _cameraFollowObject.CallTurn();
             }
         }
         #endregion
