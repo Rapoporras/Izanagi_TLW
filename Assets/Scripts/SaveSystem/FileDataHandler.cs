@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace SaveSystem
 {
@@ -44,7 +45,8 @@ namespace SaveSystem
                 }
                 catch (Exception e)
                 {
-                    Debug.Log($"Error occured when trying to load data from file: {fullPath} \n{e}");
+                    LogManager.Log($"Error occured when trying to load data from file: {fullPath} \n{e}",
+                        FeatureType.SaveSystem);
                 }
             }
             
@@ -73,7 +75,8 @@ namespace SaveSystem
             }
             catch (Exception e)
             {
-                Debug.Log($"Error occured when trying to save data file: {fullPath} \n{e}");
+                LogManager.Log($"Error occured when trying to save data file: {fullPath} \n{e}",
+                    FeatureType.SaveSystem);
             }
         }
     }

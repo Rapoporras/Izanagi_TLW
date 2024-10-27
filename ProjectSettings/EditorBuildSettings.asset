@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: f2ebc2ad6803409458f9e72463e0e328
+  - enabled: 1
+    path: Assets/Scenes/WaterLevel.unity
+    guid: a63b8e785813f3f45807ad1a9a38b196
+  - enabled: 0
+    path: Assets/Scenes/WaterLevelUI.unity
+    guid: 81a9763a4ccb9b5469a2801bdc687580
   - enabled: 0
     path: Assets/Scenes/WaterLevelOld.unity
     guid: 44a0b49c4aa91894d81cc027af44e04d
@@ -23,10 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SpecialAttacksScene.unity
     guid: 0e0111c3603adda4fbc3a21062e5771a
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loading Tests/Test1Scene.unity
     guid: 4d3ead75c2c3ca643842e9f3c6ed991c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loading Tests/Test2Scene.unity
     guid: 2b2a08e177f46e8459f62e522f506eff
   m_configObjects: {}

@@ -38,7 +38,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void Pause()
     {
-        InputManager.Instance.PlayerActions.Disable();
+        InputManager.Instance.DisablePlayerActions();
         _panel.SetActive(true);
         Time.timeScale = 0f;
         _isPaused = true;
@@ -46,7 +46,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Resume()
     {
-        InputManager.Instance.PlayerActions.Enable();
+        InputManager.Instance.EnablePlayerActions();
         _panel.SetActive(false);
         Time.timeScale = 1f;
         _isPaused = false;

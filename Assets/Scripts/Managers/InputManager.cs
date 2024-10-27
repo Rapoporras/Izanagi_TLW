@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils.CustomLogs;
 
 public class InputManager : MonoBehaviour
 {
@@ -40,6 +41,30 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         PlayerActions.Disable();
+        UIActions.Disable();
+    }
+
+    public void EnablePlayerActions()
+    {
+        LogManager.Log("Enable player actions", FeatureType.InputSystem);
+        PlayerActions.Enable();
+    }
+    
+    public void DisablePlayerActions()
+    {
+        LogManager.Log("Disable player actions", FeatureType.InputSystem);
+        PlayerActions.Disable();
+    }
+    
+    public void EnableUIActions()
+    {
+        LogManager.Log("Enable UI actions", FeatureType.InputSystem);
+        UIActions.Enable();
+    }
+    
+    public void DisableUIActions()
+    {
+        LogManager.Log("Disable UI actions", FeatureType.InputSystem);
         UIActions.Disable();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace CameraSystem
 {
@@ -15,6 +16,7 @@ namespace CameraSystem
 
         public void Initialize(Rigidbody2D playerRigidbody2D, bool isFacingRight)
         {
+            LogManager.Log("Initialize Camera Follow Object", FeatureType.CameraSystem);
             _playerRigidbody2D = playerRigidbody2D;
             _isFacingRight = isFacingRight;
         }
@@ -52,6 +54,11 @@ namespace CameraSystem
         {
             _isFacingRight = !_isFacingRight;
             return _isFacingRight ? 0f : 180f;
+        }
+
+        public void OnPlayerDeath()
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -103,9 +103,6 @@ namespace PlayerController
             _rb2d = GetComponent<Rigidbody2D>();
             _rb2d.gravityScale = 0f;
             _raycastInfo = GetComponent<RaycastInfo>();
-
-            _cameraFollowObject.Initialize(_rb2d, IsFacingRight);
-            _cameraFollowObject.transform.parent = null;
         }
 
         protected override void Start()
@@ -420,6 +417,12 @@ namespace PlayerController
                 
                 _cameraFollowObject.CallTurn();
             }
+        }
+
+        public void SetCameraFollowObject()
+        {
+            _cameraFollowObject.Initialize(_rb2d, IsFacingRight);
+            _cameraFollowObject.transform.parent = transform.parent;
         }
         #endregion
         

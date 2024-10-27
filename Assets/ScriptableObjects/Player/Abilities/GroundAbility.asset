@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371f68086842472c9d5be7da40d1d153, type: 3}
   m_Name: GroundAbility
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 22100000, guid: 1bead61b46b4af1438995efd6e4bd359, type: 2}
+  <Animator>k__BackingField: {fileID: 9100000, guid: bc233afd04bcb034ba993dfcbd73795b, type: 2}
   <CooldownDuration>k__BackingField: 1
-  <MannaCost>k__BackingField: 0
+  <AbilityMannaCost>k__BackingField: 0
+  <AbilityDuration>k__BackingField: 0
+  <UltimateMannaCost>k__BackingField: 0
+  <UltimateDuration>k__BackingField: 0

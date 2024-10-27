@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using Cinemachine;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace CameraSystem
 {
