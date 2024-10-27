@@ -217,24 +217,32 @@ namespace Enemies.BehaviourTree
         private Vector2 _goalPosition;
         private float _rollingSpeed;
         private float _rollingDistance;
+        private float _startDuration;
+        private float _startDurationTimer;
 
         private bool _isRollCalculated;
-        
+
+        private Animator _animator;
         private Rigidbody2D _rb;
 
-        public RollStrategy(GameObject enemy, GameObject player, float rollingSpeed, float rollingDistance)
+        public RollStrategy(GameObject enemy, GameObject player, float rollingSpeed, float rollingDistance, float startDuration)
         {
             _enemyAI = enemy.GetComponent<KappaAI>();
             _enemyTransform = enemy.transform;
             _playerTransform = player.transform;
             _rollingSpeed = rollingSpeed;
             _rollingDistance = rollingDistance;
+
+            _startDuration = startDuration;
+            _startDurationTimer = _startDuration;
             
             _rb = enemy.GetComponent<Rigidbody2D>();
+            _animator = enemy.GetComponentInChildren<Animator>();
         }
 
         public Node.Status Process()
         {
+            // calculate position to roll towards
             if (!_isRollCalculated)
             {
                 Vector2 enemyPosition = _enemyTransform.position;
@@ -242,6 +250,15 @@ namespace Enemies.BehaviourTree
                 _goalPosition =
                     new Vector2(enemyPosition.x + (_rollingDistance * _goalDirection), enemyPosition.y);
                 _isRollCalculated = true;
+                _animator.SetTrigger("roll");
+            }
+            
+            // if it's starting the attack slow down
+            if (_startDurationTimer > 0)
+            {
+                _rb.velocity = new Vector2(_goalDirection * (_rollingSpeed/8), _rb.velocity.y);
+                _startDurationTimer -= Time.deltaTime;
+                return Node.Status.Running;
             }
             
             Collider2D[] entities = Physics2D.OverlapCircleAll(_enemyAI.CollisionDetectionCenter.position, _enemyAI.CollisionDetectionRadius);
@@ -250,8 +267,9 @@ namespace Enemies.BehaviourTree
             {
                 if (!e.CompareTag("Enemy"))
                 {
-                    Debug.Log(e + " belonging to " + e.gameObject);
+                    Debug.Log("roll hit");
                     _rb.velocity = Vector2.zero;
+                    _animator.SetTrigger("impact");    
                     return Node.Status.Success;
                 }
             }
@@ -266,9 +284,11 @@ namespace Enemies.BehaviourTree
             
             _rb.velocity = new Vector2(_goalDirection * _rollingSpeed, _rb.velocity.y);
 
-            if (Mathf.Abs(_goalPosition.x - _enemyTransform.position.x) <= 0.2f)
+            if (Mathf.Abs(_goalPosition.x - _enemyTransform.position.x) <= 0.05f)
             {
+                Debug.Log("roll stop");
                 _rb.velocity = Vector2.zero;
+                _animator.SetTrigger("stopRoll");
                 return Node.Status.Success;
             }
             
@@ -278,6 +298,7 @@ namespace Enemies.BehaviourTree
         public void Reset()
         {
             _isRollCalculated = false;
+            _startDurationTimer = _startDuration;
         }
     }
 }
