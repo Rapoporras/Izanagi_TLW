@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils.CustomLogs;
 
 namespace Utils
 {
@@ -7,7 +8,9 @@ namespace Utils
         [ContextMenu("Input Test")]
         public void InputTest()
         {
-            Debug.Log($"Player Actions Enabled: {InputManager.Instance.PlayerActions.enabled}");
+            LogManager.Log($"Player Actions Enabled: {InputManager.Instance.PlayerActions.enabled}", FeatureType.InputSystem);
+            LogManager.LogWarning("Warning", FeatureType.Undefined);
+            LogManager.LogError("Error", FeatureType.Undefined);
         }
     }
 }

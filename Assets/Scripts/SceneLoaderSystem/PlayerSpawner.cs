@@ -57,7 +57,7 @@ namespace SceneLoaderSystem
             
             // all dependencies must be loaded at this point
             // there must be an InputManager
-            InputManager.Instance.PlayerActions.Enable();
+            InputManager.Instance.EnablePlayerActions();
         }
 
         private void SetPlayerVariables()

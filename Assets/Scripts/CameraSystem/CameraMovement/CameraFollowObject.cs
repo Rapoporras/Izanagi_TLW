@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace CameraSystem
 {
@@ -15,7 +16,7 @@ namespace CameraSystem
 
         public void Initialize(Rigidbody2D playerRigidbody2D, bool isFacingRight)
         {
-            Debug.Log("Initialize Camera Follow Object");
+            LogManager.Log("Initialize Camera Follow Object", FeatureType.CameraSystem);
             _playerRigidbody2D = playerRigidbody2D;
             _isFacingRight = isFacingRight;
         }
