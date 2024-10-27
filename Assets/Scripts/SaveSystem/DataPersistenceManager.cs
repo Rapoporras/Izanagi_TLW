@@ -48,7 +48,8 @@ namespace SaveSystem
         public void NewGame(string firstSceneName)
         {
             gameData = new GameData();
-            gameData.lastSaveScene = firstSceneName;
+            // gameData.lastSaveScene = firstSceneName;
+            gameData.lastSaveInfo.sceneName = firstSceneName;
             _dataHandler.Save(gameData);
         }
 
