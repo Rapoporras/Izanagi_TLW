@@ -49,7 +49,8 @@ public class MainMenu : MonoBehaviour
 
     public void OnContinueGameClicked()
     {
-        string sceneNameToLoad = DataPersistenceManager.Instance.GetGameData().lastSaveScene;
+        //string sceneNameToLoad = DataPersistenceManager.Instance.GetGameData().lastSaveScene;
+        string sceneNameToLoad = DataPersistenceManager.Instance.GetGameData().lastSaveInfo.sceneName;
         if (ValidSceneName(sceneNameToLoad))
         {
             DisableMenuButtons();

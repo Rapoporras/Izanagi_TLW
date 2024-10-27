@@ -14,9 +14,7 @@ namespace SaveSystem
          */
         public List<int> abilitiesUnlocked = new List<int>() { 1 };
         public GlobalVariables variables = new GlobalVariables();
-        public string lastSaveScene;
-        // public LastSaveInfo lastSaveInfo;
-        
+        public LastSaveInfo lastSaveInfo = new LastSaveInfo();
         
         public SerializableDictionary<string, bool> upgradeItemsCollected = new SerializableDictionary<string, bool>();
         public SerializableDictionary<string, bool> sceneEvents = new SerializableDictionary<string, bool>();
@@ -37,7 +35,6 @@ namespace SaveSystem
     [System.Serializable]
     public class LastSaveInfo
     {
-        public bool hasSaved;
         public string sceneName;
         public string statueId;
     }
