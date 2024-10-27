@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4049072747733116189}
   - component: {fileID: 7060284086139184852}
   - component: {fileID: 1637692424790945618}
-  - component: {fileID: 7464543347184907584}
   - component: {fileID: 6884983840372403535}
+  - component: {fileID: 7464543347184907584}
   - component: {fileID: 5038770125035782003}
   - component: {fileID: 5992536471770546900}
   - component: {fileID: 8666005505662099019}
@@ -60,7 +60,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -136,30 +136,6 @@ MonoBehaviour:
   _health:
     <MaxHealth>k__BackingField: 0
     <CurrentHealth>k__BackingField: 0
---- !u!114 &7464543347184907584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1418018392914436002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f4a80610407a2a40b581eab5def2bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 
-  player: {fileID: 0}
-  detectionRadius: 9
-  chaseSpeed: 9.5
-  onHitStunTime: 0.15
-  knockbackStrength: 3
-  attackCenter: {fileID: 1795511483269647706}
-  attackRadius: 0.5
-  attackDamage: 15
-  hurtboxLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &6884983840372403535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +151,34 @@ MonoBehaviour:
   isActive: 1
   _damage: 5
   _canDamageEnemies: 0
+  _hurtboxLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &7464543347184907584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418018392914436002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4a80610407a2a40b581eab5def2bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  player: {fileID: 0}
+  _alwaysRespawn: 0
+  detectionRadius: 9
+  chaseSpeed: 9.5
+  onHitStunTime: 0.15
+  knockbackStrength: 3
+  attackCenter: {fileID: 1795511483269647706}
+  attackRadius: 0.5
+  attackDamage: 15
+  hurtboxLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &5038770125035782003
 MonoBehaviour:
   m_ObjectHideFlags: 0

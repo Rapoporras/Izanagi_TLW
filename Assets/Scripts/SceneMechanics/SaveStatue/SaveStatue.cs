@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using GlobalVariables;
 using InteractionSystem;
-using PlayerController;
 using PlayerController.Data;
 using SaveSystem;
 using SceneLoaderSystem;
@@ -11,24 +10,28 @@ namespace SceneMechanics.SaveStatue
 {
     public class SaveStatue : MonoBehaviour, IInteractable, IDataPersistence
     {
-        [Header("Health Variables")]
+        [Header("Variables")]
         [SerializeField] private IntReference _playerMaxHealth;
         [SerializeField] private IntReference _playerCurrentHealth;
         [Space(5)]
         [SerializeField] private IntReference _playerMaxPotions;
         [SerializeField] private IntReference _playerPotionsAvailable;
         
+        [Header("Symbols")]
+        [SerializeField] private List<AbilitySymbol> _abilitySymbols;
+        
         [Header("Scene Data")]
         [SerializeField] private SceneSO _currentScene;
+        [Space(5)]
+        [SerializeField] private LevelEntrance _saveStatueEntrance;
+        
+        [Header("Player Data")]
+        [SerializeField] private PlayerAbilitiesData _abilitiesData;
+        [SerializeField] private PlayerPathSO _playerPath;
         
         [Header("UI")]
         [SerializeField] private GameObject _interactUIText;
-
-        [Header("Abilities Data")]
-        [SerializeField] private PlayerAbilitiesData _abilitiesData;
-
-        [Header("Symbols")]
-        [SerializeField] private List<AbilitySymbol> _abilitySymbols;
+        
 
         private List<BaseEnemy> _sceneEnemies = new List<BaseEnemy>();
 
@@ -41,11 +44,13 @@ namespace SceneMechanics.SaveStatue
         {
             _playerCurrentHealth.Value = _playerMaxHealth;
             _playerPotionsAvailable.Value = _playerMaxPotions;
+
+            _playerPath.lastSavePoint = _saveStatueEntrance.entrance;
             
             DataPersistenceManager.Instance.gameData.lastSaveScene = _currentScene.sceneName;
             DataPersistenceManager.Instance.SaveGame();
 
-            TemporalDataManager.Instance.temporalData.EnemiesStatus.Clear();
+            TemporalDataManager.Instance.temporalData.Clear();
             RespawnEnemiesInScene();
 
             ActivateSymbols();
@@ -86,7 +91,7 @@ namespace SceneMechanics.SaveStatue
 
         public void LoadData(GameData data)
         {
-            if (data.lastSaveScene == _currentScene.sceneName)
+            if (_playerPath.lastSavePoint == _saveStatueEntrance.entrance)
             {
                 ActivateSymbols();
             }

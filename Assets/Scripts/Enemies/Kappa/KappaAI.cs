@@ -7,9 +7,6 @@ namespace Enemies.Kappa
 {
     public class KappaAI : BaseEnemy
     {
-        [Header("Reference to the player")]
-        [SerializeField] private GameObject player;
-   
         [Header("Chase parameters")]
         [Tooltip("Radius where the player will be detected")]
         [SerializeField] private float detectionRadius;
@@ -19,11 +16,20 @@ namespace Enemies.Kappa
         [Tooltip("Strength of the knockback applied to the enemy on hit")]
         [SerializeField] private float knockbackStrength;
         
+        [Header("Roll parameters")]
         [Tooltip("Speed of the roll")]
         [SerializeField] private float rollingSpeed;
         [Tooltip("Distance that the kappa rolls")]
         [SerializeField] private float rollingDistance;
-        
+        [Tooltip("Center of the collision detection radius")]
+        [SerializeField] private Transform collisionDetectionCenter;
+        [Tooltip("Radius of the attack")]
+        [SerializeField] private float collisionDetectionRadius;
+
+        public Transform CollisionDetectionCenter => collisionDetectionCenter;
+
+        public float CollisionDetectionRadius => collisionDetectionRadius;
+
         [Header("Attack parameters")]
         [Tooltip("Center of the attack radius")]
         [SerializeField] private Transform attackCenter;
@@ -68,7 +74,7 @@ namespace Enemies.Kappa
             _entityHealth.RemoveListenerOnHit(OnHitKnockback);
         }
 
-        void Start()
+        public override void SetUpBehaviourTree()
         {
             _entityHealth.AddListenerOnHit(OnHitKnockback);
             
@@ -101,6 +107,8 @@ namespace Enemies.Kappa
             actionToDo.AddChild(chasePlayer);
             
             _kappaBehaviourTree.AddChild(actionToDo);
+            
+            Debug.Log(_kappaBehaviourTree);
         }
     
         void Update()
@@ -161,7 +169,7 @@ namespace Enemies.Kappa
             {
                 if (entity.CompareTag("Player"))
                 {
-                    if (entity.transform.root.TryGetComponent(out PlayerHealth playerHealth))
+                    if (entity.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
                     {
                         int xDirection = (int) Mathf.Sign(entity.transform.position.x - transform.position.x);
                         playerHealth.Damage(attackDamage, xDirection);
@@ -237,6 +245,8 @@ namespace Enemies.Kappa
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackCenter.position, attackRadius);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(collisionDetectionCenter.position, collisionDetectionRadius);
         }
     
     }

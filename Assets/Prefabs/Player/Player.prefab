@@ -513,6 +513,7 @@ Transform:
   - {fileID: 5677699652441642348}
   - {fileID: 4169482647808888320}
   - {fileID: 7586405278329656608}
+  - {fileID: 50972635073705517}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7164229126803751347
@@ -525,7 +526,7 @@ Animator:
   m_GameObject: {fileID: 6801932908582284163}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 22601b4e3cee2f643ad431bdd336c36a, type: 2}
+  m_Controller: {fileID: 22100000, guid: a362fcca0212aff43925f1b48074a7c3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -721,6 +722,7 @@ MonoBehaviour:
     constantValue: 0
     variableValue: {fileID: 0}
     componentValue: {fileID: 8757022484067511555}
+  _cameraFollowObject: {fileID: 350611128792687531}
 --- !u!114 &610528215668057195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,6 +1148,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8706431666577574020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 50972635073705517}
+  - component: {fileID: 350611128792687531}
+  m_Layer: 9
+  m_Name: Camera Follow Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &50972635073705517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8706431666577574020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3687132239636878760}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350611128792687531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8706431666577574020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53a2f7d1dd64d1bbf0b0ca1fa8a95aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flipYRotationTime: 0.5
 --- !u!1 &8908236237176522379
 GameObject:
   m_ObjectHideFlags: 0

@@ -108,6 +108,8 @@ namespace CustomMenus
         private static void CreateSaveStatue()
         {
             InstantiatePrefabAtPath(SaveStatuePath);
+            Debug.LogWarning("[SAVE STATUE] New save statue instantiated, set LevelEntrance (in child object Entrance)" +
+                             " and CurrentScene manually.");
         }
         #endregion
         
@@ -189,12 +191,19 @@ namespace CustomMenus
         
         #region CAMERA SYSTEM
         private const string CameraPath = BasePath + "CameraSystem/Cameras.prefab";
+        private const string CameraControlTriggerPath = BasePath + "CameraSystem/Camera Control Trigger.prefab";
         private const string LightPointPath = BasePath + "CameraSystem/LightPoint/LightPoint.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/CameraSystem/Cameras", false, 0)]
         private static void CreateCamera()
         {
             InstantiatePrefabAtPath(CameraPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/CameraSystem/Camera Control Trigger", false, 0)]
+        private static void CreateCameraControlTrigger()
+        {
+            InstantiatePrefabAtPath(CameraControlTriggerPath);
         }
         
         [MenuItem("GameObject/IzanagiTLW/CameraSystem/LightPoint/LightPoint", false, 0)]

@@ -358,7 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cdddad6934ca54e9231339ddf96905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   _damage: 20
+  _canDamageEnemies: 0
 --- !u!1 &360270201
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +795,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756280559}
   m_CullTransparentMesh: 1
+--- !u!1 &967551960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967551961}
+  - component: {fileID: 967551962}
+  m_Layer: 8
+  m_Name: Hurtbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &967551961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967551960}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7989773, y: 0.3626162, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4820460862288754368}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &967551962
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967551960}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1601158465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,7 +3041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cdddad6934ca54e9231339ddf96905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   _damage: 10
+  _canDamageEnemies: 0
 --- !u!1 &1785447296
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,6 +3378,23 @@ MonoBehaviour:
     variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
     componentValue: {fileID: 0}
   _invulnerabilityTime: 0.5
+  _dashInvulnerability:
+    valueType: 0
+    constantValue: 0
+    variableValue: {fileID: 0}
+    componentValue: {fileID: 0}
+  _potionsAmount:
+    valueType: 0
+    constantValue: 0
+    variableValue: {fileID: 0}
+    componentValue: {fileID: 0}
+  _maxPotionsAmount:
+    valueType: 0
+    constantValue: 0
+    variableValue: {fileID: 0}
+    componentValue: {fileID: 0}
+  _potionsHealth: 0
+  _onPlayerDeathEvent: {fileID: 0}
 --- !u!1 &2139046658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,7 +3506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cdddad6934ca54e9231339ddf96905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   _damage: 20
+  _canDamageEnemies: 0
 --- !u!4 &1913361072917794660
 Transform:
   m_ObjectHideFlags: 0
@@ -3534,6 +3634,7 @@ Transform:
   - {fileID: 7473297724475218386}
   - {fileID: 1913361072917794660}
   - {fileID: 353453832}
+  - {fileID: 967551961}
   m_Father: {fileID: 2266066035592160527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5530731810940868346
@@ -3600,71 +3701,6 @@ MonoBehaviour:
   _health:
     <MaxHealth>k__BackingField: 0
     <CurrentHealth>k__BackingField: 0
---- !u!1001 &6634851607303955261
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266066035451143701, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474244774349229579, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_Name
-      value: Chaser
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474244774349229579, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4959567201097352610, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2137210369}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 330aa4ddfc3229448a58819e3193248e, type: 3}
 --- !u!4 &7473297724475218386
 Transform:
   m_ObjectHideFlags: 0
@@ -3830,7 +3866,6 @@ SceneRoots:
   - {fileID: 1767008160}
   - {fileID: 2137210367}
   - {fileID: 1785072214}
-  - {fileID: 6634851607303955261}
   - {fileID: 2266066035592160527}
   - {fileID: 1785447300}
   - {fileID: 1656931816}

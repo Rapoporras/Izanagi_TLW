@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _kappasToSpawn: 3
   _spawnDuration: 3
+  _miniKappaPrefab: {fileID: 1418018392914436002, guid: 75af58209712fc84e8184316b21a7824, type: 3}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 512
