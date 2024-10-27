@@ -219,6 +219,7 @@ namespace Enemies.Kappa
             }
             
             _isDetected = false;
+            _animator.SetTrigger(IdleHash);
             return false;
         }
         
