@@ -10,7 +10,7 @@ namespace SceneLoaderSystem
         [Header("Dependencies")]
         [SerializeField] private PlayerPathSO _playerPath;
         [SerializeField] private GameObject _playerPrefab;
-        [SerializeField] private CinemachineVirtualCamera _followCamera;
+        [SerializeField] private CinemachineVirtualCamera[] _virtualCameras;
         [SerializeField] private GameObject _playerParent;
 
         [Header("Variables")]
@@ -29,11 +29,14 @@ namespace SceneLoaderSystem
 
             player.transform.position = entrance.transform.position;
             player.transform.parent = _playerParent.transform;
-            _followCamera.Follow = player.transform;
             
             if (player.TryGetComponent(out PlayerMovement movement))
             {
-                bool isMovingRight = false;
+                foreach (var virtualCamera in _virtualCameras)
+                {
+                    virtualCamera.Follow = movement.CameraTarget;
+                }
+                bool isMovingRight = true;
                 if (_playerPath.levelEntrance)
                     isMovingRight = _playerPath.levelEntrance.setPlayerFacingRight;
                 

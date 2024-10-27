@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 
 namespace Health
 {
@@ -22,6 +23,11 @@ namespace Health
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_health"), true);
                 
                 EditorGUI.indentLevel--;
+            }
+
+            if (GUI.changed)
+            {
+                EditorUtility.SetDirty(entityHealth);
             }
         }
     }
