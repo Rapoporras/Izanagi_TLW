@@ -32,6 +32,7 @@ namespace SceneLoaderSystem
             
             if (player.TryGetComponent(out PlayerMovement movement))
             {
+                movement.SetCameraFollowObject();
                 foreach (var virtualCamera in _virtualCameras)
                 {
                     virtualCamera.Follow = movement.CameraTarget;

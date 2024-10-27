@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _newGameButton: {fileID: 1637999414}
   _continueGameButton: {fileID: 1255586888}
-  _firstGameScene: {fileID: 11400000, guid: 4b14e3c52ce3d23469d7332da4e9de9f, type: 2}
+  _firstGameScene: {fileID: 11400000, guid: f324eed105f04e742821e5825572ae4b, type: 2}
   _sceneToLoad: {fileID: 11400000, guid: cafe69faf63b7ee43878c791b23edcf8, type: 2}
   _loadSceneRequestEvent: {fileID: 11400000, guid: 52641e5cf7bf10d4c9a00b36e5c7617f, type: 2}
 --- !u!1 &301956374

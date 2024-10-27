@@ -234,6 +234,14 @@ PrefabInstance:
       propertyPath: _playerParent
       value: 
       objectReference: {fileID: 1994397899}
+    - target: {fileID: 7003093985860391579, guid: aa5e03c800adfe74db094f6c43da694d, type: 3}
+      propertyPath: _virtualCameras.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003093985860391579, guid: aa5e03c800adfe74db094f6c43da694d, type: 3}
+      propertyPath: _virtualCameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 1269499972}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4313,11 +4321,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1886229328788576961, guid: aa7756aaf9a79f141b53c8176f974714, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 1886229328788576961, guid: aa7756aaf9a79f141b53c8176f974714, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6903552352226140971, guid: aa7756aaf9a79f141b53c8176f974714, type: 3}
       propertyPath: m_LocalPosition.x

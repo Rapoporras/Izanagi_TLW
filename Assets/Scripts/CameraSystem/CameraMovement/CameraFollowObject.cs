@@ -15,6 +15,7 @@ namespace CameraSystem
 
         public void Initialize(Rigidbody2D playerRigidbody2D, bool isFacingRight)
         {
+            Debug.Log("Initialize Camera Follow Object");
             _playerRigidbody2D = playerRigidbody2D;
             _isFacingRight = isFacingRight;
         }
@@ -52,6 +53,11 @@ namespace CameraSystem
         {
             _isFacingRight = !_isFacingRight;
             return _isFacingRight ? 0f : 180f;
+        }
+
+        public void OnPlayerDeath()
+        {
+            Destroy(gameObject);
         }
     }
 }
