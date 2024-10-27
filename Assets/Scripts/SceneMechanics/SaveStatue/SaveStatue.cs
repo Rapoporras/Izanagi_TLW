@@ -5,6 +5,8 @@ using PlayerController.Data;
 using SaveSystem;
 using SceneLoaderSystem;
 using UnityEngine;
+using Utils;
+using Utils.CustomLogs;
 
 namespace SceneMechanics.SaveStatue
 {
@@ -55,7 +57,7 @@ namespace SceneMechanics.SaveStatue
 
             ActivateSymbols();
             
-            Debug.Log("Game saved . . .");
+            LogManager.Log("Game saved . . .", FeatureType.SaveSystem);
         }
 
         public void ShowInteractionUI(bool showUI)

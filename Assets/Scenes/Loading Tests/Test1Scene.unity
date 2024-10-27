@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: id
       value: d0d184c9-6c70-453d-b183-8caaefbf7c97
       objectReference: {fileID: 0}
+    - target: {fileID: 2711461608300211872, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
+      propertyPath: _alwaysRespawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
