@@ -27,6 +27,8 @@ public class MainMenu : MonoBehaviour
         {
             _continueGameButton.interactable = false;
         }
+        
+        _newGameButton.Select();
     }
     
     public void OnNewGameClicked()

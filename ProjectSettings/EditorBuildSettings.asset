@@ -29,10 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SpecialAttacksScene.unity
     guid: 0e0111c3603adda4fbc3a21062e5771a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Loading Tests/Test1Scene.unity
     guid: 4d3ead75c2c3ca643842e9f3c6ed991c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Loading Tests/Test2Scene.unity
     guid: 2b2a08e177f46e8459f62e522f506eff
   m_configObjects: {}

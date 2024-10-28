@@ -1,12 +1,15 @@
+using System;
 using GameEvents;
 using SceneLoaderSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private GameObject _panel;
+    [SerializeField] private Button _firstSelectedButton;
 
     [Header("Load Scene")]
     [SerializeField] private SceneSO _mainMenuScene;
@@ -14,9 +17,16 @@ public class PauseMenuController : MonoBehaviour
     
     private bool _isPaused;
 
+    private void Start()
+    {
+        _panel.SetActive(false);
+    }
+
     private void OnEnable()
     {
         InputManager.Instance.UIActions.Pause.performed += OnPause;
+        
+        _firstSelectedButton.Select();
     }
 
     private void OnDisable()
