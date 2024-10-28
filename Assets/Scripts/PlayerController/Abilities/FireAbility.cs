@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utils.CustomLogs;
 
 namespace PlayerController.Abilities
 {
@@ -33,7 +34,7 @@ namespace PlayerController.Abilities
         {
             if (!_playerMovement.IsGrounded) return false;
             
-            Debug.Log("Fire ability");
+            LogManager.Log("Fire ability", FeatureType.Abilities);
             FireAbilityAttack abilityAttack =
                 Instantiate(_fireAbilityAttackPrefab, target.transform.position, target.transform.rotation);
             abilityAttack.Damage = _abilityDamage;
@@ -46,14 +47,11 @@ namespace PlayerController.Abilities
         
         public override bool PerformUltimate(GameObject target)
         {
-            Debug.Log("Fire Ultimate");
+            LogManager.Log("Fire Ultimate", FeatureType.Abilities);
             FireUltimateAttack ultimateAttack =
                 Instantiate(_fireUltimateAttackPrefab, Vector3.zero, Quaternion.identity);
             ultimateAttack.damage = _ultimateDamage;
             ultimateAttack.duration = UltimateDuration;
-            
-            // no necesita desabilitar el input del jugador
-            // la ulti setea el tiemScale a 0
             
             return true;
         }

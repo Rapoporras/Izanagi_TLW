@@ -4,7 +4,7 @@ namespace Utils.CustomLogs
 {
     public enum FeatureType
     {
-        Undefined, Dialogue, Player, SaveSystem, InputSystem, CameraSystem
+        Undefined, Dialogue, Player, SaveSystem, InputSystem, CameraSystem, Abilities
     }
     
     [System.Serializable]
