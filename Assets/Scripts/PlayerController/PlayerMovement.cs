@@ -428,15 +428,15 @@ namespace PlayerController
         
         #region Debug
         #if UNITY_EDITOR
-        private void OnGUI()
-        {
-            GUILayout.BeginArea(new Rect(10, 10, 500, 200));
-            string rootStateName = _currentState.Name;
-            GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
-            
-            GUILayout.Label($"<color=black><size=30>Input: {MovementDirection}</size></color>");
-            GUILayout.EndArea();
-        }
+        // private void OnGUI()
+        // {
+        //     GUILayout.BeginArea(new Rect(10, 10, 500, 200));
+        //     string rootStateName = _currentState.Name;
+        //     GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
+        //     
+        //     GUILayout.Label($"<color=black><size=30>Input: {MovementDirection}</size></color>");
+        //     GUILayout.EndArea();
+        // }
         #endif
         #endregion
     }
