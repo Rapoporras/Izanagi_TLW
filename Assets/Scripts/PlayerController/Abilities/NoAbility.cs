@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils.CustomLogs;
 
 namespace PlayerController.Abilities
 {
@@ -14,8 +15,7 @@ namespace PlayerController.Abilities
         
         public override bool PerformAbility(GameObject target)
         {
-            Debug.Log("No Action ability");
-
+            LogManager.Log("No Action ability", FeatureType.Abilities);
             return true;
         }
         

@@ -1,5 +1,6 @@
 ﻿using Health;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace PlayerController.Abilities
 {
@@ -26,7 +27,7 @@ namespace PlayerController.Abilities
         {
             if (_playerHealth.HasShield) return false;
             
-            Debug.Log("Ground ability");
+            LogManager.Log("Ground ability", FeatureType.Abilities);
             _playerHealth.HasShield = true;
             _playerAbilities.ShowShield(true);
 
@@ -41,7 +42,7 @@ namespace PlayerController.Abilities
 
         private void HideShield()
         {
-            Debug.Log("hide shield");
+            LogManager.Log("hide shield", FeatureType.Abilities);
             _playerAbilities.ShowShield(false);
         }
     }

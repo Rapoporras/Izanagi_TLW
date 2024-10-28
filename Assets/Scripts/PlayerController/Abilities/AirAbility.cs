@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace PlayerController.Abilities
 {
@@ -29,7 +30,7 @@ namespace PlayerController.Abilities
         {
             if (_boostActive) return false;
             
-            Debug.Log("Air ability");
+            LogManager.Log("Air ability", FeatureType.Abilities);
             _playerAttack.AttackAirBoost = _damageMultiplier;
             _playerAttack.StartCoroutine(HandlePlayerBoost(target));
 

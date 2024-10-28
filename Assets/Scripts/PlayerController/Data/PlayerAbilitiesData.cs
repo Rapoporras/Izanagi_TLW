@@ -75,5 +75,19 @@ namespace PlayerController.Data
             
             return unlockedAbilities;
         }
+
+        public AbilityType GetFirstAbilityUnlocked()
+        {
+            if (IsAbilityUnlock(AbilityType.Air))
+                return AbilityType.Air;
+            if (IsAbilityUnlock(AbilityType.Fire))
+                return AbilityType.Fire;
+            if (IsAbilityUnlock(AbilityType.Ground))
+                return AbilityType.Ground;
+            if (IsAbilityUnlock(AbilityType.Water))
+                return AbilityType.Water;
+            
+            return AbilityType.NoAbility;
+        }
     }
 }

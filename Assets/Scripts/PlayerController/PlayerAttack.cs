@@ -219,13 +219,13 @@ namespace PlayerController
 
         #region DEBUG
 #if UNITY_EDITOR
-        private void OnGUI()
-        {
-            GUILayout.BeginArea(new Rect(10, 150, 500, 50));
-            string rootStateName = _currentState.Name;
-            GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
-            GUILayout.EndArea();
-        }
+        // private void OnGUI()
+        // {
+        //     GUILayout.BeginArea(new Rect(10, 150, 500, 50));
+        //     string rootStateName = _currentState.Name;
+        //     GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
+        //     GUILayout.EndArea();
+        // }
 #endif
         #endregion
     }
