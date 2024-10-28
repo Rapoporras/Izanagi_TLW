@@ -103,9 +103,6 @@ namespace PlayerController
             _rb2d = GetComponent<Rigidbody2D>();
             _rb2d.gravityScale = 0f;
             _raycastInfo = GetComponent<RaycastInfo>();
-
-            _cameraFollowObject.Initialize(_rb2d, IsFacingRight);
-            _cameraFollowObject.transform.parent = null;
         }
 
         protected override void Start()
@@ -421,19 +418,25 @@ namespace PlayerController
                 _cameraFollowObject.CallTurn();
             }
         }
+
+        public void SetCameraFollowObject()
+        {
+            _cameraFollowObject.Initialize(_rb2d, IsFacingRight);
+            _cameraFollowObject.transform.parent = transform.parent;
+        }
         #endregion
         
         #region Debug
         #if UNITY_EDITOR
-        private void OnGUI()
-        {
-            GUILayout.BeginArea(new Rect(10, 10, 500, 200));
-            string rootStateName = _currentState.Name;
-            GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
-            
-            GUILayout.Label($"<color=black><size=30>Input: {MovementDirection}</size></color>");
-            GUILayout.EndArea();
-        }
+        // private void OnGUI()
+        // {
+        //     GUILayout.BeginArea(new Rect(10, 10, 500, 200));
+        //     string rootStateName = _currentState.Name;
+        //     GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
+        //     
+        //     GUILayout.Label($"<color=black><size=30>Input: {MovementDirection}</size></color>");
+        //     GUILayout.EndArea();
+        // }
         #endif
         #endregion
     }

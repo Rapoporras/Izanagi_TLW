@@ -14,8 +14,8 @@ namespace SaveSystem
          */
         public List<int> abilitiesUnlocked = new List<int>() { 1 };
         public GlobalVariables variables = new GlobalVariables();
-        public string lastSaveScene;
-
+        public LastSaveInfo lastSaveInfo = new LastSaveInfo();
+        
         public SerializableDictionary<string, bool> upgradeItemsCollected = new SerializableDictionary<string, bool>();
         public SerializableDictionary<string, bool> sceneEvents = new SerializableDictionary<string, bool>();
     }
@@ -30,5 +30,12 @@ namespace SaveSystem
         public int healthItemAmount = 0;
 
         public float attackMultiplier = 1f;
+    }
+
+    [System.Serializable]
+    public class LastSaveInfo
+    {
+        public string sceneName;
+        public string statueId;
     }
 }

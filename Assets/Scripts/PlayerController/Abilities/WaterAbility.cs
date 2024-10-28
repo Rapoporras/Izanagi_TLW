@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
+using Utils.CustomLogs;
 
 namespace PlayerController.Abilities
 {
@@ -25,7 +25,7 @@ namespace PlayerController.Abilities
         {
             if (!_playerMovement.IsGrounded) return false;
             
-            Debug.Log("Water ability");
+            LogManager.Log("Water ability", FeatureType.Abilities);
             WaterAbilityAttack abilityAttack = Instantiate(_waveAbilityAttackPrefab, target.transform.position, target.transform.rotation);
             abilityAttack.Damage = _damage;
             abilityAttack.Duration = AbilityDuration;

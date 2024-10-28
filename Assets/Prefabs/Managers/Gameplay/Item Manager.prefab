@@ -71,9 +71,9 @@ MonoBehaviour:
     variableValue: {fileID: 11400000, guid: e9134b498f3a23745a5b5e755e508f1e, type: 2}
     componentValue: {fileID: 0}
   _attackMultiplier:
-    valueType: 0
+    valueType: 1
     constantValue: 1
-    variableValue: {fileID: 0}
+    variableValue: {fileID: 11400000, guid: 0ad98a406c656c7419bf3a27b50edaa8, type: 2}
     componentValue: {fileID: 0}
 --- !u!114 &7576953353200340374
 MonoBehaviour:

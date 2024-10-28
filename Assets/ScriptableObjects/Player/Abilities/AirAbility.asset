@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570e6801ecc94518a733ef36fe98784a, type: 3}
   m_Name: AirAbility
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 22100000, guid: 7c2e2ba5ed0aebb42b2366ed6ea422c5, type: 2}
+  <Animator>k__BackingField: {fileID: 9100000, guid: bc233afd04bcb034ba993dfcbd73795b, type: 2}
   <CooldownDuration>k__BackingField: 2
-  <MannaCost>k__BackingField: 50
+  <AbilityMannaCost>k__BackingField: 0
   <AbilityDuration>k__BackingField: 5
+  <UltimateMannaCost>k__BackingField: 0
+  <UltimateDuration>k__BackingField: 0
   _damageMultiplier: 1.5

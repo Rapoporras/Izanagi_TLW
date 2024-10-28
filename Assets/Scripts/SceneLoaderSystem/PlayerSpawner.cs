@@ -1,6 +1,8 @@
 ﻿using Cinemachine;
 using GlobalVariables;
 using PlayerController;
+using SaveSystem;
+using SceneMechanics.SaveStatue;
 using UnityEngine;
 
 namespace SceneLoaderSystem
@@ -32,6 +34,7 @@ namespace SceneLoaderSystem
             
             if (player.TryGetComponent(out PlayerMovement movement))
             {
+                movement.SetCameraFollowObject();
                 foreach (var virtualCamera in _virtualCameras)
                 {
                     virtualCamera.Follow = movement.CameraTarget;
@@ -56,7 +59,8 @@ namespace SceneLoaderSystem
             
             // all dependencies must be loaded at this point
             // there must be an InputManager
-            InputManager.Instance.PlayerActions.Enable();
+            InputManager.Instance.EnablePlayerActions();
+            InputManager.Instance.EnableUIActions();
         }
 
         private void SetPlayerVariables()
@@ -85,8 +89,25 @@ namespace SceneLoaderSystem
         {
             if (!playerEntrance)
             {
-                // no path for player, instantiate it at default position
-                return transform.GetChild(0).transform;
+                if (DataPersistenceManager.Instance.gameData != null
+                    && DataPersistenceManager.Instance.gameData.lastSaveInfo.statueId != string.Empty)
+                {
+                    // load game from last save statue
+                    var saveStatues = FindObjectsOfType<SaveStatue>();
+                    foreach (var saveStatue in saveStatues)
+                    {
+                        if (saveStatue.id == DataPersistenceManager.Instance.gameData.lastSaveInfo.statueId)
+                        {
+                            saveStatue.ActivateSymbols();
+                            return saveStatue.Entrance.transform;
+                        }
+                    }
+                }
+                else
+                {
+                    // no path for player, instantiate it at default position
+                    return transform.GetChild(0).transform;
+                }
             }
 
             var levelEntrances = FindObjectsOfType<LevelEntrance>();

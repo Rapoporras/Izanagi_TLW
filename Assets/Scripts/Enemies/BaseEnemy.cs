@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using Health;
 using SaveSystem;
 using UnityEngine;
 using Utils;
 
-public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
+public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 {
     [Header("Reference to the player")]
     public GameObject player;
@@ -40,10 +39,7 @@ public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
         _entityHealth.RemoveListenerDeathEvent(EnemyDie);
     }
 
-    public virtual void SetUpBehaviourTree()
-    {
-        throw new NotImplementedException();
-    }
+    public abstract void SetUpBehaviourTree();
 
     protected void EnemyDie()
     {

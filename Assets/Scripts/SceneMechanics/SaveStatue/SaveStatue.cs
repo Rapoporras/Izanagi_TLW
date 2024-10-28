@@ -5,10 +5,12 @@ using PlayerController.Data;
 using SaveSystem;
 using SceneLoaderSystem;
 using UnityEngine;
+using Utils;
+using Utils.CustomLogs;
 
 namespace SceneMechanics.SaveStatue
 {
-    public class SaveStatue : MonoBehaviour, IInteractable, IDataPersistence
+    public class SaveStatue : IdentifiableObject, IInteractable, IDataPersistence
     {
         [Header("Variables")]
         [SerializeField] private IntReference _playerMaxHealth;
@@ -35,6 +37,8 @@ namespace SceneMechanics.SaveStatue
 
         private List<BaseEnemy> _sceneEnemies = new List<BaseEnemy>();
 
+        public LevelEntrance Entrance => _saveStatueEntrance;
+
         private void Awake()
         {
             _sceneEnemies = FindAllEnemiesInScene();
@@ -47,7 +51,9 @@ namespace SceneMechanics.SaveStatue
 
             _playerPath.lastSavePoint = _saveStatueEntrance.entrance;
             
-            DataPersistenceManager.Instance.gameData.lastSaveScene = _currentScene.sceneName;
+            // DataPersistenceManager.Instance.gameData.lastSaveScene = _currentScene.sceneName;
+            DataPersistenceManager.Instance.gameData.lastSaveInfo.sceneName = _currentScene.sceneName;
+            DataPersistenceManager.Instance.gameData.lastSaveInfo.statueId = id;
             DataPersistenceManager.Instance.SaveGame();
 
             TemporalDataManager.Instance.temporalData.Clear();
@@ -55,7 +61,7 @@ namespace SceneMechanics.SaveStatue
 
             ActivateSymbols();
             
-            Debug.Log("Game saved . . .");
+            LogManager.Log("Game saved . . .", FeatureType.SaveSystem);
         }
 
         public void ShowInteractionUI(bool showUI)
@@ -78,8 +84,9 @@ namespace SceneMechanics.SaveStatue
             }
         }
         
-        private void ActivateSymbols()
+        public void ActivateSymbols()
         {
+            LogManager.Log("Activate Symbols", FeatureType.SaveSystem);
             foreach (var symbol in _abilitySymbols)
             {
                 if (_abilitiesData.IsAbilityUnlock(symbol.AbilityType))
@@ -91,7 +98,8 @@ namespace SceneMechanics.SaveStatue
 
         public void LoadData(GameData data)
         {
-            if (_playerPath.lastSavePoint == _saveStatueEntrance.entrance)
+            if (_playerPath.lastSavePoint != null
+                &&_playerPath.lastSavePoint == _saveStatueEntrance.entrance)
             {
                 ActivateSymbols();
             }

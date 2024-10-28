@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 0.17254902, g: 0.5019608, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.20392157, g: 0.5921569, b: 0.9490196, a: 1}
+    m_DisabledColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -121,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6579659711558691311}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8439877390094208727}
   m_Layer: 5
-  m_Name: Controls
+  m_Name: Controls - Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,6 +591,7 @@ GameObject:
   - component: {fileID: 4657470310689606385}
   - component: {fileID: 4558122356096154659}
   - component: {fileID: 5788077929162680396}
+  - component: {fileID: 6579659711558691311}
   m_Layer: 5
   m_Name: Pause Canvas
   m_TagString: Untagged
@@ -681,6 +682,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6579659711558691311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000824125458698646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96af0d72b96e0a04a8e4d37914254f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panel: {fileID: 8527412282611130119}
+  _firstSelectedButton: {fileID: 6703806009515194438}
+  _mainMenuScene: {fileID: 11400000, guid: 71daed0f81ff5dc4486162717207973d, type: 2}
+  _loadSceneRequestEvent: {fileID: 11400000, guid: b6d29bb515da38b4fb5f49e5f656466e, type: 2}
 --- !u!1 &4796972266017303514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,9 +1066,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 0.17254902, g: 0.5019608, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.20392157, g: 0.5921569, b: 0.9490196, a: 1}
+    m_DisabledColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1070,7 +1087,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6579659711558691311}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -1099,7 +1116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4458380228753179021
 RectTransform:
   m_ObjectHideFlags: 0
