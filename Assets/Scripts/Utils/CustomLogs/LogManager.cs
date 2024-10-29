@@ -9,8 +9,10 @@ namespace Utils.CustomLogs
 
         private static void LogDebugConfig()
         {
-            _logData = (FeatureLogScriptable)UnityEditor.AssetDatabase.LoadAssetAtPath(LOGS_PATH,
+#if UNITY_EDITOR
+            _logData = (FeatureLogScriptable) UnityEditor.AssetDatabase.LoadAssetAtPath(LOGS_PATH,
                 typeof(FeatureLogScriptable));
+#endif
 
             if (_logData == null)
             {
