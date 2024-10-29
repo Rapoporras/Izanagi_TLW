@@ -1,4 +1,5 @@
 ﻿using Health;
+using KrillAudio.Krilloud;
 using PlayerController;
 using StateMachine;
 using UnityEngine;
@@ -18,8 +19,12 @@ namespace SceneMechanics.Stalactite
         public float detachingDuration = 0.5f;
         [SerializeField] private float _fallingAcceleration = 40f;
         public float maxFallingVelocity = 30f;
-        
-        [Header("States (Debugging)")] 
+
+        [Header("Audio Settings")]
+        [KLVariable] private string _stateAudioVar;
+
+        [Header("States (Debugging)")]
+        [SerializeField] private bool _useDebugColors;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [Space(5)]
         [SerializeField] private Color _idleDebugColor;
@@ -37,6 +42,7 @@ namespace SceneMechanics.Stalactite
         private RaycastInfo _raycastInfo;
         private EntityHealth _entityHealth;
         private ContactDamage _contactDamage;
+        private KLAudioSource _audioSource;
 
         private float _fallVel;
 
@@ -60,6 +66,7 @@ namespace SceneMechanics.Stalactite
             _raycastInfo = GetComponent<RaycastInfo>();
             _entityHealth = GetComponent<EntityHealth>();
             _contactDamage = GetComponent<ContactDamage>();
+            _audioSource = GetComponent<KLAudioSource>();
 
             fallGravityScale = Mathf.Abs(_fallingAcceleration / Physics2D.gravity.y);
         }
@@ -128,6 +135,8 @@ namespace SceneMechanics.Stalactite
         /// </summary>
         public void SetColor()
         {
+            if (!_useDebugColors) return;
+            
             switch (_currentState.StateKey)
             {
                 case StalactiteStates.Idle:
@@ -144,5 +153,19 @@ namespace SceneMechanics.Stalactite
                     break;
             }
         }
+        
+        #region AUDIO
+        public void PlayFloorHitAudio()
+        {
+            _audioSource.SetIntVar(_stateAudioVar, 0);
+            _audioSource.Play();
+        }
+
+        public void PlayFallAudio()
+        {
+            _audioSource.SetIntVar(_stateAudioVar, 1);
+            _audioSource.Play();
+        }
+        #endregion
     }
 }
