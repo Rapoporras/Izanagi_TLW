@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3305047886289574625}
   - component: {fileID: 7206371898482383501}
   - component: {fileID: 5396783194969937687}
+  - component: {fileID: 4800116723216414608}
   m_Layer: 10
   m_Name: KappaMelee
   m_TagString: Enemy
@@ -156,7 +157,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577676039033903462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -243,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 21f662e2-0775-4581-97a2-4254da69bee3
+  id: 550e8e7b-f621-4e2e-a7f0-9c19c9502cf4
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 10
@@ -439,6 +440,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &4800116723216414608
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577676039033903462}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.296876}
+  m_Size: {x: 1.544684, y: 2.5}
+  m_Direction: 0
 --- !u!1 &2306945817455791371
 GameObject:
   m_ObjectHideFlags: 0
