@@ -563,7 +563,8 @@ GameObject:
   m_Component:
   - component: {fileID: 532798272}
   - component: {fileID: 532798271}
-  - component: {fileID: 532798270}
+  - component: {fileID: 532798274}
+  - component: {fileID: 532798273}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -571,14 +572,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &532798270
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532798269}
-  m_Enabled: 1
 --- !u!20 &532798271
 Camera:
   m_ObjectHideFlags: 0
@@ -645,6 +638,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532798273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532798269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
+--- !u!114 &532798274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532798269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2d19103a42ac24fbc6714179ddef28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &830874356
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +871,8 @@ GameObject:
   - component: {fileID: 1255586890}
   - component: {fileID: 1255586889}
   - component: {fileID: 1255586888}
+  - component: {fileID: 1255586892}
+  - component: {fileID: 1255586891}
   m_Layer: 5
   m_Name: ContinueBtn
   m_TagString: Untagged
@@ -943,6 +994,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255586886}
   m_CullTransparentMesh: 1
+--- !u!114 &1255586891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255586886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - buttonUI
+--- !u!114 &1255586892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255586886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48e09cc285d4ebc9f0a068459e321ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionVar: interactionUI
 --- !u!1 &1315113341
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +1039,8 @@ GameObject:
   - component: {fileID: 1315113345}
   - component: {fileID: 1315113344}
   - component: {fileID: 1315113343}
+  - component: {fileID: 1315113347}
+  - component: {fileID: 1315113346}
   m_Layer: 5
   m_Name: OptionsBtn
   m_TagString: Untagged
@@ -1064,6 +1150,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315113341}
   m_CullTransparentMesh: 1
+--- !u!114 &1315113346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315113341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - buttonUI
+--- !u!114 &1315113347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315113341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48e09cc285d4ebc9f0a068459e321ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionVar: interactionUI
 --- !u!1 &1527198333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1345,8 @@ GameObject:
   - component: {fileID: 1637999416}
   - component: {fileID: 1637999415}
   - component: {fileID: 1637999414}
+  - component: {fileID: 1637999418}
+  - component: {fileID: 1637999417}
   m_Layer: 5
   m_Name: NewGameBtn
   m_TagString: Untagged
@@ -1347,6 +1468,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637999412}
   m_CullTransparentMesh: 1
+--- !u!114 &1637999417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637999412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - buttonUI
+--- !u!114 &1637999418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637999412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48e09cc285d4ebc9f0a068459e321ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionVar: interactionUI
 --- !u!1 &1744620252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1647,8 @@ GameObject:
   - component: {fileID: 1894493580}
   - component: {fileID: 1894493579}
   - component: {fileID: 1894493578}
+  - component: {fileID: 1894493582}
+  - component: {fileID: 1894493581}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -1614,6 +1770,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894493576}
   m_CullTransparentMesh: 1
+--- !u!114 &1894493581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894493576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - buttonUI
+--- !u!114 &1894493582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894493576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48e09cc285d4ebc9f0a068459e321ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionVar: interactionUI
 --- !u!1 &2013562056
 GameObject:
   m_ObjectHideFlags: 0

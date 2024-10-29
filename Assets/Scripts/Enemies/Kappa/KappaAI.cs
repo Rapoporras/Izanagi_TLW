@@ -117,7 +117,10 @@ namespace Enemies.Kappa
     
         void Update()
         {
-            if (!_isEnemyDead) _kappaBehaviourTree.Process();
+            if (!_isEnemyDead && _kappaBehaviourTree != null)
+            {
+                _kappaBehaviourTree.Process();
+            }
         }
         
         void MoveTowardsPlayer()

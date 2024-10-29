@@ -1,8 +1,12 @@
 ﻿
+using UnityEngine;
+
 namespace PlayerController.States
 {
     public class PlayerGroundedState : PlayerMovementBaseState
     {
+        private bool _isPlayingWalkSound;
+        
         public PlayerGroundedState(PlayerStates key, PlayerMovement context)
             : base(key, context)
         {
@@ -18,7 +22,24 @@ namespace PlayerController.States
             Context.IsDashActive = true;
         }
 
-        public override void UpdateState() { }
+        public override void UpdateState()
+        {
+            if (Context.MovementDirection.x != 0)
+            {
+                if (!_isPlayingWalkSound)
+                {
+                    Debug.Log("play walk sound");
+                    Context.Audio.PlayWalkSound();
+                    _isPlayingWalkSound = true;
+                }
+            }
+            else if (_isPlayingWalkSound)
+            {
+                Debug.Log("stop walk sound");
+                Context.Audio.StopWalkSound();
+                _isPlayingWalkSound = false;
+            }
+        }
 
         public override void FixedUpdateState()
         {
