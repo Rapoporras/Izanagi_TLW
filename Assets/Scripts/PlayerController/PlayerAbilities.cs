@@ -5,6 +5,7 @@ using PlayerController.Abilities;
 using PlayerController.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils.CustomLogs;
 
 namespace PlayerController
 {
@@ -52,6 +53,9 @@ namespace PlayerController
             {
                 ability.Initialize(gameObject);
             }
+
+            AbilityType activeAbility = _playerAbilitiesData.GetFirstAbilityUnlocked();
+            SetAbility(activeAbility);
         }
 
         private void OnEnable()
@@ -68,6 +72,19 @@ namespace PlayerController
             InputManager.Instance.PlayerActions.Ultimate.performed -= OnUltimateAction;
         }
 
+        private void SetAbility(AbilityType type)
+        {
+            for (int i = 0; i < _abilities.Count; i++)
+            {
+                if (_abilities[i].Type == type)
+                {
+                    _abilityIndex = i;
+                    _animator.runtimeAnimatorController = _abilities[i].Animator;
+                    _currentAbility.Value = type;
+                }
+            }
+        }
+
         private void OnChangeAbility(InputAction.CallbackContext context)
         {
             if (_isRechargingAbility) return;
@@ -78,8 +95,9 @@ namespace PlayerController
                 _abilityIndex = (_abilityIndex + 1) % _abilities.Count;
                 newAbility = _abilities[_abilityIndex];
                 
-            } while (!IsAbilityAvailable(newAbility.Type));
+            } while (!IsAbilityAvailable(newAbility.Type) || newAbility.Type == AbilityType.NoAbility);
             
+            LogManager.Log($"Change to ability -> {newAbility.Type}", FeatureType.Abilities);
             _animator.runtimeAnimatorController = newAbility.Animator;
             _currentAbility.Value = newAbility.Type;
         }
@@ -100,14 +118,15 @@ namespace PlayerController
             }
             else
             {
-                Debug.Log($"[NOT ENOUGH MANNA] Ability cost: {ability.AbilityMannaCost} - Manna amount: {_currentMannaAmount.Value}");
+                LogManager.Log($"[NOT ENOUGH MANNA] Ability cost: {ability.AbilityMannaCost} - Manna amount: {_currentMannaAmount.Value}",
+                    FeatureType.Abilities);
             }
         }
         
         private void OnUltimateAction(InputAction.CallbackContext context)
         {
             if (_isRechargingAbility) return;
-
+            
             BaseAbility ability = _abilities[_abilityIndex];
             
             if (ability.UltimateMannaCost <= _currentMannaAmount.Value)
@@ -120,7 +139,8 @@ namespace PlayerController
             }
             else
             {
-                Debug.Log($"[NOT ENOUGH MANNA] Ultimate cost: {ability.UltimateMannaCost} - Manna amount: {_currentMannaAmount.Value}");
+                LogManager.Log($"[NOT ENOUGH MANNA] Ultimate cost: {ability.UltimateMannaCost} - Manna amount: {_currentMannaAmount.Value}",
+                    FeatureType.Abilities);
             }
         }
 

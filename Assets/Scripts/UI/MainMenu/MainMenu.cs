@@ -27,6 +27,8 @@ public class MainMenu : MonoBehaviour
         {
             _continueGameButton.interactable = false;
         }
+        
+        _newGameButton.Select();
     }
     
     public void OnNewGameClicked()
@@ -49,7 +51,8 @@ public class MainMenu : MonoBehaviour
 
     public void OnContinueGameClicked()
     {
-        string sceneNameToLoad = DataPersistenceManager.Instance.GetGameData().lastSaveScene;
+        //string sceneNameToLoad = DataPersistenceManager.Instance.GetGameData().lastSaveScene;
+        string sceneNameToLoad = DataPersistenceManager.Instance.GetGameData().lastSaveInfo.sceneName;
         if (ValidSceneName(sceneNameToLoad))
         {
             DisableMenuButtons();
@@ -64,6 +67,11 @@ public class MainMenu : MonoBehaviour
         {
             Debug.LogError($"The scene from the save file doesn't exit -> {sceneNameToLoad}");
         }
+    }
+
+    public void OnExitButtonClicked()
+    {
+        Application.Quit();
     }
 
     private void DisableMenuButtons()

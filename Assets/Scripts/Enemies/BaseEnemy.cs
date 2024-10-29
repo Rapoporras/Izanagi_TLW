@@ -4,8 +4,11 @@ using SaveSystem;
 using UnityEngine;
 using Utils;
 
-public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
+public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 {
+    [Header("Reference to the player")]
+    public GameObject player;
+    
     [Header("Spawn Settings")]
     [SerializeField] private bool _alwaysRespawn;
     
@@ -35,6 +38,8 @@ public class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
     {
         _entityHealth.RemoveListenerDeathEvent(EnemyDie);
     }
+
+    public abstract void SetUpBehaviourTree();
 
     protected void EnemyDie()
     {

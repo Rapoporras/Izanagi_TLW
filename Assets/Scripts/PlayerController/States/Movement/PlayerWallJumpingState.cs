@@ -15,6 +15,7 @@ namespace PlayerController.States
         {
             int dir = Context.LeftWallHit ? 1 : -1;
             Context.WallJump(dir);
+            Context.Audio.PlayJumpSound();
         }
 
         public override void UpdateState()

@@ -7,9 +7,6 @@ namespace Enemies.Kappa
 {
     public class KappaAI : BaseEnemy
     {
-        [Header("Reference to the player")]
-        [SerializeField] private GameObject player;
-   
         [Header("Chase parameters")]
         [Tooltip("Radius where the player will be detected")]
         [SerializeField] private float detectionRadius;
@@ -28,6 +25,8 @@ namespace Enemies.Kappa
         [SerializeField] private Transform collisionDetectionCenter;
         [Tooltip("Radius of the attack")]
         [SerializeField] private float collisionDetectionRadius;
+        [Tooltip("Time of the animation that the kappa will move slowly at (to match the jumping animation)")]
+        [SerializeField] private float _rollAttackStartDuration = 0.84375f;
 
         public Transform CollisionDetectionCenter => collisionDetectionCenter;
 
@@ -46,11 +45,13 @@ namespace Enemies.Kappa
         private Rigidbody2D _rb;
         private Animator _animator;
         private static readonly int AttackHash = Animator.StringToHash("attack");
-        private static readonly int IsMovingHash = Animator.StringToHash("isMoving");
-        private static readonly int IsRollingHash = Animator.StringToHash("isRolling");
+        private static readonly int IsWalkingHash = Animator.StringToHash("walk");
+        private static readonly int IdleHash = Animator.StringToHash("idle");
+        private static readonly int HitHash = Animator.StringToHash("hit");
 
         private bool _isRolling;
         private bool _isChasingPlayer;
+        private bool _isDetected;
 
         protected override void Awake()
         {
@@ -62,7 +63,7 @@ namespace Enemies.Kappa
             }
             
             _rb = GetComponent<Rigidbody2D>();
-            _animator = GetComponent<Animator>();
+            _animator = GetComponentInChildren<Animator>();
         }
         
         protected override void OnEnable()
@@ -77,7 +78,7 @@ namespace Enemies.Kappa
             _entityHealth.RemoveListenerOnHit(OnHitKnockback);
         }
 
-        void Start()
+        public override void SetUpBehaviourTree()
         {
             _entityHealth.AddListenerOnHit(OnHitKnockback);
             
@@ -100,7 +101,7 @@ namespace Enemies.Kappa
             
             Leaf didPlayerEnterDetectionRadius =
                 new Leaf("DidPlayerEnterDetectionRadius", new ConditionStrategy(IsPlayerDetectedFirstTime));
-            Leaf roll = new Leaf("RollTowardsPlayer", new RollStrategy(gameObject, player, rollingSpeed, rollingDistance));
+            Leaf roll = new Leaf("RollTowardsPlayer", new RollStrategy(gameObject, player, rollingSpeed, rollingDistance,_rollAttackStartDuration));
             Sequence rollToPlayer = new Sequence("Roll");
             rollToPlayer.AddChild(didPlayerEnterDetectionRadius);
             rollToPlayer.AddChild(roll);
@@ -110,22 +111,28 @@ namespace Enemies.Kappa
             actionToDo.AddChild(chasePlayer);
             
             _kappaBehaviourTree.AddChild(actionToDo);
+            
+            Debug.Log(_kappaBehaviourTree);
         }
     
         void Update()
         {
-            if (!_isEnemyDead) _kappaBehaviourTree.Process();
+            if (!_isEnemyDead && _kappaBehaviourTree != null)
+            {
+                _kappaBehaviourTree.Process();
+            }
         }
         
         void MoveTowardsPlayer()
         {
+            Debug.Log("Chasing player");
             float xDifference = player.transform.position.x - transform.position.x;
             float playerDirection = Mathf.Sign(xDifference);
             
             if (Mathf.Abs(xDifference) < 0.2)
             {
                 _rb.velocity = new Vector2(0, _rb.velocity.y);
-                _animator.SetBool(IsMovingHash, false);
+                _animator.SetTrigger(IdleHash);
             }
             else
             {
@@ -137,7 +144,7 @@ namespace Enemies.Kappa
                     transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 }
                 _rb.velocity = new Vector2(playerDirection * chaseSpeed, _rb.velocity.y);
-                _animator.SetBool(IsMovingHash, true);
+                _animator.SetTrigger(IsWalkingHash);
             }
                 
         }
@@ -170,7 +177,7 @@ namespace Enemies.Kappa
             {
                 if (entity.CompareTag("Player"))
                 {
-                    if (entity.transform.root.TryGetComponent(out PlayerHealth playerHealth))
+                    if (entity.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
                     {
                         int xDirection = (int) Mathf.Sign(entity.transform.position.x - transform.position.x);
                         playerHealth.Damage(attackDamage, xDirection);
@@ -189,6 +196,7 @@ namespace Enemies.Kappa
             _rb.velocity = Vector2.zero;
             Vector2 knockbackDirection = transform.position - player.transform.position;
             _rb.AddForce(knockbackDirection.normalized * knockbackStrength, ForceMode2D.Impulse);
+            _animator.SetTrigger(HitHash);
             if (onHitStunTime > 0)
                 StartCoroutine(StunEnemy(onHitStunTime));
         }
@@ -204,19 +212,17 @@ namespace Enemies.Kappa
         {
             if (Vector3.Distance(transform.position, player.transform.position) <= detectionRadius)
             {
-                if (_isRolling)
+
+                if (_isDetected)
                 {
-                    _isRolling = false;
-                    _isChasingPlayer = true;
                     _entityHealth.damageable = true;
                     _entityHealth.giveUpwardForce = false;
+                    return true;
                 }
-                
-                return true;
             }
             
-            _isRolling = false;
-            _isChasingPlayer = false;
+            _isDetected = false;
+            _animator.SetTrigger(IdleHash);
             return false;
         }
         
@@ -224,19 +230,16 @@ namespace Enemies.Kappa
         {
             if (Vector3.Distance(transform.position, player.transform.position) <= detectionRadius)
             {
-                if (_isChasingPlayer || _isRolling)
-                {
-                    return false;
-                }
 
-                _entityHealth.damageable = false;
-                _entityHealth.giveUpwardForce = true;
-                _isRolling = true;
-                return true;
+                if (!_isDetected)
+                {
+                    _isDetected = true;
+                    _entityHealth.damageable = false;
+                    _entityHealth.giveUpwardForce = true;
+                    return true;
+                }
             }
             
-            _isRolling = false;
-            _isChasingPlayer = false;
             return false;
         }
     

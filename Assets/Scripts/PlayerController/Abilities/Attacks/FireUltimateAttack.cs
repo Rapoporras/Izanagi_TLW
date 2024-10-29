@@ -19,7 +19,7 @@ namespace PlayerController.Abilities
 
         private void Start()
         {
-            InputManager.Instance.PlayerActions.Disable();
+            InputManager.Instance.DisablePlayerActions();
             Time.timeScale = 0f;
         }
 
@@ -47,7 +47,7 @@ namespace PlayerController.Abilities
             
             Time.timeScale = 1f;
             Destroy(gameObject);
-            InputManager.Instance.PlayerActions.Enable();
+            InputManager.Instance.EnablePlayerActions();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace SaveSystem
 {
@@ -26,9 +27,9 @@ namespace SaveSystem
 
             if (keys.Count != values.Count)
             {
-                Debug.LogError("Tried to deserialized a SerializableDictionary, but the amount of keys ("
+                LogManager.LogError("Tried to deserialized a SerializableDictionary, but the amount of keys ("
                     + keys.Count + ") does not match the number of values (" + values.Count + ") which indicates" +
-                    "that something went wrong.");
+                    "that something went wrong.", FeatureType.SaveSystem);
             }
             
             for (int i = 0; i < keys.Count; i++)

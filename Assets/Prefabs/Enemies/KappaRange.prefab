@@ -513,6 +513,9 @@ MonoBehaviour:
   isActive: 1
   _damage: 20
   _canDamageEnemies: 0
+  _hurtboxLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &2991623237131917909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   player: {fileID: 0}
+  _alwaysRespawn: 0
   detectionRadius: 15
   rollingSpeed: 10
   onHitStunTime: 0.15

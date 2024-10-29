@@ -79,8 +79,8 @@ namespace DialogueSystem
         {
             if (_dialogueIsPlaying) return;
             
-            InputManager.Instance.PlayerActions.Disable();
-            InputManager.Instance.UIActions.Enable();
+            InputManager.Instance.DisablePlayerActions();
+            InputManager.Instance.EnableUIActions();
             
             _currentStory = new Story(dialogueInfo.InkJSON.text);
             _dialogueIsPlaying = true;
@@ -101,7 +101,7 @@ namespace DialogueSystem
             _dialoguePanel.SetActive(false);
             ResetDialogueUI();
             
-            InputManager.Instance.PlayerActions.Enable();
+            InputManager.Instance.EnablePlayerActions();
         }
 
         private void ContinueStoryCallback(InputAction.CallbackContext context)

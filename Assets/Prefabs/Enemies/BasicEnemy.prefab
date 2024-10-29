@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 3004609539596503061}
   - component: {fileID: 3628689693922017073}
   - component: {fileID: 3745591509574468392}
-  - component: {fileID: 7368966253360072205}
+  - component: {fileID: 2711461608300211872}
   m_Layer: 10
   m_Name: BasicEnemy
   m_TagString: Enemy
@@ -494,7 +494,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7368966253360072205
+--- !u!114 &2711461608300211872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -503,8 +503,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6764487343547975114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6f0ae3675ba4043bab882052254aba, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ed9274bba8479aa15b0a1ea1ba22c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
+  player: {fileID: 0}
   _alwaysRespawn: 0

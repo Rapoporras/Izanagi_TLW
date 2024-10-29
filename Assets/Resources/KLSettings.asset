@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5d1904cd5304843a753e2194a13d50, type: 3}
+  m_Name: KLSettings
+  m_EditorClassIdentifier: 
+  autogenerateCode: 1
+  editorLogLevel: 1
+  buildLogLevel: 2
+  m_krilloudInDebugMode: 0
+  placeholderContract:
+    tags: []
+    variables: []
+    channels: []
+  cacheContract:
+    tags:
+    - name: gameMusic
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 2
+      sourceContract: 2
+    - name: playerAttack
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 1
+      sourceContract: 2
+    - name: playerState
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 1
+      sourceContract: 2
+    - name: fireAbility
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 0
+      sourceContract: 2
+    - name: buttonUI
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 0
+      sourceContract: 2
+    - name: saveGame
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 0
+      sourceContract: 2
+    - name: kappaEggs
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 0
+      sourceContract: 2
+    - name: kappa
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 0
+      sourceContract: 2
+    - name: caveWater
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 0
+      sourceContract: 2
+    - name: brittleSoil
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 0
+      sourceContract: 2
+    - name: stalactite
+      description: 
+      is3D: 0
+      max3DDistance: 2
+      isLoop: 0
+      channelId: 0
+      sourceContract: 2
+    variables:
+    - name: scene
+      defaultValue: 1
+      isGlobal: 0
+      source: 2
+      content: 0
+      min: 0
+      max: 1
+      sourceContract: 2
+    - name: attack
+      defaultValue: 0
+      isGlobal: 1
+      source: 2
+      content: 0
+      min: 0
+      max: 2
+      sourceContract: 2
+    - name: playerState
+      defaultValue: 3
+      isGlobal: 1
+      source: 2
+      content: 0
+      min: 0
+      max: 6
+      sourceContract: 2
+    - name: abilityAction
+      defaultValue: 0
+      isGlobal: 0
+      source: 2
+      content: 1
+      min: 0
+      max: 1
+      sourceContract: 2
+    - name: interactionUI
+      defaultValue: 0
+      isGlobal: 1
+      source: 2
+      content: 1
+      min: 0
+      max: 1
+      sourceContract: 2
+    - name: kappaAction
+      defaultValue: 0
+      isGlobal: 0
+      source: 2
+      content: 0
+      min: 0
+      max: 5
+      sourceContract: 2
+    - name: stalactiteState
+      defaultValue: 0
+      isGlobal: 0
+      source: 2
+      content: 0
+      min: 0
+      max: 1
+      sourceContract: 2
+    soundbank_files: []
+    channels: []

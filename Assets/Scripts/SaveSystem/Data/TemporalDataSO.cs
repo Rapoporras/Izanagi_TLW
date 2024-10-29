@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace SaveSystem
 {
@@ -10,7 +11,7 @@ namespace SaveSystem
 
         public void Clear()
         {
-            Debug.Log("Clear temporal data");
+            LogManager.Log("Clear temporal data", FeatureType.SaveSystem);
             DeadEnemies.Clear();
         }
     }

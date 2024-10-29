@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace SaveSystem
 {
@@ -47,7 +48,8 @@ namespace SaveSystem
         public void NewGame(string firstSceneName)
         {
             gameData = new GameData();
-            gameData.lastSaveScene = firstSceneName;
+            // gameData.lastSaveScene = firstSceneName;
+            gameData.lastSaveInfo.sceneName = firstSceneName;
             _dataHandler.Save(gameData);
         }
 
@@ -59,7 +61,8 @@ namespace SaveSystem
             // if no data can be loaded, don't continue
             if (gameData == null)
             {
-                Debug.LogWarning("No data was found. A New Game needs to be started before data can be loaded");
+                LogManager.LogWarning("No data was found. A New Game needs to be started before data can be loaded",
+                    FeatureType.SaveSystem);
                 return;
             }
             
@@ -74,7 +77,8 @@ namespace SaveSystem
         {
             if (gameData == null)
             {
-                Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved");
+                LogManager.LogWarning("No data was found. A New Game needs to be started before data can be saved",
+                    FeatureType.SaveSystem);
                 return;
             }
             

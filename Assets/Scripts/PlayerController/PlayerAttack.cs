@@ -45,6 +45,8 @@ namespace PlayerController
         private bool IsAttacking => _currentState.StateKey != PlayerAttackStates.NotAttacking;
         private bool AttackWindowActive => _playerAnimations.AttackWindowActive;
         
+        public PlayerAudio Audio { get; private set; }
+        
         public enum AttackType
         {
             Horizontal, Downwards, Upwards
@@ -61,6 +63,7 @@ namespace PlayerController
         {
             _playerAnimations = GetComponent<PlayerAnimations>();
             _playerMovement = GetComponent<PlayerMovement>();
+            Audio = GetComponent<PlayerAudio>();
             
             _attackContactFilter = new ContactFilter2D();
             _attackContactFilter.SetLayerMask(_hurtboxLayer | _breakableWallLayer);
@@ -219,13 +222,13 @@ namespace PlayerController
 
         #region DEBUG
 #if UNITY_EDITOR
-        private void OnGUI()
-        {
-            GUILayout.BeginArea(new Rect(10, 150, 500, 50));
-            string rootStateName = _currentState.Name;
-            GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
-            GUILayout.EndArea();
-        }
+        // private void OnGUI()
+        // {
+        //     GUILayout.BeginArea(new Rect(10, 150, 500, 50));
+        //     string rootStateName = _currentState.Name;
+        //     GUILayout.Label($"<color=black><size=50>State: {rootStateName}</size></color>");
+        //     GUILayout.EndArea();
+        // }
 #endif
         #endregion
     }

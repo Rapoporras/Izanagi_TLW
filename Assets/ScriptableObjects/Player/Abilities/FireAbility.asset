@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa41c238d9d422399bd7cd667ab66fc, type: 3}
   m_Name: FireAbility
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 22100000, guid: cb84277a7cf4d974faa47bd9e6d0ed85, type: 2}
+  <Animator>k__BackingField: {fileID: 9100000, guid: bc233afd04bcb034ba993dfcbd73795b, type: 2}
   <CooldownDuration>k__BackingField: 1
   <AbilityMannaCost>k__BackingField: 0
   <AbilityDuration>k__BackingField: 1
