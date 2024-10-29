@@ -1,0 +1,1060 @@
+fileFormatVersion: 2
+guid: d28072cbee23f53418b181afb98f34e2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 350
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hinata-OnGuard_0
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 3757
+        width: 326
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1d89b31e6a842438aaed61c1c526f6
+      internalID: -234339427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_1
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 3757
+        width: 327
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157cb10a214325b4c98514864c750ddb
+      internalID: -1424017513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_2
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 3757
+        width: 327
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6518cba9accf54484bf64b0a593916
+      internalID: 2133467118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_3
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 3749
+        width: 438
+        height: 655
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42667ea8f9e4f143ae99bc561dbd71d
+      internalID: -274410402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_4
+      rect:
+        serializedVersion: 2
+        x: 4325
+        y: 3749
+        width: 480
+        height: 655
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3c3afd668d85d41bc99f1ba5d69c01
+      internalID: 1250117989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_5
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 3000
+        width: 517
+        height: 654
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2042d3f0c6363ab4887e35b672f27ded
+      internalID: -1708171047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_6
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 3000
+        width: 512
+        height: 562
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6b8bc93649bed4386eb4846a6f5820
+      internalID: 380554754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_7
+      rect:
+        serializedVersion: 2
+        x: 2255
+        y: 3000
+        width: 529
+        height: 564
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7bacd74b64def4c95d8a94222d17a0
+      internalID: -1692084347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_8
+      rect:
+        serializedVersion: 2
+        x: 3242
+        y: 3000
+        width: 535
+        height: 564
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8edc3a109a20be44ae0d693bf1ecfb0
+      internalID: 667677837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_9
+      rect:
+        serializedVersion: 2
+        x: 4210
+        y: 3000
+        width: 561
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75bf0cdcff9e64a42a56db74c8738f41
+      internalID: 977735906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_10
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 2249
+        width: 562
+        height: 566
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 374f7a5e4c89d3b4bad2181b5766981c
+      internalID: -1089252135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_11
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 2249
+        width: 563
+        height: 566
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff13d55c0fd675d4abad5bd995d07da1
+      internalID: -732775392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_12
+      rect:
+        serializedVersion: 2
+        x: 2198
+        y: 2249
+        width: 561
+        height: 566
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9907664e77c0c9a4ba5e737b1b0a24e9
+      internalID: 1813878428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_13
+      rect:
+        serializedVersion: 2
+        x: 3197
+        y: 2249
+        width: 563
+        height: 566
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2726fe02e8eae243be1edaffdf91d67
+      internalID: 583936814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_14
+      rect:
+        serializedVersion: 2
+        x: 4194
+        y: 2250
+        width: 72
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a35a25e6909676469c71350c7229139
+      internalID: 1926232065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_15
+      rect:
+        serializedVersion: 2
+        x: 4254
+        y: 2249
+        width: 512
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de421f964787de544a625e3c82c4a921
+      internalID: 874772849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_16
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 1541
+        width: 38
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd58bcf039b1a342832f5d9d0cb61c5
+      internalID: -1338314134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_17
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1504
+        width: 70
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d55da1b0488cce448b441e7eefa4599
+      internalID: -1794704268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_18
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1499
+        width: 511
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d74026b9fec6b4f9c206b738868f22
+      internalID: 168939197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_19
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 1544
+        width: 37
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b7a601df139d5499cc131836a89fbc
+      internalID: -657799252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_20
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 1537
+        width: 27
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71e81eac79de704a9bfe2becc3c7ccd
+      internalID: -1848896567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_21
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 1499
+        width: 511
+        height: 564
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d063ced8c2bf7a84c9f0fdf0881bad90
+      internalID: 2047227569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_22
+      rect:
+        serializedVersion: 2
+        x: 2278
+        y: 1499
+        width: 513
+        height: 564
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4373e665315880d4482f4e42ff8d9f6f
+      internalID: -1311577732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_23
+      rect:
+        serializedVersion: 2
+        x: 3271
+        y: 1499
+        width: 513
+        height: 564
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d6326c4c41e82498f8875c40bea794
+      internalID: 1498804128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_24
+      rect:
+        serializedVersion: 2
+        x: 4265
+        y: 1499
+        width: 512
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab03531b358be2409585ff423a154fd
+      internalID: 1991902084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_25
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 1508
+        width: 61
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf43a0b7a63dcb4cba3c9f91259d2d0
+      internalID: -50954907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_26
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 1528
+        width: 5
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ffdd632e26ebb94eba5e5b9edffea0d
+      internalID: 2069729800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_27
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 1517
+        width: 9
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8892d3d09e0f1743aa313e7f760efd7
+      internalID: 138510412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_28
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1502
+        width: 6
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac1d09e1eb1645a4794e61798f353581
+      internalID: 1364258279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_29
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 1500
+        width: 12
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e37335d49ac98f4c9316ef3d110d11e
+      internalID: -1229462060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_30
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 1503
+        width: 5
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7740c105dbd8eb04c8073a1f1f2d9b41
+      internalID: 337112955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_31
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1505
+        width: 6
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf01257ab5e90c49b14e10c04c9783e
+      internalID: 213779473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_32
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1500
+        width: 11
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa99a169487922d448302ebc0d9f64c2
+      internalID: 1615423459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_33
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 750
+        width: 510
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69f11a93e08bd304c9b7131d5f3fe578
+      internalID: 1947575977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_34
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 750
+        width: 511
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a08fb1b9ce59b345a09c5454e9aab19
+      internalID: -2058204775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_35
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 750
+        width: 511
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496dc6e751f04a14eb48fe16c2ecb070
+      internalID: 1332756395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_36
+      rect:
+        serializedVersion: 2
+        x: 3250
+        y: 750
+        width: 510
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3038935d912a6468fc4bd5a7c4d9c4
+      internalID: -660749300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_37
+      rect:
+        serializedVersion: 2
+        x: 4249
+        y: 750
+        width: 511
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2763a56d46adab4db3ac042f2ab95e5
+      internalID: 1487913140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_38
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 0
+        width: 511
+        height: 564
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2857635e0d9af05429c072ff58763d07
+      internalID: 763525781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_39
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 511
+        height: 564
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85bacff6940309f4680d168363c7ba27
+      internalID: 1223016585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_40
+      rect:
+        serializedVersion: 2
+        x: 2266
+        y: 0
+        width: 512
+        height: 563
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068a57c0f2a50c642958453d632d26a3
+      internalID: 1317302507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_41
+      rect:
+        serializedVersion: 2
+        x: 3271
+        y: 0
+        width: 513
+        height: 563
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ed38ce706c5f24e92651515b7ea80b
+      internalID: 1865353097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-OnGuard_42
+      rect:
+        serializedVersion: 2
+        x: 4275
+        y: 0
+        width: 515
+        height: 563
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0ab04ecddf7ae488f6453a12ae0068
+      internalID: -234996298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hinata-OnGuard_0: -234339427
+      Hinata-OnGuard_1: -1424017513
+      Hinata-OnGuard_10: -1089252135
+      Hinata-OnGuard_11: -732775392
+      Hinata-OnGuard_12: 1813878428
+      Hinata-OnGuard_13: 583936814
+      Hinata-OnGuard_14: 1926232065
+      Hinata-OnGuard_15: 874772849
+      Hinata-OnGuard_16: -1338314134
+      Hinata-OnGuard_17: -1794704268
+      Hinata-OnGuard_18: 168939197
+      Hinata-OnGuard_19: -657799252
+      Hinata-OnGuard_2: 2133467118
+      Hinata-OnGuard_20: -1848896567
+      Hinata-OnGuard_21: 2047227569
+      Hinata-OnGuard_22: -1311577732
+      Hinata-OnGuard_23: 1498804128
+      Hinata-OnGuard_24: 1991902084
+      Hinata-OnGuard_25: -50954907
+      Hinata-OnGuard_26: 2069729800
+      Hinata-OnGuard_27: 138510412
+      Hinata-OnGuard_28: 1364258279
+      Hinata-OnGuard_29: -1229462060
+      Hinata-OnGuard_3: -274410402
+      Hinata-OnGuard_30: 337112955
+      Hinata-OnGuard_31: 213779473
+      Hinata-OnGuard_32: 1615423459
+      Hinata-OnGuard_33: 1947575977
+      Hinata-OnGuard_34: -2058204775
+      Hinata-OnGuard_35: 1332756395
+      Hinata-OnGuard_36: -660749300
+      Hinata-OnGuard_37: 1487913140
+      Hinata-OnGuard_38: 763525781
+      Hinata-OnGuard_39: 1223016585
+      Hinata-OnGuard_4: 1250117989
+      Hinata-OnGuard_40: 1317302507
+      Hinata-OnGuard_41: 1865353097
+      Hinata-OnGuard_42: -234996298
+      Hinata-OnGuard_5: -1708171047
+      Hinata-OnGuard_6: 380554754
+      Hinata-OnGuard_7: -1692084347
+      Hinata-OnGuard_8: 667677837
+      Hinata-OnGuard_9: 977735906
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
