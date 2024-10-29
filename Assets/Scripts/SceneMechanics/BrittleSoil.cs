@@ -1,4 +1,6 @@
-﻿using SaveSystem;
+﻿using System;
+using KrillAudio.Krilloud;
+using SaveSystem;
 using UnityEngine;
 using Utils;
 
@@ -8,7 +10,14 @@ namespace SceneMechanics
     public class BrittleSoil : IdentifiableObject, IDataPersistence
     {
         private bool _eventActivated;
-        
+
+        private KLAudioSource _audioSource;
+
+        private void Awake()
+        {
+            _audioSource = GetComponent<KLAudioSource>();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player") && !_eventActivated)
@@ -22,6 +31,7 @@ namespace SceneMechanics
             // add some effects here
             _eventActivated = true;
             gameObject.SetActive(false);
+            _audioSource.Play();
         }
 
         public void LoadData(GameData data)

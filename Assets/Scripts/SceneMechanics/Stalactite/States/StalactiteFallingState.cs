@@ -13,6 +13,7 @@ namespace SceneMechanics.Stalactite
             Context.SetGravityScale(Context.fallGravityScale);
             
             Context.SetColor();
+            Context.PlayFallAudio();
         }
 
         public override void UpdateState() { }
