@@ -16,8 +16,8 @@ namespace PlayerController.States
         public override void EnterState()
         {
             _timer = 0f;
-            
             Context.SetAttackAnimation();
+            Context.Audio.PlayAttackSound(2);
         }
 
         public override void UpdateState()

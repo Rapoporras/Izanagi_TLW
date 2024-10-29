@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 2969597843377447770}
   - component: {fileID: 5211755855820938272}
   - component: {fileID: 7126595393873523317}
+  - component: {fileID: 8171084443636097921}
   m_Layer: 11
   m_Name: Save Statue
   m_TagString: Untagged
@@ -228,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bda48946e9440a88fbdf8419700eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: aaf35960-dd88-44f6-b15d-025589357ffb
   _playerMaxHealth:
     valueType: 1
     constantValue: 0
@@ -256,6 +258,26 @@ MonoBehaviour:
   _abilitiesData: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
   _playerPath: {fileID: 11400000, guid: 7b198a95120b9dd41b69ff27c6bf0079, type: 2}
   _interactUIText: {fileID: 781133546417813375}
+--- !u!114 &8171084443636097921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3009719118730518780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - saveGame
 --- !u!1 &3433074148980177932
 GameObject:
   m_ObjectHideFlags: 0

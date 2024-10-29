@@ -891,7 +891,7 @@
                         "values": [
                             1.0,
                             0.0,
-                            29481.0,
+                            27703.0,
                             1.0
                         ]
                     },
@@ -2250,10 +2250,10 @@
                 "size": 117198
             },
             {
-                "id": 29481,
+                "id": 27703,
                 "bankFile": "KSB107990572424694393697DATA.krll",
                 "offsetBytes": 573287,
-                "size": 51548
+                "size": 49230
             },
             {
                 "id": 22009,
@@ -2310,7 +2310,7 @@
             },
             {
                 "variable_name": "playerState",
-                "current_value": 0.0,
+                "current_value": 3.0,
                 "type": 1,
                 "source": 2,
                 "content": 0,
@@ -2395,6 +2395,6 @@
                 "buffer_size": 0
             }
         ],
-        "creation_time": 1730196540
+        "creation_time": 1730202484
     }
 }

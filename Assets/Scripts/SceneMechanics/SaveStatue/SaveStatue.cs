@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GlobalVariables;
 using InteractionSystem;
+using KrillAudio.Krilloud;
 using PlayerController.Data;
 using SaveSystem;
 using SceneLoaderSystem;
@@ -33,7 +34,8 @@ namespace SceneMechanics.SaveStatue
         
         [Header("UI")]
         [SerializeField] private GameObject _interactUIText;
-        
+
+        private KLAudioSource _audioSource;
 
         private List<BaseEnemy> _sceneEnemies = new List<BaseEnemy>();
 
@@ -61,6 +63,7 @@ namespace SceneMechanics.SaveStatue
 
             ActivateSymbols();
             
+            _audioSource.Play();
             LogManager.Log("Game saved . . .", FeatureType.SaveSystem);
         }
 

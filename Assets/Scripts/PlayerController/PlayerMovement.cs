@@ -6,6 +6,7 @@ using PlayerController.States;
 using StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace PlayerController
 {
@@ -34,6 +35,7 @@ namespace PlayerController
         private Rigidbody2D _rb2d;
         private RaycastInfo _raycastInfo;
 
+
         private InputAction _movementAction;
 
         private bool _inKnockBack;
@@ -46,6 +48,8 @@ namespace PlayerController
         public bool HandleWallImpulse { get; private set; }
         public Transform CameraTarget => _cameraFollowObject.transform;
         // public Transform CameraTarget => transform;
+        
+        public PlayerAudio Audio { get; private set; }
         
         #region Dash Properties
         private float _lastPressedDashTime;
@@ -103,6 +107,8 @@ namespace PlayerController
             _rb2d = GetComponent<Rigidbody2D>();
             _rb2d.gravityScale = 0f;
             _raycastInfo = GetComponent<RaycastInfo>();
+
+            Audio = GetComponent<PlayerAudio>();
         }
 
         protected override void Start()
