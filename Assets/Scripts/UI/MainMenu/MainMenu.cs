@@ -69,6 +69,11 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void OnExitButtonClicked()
+    {
+        Application.Quit();
+    }
+
     private void DisableMenuButtons()
     {
         _newGameButton.interactable = false;

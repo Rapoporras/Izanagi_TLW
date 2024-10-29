@@ -63,9 +63,12 @@ namespace PlayerController.States
         {
             if (Context.IsTakingDamage)
                 return PlayerStates.Damaged;
-            
+
             if (Context.IsGrounded)
+            {
+                Context.Audio.PlayFallSound();
                 return PlayerStates.Grounded;
+            }
             
             if (Context.JumpRequest)
             {

@@ -9,6 +9,7 @@ namespace SceneMechanics.Stalactite
         public override void EnterState()
         {
             Context.SetColor();
+            Context.PlayFloorHitAudio();
         }
 
         public override void UpdateState() { }

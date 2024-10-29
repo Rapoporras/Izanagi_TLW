@@ -1,8 +1,12 @@
 ﻿
+using UnityEngine;
+
 namespace PlayerController.States
 {
     public class PlayerGroundedState : PlayerMovementBaseState
     {
+        private bool _isPlayingWalkSound;
+        
         public PlayerGroundedState(PlayerStates key, PlayerMovement context)
             : base(key, context)
         {
@@ -18,14 +22,33 @@ namespace PlayerController.States
             Context.IsDashActive = true;
         }
 
-        public override void UpdateState() { }
+        public override void UpdateState()
+        {
+            if (Context.MovementDirection.x != 0)
+            {
+                if (!_isPlayingWalkSound)
+                {
+                    Context.Audio.PlayWalkSound();
+                    _isPlayingWalkSound = true;
+                }
+            }
+            else if (_isPlayingWalkSound)
+            {
+                Context.Audio.StopWalkSound();
+                _isPlayingWalkSound = false;
+            }
+        }
 
         public override void FixedUpdateState()
         {
             Context.Run(_lerpAmount, _canAddBonusJumpApex);
         }
 
-        public override void ExitState() { }
+        public override void ExitState()
+        {
+            Context.Audio.StopWalkSound();
+            _isPlayingWalkSound = false;
+        }
 
         public override PlayerStates GetNextState()
         {

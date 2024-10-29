@@ -485,8 +485,10 @@ GameObject:
   - component: {fileID: 8441323540536899230}
   - component: {fileID: 3085501486090063315}
   - component: {fileID: 4846970282278479726}
+  - component: {fileID: 6748611104686356469}
   - component: {fileID: 6381124633207999371}
   - component: {fileID: 8757022484067511555}
+  - component: {fileID: 5278115912240234827}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -843,6 +845,24 @@ MonoBehaviour:
     constantValue: 0
     variableValue: {fileID: 11400000, guid: b1dbc2e366f255a49968aeadeeb94369, type: 2}
     componentValue: {fileID: 0}
+--- !u!114 &6748611104686356469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801932908582284163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8483d9012e476980a2df38b173ae86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackTag: playerAttack
+  _attackVariable: attack
+  _stateTag: playerState
+  _stateVariable: playerState
+  _fireAbilityTag: fireAbility
+  _abilityActionVariable: abilityAction
 --- !u!114 &6381124633207999371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +889,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <VariableName>k__BackingField: Dash Invulnerability
   _value: 0
+--- !u!114 &5278115912240234827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801932908582284163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - playerAttack
+  - playerState
+  - fireAbility
 --- !u!1 &7017688677903369985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1255,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 490cc04f30268bf4685c94bd8b36afe4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.0234375, y: 1.9609375}

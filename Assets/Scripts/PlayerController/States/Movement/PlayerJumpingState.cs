@@ -15,6 +15,7 @@ namespace PlayerController.States
         {
             Context.SetGravityScale(Context.MovementData.gravityScale);
             Context.Jump();
+            Context.Audio.PlayJumpSound();
         }
 
         public override void UpdateState()

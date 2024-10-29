@@ -23,6 +23,7 @@ namespace PlayerController.States
                 _direction = Context.IsFacingRight ? Vector2.right : Vector2.left;
             
             Context.SetDirectionToFace(_direction.x > 0);
+            Context.Audio.PlayDashSound();
             
             InputManager.Instance.PlayerActions.Attack.Disable();
         }
