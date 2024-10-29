@@ -15,7 +15,7 @@ MonoBehaviour:
   doubleJump: 1
   fireAbility: 1
   groundAbility: 0
-  airDash: 1
+  airDash: 0
   airAbility: 0
   wallImpulse: 0
   waterAbility: 0

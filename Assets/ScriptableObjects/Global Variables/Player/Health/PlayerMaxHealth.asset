@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerMaxHealth
   m_EditorClassIdentifier: 
   _developerDescription: 
-  _value: 200
+  _value: 100
