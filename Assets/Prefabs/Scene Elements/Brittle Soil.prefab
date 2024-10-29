@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2114717775164051360}
   - component: {fileID: 6799600408963306628}
   - component: {fileID: 1494471457856243303}
+  - component: {fileID: 3806719389996040824}
   m_Layer: 6
   m_Name: Brittle Soil
   m_TagString: Untagged
@@ -249,4 +250,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7985783c4b94e718e7cde55d5c99de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: a43ab50d-ead0-4b46-8573-f4a8177e8f76
+--- !u!114 &3806719389996040824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138966111077825221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - brittleSoil
