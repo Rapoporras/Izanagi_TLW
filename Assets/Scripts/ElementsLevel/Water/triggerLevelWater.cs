@@ -1,12 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using InteractionSystem;
+using SaveSystem;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
+
 namespace DemoScripts
 {
-    public class triggerLevelWater : MonoBehaviour, IInteractable
-
+    public class triggerLevelWater : IdentifiableObject, IInteractable, IDataPersistence
     {
         [SerializeField] private GameObject tilemapWaterDown;
         [SerializeField] private GameObject tilemapWaterUP;
@@ -16,6 +17,8 @@ namespace DemoScripts
 
         [SerializeField] private GameObject _interactionText;
 
+        private bool _eventActivated;
+
         private void Start()
         {
             // Asegúrate de que la imagen esté completamente transparente al inicio
@@ -24,15 +27,18 @@ namespace DemoScripts
 
         public void Interact(Interactor interactor)
         {
+            if (_eventActivated) return;
+
+            _eventActivated = true;
             StartFadeAndChangeAssets();
         }
 
         public void ShowInteractionUI(bool showUI)
         {
+            if (_eventActivated) return;
+            
             _interactionText.SetActive(showUI);
         }
-
-
 
         // Método para iniciar el fade y cambiar los assets
         public void StartFadeAndChangeAssets()
@@ -82,7 +88,24 @@ namespace DemoScripts
         {
             tilemapWaterDown.SetActive(false);
             tilemapWaterUP.SetActive(true);
+        }
 
+        public void LoadData(GameData data)
+        {
+            data.sceneEvents.TryGetValue(id, out _eventActivated);
+            if (_eventActivated)
+            {
+                ChangeAssets();
+            }
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            if (data.sceneEvents.ContainsKey(id))
+            {
+                data.sceneEvents.Remove(id);
+            }
+            data.sceneEvents.Add(id, _eventActivated);
         }
     }
 }
