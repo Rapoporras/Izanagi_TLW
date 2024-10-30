@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doubleJump: 1
   fireAbility: 1
-  groundAbility: 1
-  airDash: 1
-  airAbility: 1
-  wallImpulse: 1
-  waterAbility: 1
+  groundAbility: 0
+  airDash: 0
+  airAbility: 0
+  wallImpulse: 0
+  waterAbility: 0

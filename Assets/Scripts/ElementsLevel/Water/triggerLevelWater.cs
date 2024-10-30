@@ -1,43 +1,88 @@
 using System.Collections;
 using System.Collections.Generic;
+using InteractionSystem;
 using UnityEngine;
-
-public class triggerLevelWater : MonoBehaviour
+using UnityEngine.UI;
+namespace DemoScripts
 {
-    [SerializeField] private GameObject waterBoss;
-    SpriteRenderer spriteRenderer;
+    public class triggerLevelWater : MonoBehaviour, IInteractable
 
-
-    private void Start()
     {
+        [SerializeField] private GameObject tilemapWaterDown;
+        [SerializeField] private GameObject tilemapWaterUP;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        public Image fadeImage; // Asigna aquí la imagen del Canvas para el fade
+        public float fadeDuration = 1.0f; // Duración del fade
+
+        [SerializeField] private GameObject _interactionText;
+
+        private void Start()
         {
+            // Asegúrate de que la imagen esté completamente transparente al inicio
+            SetImageAlpha(0);
+        }
 
-            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+        public void Interact(Interactor interactor)
+        {
+            StartFadeAndChangeAssets();
+        }
+
+        public void ShowInteractionUI(bool showUI)
+        {
+            _interactionText.SetActive(showUI);
+        }
 
 
-            BoxCollider2D boxCollider = waterBoss.GetComponent<BoxCollider2D>();
-            BuoyancyEffector2D buoyancyEffector2D = waterBoss.GetComponent<BuoyancyEffector2D>();
-            if (boxCollider != null)
+
+        // Método para iniciar el fade y cambiar los assets
+        public void StartFadeAndChangeAssets()
+        {
+            StartCoroutine(FadeOutAndIn());
+        }
+
+        private IEnumerator FadeOutAndIn()
+        {
+            // Fade out
+            yield return Fade(1);
+
+            // Cambiar los assets o desactivar/activar los objetos deseados
+            ChangeAssets();
+
+            // Fade in
+            yield return Fade(0);
+
+            // Desactiva el GameObject que contiene este script
+            gameObject.SetActive(false);
+        }
+
+        private IEnumerator Fade(float targetAlpha)
+        {
+            float startAlpha = fadeImage.color.a;
+            float elapsed = 0;
+
+            while (elapsed < fadeDuration)
             {
-                // Cambia el tamaño del Box Collider
-                boxCollider.size = new Vector2(boxCollider.size.x, 1.58f);
-                // Cambia la posición del Box Collider
-                buoyancyEffector2D.surfaceLevel = 0.81f;
+                elapsed += Time.deltaTime;
+                float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsed / fadeDuration);
+                SetImageAlpha(newAlpha);
+                yield return null;
+            }
 
-                Debug.Log("Box Collider modificado correctamente");
-                waterBoss.transform.localScale = new Vector3(waterBoss.transform.localScale.x, 7, 1);
-                // Asegúrate de que el GameObject tiene un BoxCollider2D
-            }
-            else
-            {
-                Debug.LogError("El GameObject no tiene un componente BoxCollider2D");
-            }
+            SetImageAlpha(targetAlpha); // Asegura que el alpha llegue al valor final
+        }
+
+        private void SetImageAlpha(float alpha)
+        {
+            Color color = fadeImage.color;
+            color.a = alpha;
+            fadeImage.color = color;
+        }
+
+        private void ChangeAssets()
+        {
+            tilemapWaterDown.SetActive(false);
+            tilemapWaterUP.SetActive(true);
+
         }
     }
 }
