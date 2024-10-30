@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03aa1fe02d0d5f04faf82aa1b16d483c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duracionDesvanecimiento: 5
+  duracionDesvanecimiento: 10
 --- !u!1 &861746021
 GameObject:
   m_ObjectHideFlags: 0
