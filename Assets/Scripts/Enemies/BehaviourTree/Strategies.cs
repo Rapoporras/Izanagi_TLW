@@ -6,6 +6,7 @@ using Health;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Utils.CustomLogs;
 
 namespace Enemies.BehaviourTree
 {
@@ -264,6 +265,14 @@ namespace Enemies.BehaviourTree
                 return Node.Status.Running;
             }
             
+            if (Mathf.Abs(_goalPosition.x - _enemyTransform.position.x) <= 0.15f)
+            {
+                Debug.Log("roll stop");
+                _rb.velocity = Vector2.zero;
+                _animator.SetTrigger("stopRoll");
+                return Node.Status.Success;
+            }
+            
             Collider2D[] entities = Physics2D.OverlapCircleAll(_enemyAI.CollisionDetectionCenter.position, _enemyAI.CollisionDetectionRadius);
 
             foreach (var e in entities)
@@ -296,14 +305,8 @@ namespace Enemies.BehaviourTree
             }
             
             _rb.velocity = new Vector2(_goalDirection * _rollingSpeed, _rb.velocity.y);
-
-            if (Mathf.Abs(_goalPosition.x - _enemyTransform.position.x) <= 0.05f)
-            {
-                Debug.Log("roll stop");
-                _rb.velocity = Vector2.zero;
-                _animator.SetTrigger("stopRoll");
-                return Node.Status.Success;
-            }
+            
+            LogManager.Log("Distance from goal:" + Mathf.Abs(_goalPosition.x - _enemyTransform.position.x), FeatureType.Enemies);
             
             return Node.Status.Running;
         }

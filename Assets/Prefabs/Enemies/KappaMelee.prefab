@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 7206371898482383501}
   - component: {fileID: 5396783194969937687}
   - component: {fileID: 4800116723216414608}
+  - component: {fileID: 6188615287743195764}
   m_Layer: 10
   m_Name: KappaMelee
   m_TagString: Enemy
@@ -259,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: f4deb331-f0c2-4ddf-9c48-2c878fc52f84
+  id: 1e87b7b9-941f-44d3-a67b-6545634b148f
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 7.5
@@ -270,7 +271,7 @@ MonoBehaviour:
   rollingDistance: 7
   collisionDetectionCenter: {fileID: 4627207035166566724}
   collisionDetectionRadius: 0.7
-  rollDamage: 0
+  rollDamage: 25
   _rollAttackStartDuration: 0.7
   attackCenter: {fileID: 8131001668631523811}
   attackRadius: 0.99
@@ -491,6 +492,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1.296876}
   m_Size: {x: 1.544684, y: 2.5}
   m_Direction: 0
+--- !u!114 &6188615287743195764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577676039033903462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - kappa
 --- !u!1 &2306945817455791371
 GameObject:
   m_ObjectHideFlags: 0
