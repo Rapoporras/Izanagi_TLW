@@ -1,6 +1,7 @@
 using System.Collections;
 using Enemies.BehaviourTree;
 using Health;
+using PlayerController;
 using UnityEngine;
 
 namespace Enemies.Kappa
@@ -25,6 +26,9 @@ namespace Enemies.Kappa
         [SerializeField] private Transform collisionDetectionCenter;
         [Tooltip("Radius of the attack")]
         [SerializeField] private float collisionDetectionRadius;
+        [Tooltip("Contact damage of the roll")]
+        [SerializeField] private int rollDamage;
+        [Space]
         [Tooltip("Time of the animation that the kappa will move slowly at (to match the jumping animation)")]
         [SerializeField] private float _rollAttackStartDuration = 0.84375f;
 
@@ -49,6 +53,8 @@ namespace Enemies.Kappa
         private static readonly int IdleHash = Animator.StringToHash("idle");
         private static readonly int HitHash = Animator.StringToHash("hit");
 
+        private KappaAudio _audio;
+
         private bool _isRolling;
         private bool _isChasingPlayer;
         private bool _isDetected;
@@ -61,7 +67,8 @@ namespace Enemies.Kappa
             {
                 player = GameObject.FindGameObjectWithTag("Player");
             }
-            
+
+            _audio = GetComponent<KappaAudio>();
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponentInChildren<Animator>();
         }
@@ -101,7 +108,8 @@ namespace Enemies.Kappa
             
             Leaf didPlayerEnterDetectionRadius =
                 new Leaf("DidPlayerEnterDetectionRadius", new ConditionStrategy(IsPlayerDetectedFirstTime));
-            Leaf roll = new Leaf("RollTowardsPlayer", new RollStrategy(gameObject, player, rollingSpeed, rollingDistance,_rollAttackStartDuration));
+            Leaf roll = new Leaf("RollTowardsPlayer", new RollStrategy(gameObject, player, rollingSpeed, rollingDistance,
+                _rollAttackStartDuration, rollDamage));
             Sequence rollToPlayer = new Sequence("Roll");
             rollToPlayer.AddChild(didPlayerEnterDetectionRadius);
             rollToPlayer.AddChild(roll);
@@ -125,7 +133,6 @@ namespace Enemies.Kappa
         
         void MoveTowardsPlayer()
         {
-            Debug.Log("Chasing player");
             float xDifference = player.transform.position.x - transform.position.x;
             float playerDirection = Mathf.Sign(xDifference);
             
@@ -143,10 +150,21 @@ namespace Enemies.Kappa
                 {
                     transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 }
-                _rb.velocity = new Vector2(playerDirection * chaseSpeed, _rb.velocity.y);
-                _animator.SetTrigger(IsWalkingHash);
-            }
                 
+                Collider2D[] entities = Physics2D.OverlapCircleAll(collisionDetectionCenter.position, collisionDetectionRadius,
+                    LayerMask.GetMask("Ground"));
+                if (entities.Length > 0)
+                {
+                    _rb.velocity = new Vector2(0, _rb.velocity.y);
+                    _animator.SetTrigger(IdleHash);
+                }
+                else
+                {
+                    _rb.velocity = new Vector2(playerDirection * chaseSpeed, _rb.velocity.y);
+                    _animator.SetTrigger(IsWalkingHash);
+                }
+            }
+            
         }
 
         bool IsPlayerInMeleeRange()

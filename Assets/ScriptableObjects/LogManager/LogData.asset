@@ -34,3 +34,6 @@ MonoBehaviour:
   - feature: 6
     customColor: {r: 1, g: 0.4764151, b: 0.79235584, a: 0}
     enabled: 1
+  - feature: 7
+    customColor: {r: 1, g: 0, b: 0.15044546, a: 1}
+    enabled: 1
