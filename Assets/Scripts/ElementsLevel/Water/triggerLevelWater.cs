@@ -1,43 +1,111 @@
 using System.Collections;
-using System.Collections.Generic;
+using InteractionSystem;
+using SaveSystem;
 using UnityEngine;
+using UnityEngine.UI;
+using Utils;
 
-public class triggerLevelWater : MonoBehaviour
+namespace DemoScripts
 {
-    [SerializeField] private GameObject waterBoss;
-    SpriteRenderer spriteRenderer;
-
-
-    private void Start()
+    public class triggerLevelWater : IdentifiableObject, IInteractable, IDataPersistence
     {
+        [SerializeField] private GameObject tilemapWaterDown;
+        [SerializeField] private GameObject tilemapWaterUP;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        public Image fadeImage; // Asigna aquí la imagen del Canvas para el fade
+        public float fadeDuration = 1.0f; // Duración del fade
+
+        [SerializeField] private GameObject _interactionText;
+
+        private bool _eventActivated;
+
+        private void Start()
         {
+            // Asegúrate de que la imagen esté completamente transparente al inicio
+            SetImageAlpha(0);
+        }
 
-            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+        public void Interact(Interactor interactor)
+        {
+            if (_eventActivated) return;
 
+            _eventActivated = true;
+            StartFadeAndChangeAssets();
+        }
 
-            BoxCollider2D boxCollider = waterBoss.GetComponent<BoxCollider2D>();
-            BuoyancyEffector2D buoyancyEffector2D = waterBoss.GetComponent<BuoyancyEffector2D>();
-            if (boxCollider != null)
+        public void ShowInteractionUI(bool showUI)
+        {
+            if (_eventActivated) return;
+            
+            _interactionText.SetActive(showUI);
+        }
+
+        // Método para iniciar el fade y cambiar los assets
+        public void StartFadeAndChangeAssets()
+        {
+            StartCoroutine(FadeOutAndIn());
+        }
+
+        private IEnumerator FadeOutAndIn()
+        {
+            // Fade out
+            yield return Fade(1);
+
+            // Cambiar los assets o desactivar/activar los objetos deseados
+            ChangeAssets();
+
+            // Fade in
+            yield return Fade(0);
+
+            // Desactiva el GameObject que contiene este script
+            gameObject.SetActive(false);
+        }
+
+        private IEnumerator Fade(float targetAlpha)
+        {
+            float startAlpha = fadeImage.color.a;
+            float elapsed = 0;
+
+            while (elapsed < fadeDuration)
             {
-                // Cambia el tamaño del Box Collider
-                boxCollider.size = new Vector2(boxCollider.size.x, 1.58f);
-                // Cambia la posición del Box Collider
-                buoyancyEffector2D.surfaceLevel = 0.81f;
+                elapsed += Time.deltaTime;
+                float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsed / fadeDuration);
+                SetImageAlpha(newAlpha);
+                yield return null;
+            }
 
-                Debug.Log("Box Collider modificado correctamente");
-                waterBoss.transform.localScale = new Vector3(waterBoss.transform.localScale.x, 7, 1);
-                // Asegúrate de que el GameObject tiene un BoxCollider2D
-            }
-            else
+            SetImageAlpha(targetAlpha); // Asegura que el alpha llegue al valor final
+        }
+
+        private void SetImageAlpha(float alpha)
+        {
+            Color color = fadeImage.color;
+            color.a = alpha;
+            fadeImage.color = color;
+        }
+
+        private void ChangeAssets()
+        {
+            tilemapWaterDown.SetActive(false);
+            tilemapWaterUP.SetActive(true);
+        }
+
+        public void LoadData(GameData data)
+        {
+            data.sceneEvents.TryGetValue(id, out _eventActivated);
+            if (_eventActivated)
             {
-                Debug.LogError("El GameObject no tiene un componente BoxCollider2D");
+                ChangeAssets();
             }
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            if (data.sceneEvents.ContainsKey(id))
+            {
+                data.sceneEvents.Remove(id);
+            }
+            data.sceneEvents.Add(id, _eventActivated);
         }
     }
 }

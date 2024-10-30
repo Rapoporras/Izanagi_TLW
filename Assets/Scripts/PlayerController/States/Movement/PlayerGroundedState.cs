@@ -28,14 +28,12 @@ namespace PlayerController.States
             {
                 if (!_isPlayingWalkSound)
                 {
-                    Debug.Log("play walk sound");
                     Context.Audio.PlayWalkSound();
                     _isPlayingWalkSound = true;
                 }
             }
             else if (_isPlayingWalkSound)
             {
-                Debug.Log("stop walk sound");
                 Context.Audio.StopWalkSound();
                 _isPlayingWalkSound = false;
             }
@@ -46,7 +44,11 @@ namespace PlayerController.States
             Context.Run(_lerpAmount, _canAddBonusJumpApex);
         }
 
-        public override void ExitState() { }
+        public override void ExitState()
+        {
+            Context.Audio.StopWalkSound();
+            _isPlayingWalkSound = false;
+        }
 
         public override PlayerStates GetNextState()
         {

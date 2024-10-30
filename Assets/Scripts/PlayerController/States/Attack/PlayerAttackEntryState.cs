@@ -1,5 +1,6 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace PlayerController.States
 {
@@ -20,6 +21,8 @@ namespace PlayerController.States
             _timer = 0f;
             Context.SetAttackAnimation();
             Context.Audio.PlayAttackSound(0);
+            
+            InputManager.Instance.PlayerActions.Movement.Disable();
         }
 
         public override void UpdateState()

@@ -24,6 +24,7 @@ namespace CameraSystem
             _screenShakeData.impulseSource = _impulseSource;
         }
 
+        [ContextMenu("Screen Shake")]
         public void TriggerScreenShake()
         {
             if (_screenShakeEvent)

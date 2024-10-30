@@ -9,14 +9,12 @@ AnimatorOverrideController:
   m_Name: Player NoAbility AOC
   m_Controller: {fileID: 9100000, guid: bc233afd04bcb034ba993dfcbd73795b, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 531d23fd1cf503246ab54cdf360d86bb, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 39accf747482a8e4cb52b05fb12a97ba, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 940024b5d4a763943abb153f6b5e44d0, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 39accf747482a8e4cb52b05fb12a97ba, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 80d125c77ba58a24eb11079260cc9aa2, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 39accf747482a8e4cb52b05fb12a97ba, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 1697a12ee5ba4594a96d14773d11643b, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 39accf747482a8e4cb52b05fb12a97ba, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1697a12ee5ba4594a96d14773d11643b, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 53ad16f3095c75f4eab772ade574354c, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 39accf747482a8e4cb52b05fb12a97ba, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 0c2a79f399d1e274bbdf423dcd7830c1, type: 2}

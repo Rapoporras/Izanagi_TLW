@@ -1,0 +1,1309 @@
+fileFormatVersion: 2
+guid: 71ade102078c9414f8b892cd2ae4bebb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hinata-Iddle_0
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 6002
+        width: 326
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092b7a17304404543a2a35b29540d6c0
+      internalID: 96406109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_1
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 6002
+        width: 325
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe7f79cd5fa61c45a142e2d9430a901
+      internalID: -1248268706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_2
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 6002
+        width: 326
+        height: 740
+      alignment: 9
+      pivot: {x: 0.4999996, y: -0.0014410896}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3f8057a80a49a4ba261d9b21c70935
+      internalID: 467847655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_3
+      rect:
+        serializedVersion: 2
+        x: 2307
+        y: 6002
+        width: 327
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d1cb0dd85f946499520804822ff112
+      internalID: -548965963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_4
+      rect:
+        serializedVersion: 2
+        x: 3008
+        y: 6002
+        width: 326
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80beeebdba094da43beddcaf1ca5fb32
+      internalID: 2131260677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_5
+      rect:
+        serializedVersion: 2
+        x: 3708
+        y: 6002
+        width: 325
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6f2041383342641a7cb31dcb9e7736
+      internalID: 2146077168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_6
+      rect:
+        serializedVersion: 2
+        x: 4407
+        y: 6002
+        width: 327
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e0272d4c196524ea6f27bb8fdc42a9
+      internalID: -1858153585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 5252
+        width: 326
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb73c11a6566df54e89c72ec90a88099
+      internalID: -51300522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_8
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 5252
+        width: 325
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44f5b89670aff94bb5c1c79b937e0ce
+      internalID: -194934690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_9
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 5252
+        width: 326
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e528e90ddcaf2b4292eebd189de28e1
+      internalID: -91601384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_10
+      rect:
+        serializedVersion: 2
+        x: 2307
+        y: 5252
+        width: 327
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a048ee3453d7944a46e8b1e08094f8
+      internalID: 824308197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_11
+      rect:
+        serializedVersion: 2
+        x: 3008
+        y: 5252
+        width: 326
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb48cef9d5a0e04b863ea6043cc99b0
+      internalID: 779743094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_12
+      rect:
+        serializedVersion: 2
+        x: 3708
+        y: 5252
+        width: 325
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3b3b1c4f86c9540b1771c6eee735bb
+      internalID: -72393162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_13
+      rect:
+        serializedVersion: 2
+        x: 4407
+        y: 5252
+        width: 327
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c6b51a4010fec4690b5c7da388f419
+      internalID: 850427860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_14
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 4502
+        width: 326
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c397f10d11ce71b488a5e2b71d804d65
+      internalID: -1802178580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_15
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 4502
+        width: 325
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 366e37ea66b51444182123f628349104
+      internalID: -486212866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_16
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 4502
+        width: 326
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8e23ae54254ad43bab547aaf702ff4
+      internalID: -1757889783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_17
+      rect:
+        serializedVersion: 2
+        x: 2307
+        y: 4502
+        width: 327
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91a41f4db62c4848a88ba675676ee7c
+      internalID: 499263466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_18
+      rect:
+        serializedVersion: 2
+        x: 3008
+        y: 4502
+        width: 326
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46a658a9d262e5469745865eca41be1
+      internalID: 1320419007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_19
+      rect:
+        serializedVersion: 2
+        x: 3708
+        y: 4502
+        width: 325
+        height: 739
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2279828830f96c4ea652f527b594977
+      internalID: 592723786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_20
+      rect:
+        serializedVersion: 2
+        x: 4407
+        y: 4502
+        width: 327
+        height: 740
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9a45212f767114d9fe8950f16062fa
+      internalID: -824816048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_21
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 3752
+        width: 326
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3307832b95258cb4789da132b47435d7
+      internalID: -333733770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_22
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 3752
+        width: 325
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ad06c20a8a71d45ad9d8bca2877566
+      internalID: -466809022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_23
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 3752
+        width: 326
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756a14c6a2609bf4e9ed895b3657e2e4
+      internalID: 474415956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_24
+      rect:
+        serializedVersion: 2
+        x: 2307
+        y: 3752
+        width: 327
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f855390a51a2c214ba0cf1c5548a39f9
+      internalID: 1489944628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_25
+      rect:
+        serializedVersion: 2
+        x: 3008
+        y: 3752
+        width: 326
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2a3668f10334d4dbf14ae55f8d3149
+      internalID: -76395788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_26
+      rect:
+        serializedVersion: 2
+        x: 3708
+        y: 3752
+        width: 325
+        height: 741
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e10b517379cc340a4e00a50852cc42
+      internalID: 313791160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_28
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 3000
+        width: 700
+        height: 750
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6a3caa01f42984d8c6649a0b5e7056
+      internalID: 530247664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_29
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 3000
+        width: 700
+        height: 750
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17a134eebac2994e85cd4fefb1fe414
+      internalID: -955659039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_30
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 3000
+        width: 700
+        height: 750
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fafde87862caee04c9e6f40b7a9452b4
+      internalID: -2058518562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_31
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 3000
+        width: 700
+        height: 750
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3dfb5d50557ee44fbff74e8e6ec1d87
+      internalID: -2039405661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_32
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 3000
+        width: 700
+        height: 750
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ca9fe2b7d7b1e42b51bb8097336abc
+      internalID: 1051356153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_33
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 3000
+        width: 700
+        height: 750
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc9ba1697ddff64e834ca0f1f86d8f4
+      internalID: -1551345860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2250
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46be147d036a5a747a46acacbb3a5975
+      internalID: -1925153044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_35
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 2250
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7819ea79384ecf24c859191551b92327
+      internalID: 197816305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_36
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 2250
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bca0cff511238e4e9daaaf811ae6eb4
+      internalID: 477854035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_37
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 2250
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30621f7de55827d4cb7ba92511508217
+      internalID: -374973868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_38
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 2250
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013398a41f1f8e9449933a19ec287060
+      internalID: -861348821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_39
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 2250
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee6a47cfa48cdc498da8eaafd268690
+      internalID: -64534794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_40
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 2250
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e21d2f6fa0df94a9b1e181ba19e8c1
+      internalID: -1833778610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2bc3f20bbcecba41bc81e5dc90a0026
+      internalID: -1015136444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_42
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1500
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4e18a2350fea54bbd5b8400d878612
+      internalID: 2023560810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_43
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 1500
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b5440d0c17de94a9256e3708199b44
+      internalID: 491037139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_44
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1500
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01ca68b4771cbd42967a3e70fd53261
+      internalID: 969048920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_45
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 1500
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0d5d62a7f532149ac5ae837d57fb1a
+      internalID: 1129586703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_46
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 1500
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be532555b88428440a00c3d4310ca550
+      internalID: -2030789961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_47
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 1500
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff0bfb4385904c84c97154afa081612a
+      internalID: -25217507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 750
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdb1e2c0ffbbc94486865a1b9f6e40d
+      internalID: -663808375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_49
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 750
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656efb1bebd8eba499a4b6d0d0a493ee
+      internalID: 494377768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_50
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 750
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b75fe139d84301488db5d75040e2409
+      internalID: 196910849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_51
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 750
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba69f45bc437894fabcc6338c42d7b1
+      internalID: -907377209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_52
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 750
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67f520695ae9023489a6e0d1a0524f9b
+      internalID: -1285005743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_53
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 750
+        width: 700
+        height: 745
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d422c27946f6b4287a91c047ee0008
+      internalID: 915117309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-Iddle_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3005
+        width: 700
+        height: 750
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03b6632337ea404783eebb76c398810
+      internalID: 1367038156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hinata-Iddle_0: 96406109
+      Hinata-Iddle_1: -1248268706
+      Hinata-Iddle_10: 824308197
+      Hinata-Iddle_11: 779743094
+      Hinata-Iddle_12: -72393162
+      Hinata-Iddle_13: 850427860
+      Hinata-Iddle_14: -1802178580
+      Hinata-Iddle_15: -486212866
+      Hinata-Iddle_16: -1757889783
+      Hinata-Iddle_17: 499263466
+      Hinata-Iddle_18: 1320419007
+      Hinata-Iddle_19: 592723786
+      Hinata-Iddle_2: 467847655
+      Hinata-Iddle_20: -824816048
+      Hinata-Iddle_21: -333733770
+      Hinata-Iddle_22: -466809022
+      Hinata-Iddle_23: 474415956
+      Hinata-Iddle_24: 1489944628
+      Hinata-Iddle_25: -76395788
+      Hinata-Iddle_26: 313791160
+      Hinata-Iddle_27: 1367038156
+      Hinata-Iddle_28: 530247664
+      Hinata-Iddle_29: -955659039
+      Hinata-Iddle_3: -548965963
+      Hinata-Iddle_30: -2058518562
+      Hinata-Iddle_31: -2039405661
+      Hinata-Iddle_32: 1051356153
+      Hinata-Iddle_33: -1551345860
+      Hinata-Iddle_34: -1925153044
+      Hinata-Iddle_35: 197816305
+      Hinata-Iddle_36: 477854035
+      Hinata-Iddle_37: -374973868
+      Hinata-Iddle_38: -861348821
+      Hinata-Iddle_39: -64534794
+      Hinata-Iddle_4: 2131260677
+      Hinata-Iddle_40: -1833778610
+      Hinata-Iddle_41: -1015136444
+      Hinata-Iddle_42: 2023560810
+      Hinata-Iddle_43: 491037139
+      Hinata-Iddle_44: 969048920
+      Hinata-Iddle_45: 1129586703
+      Hinata-Iddle_46: -2030789961
+      Hinata-Iddle_47: -25217507
+      Hinata-Iddle_48: -663808375
+      Hinata-Iddle_49: 494377768
+      Hinata-Iddle_5: 2146077168
+      Hinata-Iddle_50: 196910849
+      Hinata-Iddle_51: -907377209
+      Hinata-Iddle_52: -1285005743
+      Hinata-Iddle_53: 915117309
+      Hinata-Iddle_54: -1852822787
+      Hinata-Iddle_55: -1349994073
+      Hinata-Iddle_56: 1792410783
+      Hinata-Iddle_57: -2132117615
+      Hinata-Iddle_58: -1795739868
+      Hinata-Iddle_59: -1431956173
+      Hinata-Iddle_6: -1858153585
+      Hinata-Iddle_60: -114542511
+      Hinata-Iddle_7: -51300522
+      Hinata-Iddle_8: -194934690
+      Hinata-Iddle_9: -91601384
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
