@@ -50,6 +50,9 @@ namespace DemoScripts
 
             // Fade in
             yield return Fade(0);
+
+            // Desactiva el GameObject que contiene este script
+            gameObject.SetActive(false);
         }
 
         private IEnumerator Fade(float targetAlpha)
@@ -79,7 +82,7 @@ namespace DemoScripts
         {
             tilemapWaterDown.SetActive(false);
             tilemapWaterUP.SetActive(true);
-            this.gameObject.SetActive(false);
+
         }
     }
 }
