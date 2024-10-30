@@ -155,8 +155,8 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
+  m_UpdateMethod: 0
+  m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
     m_Time: 0.5
@@ -314,8 +314,22 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 0}
     m_ColliderPaths: []
+  - m_Collider: {fileID: 0}
+    m_ColliderPaths:
+    - - X: 3680299008
+        Y: 204293216
+      - X: -112431336
+        Y: 204293216
+      - X: -112431336
+        Y: -1614284928
+      - X: 3680299008
+        Y: -1614284928
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 368.02988, y: -161.4285}
+      - {x: 368.02988, y: 20.429321}
+      - {x: -11.243134, y: 20.429293}
+      - {x: -11.243104, y: -161.4285}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
