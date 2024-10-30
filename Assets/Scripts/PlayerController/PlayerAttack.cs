@@ -152,7 +152,6 @@ namespace PlayerController
         public void StopAttack()
         {
             InputManager.Instance.PlayerActions.Movement.Enable();
-            LogManager.Log("enable player movement", FeatureType.InputSystem);
             attackInput = false;
             _hasCollided = false;
             _breakableWallHit = false;

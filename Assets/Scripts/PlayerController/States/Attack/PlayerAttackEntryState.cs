@@ -23,7 +23,6 @@ namespace PlayerController.States
             Context.Audio.PlayAttackSound(0);
             
             InputManager.Instance.PlayerActions.Movement.Disable();
-            LogManager.Log("disable player movement", FeatureType.InputSystem);
         }
 
         public override void UpdateState()

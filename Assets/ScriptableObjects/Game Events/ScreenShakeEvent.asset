@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ScreenShakeEvent
   m_EditorClassIdentifier: 
   debugValue:
-    profile: {fileID: 0}
+    profile: {fileID: 11400000, guid: 2ddd4abf40a86034d8fbb15c85d63403, type: 2}
     impulseSource: {fileID: 0}
