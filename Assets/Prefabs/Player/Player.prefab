@@ -758,7 +758,7 @@ MonoBehaviour:
     constantValue: 0
     variableValue: {fileID: 11400000, guid: f8eb4bb3febbfbc4fa5085f3ea59e0fa, type: 2}
     componentValue: {fileID: 0}
-  _mannaPerAttack: 25
+  _mannaPerAttack: 5
   _hurtboxLayer:
     serializedVersion: 2
     m_Bits: 256
