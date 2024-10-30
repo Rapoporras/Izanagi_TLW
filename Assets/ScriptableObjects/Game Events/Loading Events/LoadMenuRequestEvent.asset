@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de072de0510a664a8510800eef41679, type: 3}
   m_Name: LoadMenuRequestEvent
   m_EditorClassIdentifier: 
+  debugValue:
+    scene: {fileID: 11400000, guid: 209a315d852e08a40a74628772214ba7, type: 2}
+    loadingScreen: 1
+    requestFromDeath: 0

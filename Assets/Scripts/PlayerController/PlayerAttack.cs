@@ -6,6 +6,7 @@ using PlayerController.States;
 using StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils.CustomLogs;
 
 namespace PlayerController
 {
@@ -100,7 +101,8 @@ namespace PlayerController
         #region ATTACK
         private void Attack(InputAction.CallbackContext context)
         {
-            _lastAttackInfo.Type = GetAttackType();
+            // _lastAttackInfo.Type = GetAttackType();
+            _lastAttackInfo.Type = AttackType.Horizontal; // always horizontal attack
             _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);
             
             if (context.ReadValueAsButton() && AttackWindowActive)
@@ -149,6 +151,8 @@ namespace PlayerController
 
         public void StopAttack()
         {
+            InputManager.Instance.PlayerActions.Movement.Enable();
+            LogManager.Log("enable player movement", FeatureType.InputSystem);
             attackInput = false;
             _hasCollided = false;
             _breakableWallHit = false;
