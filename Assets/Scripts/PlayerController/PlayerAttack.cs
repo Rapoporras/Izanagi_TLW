@@ -100,7 +100,8 @@ namespace PlayerController
         #region ATTACK
         private void Attack(InputAction.CallbackContext context)
         {
-            _lastAttackInfo.Type = GetAttackType();
+            // _lastAttackInfo.Type = GetAttackType();
+            _lastAttackInfo.Type = AttackType.Horizontal; // always horizontal attack
             _lastAttackInfo.Direction = GetAttackDirection(_lastAttackInfo.Type);
             
             if (context.ReadValueAsButton() && AttackWindowActive)
