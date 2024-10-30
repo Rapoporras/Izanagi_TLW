@@ -44,6 +44,8 @@ namespace SceneMechanics.SaveStatue
         private void Awake()
         {
             _sceneEnemies = FindAllEnemiesInScene();
+
+            _audioSource = GetComponent<KLAudioSource>();
         }
 
         public void Interact(Interactor interactor)

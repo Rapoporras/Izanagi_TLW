@@ -19,7 +19,6 @@ namespace SceneLoaderSystem
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            Debug.Log("hola");
             
             StartCoroutine(LoadDependencies());
         }
