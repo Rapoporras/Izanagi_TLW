@@ -310,7 +310,7 @@ TextureImporter:
       name: Hinata-BasicCombo_10
       rect:
         serializedVersion: 2
-        x: 1486
+        x: 1502
         y: 10400
         width: 1500
         height: 1298
@@ -785,6 +785,27 @@ TextureImporter:
       bones: []
       spriteID: 692b49b59a044c84884c3c7dd431586f
       internalID: 505257514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_33
+      rect:
+        serializedVersion: 2
+        x: 9011
+        y: 7799
+        width: 995
+        height: 1051
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ae2beea30fdce42878fa281640cc28
+      internalID: 84246399
       vertices: []
       indices: 
       edges: []
