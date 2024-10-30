@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enemies.Kappa;
+using Health;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -219,19 +220,21 @@ namespace Enemies.BehaviourTree
         private float _rollingDistance;
         private float _startDuration;
         private float _startDurationTimer;
+        private int _rollDamage;
 
         private bool _isRollCalculated;
 
         private Animator _animator;
         private Rigidbody2D _rb;
 
-        public RollStrategy(GameObject enemy, GameObject player, float rollingSpeed, float rollingDistance, float startDuration)
+        public RollStrategy(GameObject enemy, GameObject player, float rollingSpeed, float rollingDistance, float startDuration, int rollDamage)
         {
             _enemyAI = enemy.GetComponent<KappaAI>();
             _enemyTransform = enemy.transform;
             _playerTransform = player.transform;
             _rollingSpeed = rollingSpeed;
             _rollingDistance = rollingDistance;
+            _rollDamage = rollDamage;
 
             _startDuration = startDuration;
             _startDurationTimer = _startDuration;
@@ -268,6 +271,16 @@ namespace Enemies.BehaviourTree
                 if (!e.CompareTag("Enemy"))
                 {
                     Debug.Log("roll hit");
+
+                    if (e.CompareTag("Player"))
+                    {
+                        if (e.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
+                        {
+                            int xDirection = (int)Mathf.Sign(e.transform.position.x - _enemyTransform.position.x);
+                            playerHealth.Damage(_rollDamage, xDirection);
+                        }
+                    }
+
                     _rb.velocity = Vector2.zero;
                     _animator.SetTrigger("impact");    
                     return Node.Status.Success;

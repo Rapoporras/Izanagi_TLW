@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3072299154411663207}
   - component: {fileID: 2528658669339278660}
+  - component: {fileID: 7914818226175964720}
   - component: {fileID: 3300052326258883922}
   - component: {fileID: 2997621577578823515}
   - component: {fileID: 1873960789445229911}
@@ -150,6 +151,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7914818226175964720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577676039033903462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566df722bc980314d8160f8d8d9c4194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionTag: kappa
+  _actionVariable: kappaAction
 --- !u!61 &3300052326258883922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -255,6 +270,7 @@ MonoBehaviour:
   rollingDistance: 7
   collisionDetectionCenter: {fileID: 4627207035166566724}
   collisionDetectionRadius: 0.7
+  rollDamage: 0
   _rollAttackStartDuration: 0.7
   attackCenter: {fileID: 8131001668631523811}
   attackRadius: 0.99
