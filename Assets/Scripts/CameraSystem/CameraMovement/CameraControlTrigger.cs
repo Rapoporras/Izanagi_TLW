@@ -1,22 +1,27 @@
-﻿using System;
-using Cinemachine;
+﻿using Cinemachine;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace CameraSystem
 {
     public class CameraControlTrigger : MonoBehaviour
     {
-        public bool swapCameras = false;
-        public bool panCameraOnContact = false;
+        public bool swapCameras;
+        public bool panCameraOnContact;
+        public bool zoomCameraOnContact;
 
-        [HideInInspector] public CinemachineVirtualCamera cameraOnLeft;
-        [HideInInspector] public CinemachineVirtualCamera cameraOnRight;
+        // swap parameters
+        public CinemachineVirtualCamera cameraOnLeft;
+        public CinemachineVirtualCamera cameraOnRight;
 
-        [HideInInspector] public PanDirection panDirection;
-        [HideInInspector] public float panDistance = 3f;
-        [HideInInspector] public float panDuration = 0.35f;
+        // pan parameters
+        public PanDirection panDirection;
+        public float panDistance = 3f;
+        public float panDuration = 0.35f;
+        
+        // zoom parameters
+        public float zoomDuration;
+        public float zoomValue;
 
         private Collider2D _coll;
 
@@ -32,6 +37,11 @@ namespace CameraSystem
                 if (panCameraOnContact)
                 {
                     CameraManager.Instance.PanCameraOnContact(panDistance, panDuration, panDirection, false);
+                }
+
+                if (zoomCameraOnContact)
+                {
+                    CameraManager.Instance.ZoomCameraOnContact(zoomValue, zoomDuration, false);
                 }
             }
         }
@@ -49,6 +59,11 @@ namespace CameraSystem
                 if (panCameraOnContact)
                 {
                     CameraManager.Instance.PanCameraOnContact(panDistance, panDuration, panDirection, true);
+                }
+                
+                if (zoomCameraOnContact)
+                {
+                    CameraManager.Instance.ZoomCameraOnContact(zoomValue, zoomDuration, true);
                 }
             }
         }
@@ -72,6 +87,20 @@ namespace CameraSystem
 
         public override void OnInspectorGUI()
         {
+            SetSwapCameraFields();
+            EditorGUILayout.Space();
+            SetPanCameraFields();
+            EditorGUILayout.Space();
+            SetZoomCameraFields();
+
+            if (GUI.changed)
+            {
+                EditorUtility.SetDirty(_cameraControl);
+            }
+        }
+
+        private void SetSwapCameraFields()
+        {
             _cameraControl.swapCameras = EditorGUILayout.Toggle("Swap Camera",
                 _cameraControl.swapCameras);
 
@@ -92,8 +121,10 @@ namespace CameraSystem
                 
                 EditorGUI.indentLevel--;
             }
+        }
 
-            EditorGUILayout.Space();
+        private void SetPanCameraFields()
+        {
             _cameraControl.panCameraOnContact = EditorGUILayout.Toggle("Pan Camera On Contact",
                 _cameraControl.panCameraOnContact);
             
@@ -108,10 +139,23 @@ namespace CameraSystem
                 
                 EditorGUI.indentLevel--;
             }
+        }
 
-            if (GUI.changed)
+        private void SetZoomCameraFields()
+        {
+            _cameraControl.zoomCameraOnContact = EditorGUILayout.Toggle("Zoom Camera On Contact",
+                _cameraControl.zoomCameraOnContact);
+
+            if (_cameraControl.zoomCameraOnContact)
             {
-                EditorUtility.SetDirty(_cameraControl);
+                EditorGUI.indentLevel++;
+
+                _cameraControl.zoomValue = Mathf.Max(0.1f,
+                    EditorGUILayout.FloatField("Zoom", _cameraControl.zoomValue));
+                _cameraControl.zoomDuration = Mathf.Max(0,
+                    EditorGUILayout.FloatField("Zoom Duration", _cameraControl.zoomDuration));
+
+                EditorGUI.indentLevel--;
             }
         }
     }

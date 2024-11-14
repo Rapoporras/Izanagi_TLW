@@ -19,6 +19,7 @@ namespace CameraSystem
 
         private Coroutine _lerpYPanCoroutine;
         private Coroutine _panCameraCoroutine;
+        private Coroutine _zoomCameraCoroutine;
 
         private CinemachineVirtualCamera _currentCamera;
         private CinemachineFramingTransposer _framingTransposer;
@@ -26,6 +27,7 @@ namespace CameraSystem
         private float _normYPanAmount;
 
         private Vector2 _startingTrackedObjectOffset;
+        private float _startingOrthographicSize;
         
         public static CameraManager Instance { get; private set; }
 
@@ -53,6 +55,7 @@ namespace CameraSystem
 
             _normYPanAmount = _framingTransposer.m_YDamping;
             _startingTrackedObjectOffset = _framingTransposer.m_TrackedObjectOffset;
+            _startingOrthographicSize = _currentCamera.m_Lens.OrthographicSize;
         }
         
         #region LERP THE Y DAMPING
@@ -167,6 +170,43 @@ namespace CameraSystem
                 
                 _currentCamera = cameraFromLeft;
                 _framingTransposer = _currentCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+            }
+        }
+        #endregion
+        
+        #region CAMERA ZOOM
+        public void ZoomCameraOnContact(float zoom, float duration, bool zoomToStartingValue)
+        {
+            if (_zoomCameraCoroutine != null)
+                StopCoroutine(_zoomCameraCoroutine);
+            _zoomCameraCoroutine = StartCoroutine(ZoomCamera(zoom, duration, zoomToStartingValue));
+        }
+
+        private IEnumerator ZoomCamera(float zoom, float duration, bool zoomToStartingValue)
+        {
+            float startValue;
+            float endValue;
+
+            if (!zoomToStartingValue)
+            {
+                startValue = _startingOrthographicSize;
+                endValue = startValue / zoom;
+            }
+            else
+            {
+                endValue = _startingOrthographicSize;
+                startValue = endValue / zoom;
+            }
+            
+            float elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                
+                float orthoSizeLerp = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+                _currentCamera.m_Lens.OrthographicSize = orthoSizeLerp;
+                
+                yield return null;
             }
         }
         #endregion
