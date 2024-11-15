@@ -99,37 +99,21 @@ namespace CameraSystem
         #endregion
         
         #region PAN CAMERA
-        public void PanCameraOnContact(float distance, float duration, PanDirection direction, bool panToStartingPos)
+        public void PanCameraOnContact(Vector2 distance, float duration, bool panToStartingPos)
         {
             if (_panCameraCoroutine != null)
                 StopCoroutine(_panCameraCoroutine);
-            _panCameraCoroutine = StartCoroutine(PanCamera(distance, duration, direction, panToStartingPos));
+            _panCameraCoroutine = StartCoroutine(PanCamera(distance, duration, panToStartingPos));
         }
 
-        private IEnumerator PanCamera(float distance, float duration, PanDirection direction, bool panToStartingPos)
+        private IEnumerator PanCamera(Vector2 distance, float duration, bool panToStartingPos)
         {
             Vector2 endPos = Vector2.zero;
             Vector2 startingPos;
 
             if (!panToStartingPos)
             {
-                switch (direction)
-                {
-                    case PanDirection.Up:
-                        endPos = Vector2.up;
-                        break;
-                    case PanDirection.Down:
-                        endPos = Vector2.down;
-                        break;
-                    case PanDirection.Left:
-                        endPos = Vector2.left;
-                        break;
-                    case PanDirection.Right:
-                        endPos = Vector2.right;
-                        break;
-                }
-
-                endPos *= distance;
+                endPos = distance;
                 startingPos = _startingTrackedObjectOffset;
                 endPos += startingPos;
             }
@@ -143,8 +127,8 @@ namespace CameraSystem
             while (elapsedTime < duration)
             {
                 elapsedTime += Time.deltaTime;
-
-                Vector3 panLerp = Vector3.Lerp(startingPos, endPos, elapsedTime / duration);
+                
+                Vector3 panLerp = Vector3.Slerp(startingPos, endPos, elapsedTime / duration);
                 _framingTransposer.m_TrackedObjectOffset = panLerp;
 
                 yield return null;

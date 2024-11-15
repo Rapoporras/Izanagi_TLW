@@ -15,8 +15,8 @@ namespace CameraSystem
         public CinemachineVirtualCamera cameraOnRight;
 
         // pan parameters
-        public PanDirection panDirection;
-        public float panDistance = 3f;
+        // public PanDirection panDirection;
+        public Vector2 panDistance = new Vector2(3f, 0f);
         public float panDuration = 0.35f;
         
         // zoom parameters
@@ -36,7 +36,7 @@ namespace CameraSystem
             {
                 if (panCameraOnContact)
                 {
-                    CameraManager.Instance.PanCameraOnContact(panDistance, panDuration, panDirection, false);
+                    CameraManager.Instance.PanCameraOnContact(panDistance, panDuration, false);
                 }
 
                 if (zoomCameraOnContact)
@@ -58,7 +58,7 @@ namespace CameraSystem
                 
                 if (panCameraOnContact)
                 {
-                    CameraManager.Instance.PanCameraOnContact(panDistance, panDuration, panDirection, true);
+                    CameraManager.Instance.PanCameraOnContact(panDistance, panDuration, true);
                 }
                 
                 if (zoomCameraOnContact)
@@ -67,11 +67,6 @@ namespace CameraSystem
                 }
             }
         }
-    }
-
-    public enum PanDirection
-    {
-        Up, Down, Left, Right
     }
     
 #if UNITY_EDITOR
@@ -132,9 +127,7 @@ namespace CameraSystem
             {
                 EditorGUI.indentLevel++;
                 
-                _cameraControl.panDirection =
-                    (PanDirection) EditorGUILayout.EnumPopup("Camera Pan Direction", _cameraControl.panDirection);
-                _cameraControl.panDistance = EditorGUILayout.FloatField("Camera Pan Distance", _cameraControl.panDistance);
+                _cameraControl.panDistance = EditorGUILayout.Vector2Field("Camera Pan Distance", _cameraControl.panDistance);
                 _cameraControl.panDuration = EditorGUILayout.FloatField("Camera Pan Duration", _cameraControl.panDuration);
                 
                 EditorGUI.indentLevel--;
