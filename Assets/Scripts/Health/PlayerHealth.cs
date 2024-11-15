@@ -53,12 +53,12 @@ namespace Health
 
         private void OnEnable()
         {
-            InputManager.Instance.PlayerActions.Potion.started += RecoverWithPotion;
+            InputManager.PlayerActions.Potion.started += RecoverWithPotion;
         }
         
         private void OnDisable()
         {
-            InputManager.Instance.PlayerActions.Potion.started -= RecoverWithPotion;
+            InputManager.PlayerActions.Potion.started -= RecoverWithPotion;
         }
 
         #region HEALTH METHODS
@@ -95,8 +95,8 @@ namespace Health
             if (_currentHealth.Value <= 0)
             {
                 _playerAnimations.SetIsDeadVariable(true);
-                InputManager.Instance.DisablePlayerActions();
-                InputManager.Instance.DisableUIActions();
+                InputManager.DisablePlayerActions();
+                InputManager.DisableUIActions();
             }
         }
         
@@ -121,7 +121,7 @@ namespace Health
                 if (_potionsAmount <= 0) return;
                 if (!_playerMovement.IsGrounded) return;
                 
-                InputManager.Instance.DisablePlayerActions();
+                InputManager.DisablePlayerActions();
                 _playerAnimations.PlayRecoverHealthAnimation();
             }
         }
@@ -132,7 +132,7 @@ namespace Health
             
             _potionsAmount.Value = Mathf.Clamp(_potionsAmount.Value - 1, 0, _maxPotionsAmount);
             UpdateHealth(_potionsHealth);
-            InputManager.Instance.EnablePlayerActions();
+            InputManager.EnablePlayerActions();
         }
         #endregion
     }

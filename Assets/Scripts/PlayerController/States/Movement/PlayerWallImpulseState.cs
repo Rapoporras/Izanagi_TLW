@@ -24,7 +24,7 @@ namespace PlayerController.States
             Context.SetDirectionToFace(Context.LeftWallHit);
             _direction = Context.LeftWallHit ? Vector2.right : Vector2.left;
             
-            InputManager.Instance.PlayerActions.Attack.Disable();
+            InputManager.PlayerActions.Attack.Disable();
             
             Context.wallImpulseArrow.SetActive(false);
         }
@@ -48,7 +48,7 @@ namespace PlayerController.States
 
         public override void ExitState()
         {
-            InputManager.Instance.PlayerActions.Attack.Enable();
+            InputManager.PlayerActions.Attack.Enable();
             Context.wallImpulseArrow.SetActive(false);
         }
 

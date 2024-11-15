@@ -25,7 +25,7 @@ namespace PlayerController.States
             Context.SetDirectionToFace(_direction.x > 0);
             Context.Audio.PlayDashSound();
             
-            InputManager.Instance.PlayerActions.Attack.Disable();
+            InputManager.PlayerActions.Attack.Disable();
         }
 
         public override void UpdateState()
@@ -41,7 +41,7 @@ namespace PlayerController.States
             Context.RefillDash();
             Context.dashInvulnerability.Value = false;
             
-            InputManager.Instance.PlayerActions.Attack.Enable();
+            InputManager.PlayerActions.Attack.Enable();
         }
 
         public override PlayerStates GetNextState()

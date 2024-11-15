@@ -60,9 +60,9 @@ namespace PlayerController.Abilities
         {
             // TODO: freeze player in current position in air
             
-            InputManager.Instance.DisablePlayerActions();
+            InputManager.DisablePlayerActions();
             yield return new WaitForSeconds(AbilityDuration);
-            InputManager.Instance.EnablePlayerActions();
+            InputManager.EnablePlayerActions();
         }
     }
 }

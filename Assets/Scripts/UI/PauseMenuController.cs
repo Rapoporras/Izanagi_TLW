@@ -24,14 +24,14 @@ public class PauseMenuController : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.Instance.UIActions.Pause.performed += OnPause;
+        InputManager.UIActions.Pause.performed += OnPause;
         
         _firstSelectedButton.Select();
     }
 
     private void OnDisable()
     {
-        InputManager.Instance.UIActions.Pause.performed -= OnPause;
+        InputManager.UIActions.Pause.performed -= OnPause;
     }
 
     private void OnPause(InputAction.CallbackContext context)
@@ -48,7 +48,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void Pause()
     {
-        InputManager.Instance.DisablePlayerActions();
+        InputManager.DisablePlayerActions();
         _panel.SetActive(true);
         Time.timeScale = 0f;
         _isPaused = true;
@@ -56,7 +56,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Resume()
     {
-        InputManager.Instance.EnablePlayerActions();
+        InputManager.EnablePlayerActions();
         _panel.SetActive(false);
         Time.timeScale = 1f;
         _isPaused = false;
