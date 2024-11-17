@@ -133,7 +133,7 @@ namespace PlayerController
                 SetDirectionToFace(MovementDirection.x > 0);
             }
             
-            HandleWallImpulse = InputManager.Instance.PlayerActions.WallImpulse.IsPressed();
+            HandleWallImpulse = InputManager.PlayerActions.WallImpulse.IsPressed();
 
             if (_rb2d.velocity.y < _fallSpeedYDampingChangeThreshold && !CameraManager.Instance.IsLerpingYDamping
                 && !CameraManager.Instance.LerpedFromPlayerFalling)
@@ -178,20 +178,20 @@ namespace PlayerController
         #region Input
         private void EnableInput()
         {
-            _movementAction = InputManager.Instance.PlayerActions.Movement;
+            _movementAction = InputManager.PlayerActions.Movement;
             
-            InputManager.Instance.PlayerActions.Jump.started += OnJumpAction;
-            InputManager.Instance.PlayerActions.Jump.canceled += OnJumpAction;
+            InputManager.PlayerActions.Jump.started += OnJumpAction;
+            InputManager.PlayerActions.Jump.canceled += OnJumpAction;
             
-            InputManager.Instance.PlayerActions.Dash.performed += OnDashAction;
+            InputManager.PlayerActions.Dash.performed += OnDashAction;
         }
 
         private void DisableInput()
         {
-            InputManager.Instance.PlayerActions.Jump.started -= OnJumpAction;
-            InputManager.Instance.PlayerActions.Jump.canceled -= OnJumpAction;
+            InputManager.PlayerActions.Jump.started -= OnJumpAction;
+            InputManager.PlayerActions.Jump.canceled -= OnJumpAction;
             
-            InputManager.Instance.PlayerActions.Dash.performed -= OnDashAction;
+            InputManager.PlayerActions.Dash.performed -= OnDashAction;
         }
         #endregion
         

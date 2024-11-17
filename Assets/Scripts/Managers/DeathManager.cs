@@ -19,7 +19,6 @@ public class DeathManager : MonoBehaviour
         
         TemporalDataManager.Instance.temporalData.Clear();
         
-        // _sceneToLoad.sceneName = DataPersistenceManager.Instance.gameData.lastSaveScene;
         _sceneToLoad.sceneName = DataPersistenceManager.Instance.gameData.lastSaveInfo.sceneName;
         LoadSceneRequest request = new LoadSceneRequest(_sceneToLoad, true, true);
         

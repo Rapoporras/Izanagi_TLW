@@ -10,12 +10,12 @@ namespace InteractionSystem
 
         private void OnEnable()
         {
-            InputManager.Instance.PlayerActions.Interact.performed += Interact;
+            InputManager.PlayerActions.Interact.performed += Interact;
         }
 
         private void OnDisable()
         {
-            InputManager.Instance.PlayerActions.Interact.performed -= Interact;
+            InputManager.PlayerActions.Interact.performed -= Interact;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

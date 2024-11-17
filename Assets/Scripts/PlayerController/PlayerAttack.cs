@@ -6,7 +6,6 @@ using PlayerController.States;
 using StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Utils.CustomLogs;
 
 namespace PlayerController
 {
@@ -75,14 +74,14 @@ namespace PlayerController
 
         private void OnEnable()
         {
-            InputManager.Instance.PlayerActions.Attack.started += Attack;
+            InputManager.PlayerActions.Attack.started += Attack;
             
-            _movementAction = InputManager.Instance.PlayerActions.Movement;
+            _movementAction = InputManager.PlayerActions.Movement;
         }
 
         private void OnDisable()
         {
-            InputManager.Instance.PlayerActions.Attack.started -= Attack;
+            InputManager.PlayerActions.Attack.started -= Attack;
         }
         #endregion
         
@@ -151,7 +150,7 @@ namespace PlayerController
 
         public void StopAttack()
         {
-            InputManager.Instance.PlayerActions.Movement.Enable();
+            InputManager.PlayerActions.Movement.Enable();
             attackInput = false;
             _hasCollided = false;
             _breakableWallHit = false;

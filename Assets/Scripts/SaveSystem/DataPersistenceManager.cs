@@ -75,6 +75,14 @@ namespace SaveSystem
 
         public void SaveGame()
         {
+            SaveData();
+            
+            // save that data to a file using the data handler
+            _dataHandler.Save(gameData);
+        }
+
+        public void SaveData()
+        {
             if (gameData == null)
             {
                 LogManager.LogWarning("No data was found. A New Game needs to be started before data can be saved",
@@ -87,9 +95,6 @@ namespace SaveSystem
             {
                 dataPersistenceObject.SaveData(ref gameData);
             }
-            
-            // save that data to a file using the data handler
-            _dataHandler.Save(gameData);
         }
 
         public bool HasGameData()

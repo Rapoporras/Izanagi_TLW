@@ -19,6 +19,7 @@ namespace CameraSystem
 
         private Coroutine _lerpYPanCoroutine;
         private Coroutine _panCameraCoroutine;
+        private Coroutine _zoomCameraCoroutine;
 
         private CinemachineVirtualCamera _currentCamera;
         private CinemachineFramingTransposer _framingTransposer;
@@ -26,6 +27,7 @@ namespace CameraSystem
         private float _normYPanAmount;
 
         private Vector2 _startingTrackedObjectOffset;
+        private float _startingOrthographicSize;
         
         public static CameraManager Instance { get; private set; }
 
@@ -53,6 +55,7 @@ namespace CameraSystem
 
             _normYPanAmount = _framingTransposer.m_YDamping;
             _startingTrackedObjectOffset = _framingTransposer.m_TrackedObjectOffset;
+            _startingOrthographicSize = _currentCamera.m_Lens.OrthographicSize;
         }
         
         #region LERP THE Y DAMPING
@@ -96,37 +99,21 @@ namespace CameraSystem
         #endregion
         
         #region PAN CAMERA
-        public void PanCameraOnContact(float distance, float duration, PanDirection direction, bool panToStartingPos)
+        public void PanCameraOnContact(Vector2 distance, float duration, bool panToStartingPos)
         {
             if (_panCameraCoroutine != null)
                 StopCoroutine(_panCameraCoroutine);
-            _panCameraCoroutine = StartCoroutine(PanCamera(distance, duration, direction, panToStartingPos));
+            _panCameraCoroutine = StartCoroutine(PanCamera(distance, duration, panToStartingPos));
         }
 
-        private IEnumerator PanCamera(float distance, float duration, PanDirection direction, bool panToStartingPos)
+        private IEnumerator PanCamera(Vector2 distance, float duration, bool panToStartingPos)
         {
             Vector2 endPos = Vector2.zero;
             Vector2 startingPos;
 
             if (!panToStartingPos)
             {
-                switch (direction)
-                {
-                    case PanDirection.Up:
-                        endPos = Vector2.up;
-                        break;
-                    case PanDirection.Down:
-                        endPos = Vector2.down;
-                        break;
-                    case PanDirection.Left:
-                        endPos = Vector2.left;
-                        break;
-                    case PanDirection.Right:
-                        endPos = Vector2.right;
-                        break;
-                }
-
-                endPos *= distance;
+                endPos = distance;
                 startingPos = _startingTrackedObjectOffset;
                 endPos += startingPos;
             }
@@ -140,8 +127,8 @@ namespace CameraSystem
             while (elapsedTime < duration)
             {
                 elapsedTime += Time.deltaTime;
-
-                Vector3 panLerp = Vector3.Lerp(startingPos, endPos, elapsedTime / duration);
+                
+                Vector3 panLerp = Vector3.Slerp(startingPos, endPos, elapsedTime / duration);
                 _framingTransposer.m_TrackedObjectOffset = panLerp;
 
                 yield return null;
@@ -167,6 +154,43 @@ namespace CameraSystem
                 
                 _currentCamera = cameraFromLeft;
                 _framingTransposer = _currentCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+            }
+        }
+        #endregion
+        
+        #region CAMERA ZOOM
+        public void ZoomCameraOnContact(float zoom, float duration, bool zoomToStartingValue)
+        {
+            if (_zoomCameraCoroutine != null)
+                StopCoroutine(_zoomCameraCoroutine);
+            _zoomCameraCoroutine = StartCoroutine(ZoomCamera(zoom, duration, zoomToStartingValue));
+        }
+
+        private IEnumerator ZoomCamera(float zoom, float duration, bool zoomToStartingValue)
+        {
+            float startValue;
+            float endValue;
+
+            if (!zoomToStartingValue)
+            {
+                startValue = _startingOrthographicSize;
+                endValue = startValue / zoom;
+            }
+            else
+            {
+                endValue = _startingOrthographicSize;
+                startValue = endValue / zoom;
+            }
+            
+            float elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                
+                float orthoSizeLerp = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
+                _currentCamera.m_Lens.OrthographicSize = orthoSizeLerp;
+                
+                yield return null;
             }
         }
         #endregion

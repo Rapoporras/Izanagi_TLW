@@ -7,12 +7,12 @@ namespace SaveSystem
     [CreateAssetMenu(fileName = "New TemporalData", menuName = "Save System/Temporal Data")]
     public class TemporalDataSO : ScriptableObject
     {
-        public List<string> DeadEnemies = new List<string>();
+        public List<string> deadEnemies = new List<string>();
 
         public void Clear()
         {
             LogManager.Log("Clear temporal data", FeatureType.SaveSystem);
-            DeadEnemies.Clear();
+            deadEnemies.Clear();
         }
     }
 }

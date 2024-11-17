@@ -67,20 +67,20 @@ namespace DialogueSystem
 
         private void OnEnable()
         {
-            InputManager.Instance.UIActions.Interact.performed += ContinueStoryCallback;
+            InputManager.UIActions.Interact.performed += ContinueStoryCallback;
         }
 
         private void OnDisable()
         {
-            InputManager.Instance.UIActions.Interact.performed -= ContinueStoryCallback;
+            InputManager.UIActions.Interact.performed -= ContinueStoryCallback;
         }
 
         public void EnterDialogueMode(DialogueInfo dialogueInfo) // called from TextAsset listener
         {
             if (_dialogueIsPlaying) return;
             
-            InputManager.Instance.DisablePlayerActions();
-            InputManager.Instance.EnableUIActions();
+            InputManager.DisablePlayerActions();
+            InputManager.EnableUIActions();
             
             _currentStory = new Story(dialogueInfo.InkJSON.text);
             _dialogueIsPlaying = true;
@@ -101,7 +101,7 @@ namespace DialogueSystem
             _dialoguePanel.SetActive(false);
             ResetDialogueUI();
             
-            InputManager.Instance.EnablePlayerActions();
+            InputManager.EnablePlayerActions();
         }
 
         private void ContinueStoryCallback(InputAction.CallbackContext context)
@@ -142,7 +142,7 @@ namespace DialogueSystem
 
             foreach (var letter in line.ToCharArray())
             {
-                if (InputManager.Instance.UIActions.Interact.IsPressed() && _dialogueText.text.Length >= 3)
+                if (InputManager.UIActions.Interact.IsPressed() && _dialogueText.text.Length >= 3)
                 {
                     _dialogueText.maxVisibleCharacters = line.Length;
                     break;

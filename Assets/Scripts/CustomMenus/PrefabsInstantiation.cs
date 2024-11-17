@@ -139,7 +139,6 @@ namespace CustomMenus
         
         #region MANAGERS
         private const string DeathManagerPath = BasePath + "Managers/Gameplay/Death Manager.prefab";
-        private const string InputManagerPath = BasePath + "Managers/Gameplay/Input Manager.prefab";
         private const string ItemManagerPath = BasePath + "Managers/Gameplay/Item Manager.prefab";
         private const string SaveManagerPath = BasePath + "Managers/Save Manager.prefab";
         private const string GameInitializerPath = BasePath + "Managers/Game Initializer.prefab";
@@ -150,12 +149,6 @@ namespace CustomMenus
         private static void CreateDeathManager()
         {
             InstantiatePrefabAtPath(DeathManagerPath);
-        }
-        
-        [MenuItem("GameObject/IzanagiTLW/Managers/Gameplay/Input Manager", false, 0)]
-        private static void CreateInputManager()
-        {
-            InstantiatePrefabAtPath(InputManagerPath);
         }
         
         [MenuItem("GameObject/IzanagiTLW/Managers/Gameplay/Item Manager", false, 0)]

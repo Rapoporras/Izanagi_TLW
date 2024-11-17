@@ -28,7 +28,7 @@ namespace SceneLoaderSystem
         {
             if (other.CompareTag("Player"))
             {
-                InputManager.Instance.DisablePlayerActions();
+                InputManager.DisablePlayerActions();
                 
                 _playerPath.levelEntrance = _entranceToSpawn;
                 if (_loadSceneRequestEvent)

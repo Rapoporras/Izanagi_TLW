@@ -13,7 +13,7 @@ namespace PlayerController.States
         {
             _timeInState = 0f;
             
-            InputManager.Instance.PlayerActions.Attack.Disable();
+            InputManager.PlayerActions.Attack.Disable();
         }
 
         public override void UpdateState()
@@ -28,7 +28,7 @@ namespace PlayerController.States
             Context.IsTakingDamage = false;
             Context.UseKnockBackAccelInAir = true;
             
-            InputManager.Instance.PlayerActions.Attack.Enable();
+            InputManager.PlayerActions.Attack.Enable();
         }
 
         public override PlayerStates GetNextState()
