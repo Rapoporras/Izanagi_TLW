@@ -6,6 +6,7 @@ namespace CameraSystem
 {
     public class CameraControlTrigger : MonoBehaviour
     {
+        #region PARAMS
         public bool swapCameras;
         public bool panCameraOnContact;
         public bool zoomCameraOnContact;
@@ -22,7 +23,8 @@ namespace CameraSystem
         // zoom parameters
         public float zoomDuration;
         public float zoomValue;
-
+        #endregion
+        
         private Collider2D _coll;
 
         private void Start()
