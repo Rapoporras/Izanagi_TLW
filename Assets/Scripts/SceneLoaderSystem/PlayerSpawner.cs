@@ -4,6 +4,7 @@ using PlayerController;
 using SaveSystem;
 using SceneMechanics.SaveStatue;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace SceneLoaderSystem
 {
@@ -35,10 +36,13 @@ namespace SceneLoaderSystem
             if (player.TryGetComponent(out PlayerMovement movement))
             {
                 movement.SetCameraFollowObject();
+                if (_virtualCameras.Length == 0)
+                    LogManager.LogWarning("There is no virtual camera assigned in the scene initializer", FeatureType.CameraSystem);
                 foreach (var virtualCamera in _virtualCameras)
                 {
                     virtualCamera.Follow = movement.CameraTarget;
                 }
+                
                 bool isMovingRight = true;
                 if (_playerPath.levelEntrance)
                     isMovingRight = _playerPath.levelEntrance.setPlayerFacingRight;

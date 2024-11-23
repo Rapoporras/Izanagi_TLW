@@ -1,6 +1,7 @@
 ﻿#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace CustomMenus
 {
@@ -85,6 +86,7 @@ namespace CustomMenus
         private const string BrittleSoilPath = BasePath + "Scene Elements/Brittle Soil.prefab";
         private const string StalactitePath = BasePath + "Scene Elements/Stalactite.prefab";
         private const string SaveStatuePath = BasePath + "Scene Elements/Save Statue.prefab";
+        private const string NPCBasePath = BasePath + "Scene Elements/NPC Base.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/Scene Elements/Breakable Wall", false, 0)]
         private static void CreateBreakableWall()
@@ -108,8 +110,14 @@ namespace CustomMenus
         private static void CreateSaveStatue()
         {
             InstantiatePrefabAtPath(SaveStatuePath);
-            Debug.LogWarning("[SAVE STATUE] New save statue instantiated, set LevelEntrance (in child object Entrance)" +
-                             " and CurrentScene manually.");
+            LogManager.LogWarning("New save statue instantiated, set LevelEntrance (in child object Entrance)" +
+                             " and CurrentScene manually.", FeatureType.SaveSystem);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/NPC Base", false, 0)]
+        private static void CreateNPCBase()
+        {
+            InstantiatePrefabAtPath(NPCBasePath);
         }
         #endregion
         
