@@ -44,8 +44,6 @@ namespace PlayerController.States
             }
         }
 
-        public override void FixedUpdateState() { }
-
         public override void ExitState()
         {
             InputManager.PlayerActions.Attack.Enable();

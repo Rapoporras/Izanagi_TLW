@@ -39,8 +39,6 @@ namespace PlayerController.States
             Context.Run(_lerpAmount, _canAddBonusJumpApex);
         }
 
-        public override void ExitState() { }
-
         public override PlayerStates GetNextState()
         {
             if (Context.IsTakingDamage)

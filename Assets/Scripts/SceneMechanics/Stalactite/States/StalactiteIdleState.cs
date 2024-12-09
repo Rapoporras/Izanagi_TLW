@@ -20,10 +20,6 @@ namespace SceneMechanics.Stalactite
             Context.CheckRaycasts();
         }
 
-        public override void FixedUpdateState() { }
-
-        public override void ExitState() { }
-
         public override StalactiteStates GetNextState()
         {
             if (Context.playerDetected)

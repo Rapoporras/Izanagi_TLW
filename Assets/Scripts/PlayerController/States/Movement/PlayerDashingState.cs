@@ -34,8 +34,6 @@ namespace PlayerController.States
             Context.Velocity = _direction * Context.MovementData.dashSpeed;
         }
 
-        public override void FixedUpdateState() { }
-
         public override void ExitState()
         {
             Context.RefillDash();

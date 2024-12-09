@@ -584,6 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6829627544073253823}
   - component: {fileID: 405049525629598626}
+  - component: {fileID: 3370805779505743899}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Enemy
@@ -651,3 +652,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5446839, y: 2.6270392}
   m_EdgeRadius: 0
+--- !u!114 &3370805779505743899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817451078996609799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81b04683d684b19a7489377a6846d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityHealth: {fileID: 2997621577578823515}

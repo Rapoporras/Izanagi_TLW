@@ -119,21 +119,17 @@ namespace PlayerController
             Physics2D.OverlapCollider(_attackArea, _attackContactFilter, _overlappedColliders);
             foreach (var entity in _overlappedColliders)
             {
-                if (entity.transform.parent // check if game object has a parent
-                    && entity.transform.parent.TryGetComponent(out EntityHealth entityHealth)
-                    && !entity.CompareTag("Player"))
+                if (entity.TryGetComponent(out IDamageable damageArea) &&
+                    !entity.CompareTag("Player"))
                 {
-                    if (!entityHealth.IsInvulnerable && entityHealth.damageable)
-                    {
-                        int damage = Mathf.CeilToInt(AttackData.AttackDamage * AttackAirBoost);
-                        entityHealth.Damage(damage, true);
-                        UpdateMannaPoints(_mannaPerAttack);
-                    }
+                    int damage = Mathf.CeilToInt(AttackData.AttackDamage * AttackAirBoost);
+                    damageArea.Damage(damage, true);
+                    UpdateMannaPoints(_mannaPerAttack);
                     
                     if (!_hasCollided)
                     {
                         _hasCollided = true;
-                        ApplyAttackForces(entityHealth);
+                        ApplyAttackForces();
                     }
                 }
                 
@@ -156,10 +152,10 @@ namespace PlayerController
             _breakableWallHit = false;
         }
 
-        private void ApplyAttackForces(EntityHealth entityHealth)
+        private void ApplyAttackForces() // EntityHealth entityHealth
         { 
             if (_lastAttackInfo.Type == AttackType.Downwards
-                && entityHealth.giveUpwardForce
+                // && entityHealth.giveUpwardForce
                 && !IsGrounded)
             {
                 _playerMovement.ApplyPogoJump();

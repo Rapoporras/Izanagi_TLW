@@ -31,8 +31,6 @@ namespace PlayerController.States
             _timer += Time.deltaTime;
         }
 
-        public override void FixedUpdateState() { }
-
         public override void ExitState()
         {
             Context.StopAttack();

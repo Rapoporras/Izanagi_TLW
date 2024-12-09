@@ -16,8 +16,6 @@ namespace SceneMechanics.Stalactite
             Context.PlayFallAudio();
         }
 
-        public override void UpdateState() { }
-
         public override void FixedUpdateState()
         {
             Context.Velocity = new Vector2(

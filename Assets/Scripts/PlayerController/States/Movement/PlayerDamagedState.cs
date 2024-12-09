@@ -21,8 +21,6 @@ namespace PlayerController.States
             _timeInState += Time.deltaTime;
         }
 
-        public override void FixedUpdateState() { }
-
         public override void ExitState()
         {
             Context.IsTakingDamage = false;
