@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Utils.CustomLogs;
 
 namespace Health
@@ -7,6 +6,9 @@ namespace Health
     public class DamageableArea : MonoBehaviour, IDamageable
     {
         [SerializeField] private EntityHealth _entityHealth;
+
+        [Space(10)]
+        [SerializeField] private float _damageMult = 1f;
 
         private void Start()
         {
@@ -21,7 +23,7 @@ namespace Health
             if (_entityHealth)
             {
                 LogManager.Log("Damage from area", FeatureType.Undefined);
-                _entityHealth.Damage(amount, screenShake);
+                _entityHealth.Damage(Mathf.CeilToInt(amount * _damageMult), screenShake);
             }
         }
 

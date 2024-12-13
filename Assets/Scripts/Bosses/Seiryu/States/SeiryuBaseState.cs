@@ -2,6 +2,11 @@
 
 namespace Bosses.States
 {
+    public enum SeiryuState
+    {
+        Init, Combat, Transition, Dead, Waiting
+    }
+    
     public abstract class SeiryuBaseState : BaseState<SeiryuState>
     {
         protected SeiryuController Context { get; private set; }
