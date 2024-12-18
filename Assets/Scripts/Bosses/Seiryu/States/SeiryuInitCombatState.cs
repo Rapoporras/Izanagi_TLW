@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Utils;
 
-namespace Bosses.States
+namespace Bosses
 {
     // TODO - añadir animacion de inicio de batalla
     
@@ -13,7 +13,7 @@ namespace Bosses.States
         public SeiryuInitCombatState(SeiryuState key, SeiryuController context)
             : base(key, context)
         {
-            _waitTimer = 30f;
+            _waitTimer = 3f;
             _timer = new Timer(_waitTimer);
         }
 

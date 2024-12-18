@@ -1,6 +1,6 @@
 ﻿using StateMachine;
 
-namespace Bosses.States
+namespace Bosses
 {
     public enum SeiryuState
     {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Utils;
 
-namespace Bosses.States
+namespace Bosses
 {
     public class SeiryuWaitingState : SeiryuBaseState
     {

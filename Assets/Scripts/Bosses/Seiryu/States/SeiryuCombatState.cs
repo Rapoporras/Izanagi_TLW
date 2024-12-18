@@ -1,6 +1,6 @@
 ﻿using Utils;
 
-namespace Bosses.States
+namespace Bosses
 {
     public class SeiryuCombatState : SeiryuBaseState
     {
@@ -16,11 +16,19 @@ namespace Bosses.States
 
         public override void EnterState()
         {
-            
+            Context.TryToAttack();
         }
 
         public override SeiryuState GetNextState()
         {
+            if (Context.WaitForNextAttack)
+            {
+                if (Context.transitionToNextPhase)
+                    return SeiryuState.Transition;
+                
+                return SeiryuState.Waiting;
+            }
+            
             return StateKey;
         }
     }

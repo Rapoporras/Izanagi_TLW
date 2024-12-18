@@ -1,4 +1,4 @@
-﻿namespace Bosses.States
+﻿namespace Bosses
 {
     public class SeiryuDeadState : SeiryuBaseState
     {
