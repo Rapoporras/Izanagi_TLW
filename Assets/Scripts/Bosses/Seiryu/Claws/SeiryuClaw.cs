@@ -7,7 +7,7 @@ namespace Bosses
 {
     public class SeiryuClaw : MonoBehaviour
     {
-        enum ClawState
+        private enum State
         {
             Attacking, Recovering, Waiting
         }
@@ -26,20 +26,25 @@ namespace Bosses
 
         [Header("Sweeping Attack")]
         [SerializeField] private float _sweepingSpeed;
-        [SerializeField] private float _sweepingWaitingTime;
         
-        public event Action OnClawReady;
+        public event Action<ClawInfo> OnStateChange;
 
         private Coroutine _attackCoroutine;
-        [SerializeField, ReadOnly] private ClawState _state;
+        [SerializeField, ReadOnly] private State _state;
+        private Rigidbody2D _rb2d;
 
         private Vector3 _initialPosition;
 
         private Timer _recoveringTimer;
 
+        private void Awake()
+        {
+            _rb2d = GetComponent<Rigidbody2D>();
+        }
+
         private void Start()
         {
-            _state = ClawState.Waiting;
+            _state = State.Waiting;
             _initialPosition = transform.position;
 
             _recoveringTimer = new Timer(_timeBeforeRecovering);
@@ -49,13 +54,13 @@ namespace Bosses
         {
             switch (_state)
             {
-                case ClawState.Attacking:
+                case State.Attacking:
                     ResolveAttackState();
                     break;
-                case ClawState.Recovering:
+                case State.Recovering:
                     ResolveRecoveringState();
                     break;
-                case ClawState.Waiting:
+                case State.Waiting:
                     ResolveWaitingState();
                     break;
             }
@@ -75,9 +80,9 @@ namespace Bosses
             bool isInPlace = MoveToTarget(_initialPosition, _recoveringSpeed * Time.deltaTime);
             if (isInPlace)
             {
-                _state = ClawState.Waiting;
+                _state = State.Waiting;
                 _recoveringTimer.Reset();
-                OnClawReady?.Invoke();
+                TriggerStateChangeEvent(ClawState.Waiting);
             }
         }
 
@@ -88,11 +93,7 @@ namespace Bosses
         [ContextMenu("Fist Attack")]
         public void FistPunch()
         {
-            if (_attackCoroutine != null)
-                StopCoroutine(_attackCoroutine);
-
-            _state = ClawState.Attacking;
-            _attackCoroutine = StartCoroutine(_FistPunch());
+            InitAttack(_FistPunch());
         }
 
         private IEnumerator _FistPunch()
@@ -105,7 +106,7 @@ namespace Bosses
             }
             
             yield return new WaitForSeconds(_timeBeforeRecovering);
-            _state = ClawState.Recovering;
+            _state = State.Recovering;
         }
         #endregion
         
@@ -113,37 +114,72 @@ namespace Bosses
         [ContextMenu("Sweeping Attack")]
         public void SweepingAttack()
         {
-            if (_attackCoroutine != null)
-                StopCoroutine(_attackCoroutine);
-
-            _state = ClawState.Attacking;
-            _attackCoroutine = StartCoroutine(_SweepingAttack());
+            InitAttack(_SweepingAttack());
         }
 
         private IEnumerator _SweepingAttack()
         {
-            bool placedInCorner = false;
-            while (!placedInCorner)
-            {
-                placedInCorner = MoveToTarget(_sweepStartPosition.position, _sweepingSpeed * Time.deltaTime);
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(_sweepingWaitingTime);
+            float sweepLength = MathUtils.ApproxBezierCurveLength(100, _initialPosition, _sweepStartPosition.position,
+                _stageCenterPosition.position);
+            float sweepDistanceTraveled = 0f;
             
-            bool placedInStageCenter = false;
-            while (!placedInStageCenter)
+            while (sweepDistanceTraveled < sweepLength)
             {
-                placedInStageCenter = MoveToTarget(_stageCenterPosition.position, _sweepingSpeed * Time.deltaTime);
+                sweepDistanceTraveled += _sweepingSpeed * Time.deltaTime;
+                float sweepProgression = sweepDistanceTraveled / sweepLength;
+                sweepProgression = Mathf.Clamp01(sweepProgression);
+
+                Vector3 nextPos = MathUtils.BezierCurvePos(sweepProgression, _initialPosition,
+                    _sweepStartPosition.position, _stageCenterPosition.position);
+                _rb2d.MovePosition(nextPos);
+                
                 yield return null;
             }
             
             yield return new WaitForSeconds(_timeBeforeRecovering);
-            _state = ClawState.Recovering;
+            _state = State.Recovering;
+        }
+        #endregion
+        
+        #region TRANSITION ATTACK
+
+        public void TransitionAttack()
+        {
+            InitAttack(_TransitionAttack());
+        }
+
+        private IEnumerator _TransitionAttack()
+        {
+            bool isInPlace = false;
+            while (!isInPlace)
+            {
+                isInPlace = MoveToTarget(_stageCenterPosition.position, _fistAttackSpeed * Time.deltaTime);
+                yield return null;
+            }
+            
+            TriggerStateChangeEvent(ClawState.FinishAttack);
+            
+            yield return new WaitForSeconds(_timeBeforeRecovering);
+            _state = State.Recovering;
         }
         #endregion
         
         #region UTILS
+        private void InitAttack(IEnumerator attackCoroutine)
+        {
+            if (_attackCoroutine != null)
+                StopCoroutine(_attackCoroutine);
+
+            _state = State.Attacking;
+            _attackCoroutine = StartCoroutine(attackCoroutine);
+        }
+
+        private void TriggerStateChangeEvent(ClawState state)
+        {
+            ClawInfo info = new ClawInfo { state = state };
+            OnStateChange?.Invoke(info);
+        }
+        
         /// <summary>
         /// Move transform to a target position.
         /// </summary>
@@ -160,5 +196,23 @@ namespace Bosses
             return false;
         }
         #endregion
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+
+            Vector3 initPos = transform.position;
+            if (Application.isPlaying)
+                initPos = _initialPosition;
+
+            Vector3 from = initPos;
+            for (int i = 1; i <= 100; i++)
+            {
+                Vector3 to = MathUtils.BezierCurvePos(i / 100f, initPos, _sweepStartPosition.position,
+                    _stageCenterPosition.position);
+                Gizmos.DrawLine(from, to);
+                from = to;
+            }
+        }
     }
 }

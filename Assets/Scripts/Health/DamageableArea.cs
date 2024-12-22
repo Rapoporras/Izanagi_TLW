@@ -22,7 +22,6 @@ namespace Health
         {
             if (_entityHealth)
             {
-                LogManager.Log("Damage from area", FeatureType.Undefined);
                 _entityHealth.Damage(Mathf.CeilToInt(amount * _damageMult), screenShake);
             }
         }

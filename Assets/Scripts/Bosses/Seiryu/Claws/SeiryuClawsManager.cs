@@ -1,4 +1,5 @@
 ﻿using System;
+using GameEvents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,23 +11,41 @@ namespace Bosses
         [SerializeField] private SeiryuClaw _leftClaw;
         [SerializeField] private SeiryuClaw _rightClaw;
 
+        [Header("Events")]
+        [SerializeField] private VoidEvent _seiryuStalactitesEvent;
+
         public event Action OnReadyForAttack;
+
+        private bool _transitionAttack;
 
         private void OnEnable()
         {
-            _leftClaw.OnClawReady += OnClawReady;
-            _rightClaw.OnClawReady += OnClawReady;
-        }
-        
-        private void OnDisable()
-        {
-            _leftClaw.OnClawReady -= OnClawReady;
-            _rightClaw.OnClawReady -= OnClawReady;
+            _leftClaw.OnStateChange += OnClawStateChange;
+            _rightClaw.OnStateChange += OnClawStateChange;
         }
 
-        private void OnClawReady()
+        private void OnDisable()
         {
-            OnReadyForAttack?.Invoke();
+            _leftClaw.OnStateChange -= OnClawStateChange;
+            _rightClaw.OnStateChange -= OnClawStateChange;
+        }
+        
+        private void OnClawStateChange(ClawInfo info)
+        {
+            switch (info.state)
+            {
+                case ClawState.Waiting:
+                    OnReadyForAttack?.Invoke();
+                    break;
+                case ClawState.FinishAttack:
+                    if (_transitionAttack)
+                    {
+                        _transitionAttack = false;
+                        if (_seiryuStalactitesEvent)
+                            _seiryuStalactitesEvent.Raise();
+                    }
+                    break;
+            }
         }
 
         public void Attack(Vector3 playerPos, int phase, params float[] probabilities)
@@ -52,7 +71,10 @@ namespace Bosses
 
         public void TransitionAttack()
         {
-            
+            _leftClaw.TransitionAttack();
+            _rightClaw.TransitionAttack();
+
+            _transitionAttack = true;
         }
 
         private SeiryuClaw GetNearestClaw(Vector3 playerPos)
