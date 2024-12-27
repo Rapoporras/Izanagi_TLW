@@ -22,6 +22,10 @@ namespace Bosses
         [SerializeField] private Transform _fistHitPosition;
         [SerializeField] private Transform _sweepStartPosition;
         [SerializeField] private Transform _stageCenterPosition;
+
+        [Header("Rest movement")]
+        [SerializeField] private float _restRadiusArea;
+        [SerializeField] private float _restMovementSpeed;
         
         [Header("Fist Attack")]
         [SerializeField] private float _fistAttackSpeed;
@@ -43,7 +47,8 @@ namespace Bosses
         private State _state;
 
         private Vector3 _initialPosition;
-
+        private Vector3 _restTargetPos;
+        
         private Timer _recoveringTimer;
 
         private void Awake()
@@ -60,6 +65,7 @@ namespace Bosses
         {
             _state = State.Waiting;
             _initialPosition = transform.position;
+            _restTargetPos = _initialPosition;
 
             _recoveringTimer = new Timer(_timeBeforeRecovering);
         }
@@ -96,11 +102,25 @@ namespace Bosses
             {
                 _state = State.Waiting;
                 _recoveringTimer.Reset();
+                _restTargetPos = _initialPosition;
                 TriggerStateChangeEvent(AttackState.Waiting, AttackType.None, _side);
             }
         }
 
-        private void ResolveWaitingState() { }
+        private void ResolveWaitingState()
+        {
+            bool isInPlace = MoveToTarget(_restTargetPos, _restMovementSpeed * Time.deltaTime);
+            if (isInPlace)
+            {
+                float angle = Random.Range(0, Mathf.PI * 2);
+                float distance = Mathf.Sqrt(Random.Range(0f, 1f)) * _restRadiusArea;
+
+                float x = _initialPosition.x + distance * Mathf.Cos(angle);
+                float y = _initialPosition.y + distance * Mathf.Sin(angle);
+
+                _restTargetPos = new Vector3(x, y, transform.position.z);
+            }
+        }
         #endregion
 
         #region FIST ATTACK
@@ -248,6 +268,9 @@ namespace Bosses
                 Gizmos.DrawLine(from, to);
                 from = to;
             }
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(initPos, _restRadiusArea);
         }
     }
 }

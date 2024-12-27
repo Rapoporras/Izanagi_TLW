@@ -489,6 +489,8 @@ MonoBehaviour:
   _fistHitPosition: {fileID: 1657773080}
   _sweepStartPosition: {fileID: 391483939}
   _stageCenterPosition: {fileID: 480266329}
+  _restRadiusArea: 1
+  _restMovementSpeed: 1
   _fistAttackSpeed: 25
   _sweepingSpeed: 25
   _attackEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
@@ -1165,6 +1167,8 @@ MonoBehaviour:
   _fistHitPosition: {fileID: 853698800}
   _sweepStartPosition: {fileID: 836404419}
   _stageCenterPosition: {fileID: 612598510}
+  _restRadiusArea: 1
+  _restMovementSpeed: 1
   _fistAttackSpeed: 25
   _sweepingSpeed: 25
   _attackEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
