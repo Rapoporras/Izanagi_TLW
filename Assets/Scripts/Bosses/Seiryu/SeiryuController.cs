@@ -3,6 +3,7 @@ using Health;
 using StateMachine;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils.CustomLogs;
 using Random = UnityEngine.Random;
 
@@ -10,8 +11,11 @@ namespace Bosses
 {
     public class SeiryuController : BaseStateMachine<SeiryuState>
     {
+        [FormerlySerializedAs("_clawsManager")]
         [Header("Dependencies")]
-        [SerializeField] private SeiryuClawsManager _clawsManager;
+        [SerializeField] private SeiryuAttacksManager _attacksManager;
+        [SerializeField] private SeiryuHead _seiryuHead;
+        [Space(5)]
         [SerializeField] private TextMeshProUGUI _stateText;
         
         [Header("Settings")]
@@ -57,13 +61,13 @@ namespace Bosses
         private void OnEnable()
         {
             _health.AddListenerOnHit(UpdatePhase);
-            _clawsManager.OnReadyForAttack += OnReadyForAttack;
+            _attacksManager.OnReadyForAttack += OnReadyForAttack;
         }
 
         private void OnDisable()
         {
             _health.RemoveListenerOnHit(UpdatePhase);
-            _clawsManager.OnReadyForAttack -= OnReadyForAttack;
+            _attacksManager.OnReadyForAttack -= OnReadyForAttack;
         }
 
         protected override void SetStates()
@@ -82,6 +86,8 @@ namespace Bosses
             _player = player;
             CanStartFight = true;
             phase = 1;
+            
+            _seiryuHead.Initialize(_player);
         }
 
         public float GetAttackWaitingTime()
@@ -93,11 +99,11 @@ namespace Bosses
         {
             if (phase == 1)
             {
-                _clawsManager.Attack(_player.position, phase, _fistAttackProbPhase1, _sweepingAttackProbPhase1);
+                _attacksManager.Attack(_player.position, phase, _fistAttackProbPhase1, _sweepingAttackProbPhase1);
             }
             else if (phase == 2)
             {
-                _clawsManager.Attack(_player.position, phase, 
+                _attacksManager.Attack(_player.position, phase, 
                     _fistAttackProbPhase2, _sweepingAttackProbPhase2, _waterAttackProbPhase2);
             }
             WaitForNextAttack = false;
@@ -105,7 +111,7 @@ namespace Bosses
 
         public void TransitionAttack()
         {
-            _clawsManager.TransitionAttack();
+            _attacksManager.TransitionAttack();
             WaitForNextAttack = false;
         }
         

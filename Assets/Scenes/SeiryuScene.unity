@@ -391,6 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 79738101}
   - component: {fileID: 79738102}
+  - component: {fileID: 79738107}
   - component: {fileID: 79738104}
   - component: {fileID: 79738103}
   - component: {fileID: 79738105}
@@ -411,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 79738100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.25, y: -5.5, z: 0}
+  m_LocalPosition: {x: 8.25, y: -1.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -458,7 +459,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 75c94d3114ba8f742b0b30cdb1070fa5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -482,6 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6dc654bd8242e987ed8bf04f97f0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _side: 2
   _timeBeforeRecovering: 2
   _recoveringSpeed: 30
   _fistHitPosition: {fileID: 1657773080}
@@ -489,7 +491,7 @@ MonoBehaviour:
   _stageCenterPosition: {fileID: 480266329}
   _fistAttackSpeed: 25
   _sweepingSpeed: 25
-  _state: 0
+  _attackEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
 --- !u!50 &79738104
 Rigidbody2D:
   serializedVersion: 4
@@ -568,6 +570,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityHealth: {fileID: 499516733}
+--- !u!95 &79738107
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79738100}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 950f79494c7a2d54b9ed9c2c16811d7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &83553883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1004,7 +1027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86197c261ef4bb2833127597b9a6e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clawsManager: {fileID: 1112202150}
+  _attacksManager: {fileID: 1112202150}
+  _seiryuHead: {fileID: 1423997111}
   _stateText: {fileID: 1094338338}
   _attackWaitingRange: {x: 1.5, y: 3}
   _changePhasePercentage: 0.5
@@ -1024,11 +1048,12 @@ Transform:
   m_GameObject: {fileID: 499516732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.75, y: 15.25, z: 0}
+  m_LocalPosition: {x: 44.75, y: 11.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1423997109}
+  - {fileID: 1019214036}
   - {fileID: 1112202149}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1042,6 +1067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 542126571}
   - component: {fileID: 542126572}
+  - component: {fileID: 542126577}
   - component: {fileID: 542126574}
   - component: {fileID: 542126573}
   - component: {fileID: 542126575}
@@ -1062,7 +1088,7 @@ Transform:
   m_GameObject: {fileID: 542126570}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.25, y: -5.5, z: 0}
+  m_LocalPosition: {x: -8.25, y: -1.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1109,7 +1135,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 75c94d3114ba8f742b0b30cdb1070fa5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1133,6 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6dc654bd8242e987ed8bf04f97f0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _side: 1
   _timeBeforeRecovering: 2
   _recoveringSpeed: 30
   _fistHitPosition: {fileID: 853698800}
@@ -1140,7 +1167,7 @@ MonoBehaviour:
   _stageCenterPosition: {fileID: 612598510}
   _fistAttackSpeed: 25
   _sweepingSpeed: 25
-  _state: 0
+  _attackEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
 --- !u!50 &542126574
 Rigidbody2D:
   serializedVersion: 4
@@ -1219,6 +1246,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityHealth: {fileID: 499516733}
+--- !u!95 &542126577
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542126570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 950f79494c7a2d54b9ed9c2c16811d7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &554987847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1687,154 @@ Transform:
   - {fileID: 612598510}
   m_Father: {fileID: 1494530991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1019214035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019214036}
+  - component: {fileID: 1019214037}
+  - component: {fileID: 1019214038}
+  - component: {fileID: 1019214039}
+  - component: {fileID: 1019214040}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1019214036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019214035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -7.625, z: 0}
+  m_LocalScale: {x: 7.500188, y: 10.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 499516735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1019214037
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019214035}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.6745283, g: 0.9509307, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &1019214038
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019214035}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6498777b609640a4591b7dd43a33c5e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1019214039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019214035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61eb328f9165c7a46a12a117efa43e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1019214040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019214035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d38094a7a341a498cfca1891a1e202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1019214039}
+        m_TargetAssemblyTypeName: Bosses.SeiryuBody, Assembly-CSharp
+        m_MethodName: OnAttackStateChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1094338336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,8 +1979,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1112202149}
   - component: {fileID: 1112202150}
+  - component: {fileID: 1112202151}
   m_Layer: 0
-  m_Name: Claws
+  m_Name: Attack Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1822,6 +2019,34 @@ MonoBehaviour:
   _leftClaw: {fileID: 542126573}
   _rightClaw: {fileID: 79738103}
   _seiryuStalactitesEvent: {fileID: 11400000, guid: 2c66ad17b02a9764991ad6386393c7eb, type: 2}
+--- !u!114 &1112202151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112202148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d38094a7a341a498cfca1891a1e202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1112202150}
+        m_TargetAssemblyTypeName: Bosses.SeiryuAttacksManager, Assembly-CSharp
+        m_MethodName: OnAttackStateChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1148823459
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,6 +2413,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1423997109}
   - component: {fileID: 1423997110}
+  - component: {fileID: 1423997112}
+  - component: {fileID: 1423997111}
+  - component: {fileID: 1423997113}
   m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
@@ -2204,7 +2432,7 @@ Transform:
   m_GameObject: {fileID: 1423997108}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2251,7 +2479,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.39889815, b: 0.2783019, a: 1}
   m_FlipX: 0
@@ -2263,6 +2491,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1423997111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423997108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb79a31f182458397ca0081bce4b009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1423997112
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423997108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec8a2dbc592b81644aa5011a2edd7f9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1423997113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423997108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d38094a7a341a498cfca1891a1e202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1423997111}
+        m_TargetAssemblyTypeName: Bosses.SeiryuHead, Assembly-CSharp
+        m_MethodName: OnAttackStateChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1455285453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,8 +2755,6 @@ MonoBehaviour:
   - {fileID: 2061603709}
   - {fileID: 1170226969}
   - {fileID: 27949493}
-  _firstSublist: []
-  _secondSublist: []
 --- !u!4 &1507420282
 Transform:
   m_ObjectHideFlags: 0

@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using GameEvents;
 using UnityEngine;
 using Utils;
+using Utils.CustomLogs;
 
 namespace Bosses
 {
@@ -13,6 +14,7 @@ namespace Bosses
         }
 
         [Header("General")]
+        [SerializeField] private ClawSide _side;
         [SerializeField] private float _timeBeforeRecovering;
         [SerializeField] private float _recoveringSpeed;
         
@@ -26,12 +28,19 @@ namespace Bosses
 
         [Header("Sweeping Attack")]
         [SerializeField] private float _sweepingSpeed;
-        
-        public event Action<ClawInfo> OnStateChange;
 
-        private Coroutine _attackCoroutine;
-        [SerializeField, ReadOnly] private State _state;
+        [Header("Events")]
+        [SerializeField] private SeiryuAttackInfoEvent _attackEvent;
+        
         private Rigidbody2D _rb2d;
+        private Animator _animator;
+
+        private int _defaultAnimHash;
+        private int _fistAnimHash;
+        private int _sweepAnimHash;
+        
+        private Coroutine _attackCoroutine;
+        private State _state;
 
         private Vector3 _initialPosition;
 
@@ -40,6 +49,11 @@ namespace Bosses
         private void Awake()
         {
             _rb2d = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
+
+            _defaultAnimHash = Animator.StringToHash("default");
+            _fistAnimHash = Animator.StringToHash("fist");
+            _sweepAnimHash = Animator.StringToHash("sweep");
         }
 
         private void Start()
@@ -82,7 +96,7 @@ namespace Bosses
             {
                 _state = State.Waiting;
                 _recoveringTimer.Reset();
-                TriggerStateChangeEvent(ClawState.Waiting);
+                TriggerStateChangeEvent(AttackState.Waiting, AttackType.None, _side);
             }
         }
 
@@ -93,7 +107,7 @@ namespace Bosses
         [ContextMenu("Fist Attack")]
         public void FistPunch()
         {
-            InitAttack(_FistPunch());
+            InitAttack(_FistPunch(), AttackType.Fist);
         }
 
         private IEnumerator _FistPunch()
@@ -105,6 +119,9 @@ namespace Bosses
                 yield return null;
             }
             
+            TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Fist, _side);
+            
+            _animator.SetTrigger(_defaultAnimHash);
             yield return new WaitForSeconds(_timeBeforeRecovering);
             _state = State.Recovering;
         }
@@ -114,7 +131,7 @@ namespace Bosses
         [ContextMenu("Sweeping Attack")]
         public void SweepingAttack()
         {
-            InitAttack(_SweepingAttack());
+            InitAttack(_SweepingAttack(), AttackType.Sweep);
         }
 
         private IEnumerator _SweepingAttack()
@@ -136,19 +153,21 @@ namespace Bosses
                 yield return null;
             }
             
+            TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Fist, _side);
+            
+            _animator.SetTrigger(_defaultAnimHash);
             yield return new WaitForSeconds(_timeBeforeRecovering);
             _state = State.Recovering;
         }
         #endregion
         
         #region TRANSITION ATTACK
-
-        public void TransitionAttack()
+        public void TransitionAttack(bool triggerEvent)
         {
-            InitAttack(_TransitionAttack());
+            InitAttack(_TransitionAttack(triggerEvent), AttackType.Transition);
         }
 
-        private IEnumerator _TransitionAttack()
+        private IEnumerator _TransitionAttack(bool triggerEvent)
         {
             bool isInPlace = false;
             while (!isInPlace)
@@ -157,27 +176,43 @@ namespace Bosses
                 yield return null;
             }
             
-            TriggerStateChangeEvent(ClawState.FinishAttack);
+            if (triggerEvent)
+                TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Transition, _side);
             
+            _animator.SetTrigger(_defaultAnimHash);
             yield return new WaitForSeconds(_timeBeforeRecovering);
             _state = State.Recovering;
         }
         #endregion
         
         #region UTILS
-        private void InitAttack(IEnumerator attackCoroutine)
+        private void InitAttack(IEnumerator attackCoroutine, AttackType attackType)
         {
             if (_attackCoroutine != null)
                 StopCoroutine(_attackCoroutine);
 
             _state = State.Attacking;
             _attackCoroutine = StartCoroutine(attackCoroutine);
+            
+            TriggerStateChangeEvent(AttackState.StartAttack, attackType, _side);
+            
+            // set animation
+            switch (attackType)
+            {
+                case AttackType.Fist:
+                    _animator.SetTrigger(_fistAnimHash);
+                    break;
+                case AttackType.Sweep:
+                    _animator.SetTrigger(_sweepAnimHash);
+                    break;
+            }
         }
 
-        private void TriggerStateChangeEvent(ClawState state)
+        private void TriggerStateChangeEvent(AttackState state, AttackType type, ClawSide side)
         {
-            ClawInfo info = new ClawInfo { state = state };
-            OnStateChange?.Invoke(info);
+            SeiryuAttackInfo info = new SeiryuAttackInfo { state = state, type = type, side = side};
+            if (_attackEvent)
+                _attackEvent.Raise(info);
         }
         
         /// <summary>

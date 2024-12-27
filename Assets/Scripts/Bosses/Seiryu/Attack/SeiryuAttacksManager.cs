@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Bosses
 {
-    public class SeiryuClawsManager : MonoBehaviour
+    public class SeiryuAttacksManager : MonoBehaviour, ISeiryuAttackStateHandler
     {
         [Header("Claws")]
         [SerializeField] private SeiryuClaw _leftClaw;
@@ -18,26 +18,44 @@ namespace Bosses
 
         private bool _transitionAttack;
 
-        private void OnEnable()
-        {
-            _leftClaw.OnStateChange += OnClawStateChange;
-            _rightClaw.OnStateChange += OnClawStateChange;
-        }
-
-        private void OnDisable()
-        {
-            _leftClaw.OnStateChange -= OnClawStateChange;
-            _rightClaw.OnStateChange -= OnClawStateChange;
-        }
+        // private void OnEnable()
+        // {
+        //     _leftClaw.OnStateChange += OnClawStateChange;
+        //     _rightClaw.OnStateChange += OnClawStateChange;
+        // }
+        //
+        // private void OnDisable()
+        // {
+        //     _leftClaw.OnStateChange -= OnClawStateChange;
+        //     _rightClaw.OnStateChange -= OnClawStateChange;
+        // }
+        //
+        // private void OnClawStateChange(SeiryuAttackInfo info)
+        // {
+        //     switch (info.state)
+        //     {
+        //         case AttackState.Waiting:
+        //             OnReadyForAttack?.Invoke();
+        //             break;
+        //         case AttackState.FinishAttack:
+        //             if (_transitionAttack)
+        //             {
+        //                 _transitionAttack = false;
+        //                 if (_seiryuStalactitesEvent)
+        //                     _seiryuStalactitesEvent.Raise();
+        //             }
+        //             break;
+        //     }
+        // }
         
-        private void OnClawStateChange(ClawInfo info)
+        public void OnAttackStateChange(SeiryuAttackInfo info)
         {
             switch (info.state)
             {
-                case ClawState.Waiting:
+                case AttackState.Waiting:
                     OnReadyForAttack?.Invoke();
                     break;
-                case ClawState.FinishAttack:
+                case AttackState.FinishAttack:
                     if (_transitionAttack)
                     {
                         _transitionAttack = false;
@@ -71,8 +89,8 @@ namespace Bosses
 
         public void TransitionAttack()
         {
-            _leftClaw.TransitionAttack();
-            _rightClaw.TransitionAttack();
+            _leftClaw.TransitionAttack(true);
+            _rightClaw.TransitionAttack(false);
 
             _transitionAttack = true;
         }

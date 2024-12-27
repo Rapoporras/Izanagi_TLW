@@ -13,8 +13,8 @@ namespace Bosses
         
         [Space(10), SerializeField] private List<Stalactite> _stalactitesList;
 
-        [SerializeField, ReadOnly] private List<Stalactite> _firstSublist;
-        [SerializeField, ReadOnly] private List<Stalactite> _secondSublist;
+        private List<Stalactite> _firstSublist;
+        private List<Stalactite> _secondSublist;
 
         private bool _firstActivation;
         private Coroutine _stalactitesCoroutine;
