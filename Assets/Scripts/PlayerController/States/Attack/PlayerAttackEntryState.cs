@@ -22,7 +22,7 @@ namespace PlayerController.States
             Context.SetAttackAnimation();
             Context.Audio.PlayAttackSound(0);
             
-            InputManager.Instance.PlayerActions.Movement.Disable();
+            InputManager.PlayerActions.Movement.Disable();
         }
 
         public override void UpdateState()

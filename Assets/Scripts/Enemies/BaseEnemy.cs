@@ -58,7 +58,7 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
         _entityHealth.ResetHealth();
         if (_alwaysRespawn) return;
         
-        if (temporalData.DeadEnemies.Contains(id))
+        if (temporalData.deadEnemies.Contains(id))
         {
             gameObject.SetActive(false);
         }
@@ -70,14 +70,14 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 
     public void SaveTemporalData(TemporalDataSO temporalData)
     {
-        bool containsId = temporalData.DeadEnemies.Contains(id);
+        bool containsId = temporalData.deadEnemies.Contains(id);
         if (_isEnemyDead && !containsId)
         {
-            temporalData.DeadEnemies.Add(id);
+            temporalData.deadEnemies.Add(id);
         }
         else if (!_isEnemyDead && containsId)
         {
-            temporalData.DeadEnemies.Remove(id);
+            temporalData.deadEnemies.Remove(id);
         }
     }
 }

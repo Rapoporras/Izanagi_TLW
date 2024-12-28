@@ -1,6 +1,7 @@
 ﻿using GameEvents;
 using InteractionSystem;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace DialogueSystem
 {
@@ -17,14 +18,15 @@ namespace DialogueSystem
 
         private void Awake()
         {
-            _dialogueBubbleImage.SetActive(false);
+            if (_dialogueBubbleImage)
+                _dialogueBubbleImage.SetActive(false);
         }
 
         public void Interact(Interactor interactor)
         {
             if (!_dialogueInfo.InkJSON)
             {
-                Debug.LogWarning("There is no ink json");
+                LogManager.LogWarning("There is no ink Json", FeatureType.Dialogue);
                 return;
             }
             
@@ -34,7 +36,8 @@ namespace DialogueSystem
 
         public void ShowInteractionUI(bool showUI)
         {
-            _dialogueBubbleImage.SetActive(showUI);
+            if (_dialogueBubbleImage)
+                _dialogueBubbleImage.SetActive(showUI);
         }
     }
 }

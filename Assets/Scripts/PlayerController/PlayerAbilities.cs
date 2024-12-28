@@ -60,16 +60,16 @@ namespace PlayerController
 
         private void OnEnable()
         {
-            InputManager.Instance.PlayerActions.ChangeAbility.performed += OnChangeAbility;
-            InputManager.Instance.PlayerActions.AbilityAction.performed += OnAbilityAction;
-            InputManager.Instance.PlayerActions.Ultimate.performed += OnUltimateAction;
+            InputManager.PlayerActions.ChangeAbility.performed += OnChangeAbility;
+            InputManager.PlayerActions.AbilityAction.performed += OnAbilityAction;
+            InputManager.PlayerActions.Ultimate.performed += OnUltimateAction;
         }
 
         private void OnDisable()
         {
-            InputManager.Instance.PlayerActions.ChangeAbility.performed -= OnChangeAbility;
-            InputManager.Instance.PlayerActions.AbilityAction.performed -= OnAbilityAction;
-            InputManager.Instance.PlayerActions.Ultimate.performed -= OnUltimateAction;
+            InputManager.PlayerActions.ChangeAbility.performed -= OnChangeAbility;
+            InputManager.PlayerActions.AbilityAction.performed -= OnAbilityAction;
+            InputManager.PlayerActions.Ultimate.performed -= OnUltimateAction;
         }
 
         private void SetAbility(AbilityType type)

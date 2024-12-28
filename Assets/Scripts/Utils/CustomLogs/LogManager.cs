@@ -4,7 +4,7 @@ namespace Utils.CustomLogs
 {
     public static class LogManager
     {
-        private const string LOGS_PATH = "Assets/ScriptableObjects/LogManager/LogData.asset";
+        public const string LOGS_PATH = "Assets/ScriptableObjects/LogManager/LogData.asset";
         private static FeatureLogScriptable _logData;
 
         private static void LogDebugConfig()

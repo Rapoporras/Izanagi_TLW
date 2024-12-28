@@ -70,8 +70,6 @@ namespace PlayerController.Data
         [Space(5)]
         [Tooltip("Reduces the effect of player's movement while wall jumping")]
         [Range(0, 1)] public float wallJumpRunLerp;
-        [Tooltip("Time after wall jumping the player's movement is slowed for")]
-        [Range(0, 1)] public float wallJumpTime;
         #endregion
         
         #region SLIDE
