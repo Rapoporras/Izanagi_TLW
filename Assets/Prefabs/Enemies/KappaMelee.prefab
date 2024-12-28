@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6712457799488341969}
   - component: {fileID: 5890541788300219076}
+  - component: {fileID: 8216435186297179805}
   m_Layer: 7
   m_Name: Hitbox
   m_TagString: Enemy
@@ -39,7 +40,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352466535151609425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -77,6 +78,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5446839, y: 2.6270392}
   m_EdgeRadius: 0
+--- !u!70 &8216435186297179805
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352466535151609425}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04, y: 0.75}
+  m_Size: {x: 1.2, y: 2.4}
+  m_Direction: 0
 --- !u!1 &1577676039033903462
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +152,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 36.591, y: -3, z: 0}
-  m_LocalScale: {x: 1.1398648, y: 1.1182206, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6712457799488341969}
@@ -260,14 +296,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1e87b7b9-941f-44d3-a67b-6545634b148f
+  id: a71416bb-23d4-4d1f-bb89-da85ca9a7efc
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 7.5
   chaseSpeed: 6
   onHitStunTime: 0.15
-  knockbackStrength: 3
-  rollingSpeed: 16
+  knockbackStrength: 2
+  rollingSpeed: 12
   rollingDistance: 7
   collisionDetectionCenter: {fileID: 4627207035166566724}
   collisionDetectionRadius: 0.7
@@ -584,6 +620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6829627544073253823}
   - component: {fileID: 405049525629598626}
+  - component: {fileID: 772763842227940508}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Enemy
@@ -613,7 +650,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7817451078996609799}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -651,3 +688,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5446839, y: 2.6270392}
   m_EdgeRadius: 0
+--- !u!70 &772763842227940508
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817451078996609799}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04, y: 0.75}
+  m_Size: {x: 1.2, y: 2.4}
+  m_Direction: 0
