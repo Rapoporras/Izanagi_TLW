@@ -7,14 +7,14 @@ namespace Bosses
     
     public class SeiryuInitCombatState : SeiryuBaseState
     {
-        private readonly float _waitTimer;
+        private readonly float _waitingTime;
         private Timer _timer;
         
         public SeiryuInitCombatState(SeiryuState key, SeiryuController context)
             : base(key, context)
         {
-            _waitTimer = 3f;
-            _timer = new Timer(_waitTimer);
+            _waitingTime = 3f;
+            _timer = new Timer(_waitingTime);
         }
 
         public override void EnterState()
@@ -27,6 +27,9 @@ namespace Bosses
             if (Context.CanStartFight)
             {
                 _timer.Tick(Time.deltaTime);
+                
+                float alpha = 1 - (_timer.RemainingSeconds / _waitingTime);
+                Context.SetSpritesAlpha(alpha);
             }
         }
 

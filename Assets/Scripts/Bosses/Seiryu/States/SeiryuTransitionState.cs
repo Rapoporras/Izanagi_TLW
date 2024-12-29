@@ -14,7 +14,12 @@
         public override SeiryuState GetNextState()
         {
             if (Context.WaitForNextAttack)
+            {
+                if (Context.phase == 3)
+                    return SeiryuState.Dead;
+                
                 return SeiryuState.Waiting;
+            }
             
             return StateKey;
         }

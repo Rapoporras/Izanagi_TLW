@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using GameEvents;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils;
-using Utils.CustomLogs;
 
 namespace Bosses
 {
@@ -15,13 +15,16 @@ namespace Bosses
 
         [Header("General")]
         [SerializeField] private ClawSide _side;
+        [Tooltip("Tiempo de espera para volver a su posición inicial después de realizar un ataque")]
         [SerializeField] private float _timeBeforeRecovering;
+        [Tooltip("Velocidad con la que vuelve a la posición inicial")]
         [SerializeField] private float _recoveringSpeed;
         
         [Header("Positions")]
         [SerializeField] private Transform _fistHitPosition;
-        [SerializeField] private Transform _sweepStartPosition;
-        [SerializeField] private Transform _stageCenterPosition;
+        [Space(5)]
+        [SerializeField] private Transform _sweepCurveControlPos;
+        [SerializeField] private Transform _sweepEndPos;
 
         [Header("Rest movement")]
         [SerializeField] private float _restRadiusArea;
@@ -156,8 +159,8 @@ namespace Bosses
 
         private IEnumerator _SweepingAttack()
         {
-            float sweepLength = MathUtils.ApproxBezierCurveLength(100, _initialPosition, _sweepStartPosition.position,
-                _stageCenterPosition.position);
+            float sweepLength = MathUtils.ApproxBezierCurveLength(100, _initialPosition, _sweepCurveControlPos.position,
+                _sweepEndPos.position);
             float sweepDistanceTraveled = 0f;
             
             while (sweepDistanceTraveled < sweepLength)
@@ -167,7 +170,7 @@ namespace Bosses
                 sweepProgression = Mathf.Clamp01(sweepProgression);
 
                 Vector3 nextPos = MathUtils.BezierCurvePos(sweepProgression, _initialPosition,
-                    _sweepStartPosition.position, _stageCenterPosition.position);
+                    _sweepCurveControlPos.position, _sweepEndPos.position);
                 _rb2d.MovePosition(nextPos);
                 
                 yield return null;
@@ -192,7 +195,7 @@ namespace Bosses
             bool isInPlace = false;
             while (!isInPlace)
             {
-                isInPlace = MoveToTarget(_stageCenterPosition.position, _fistAttackSpeed * Time.deltaTime);
+                isInPlace = MoveToTarget(_sweepEndPos.position, _fistAttackSpeed * Time.deltaTime);
                 yield return null;
             }
             
@@ -263,13 +266,13 @@ namespace Bosses
             Vector3 from = initPos;
             for (int i = 1; i <= 100; i++)
             {
-                Vector3 to = MathUtils.BezierCurvePos(i / 100f, initPos, _sweepStartPosition.position,
-                    _stageCenterPosition.position);
+                Vector3 to = MathUtils.BezierCurvePos(i / 100f, initPos, _sweepCurveControlPos.position,
+                    _sweepEndPos.position);
                 Gizmos.DrawLine(from, to);
                 from = to;
             }
 
-            Gizmos.color = Color.yellow;
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(initPos, _restRadiusArea);
         }
     }

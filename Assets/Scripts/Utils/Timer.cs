@@ -8,6 +8,7 @@ namespace Utils
         private float _duration;
 
         public bool Finished => _remainingSeconds <= 0;
+        public float RemainingSeconds => _remainingSeconds;
 
         public Timer(float duration)
         {

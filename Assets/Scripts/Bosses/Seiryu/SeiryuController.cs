@@ -3,15 +3,12 @@ using Health;
 using StateMachine;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Utils.CustomLogs;
 using Random = UnityEngine.Random;
 
 namespace Bosses
 {
     public class SeiryuController : BaseStateMachine<SeiryuState>
     {
-        [FormerlySerializedAs("_clawsManager")]
         [Header("Dependencies")]
         [SerializeField] private SeiryuAttacksManager _attacksManager;
         [SerializeField] private SeiryuHead _seiryuHead;
@@ -19,7 +16,9 @@ namespace Bosses
         [SerializeField] private TextMeshProUGUI _stateText;
         
         [Header("Settings")]
-        [SerializeField] private Vector2 _attackWaitingRange = new Vector2(1.5f, 3f); 
+        [Tooltip("Tiempo de espera para volver a realizar un nuevo ataque")]
+        [SerializeField] private Vector2 _attackWaitingRange = new Vector2(1.5f, 3f);
+        [Tooltip("Porcentaje de vida que debe tener el boss para cambiar de fase")]
         [SerializeField, Range(0,1)] private float _changePhasePercentage = 0.5f;
         
         [Header("Phase 1")]
@@ -27,14 +26,8 @@ namespace Bosses
         [SerializeField, Range(0, 1)] private float _sweepingAttackProbPhase1 = 0.5f;
         
         [Header("Phase 2")]
-        [SerializeField, Range(0, 1)] private float _fistAttackProbPhase2 = 0.33f;
-        [SerializeField, Range(0, 1)] private float _sweepingAttackProbPhase2 = 0.33f;
-        [SerializeField, Range(0, 1)] private float _waterAttackProbPhase2 = 0.33f;
-        
-        // [Header("Ability Settings")]
-        // [SerializeField] private AbilityTypeEvent _abilityUnlockedEvent;
-        // [SerializeField] private AbilityType _abilityToUnlock;
-        // [SerializeField] private PlayerAbilitiesData _abilitiesData;
+        [SerializeField, Range(0, 1)] private float _fistAttackProbPhase2 = 0.4f;
+        [SerializeField, Range(0, 1)] private float _sweepingAttackProbPhase2 = 0.6f;
         
         public bool CanStartFight { get; private set; }
         public bool WaitForNextAttack { get; private set; }
@@ -46,10 +39,19 @@ namespace Bosses
 
         private Transform _player;
         private EntityHealth _health;
+
+        private SpriteRenderer[] _seiryuSprites;
         
         private void Awake()
         {
             _health = GetComponent<EntityHealth>();
+            _seiryuSprites = GetComponentsInChildren<SpriteRenderer>();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            SetSpritesAlpha(0);
         }
 
         protected override void Update()
@@ -104,7 +106,7 @@ namespace Bosses
             else if (phase == 2)
             {
                 _attacksManager.Attack(_player.position, phase, 
-                    _fistAttackProbPhase2, _sweepingAttackProbPhase2, _waterAttackProbPhase2);
+                    _fistAttackProbPhase2, _sweepingAttackProbPhase2);
             }
             WaitForNextAttack = false;
         }
@@ -113,6 +115,21 @@ namespace Bosses
         {
             _attacksManager.TransitionAttack();
             WaitForNextAttack = false;
+        }
+
+        public void SetSpritesAlpha(float alpha)
+        {
+            foreach (var spriteRenderer in _seiryuSprites)
+            {
+                Color color = spriteRenderer.color;
+                color.a = alpha;
+                spriteRenderer.color = color;
+            }
+        }
+
+        public void FinishBattle()
+        {
+            Destroy(gameObject);
         }
         
         private void OnReadyForAttack()
@@ -124,7 +141,6 @@ namespace Bosses
         {
             if (phase < 2 && HealthPercentage() <= _changePhasePercentage)
             {
-                LogManager.Log("Seiryu Second Phase", FeatureType.Enemies);
                 phase = 2;
                 transitionToNextPhase = true;
             }

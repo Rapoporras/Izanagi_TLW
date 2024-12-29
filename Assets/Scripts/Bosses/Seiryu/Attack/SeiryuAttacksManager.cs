@@ -17,36 +17,6 @@ namespace Bosses
         public event Action OnReadyForAttack;
 
         private bool _transitionAttack;
-
-        // private void OnEnable()
-        // {
-        //     _leftClaw.OnStateChange += OnClawStateChange;
-        //     _rightClaw.OnStateChange += OnClawStateChange;
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     _leftClaw.OnStateChange -= OnClawStateChange;
-        //     _rightClaw.OnStateChange -= OnClawStateChange;
-        // }
-        //
-        // private void OnClawStateChange(SeiryuAttackInfo info)
-        // {
-        //     switch (info.state)
-        //     {
-        //         case AttackState.Waiting:
-        //             OnReadyForAttack?.Invoke();
-        //             break;
-        //         case AttackState.FinishAttack:
-        //             if (_transitionAttack)
-        //             {
-        //                 _transitionAttack = false;
-        //                 if (_seiryuStalactitesEvent)
-        //                     _seiryuStalactitesEvent.Raise();
-        //             }
-        //             break;
-        //     }
-        // }
         
         public void OnAttackStateChange(SeiryuAttackInfo info)
         {
@@ -66,24 +36,23 @@ namespace Bosses
             }
         }
 
-        public void Attack(Vector3 playerPos, int phase, params float[] probabilities)
+        public void Attack(Vector3 playerPos, int phase, float fistProb, float sweepProb)
         {
-            if (probabilities.Length < 2) return;
-            
             SeiryuClaw nearestClaw = GetNearestClaw(playerPos);
             float attackSelection = Random.Range(0f, 1f);
 
-            if (attackSelection < probabilities[0])
+            if (attackSelection < fistProb)
             {
                 nearestClaw.FistPunch();
             }
-            else if (attackSelection < probabilities[0] + probabilities[1])
+            else if (attackSelection < fistProb + sweepProb)
             {
                 nearestClaw.SweepingAttack();
             }
             else if (phase == 2)
             {
                 // water attack
+                nearestClaw.FistPunch();
             }
         }
 
