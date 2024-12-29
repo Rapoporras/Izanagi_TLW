@@ -97,7 +97,7 @@ namespace PlayerController
         
         #region KonckBack Properties
         public bool IsTakingDamage { get; set; }
-        public bool UseKnockBackAccelInAir { get; set; }
+        [field: SerializeField] public bool UseKnockBackAccelInAir { get; set; }
         #endregion
 
         #region Unity Functions
@@ -234,7 +234,7 @@ namespace PlayerController
             //      _rb2d.velocity.x + (Time.fixedDeltaTime * speedDif * accelRate) / _rb2d.mass,
             //      _rb2d.velocity.y);
 
-            if (speedDif == 0)
+            if (Mathf.Abs(speedDif) >= 0.1f)
                 UseKnockBackAccelInAir = false;
         }
 
