@@ -12,12 +12,6 @@ namespace SceneMechanics.Stalactite
             Context.PlayFloorHitAudio();
         }
 
-        public override void UpdateState() { }
-
-        public override void FixedUpdateState() { }
-
-        public override void ExitState() { }
-
         public override StalactiteStates GetNextState()
         {
             return StateKey;

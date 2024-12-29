@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace Health
 {
@@ -14,16 +15,22 @@ namespace Health
         private SpriteRenderer _spriteRenderer;
         private MaterialPropertyBlock _propertyBlock;
 
+        private Coroutine _flashCoroutine;
+
         private void Awake()
         {
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            if (!_spriteRenderer)
+                _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             _propertyBlock = new MaterialPropertyBlock();
         }
 
         [ContextMenu("flash")]
         public void CallDamageFlash()
         {
-            StartCoroutine(DamageFlasher());
+            if (_flashCoroutine != null)
+                StopCoroutine(_flashCoroutine);
+            _flashCoroutine = StartCoroutine(DamageFlasher());
         }
 
         private IEnumerator DamageFlasher()
