@@ -17,8 +17,6 @@ namespace PlayerController.States
             int dir = Context.LeftWallHit ? 1 : -1;
             Context.WallJump(dir);
             Context.Audio.PlayJumpSound();
-            
-            LogManager.Log("Enter wall jumping state", FeatureType.Player);
         }
 
         public override void UpdateState()
@@ -40,11 +38,6 @@ namespace PlayerController.States
         public override void FixedUpdateState()
         {
             Context.Run(_lerpAmount, _canAddBonusJumpApex);
-        }
-
-        public override void ExitState()
-        {
-            LogManager.Log("Exit wall jumping state", FeatureType.Player);
         }
 
         public override PlayerStates GetNextState()

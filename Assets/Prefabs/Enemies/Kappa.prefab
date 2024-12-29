@@ -451,9 +451,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  _alwaysRespawn: 0
+  id: 3295c551-921a-429b-b7b8-95762c1d5501
   player: {fileID: 0}
+  _alwaysRespawn: 0
   detectionRadius: 10
   chaseSpeed: 6
   onHitStunTime: 0.15
@@ -462,6 +462,8 @@ MonoBehaviour:
   rollingDistance: 7
   collisionDetectionCenter: {fileID: 784717571515416604}
   collisionDetectionRadius: 0.75
+  rollDamage: 0
+  _rollAttackStartDuration: 0.84375
   attackCenter: {fileID: 8158159647830940877}
   attackRadius: 1.24
   attackDamage: 25
@@ -712,6 +714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7166912473926445748}
   - component: {fileID: 2714846131588900970}
+  - component: {fileID: 2290028789052239375}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Enemy
@@ -779,3 +782,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2290028789052239375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106666948875575371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81b04683d684b19a7489377a6846d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityHealth: {fileID: 4965132132778556893}
