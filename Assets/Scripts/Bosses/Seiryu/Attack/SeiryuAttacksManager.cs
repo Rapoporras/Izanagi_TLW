@@ -17,6 +17,12 @@ namespace Bosses
         public event Action OnReadyForAttack;
 
         private bool _transitionAttack;
+
+        public void Initialize()
+        {
+            _leftClaw.EnableDamage(true);
+            _rightClaw.EnableDamage(true);
+        }
         
         public void OnAttackStateChange(SeiryuAttackInfo info)
         {

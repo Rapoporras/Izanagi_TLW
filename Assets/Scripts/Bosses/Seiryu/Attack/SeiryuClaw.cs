@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using GameEvents;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils;
 
 namespace Bosses
@@ -41,6 +40,7 @@ namespace Bosses
         
         private Rigidbody2D _rb2d;
         private Animator _animator;
+        private ContactDamage _contactDamage;
 
         private int _defaultAnimHash;
         private int _fistAnimHash;
@@ -58,6 +58,8 @@ namespace Bosses
         {
             _rb2d = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _contactDamage = GetComponent<ContactDamage>();
+            _contactDamage.isActive = false;
 
             _defaultAnimHash = Animator.StringToHash("default");
             _fistAnimHash = Animator.StringToHash("fist");
@@ -209,6 +211,11 @@ namespace Bosses
         #endregion
         
         #region UTILS
+        public void EnableDamage(bool isEnable)
+        {
+            _contactDamage.isActive = isEnable;
+        }
+        
         private void InitAttack(IEnumerator attackCoroutine, AttackType attackType)
         {
             if (_attackCoroutine != null)
