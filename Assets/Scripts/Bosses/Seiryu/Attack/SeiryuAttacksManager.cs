@@ -1,4 +1,5 @@
 ﻿using System;
+using CameraSystem;
 using GameEvents;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,6 +12,10 @@ namespace Bosses
         [SerializeField] private SeiryuClaw _leftClaw;
         [SerializeField] private SeiryuClaw _rightClaw;
 
+        [Header("Screen Shake")]
+        [SerializeField] private ScreenShakeProfile _screenShakeProfile;
+        [SerializeField] private ScreenShakeSource _screenShakeSource;
+        
         [Header("Events")]
         [SerializeField] private VoidEvent _seiryuStalactitesEvent;
 
@@ -37,6 +42,8 @@ namespace Bosses
                         _transitionAttack = false;
                         if (_seiryuStalactitesEvent)
                             _seiryuStalactitesEvent.Raise();
+                        
+                        _screenShakeSource.TriggerScreenShake(_screenShakeProfile);
                     }
                     break;
             }

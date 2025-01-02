@@ -15,28 +15,36 @@ namespace CameraSystem
             _impulseListener = GetComponent<CinemachineImpulseListener>();
         }
 
-        public void ScreenShakeFromProfile(ScreenShakeData context)
+        public void ScreenShakeFromProfile(ScreenShakeData data)
         {
             // apply settings
-            SetupScreenShakeSettings(context);
+            SetupScreenShakeSettings(data);
             
             // screenshake
-            context.impulseSource.GenerateImpulse(context.profile.impulseForce);
+            data.impulseSource.GenerateImpulse(data.profile.impulseForce);
         }
 
-        private void SetupScreenShakeSettings(ScreenShakeData context)
+        private void SetupScreenShakeSettings(ScreenShakeData data)
         {
-            _impulseDefinition = context.impulseSource.m_ImpulseDefinition;
+            _impulseDefinition = data.impulseSource.m_ImpulseDefinition;
 
             // impulse source settings
-            _impulseDefinition.m_ImpulseDuration = context.profile.impulseTime;
-            context.impulseSource.m_DefaultVelocity = context.profile.defaultVelocity;
-            _impulseDefinition.m_CustomImpulseShape = context.profile.impulseCurve;
+            _impulseDefinition.m_ImpulseDuration = data.profile.impulseTime;
+            data.impulseSource.m_DefaultVelocity = data.profile.defaultVelocity;
+
+            if (data.profile.impulseShape == CinemachineImpulseDefinition.ImpulseShapes.Custom)
+            {
+                _impulseDefinition.m_CustomImpulseShape = data.profile.impulseCurve;
+            }
+            else
+            {
+                _impulseDefinition.m_ImpulseShape = data.profile.impulseShape;
+            }
             
             // impulse listener settings
-            _impulseListener.m_ReactionSettings.m_AmplitudeGain = context.profile.listenerAmplitude;
-            _impulseListener.m_ReactionSettings.m_FrequencyGain = context.profile.listenerFrequency;
-            _impulseListener.m_ReactionSettings.m_Duration = context.profile.listenerDuration;
+            _impulseListener.m_ReactionSettings.m_AmplitudeGain = data.profile.listenerAmplitude;
+            _impulseListener.m_ReactionSettings.m_FrequencyGain = data.profile.listenerFrequency;
+            _impulseListener.m_ReactionSettings.m_Duration = data.profile.listenerDuration;
         }
     }
 }
