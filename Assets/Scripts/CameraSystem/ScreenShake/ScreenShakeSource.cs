@@ -30,5 +30,17 @@ namespace CameraSystem
             if (_screenShakeEvent)
                 _screenShakeEvent.Raise(_screenShakeData);
         }
+
+        public void TriggerScreenShake(ScreenShakeProfile profile)
+        {
+            ScreenShakeData data = new ScreenShakeData()
+            {
+                profile = profile,
+                impulseSource = _impulseSource
+            };
+            
+            if (_screenShakeEvent)
+                _screenShakeEvent.Raise(data);
+        }
     }
 }

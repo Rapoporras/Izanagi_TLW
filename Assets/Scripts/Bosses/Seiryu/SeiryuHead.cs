@@ -4,6 +4,9 @@ namespace Bosses
 {
     public class SeiryuHead : MonoBehaviour, ISeiryuAttackStateHandler
     {
+        [Header("Settings")]
+        [SerializeField] private float _maxRotation = 35f;
+        
         private Transform _player;
         private Animator _animator;
 
@@ -32,10 +35,12 @@ namespace Bosses
         private void LookAtPlayer()
         {
             if (!_player) return;
-
+            
             Vector3 dir = _player.position - transform.position;
-            dir *= -1;
-            transform.up = dir;
+            float angle = Vector3.SignedAngle(dir, Vector3.down, Vector3.back);
+            angle = Mathf.Clamp(angle, -_maxRotation, _maxRotation);
+            
+            transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         public void OnAttackStateChange(SeiryuAttackInfo info)
