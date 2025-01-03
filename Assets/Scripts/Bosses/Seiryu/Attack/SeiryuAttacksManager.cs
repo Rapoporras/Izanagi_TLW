@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using CameraSystem;
 using GameEvents;
 using UnityEngine;
@@ -11,10 +12,15 @@ namespace Bosses
         [Header("Claws")]
         [SerializeField] private SeiryuClaw _leftClaw;
         [SerializeField] private SeiryuClaw _rightClaw;
-
+        
         [Header("Screen Shake")]
-        [SerializeField] private ScreenShakeProfile _screenShakeProfile;
+        [SerializeField] private ScreenShakeProfile _transitionAttackShake;
+        [SerializeField] private ScreenShakeProfile _fistAttackShake;
+        [Space(5)]
         [SerializeField] private ScreenShakeSource _screenShakeSource;
+        
+        [Header("Transition")]
+        [SerializeField] private float _transitonAnticipationTime = 1f;
         
         [Header("Events")]
         [SerializeField] private VoidEvent _seiryuStalactitesEvent;
@@ -43,7 +49,11 @@ namespace Bosses
                         if (_seiryuStalactitesEvent)
                             _seiryuStalactitesEvent.Raise();
                         
-                        _screenShakeSource.TriggerScreenShake(_screenShakeProfile);
+                        _screenShakeSource.TriggerScreenShake(_transitionAttackShake);
+                    }
+                    else if (info.type == AttackType.Fist)
+                    {
+                        _screenShakeSource.TriggerScreenShake(_fistAttackShake);
                     }
                     break;
             }
@@ -71,6 +81,13 @@ namespace Bosses
 
         public void TransitionAttack()
         {
+            StartCoroutine(_TransitionAttack());
+        }
+
+        private IEnumerator _TransitionAttack()
+        {
+            yield return new WaitForSeconds(_transitonAnticipationTime);
+            
             _leftClaw.TransitionAttack(true);
             _rightClaw.TransitionAttack(false);
 

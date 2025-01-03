@@ -18,7 +18,7 @@ namespace Bosses
         [SerializeField] private float _timeBeforeRecovering;
         [Tooltip("Velocidad con la que vuelve a la posición inicial")]
         [SerializeField] private float _recoveringSpeed;
-        
+
         [Header("Positions")]
         [SerializeField] private Transform _fistHitPosition;
         [Space(5)]
@@ -30,6 +30,8 @@ namespace Bosses
         [SerializeField] private float _restMovementSpeed;
         
         [Header("Fist Attack")]
+        [SerializeField] private float _anticipationHeight;
+        [SerializeField] private float _anticipationTime;
         [SerializeField] private float _fistAttackSpeed;
 
         [Header("Sweeping Attack")]
@@ -138,6 +140,18 @@ namespace Bosses
         private IEnumerator _FistPunch()
         {
             bool isInPlace = false;
+            
+            Vector3 anticipationPos = transform.position;
+            anticipationPos.y += _anticipationHeight;
+            while (!isInPlace)
+            {
+                isInPlace = MoveToTarget(anticipationPos, _fistAttackSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(_anticipationTime);
+            
+            isInPlace = false;
             while (!isInPlace)
             {
                 isInPlace = MoveToTarget(_fistHitPosition.position, _fistAttackSpeed * Time.deltaTime);
@@ -178,7 +192,7 @@ namespace Bosses
                 yield return null;
             }
             
-            TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Fist, _side);
+            TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Sweep, _side);
             
             _animator.SetTrigger(_defaultAnimHash);
             yield return new WaitForSeconds(_timeBeforeRecovering);

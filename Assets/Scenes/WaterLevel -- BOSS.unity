@@ -511,6 +511,8 @@ MonoBehaviour:
   _sweepEndPos: {fileID: 1949017854}
   _restRadiusArea: 1
   _restMovementSpeed: 1
+  _anticipationHeight: 0
+  _anticipationTime: 0
   _fistAttackSpeed: 25
   _sweepingSpeed: 25
   _attackEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
@@ -631,87 +633,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1001 &147298193
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1973768957541108700, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: _screenShakeProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 5d51a82f186558a40a699a093a158358, type: 2}
-    - target: {fileID: 3004609539596503061, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: maxHealth
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -67.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764487343547975114, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_Name
-      value: BasicEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779929103938256122, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_DefaultVelocity.x
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779929103938256122, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_DefaultVelocity.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779929103938256122, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_ImpulseDefinition.m_ImpulseShape
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779929103938256122, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
-      propertyPath: m_ImpulseDefinition.m_ImpulseDuration
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
 --- !u!1001 &208942935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,8 +763,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftClaw: {fileID: 324532661}
   _rightClaw: {fileID: 140470207}
-  _screenShakeProfile: {fileID: 11400000, guid: 5d51a82f186558a40a699a093a158358, type: 2}
+  _transitionAttackShake: {fileID: 11400000, guid: 5d51a82f186558a40a699a093a158358, type: 2}
+  _fistAttackShake: {fileID: 11400000, guid: 15a4e4771b60e3f469d3dcac8d1a95a3, type: 2}
   _screenShakeSource: {fileID: 607472503}
+  _transitonAnticipationTime: 3
   _seiryuStalactitesEvent: {fileID: 11400000, guid: 2c66ad17b02a9764991ad6386393c7eb, type: 2}
 --- !u!114 &255466306
 MonoBehaviour:
@@ -1375,6 +1298,8 @@ MonoBehaviour:
   _sweepEndPos: {fileID: 798430363}
   _restRadiusArea: 1
   _restMovementSpeed: 1
+  _anticipationHeight: 3
+  _anticipationTime: 1
   _fistAttackSpeed: 25
   _sweepingSpeed: 25
   _attackEvent: {fileID: 11400000, guid: 2017fb00e499896418ceae3a86453dda, type: 2}
@@ -30890,7 +30815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_ImpulseShape: 2
+    m_ImpulseShape: 4
     m_CustomImpulseShape:
       serializedVersion: 2
       m_Curve:
@@ -30969,7 +30894,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    m_ImpulseDuration: 0.15
+    m_ImpulseDuration: 1
     m_ImpulseType: 0
     m_DissipationRate: 0.25
     m_RawSignal: {fileID: 0}
@@ -36293,7 +36218,7 @@ MonoBehaviour:
     m_SecondaryNoise: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
     m_AmplitudeGain: 0.2
     m_FrequencyGain: 0.2
-    m_Duration: 0.15
+    m_Duration: 1
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1359835048444814866
 MonoBehaviour:
@@ -36446,7 +36371,7 @@ MonoBehaviour:
     m_SecondaryNoise: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
     m_AmplitudeGain: 0.2
     m_FrequencyGain: 0.2
-    m_Duration: 0.15
+    m_Duration: 1
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &3990776894006478038
 MonoBehaviour:
@@ -36663,4 +36588,3 @@ SceneRoots:
   - {fileID: 607472500}
   - {fileID: 1995264604}
   - {fileID: 1316303571}
-  - {fileID: 147298193}

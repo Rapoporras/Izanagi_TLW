@@ -106,7 +106,7 @@ namespace Bosses
         public void TransitionAttack()
         {
             _attacksManager.TransitionAttack();
-            WaitForNextAttack = false;
+            // WaitForNextAttack = false;
         }
 
         public void SetSpritesAlpha(float alpha)
@@ -118,6 +118,9 @@ namespace Bosses
                 spriteRenderer.color = color;
             }
         }
+
+        public void ActivateHealth() => _health.damageable = true;
+        public void DeactivateHealth() => _health.damageable = false;
 
         public void FinishBattle()
         {
