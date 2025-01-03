@@ -17,6 +17,8 @@ namespace Bosses
 
         public override void EnterState()
         {
+            // TODO - añadir algun sonido o efecto visual
+            
             _timer.Reset();
         }
 

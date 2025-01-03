@@ -3,8 +3,6 @@ using Utils;
 
 namespace Bosses
 {
-    // TODO - añadir animacion de inicio de batalla
-    
     public class SeiryuInitCombatState : SeiryuBaseState
     {
         private readonly float _waitingTime;
@@ -19,6 +17,9 @@ namespace Bosses
 
         public override void EnterState()
         {
+            // TODO - añadir algún sonido
+            
+            Context.DeactivateHealth();
             _timer.Reset();
         }
 
@@ -31,6 +32,11 @@ namespace Bosses
                 float alpha = 1 - (_timer.RemainingSeconds / _waitingTime);
                 Context.SetSpritesAlpha(alpha);
             }
+        }
+
+        public override void ExitState()
+        {
+            Context.ActivateHealth();
         }
 
         public override SeiryuState GetNextState()
