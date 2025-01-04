@@ -1,6 +1,6 @@
-->inicio
+-> cartel
+
+== cartel ==
+"No debo volver a casa, mi pueblo me necesita."
 -> END
 
-= inicio
-No puedo volver, mi pueblo me necesita.
--> END
