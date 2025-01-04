@@ -1,7 +1,6 @@
 ﻿using System;
 using Health;
 using StateMachine;
-using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,8 +11,6 @@ namespace Bosses
         [Header("Dependencies")]
         [SerializeField] private SeiryuAttacksManager _attacksManager;
         [SerializeField] private SeiryuHead _seiryuHead;
-        [Space(5)]
-        [SerializeField] private TextMeshProUGUI _stateText;
         
         [Header("Settings")]
         [Tooltip("Tiempo de espera para volver a realizar un nuevo ataque")]
@@ -54,12 +51,6 @@ namespace Bosses
             SetSpritesAlpha(0);
         }
 
-        protected override void Update()
-        {
-            base.Update();
-            _stateText.text = $"State: {_currentState.StateKey.ToString()}";
-        }
-
         private void OnEnable()
         {
             _health.AddListenerOnHit(UpdatePhase);
@@ -90,6 +81,7 @@ namespace Bosses
             phase = 1;
             
             _seiryuHead.Initialize(_player);
+            _attacksManager.Initialize();
         }
 
         public float GetAttackWaitingTime()
@@ -114,7 +106,7 @@ namespace Bosses
         public void TransitionAttack()
         {
             _attacksManager.TransitionAttack();
-            WaitForNextAttack = false;
+            // WaitForNextAttack = false;
         }
 
         public void SetSpritesAlpha(float alpha)
@@ -126,6 +118,9 @@ namespace Bosses
                 spriteRenderer.color = color;
             }
         }
+
+        public void ActivateHealth() => _health.damageable = true;
+        public void DeactivateHealth() => _health.damageable = false;
 
         public void FinishBattle()
         {

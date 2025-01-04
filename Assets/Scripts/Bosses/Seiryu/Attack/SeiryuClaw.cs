@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using GameEvents;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils;
 
 namespace Bosses
@@ -19,7 +18,7 @@ namespace Bosses
         [SerializeField] private float _timeBeforeRecovering;
         [Tooltip("Velocidad con la que vuelve a la posición inicial")]
         [SerializeField] private float _recoveringSpeed;
-        
+
         [Header("Positions")]
         [SerializeField] private Transform _fistHitPosition;
         [Space(5)]
@@ -31,6 +30,8 @@ namespace Bosses
         [SerializeField] private float _restMovementSpeed;
         
         [Header("Fist Attack")]
+        [SerializeField] private float _anticipationHeight;
+        [SerializeField] private float _anticipationTime;
         [SerializeField] private float _fistAttackSpeed;
 
         [Header("Sweeping Attack")]
@@ -41,6 +42,7 @@ namespace Bosses
         
         private Rigidbody2D _rb2d;
         private Animator _animator;
+        private ContactDamage _contactDamage;
 
         private int _defaultAnimHash;
         private int _fistAnimHash;
@@ -58,6 +60,8 @@ namespace Bosses
         {
             _rb2d = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _contactDamage = GetComponent<ContactDamage>();
+            _contactDamage.isActive = false;
 
             _defaultAnimHash = Animator.StringToHash("default");
             _fistAnimHash = Animator.StringToHash("fist");
@@ -136,6 +140,18 @@ namespace Bosses
         private IEnumerator _FistPunch()
         {
             bool isInPlace = false;
+            
+            Vector3 anticipationPos = transform.position;
+            anticipationPos.y += _anticipationHeight;
+            while (!isInPlace)
+            {
+                isInPlace = MoveToTarget(anticipationPos, _fistAttackSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(_anticipationTime);
+            
+            isInPlace = false;
             while (!isInPlace)
             {
                 isInPlace = MoveToTarget(_fistHitPosition.position, _fistAttackSpeed * Time.deltaTime);
@@ -176,7 +192,7 @@ namespace Bosses
                 yield return null;
             }
             
-            TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Fist, _side);
+            TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Sweep, _side);
             
             _animator.SetTrigger(_defaultAnimHash);
             yield return new WaitForSeconds(_timeBeforeRecovering);
@@ -209,6 +225,11 @@ namespace Bosses
         #endregion
         
         #region UTILS
+        public void EnableDamage(bool isEnable)
+        {
+            _contactDamage.isActive = isEnable;
+        }
+        
         private void InitAttack(IEnumerator attackCoroutine, AttackType attackType)
         {
             if (_attackCoroutine != null)

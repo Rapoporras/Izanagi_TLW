@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using CameraSystem;
 using GameEvents;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,13 +12,28 @@ namespace Bosses
         [Header("Claws")]
         [SerializeField] private SeiryuClaw _leftClaw;
         [SerializeField] private SeiryuClaw _rightClaw;
-
+        
+        [Header("Screen Shake")]
+        [SerializeField] private ScreenShakeProfile _transitionAttackShake;
+        [SerializeField] private ScreenShakeProfile _fistAttackShake;
+        [Space(5)]
+        [SerializeField] private ScreenShakeSource _screenShakeSource;
+        
+        [Header("Transition")]
+        [SerializeField] private float _transitonAnticipationTime = 1f;
+        
         [Header("Events")]
         [SerializeField] private VoidEvent _seiryuStalactitesEvent;
 
         public event Action OnReadyForAttack;
 
         private bool _transitionAttack;
+
+        public void Initialize()
+        {
+            _leftClaw.EnableDamage(true);
+            _rightClaw.EnableDamage(true);
+        }
         
         public void OnAttackStateChange(SeiryuAttackInfo info)
         {
@@ -31,6 +48,12 @@ namespace Bosses
                         _transitionAttack = false;
                         if (_seiryuStalactitesEvent)
                             _seiryuStalactitesEvent.Raise();
+                        
+                        _screenShakeSource.TriggerScreenShake(_transitionAttackShake);
+                    }
+                    else if (info.type == AttackType.Fist)
+                    {
+                        _screenShakeSource.TriggerScreenShake(_fistAttackShake);
                     }
                     break;
             }
@@ -58,6 +81,13 @@ namespace Bosses
 
         public void TransitionAttack()
         {
+            StartCoroutine(_TransitionAttack());
+        }
+
+        private IEnumerator _TransitionAttack()
+        {
+            yield return new WaitForSeconds(_transitonAnticipationTime);
+            
             _leftClaw.TransitionAttack(true);
             _rightClaw.TransitionAttack(false);
 
