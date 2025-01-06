@@ -174,7 +174,7 @@ MonoBehaviour:
   _canDamageEnemies: 1
   _hurtboxLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!114 &4998762513311322416
 MonoBehaviour:
   m_ObjectHideFlags: 0
