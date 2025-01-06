@@ -1138,6 +1138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typingDuration: 0.04
+  _fileName: dialogueVariables.json
+  _loadGlobalsJSON: {fileID: 4900000, guid: 9414b3e9b6146ac43bb9f39e5506a66f, type: 3}
   _dialoguePanel: {fileID: 3257505968687501374}
   _continueIcon: {fileID: 2916547418714914122}
   _dialogueText: {fileID: 8225795694306727079}
@@ -1148,6 +1150,7 @@ MonoBehaviour:
   - {fileID: 3513770140996005855}
   - {fileID: 994200594438870031}
   - {fileID: 1540672647828184414}
+  _inputPressed: 0
 --- !u!114 &9114897486709915399
 MonoBehaviour:
   m_ObjectHideFlags: 0
