@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
@@ -6,6 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Utils.CustomLogs;
 
 namespace DialogueSystem
 {
@@ -35,6 +37,8 @@ namespace DialogueSystem
         private bool _dialogueIsPlaying;
         private bool _canContinueToNextLine;
 
+        [SerializeField] private bool _inputPressed;
+
         private Coroutine _displayLineCoroutine;
 
         private static DialogueManager _instance;
@@ -49,6 +53,11 @@ namespace DialogueSystem
             {
                 Destroy(gameObject);
             }
+        }
+
+        private void Update()
+        {
+            _inputPressed = InputManager.UIActions.Interact.WasPressedThisFrame();
         }
 
         private void Start()
@@ -142,8 +151,9 @@ namespace DialogueSystem
 
             foreach (var letter in line.ToCharArray())
             {
-                if (InputManager.UIActions.Interact.IsPressed() && _dialogueText.text.Length >= 3)
+                if (_inputPressed && _dialogueText.text.Length >= 3) // InputManager.UIActions.Interact.WasPressedThisFrame()
                 {
+                    LogManager.Log("Finish dialogue - input", FeatureType.Dialogue);
                     _dialogueText.maxVisibleCharacters = line.Length;
                     break;
                 }
@@ -182,11 +192,17 @@ namespace DialogueSystem
         private void DisplayChoices()
         {
             List<Choice> currentChoices = _currentStory.currentChoices;
-            if (currentChoices.Count == 0) return;
+            if (currentChoices.Count == 0)
+            {
+                _isSelectingChoice = false;
+                return;
+            }
 
+            LogManager.Log($"Number of choices: {currentChoices.Count}", FeatureType.Dialogue);
             if (currentChoices.Count > _choices.Length)
             {
-                Debug.LogError($"More choices were given than the UI can support. Number of choices given: {currentChoices.Count}");
+                LogManager.LogError($"More choices were given than the UI can support. Number of choices given: {currentChoices.Count}", 
+                    FeatureType.Dialogue);
             }
 
             int index = 0;
@@ -217,7 +233,7 @@ namespace DialogueSystem
         {
             if (_canContinueToNextLine)
             {
-                Debug.Log($"Choice: {choiceIndex}");
+                LogManager.Log($"Choice: {choiceIndex}", FeatureType.Dialogue);
                 _currentStory.ChooseChoiceIndex(choiceIndex);
             
                 ContinueStory();

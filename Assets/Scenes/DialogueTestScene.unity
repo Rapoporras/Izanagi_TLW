@@ -2554,7 +2554,7 @@ PrefabInstance:
     - target: {fileID: 4855328548963352127, guid: f1b120f646183e94c94e5c5e6e3e4053, type: 3}
       propertyPath: _dialogueInfo._inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: dc2f71b937062e245a33090e28eb8499, type: 3}
+      objectReference: {fileID: 4900000, guid: c398d3dce6d9ee645943ac01a182c0b8, type: 3}
     - target: {fileID: 4855328548963352127, guid: f1b120f646183e94c94e5c5e6e3e4053, type: 3}
       propertyPath: _dialogueInfo._characterName
       value: NPC
