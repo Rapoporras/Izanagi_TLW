@@ -1,4 +1,5 @@
 ﻿using PlayerController.States;
+using System.Collections;
 using UnityEngine;
 
 namespace PlayerController
@@ -25,6 +26,9 @@ namespace PlayerController
         private int _attackComboHash;
 
         private int _attackWindowActiveHash;
+
+        //Variable con valor random para usarse en los blendTrees
+        private int _animationIddleSelect;
 
         public bool AttackWindowActive
         {
@@ -55,6 +59,10 @@ namespace PlayerController
             _attackComboHash = Animator.StringToHash("attackCombo");
 
             _attackWindowActiveHash = Animator.StringToHash("attackWindowActive");
+
+            _animationIddleSelect = Animator.StringToHash("animationSelect");
+
+            StartCoroutine(UpdateAnimationIddleSelect());
         }
 
         private void Update()
@@ -74,6 +82,31 @@ namespace PlayerController
         }
 
         #region PLAY ANIMATIONS
+
+        /**
+         * Corutina para controlar que cambie cada cierto tiempo
+         * la animación del blendtree (animationSelect)
+         * */
+        private IEnumerator UpdateAnimationIddleSelect()
+        {
+            while (true)
+            {
+
+                // Obtener información del estado actual del Animator
+                AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+
+                // Esperar a que la animación actual termine
+                while (stateInfo.normalizedTime < 1.0f)
+                {
+                    stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+                    yield return null; // Esperar al siguiente frame
+                }
+
+                _animator.SetFloat(_animationIddleSelect, Random.Range(0f, 1f));
+                yield return new WaitForSeconds(2f);
+            }
+        }
+
         public void SetAttackAnimation(int attackType, int attackCombo)
         {
             _animator.SetInteger(_attackTypeHash, attackType);
