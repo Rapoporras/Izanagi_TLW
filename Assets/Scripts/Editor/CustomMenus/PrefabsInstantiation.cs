@@ -87,6 +87,8 @@ namespace CustomMenus
         private const string StalactitePath = BasePath + "Scene Elements/Stalactite.prefab";
         private const string SaveStatuePath = BasePath + "Scene Elements/Save Statue.prefab";
         private const string NPCBasePath = BasePath + "Scene Elements/NPC Base.prefab";
+        private const string GhostPath = BasePath + "Scene Elements/Town/Ghost.prefab";
+        private const string GhostTownPath = BasePath + "Scene Elements/Town/Ghost Town.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/Scene Elements/Breakable Wall", false, 0)]
         private static void CreateBreakableWall()
@@ -118,6 +120,18 @@ namespace CustomMenus
         private static void CreateNPCBase()
         {
             InstantiatePrefabAtPath(NPCBasePath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Town/Ghost", false, 0)]
+        private static void CreateGhost()
+        {
+            InstantiatePrefabAtPath(GhostPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Town/Ghost Town", false, 0)]
+        private static void CreateGhostTown()
+        {
+            InstantiatePrefabAtPath(GhostTownPath);
         }
         #endregion
         
