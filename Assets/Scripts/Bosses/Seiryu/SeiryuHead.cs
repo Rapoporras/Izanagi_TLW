@@ -13,6 +13,8 @@ namespace Bosses
         private int _defaultAnimHash;
         private int _angerAnimHash;
 
+        private float maxAngle = 20f;
+
         private void Awake()
         {
             _animator = GetComponent<Animator>();
