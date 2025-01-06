@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
@@ -15,6 +14,10 @@ namespace DialogueSystem
     {
         [Header("Settings")]
         [SerializeField] private float _typingDuration = 0.04f;
+
+        [Header("Global Variables")]
+        [SerializeField] private string _fileName = "dialogueVariables.json";
+        [SerializeField] private TextAsset _loadGlobalsJSON; 
         
         [Header("Dialogue UI")]
         [SerializeField] private GameObject _dialoguePanel;
@@ -30,7 +33,8 @@ namespace DialogueSystem
         [SerializeField] private GameObject[] _choices;
 
         private TextMeshProUGUI[] _choicesText;
-        
+
+        private DialogueVariables _dialogueVariables;
         private Story _currentStory;
 
         private bool _isSelectingChoice;
@@ -42,6 +46,7 @@ namespace DialogueSystem
         private Coroutine _displayLineCoroutine;
 
         private static DialogueManager _instance;
+        public static DialogueManager Instance => _instance;
 
         private void Awake()
         {
@@ -63,6 +68,8 @@ namespace DialogueSystem
         private void Start()
         {
             _dialogueIsPlaying = false;
+            if (_dialogueVariables == null)
+                _dialogueVariables = new DialogueVariables(_loadGlobalsJSON, Application.persistentDataPath, _fileName);
             _dialoguePanel.SetActive(false);
             ResetDialogueUI();
             
@@ -92,6 +99,7 @@ namespace DialogueSystem
             InputManager.EnableUIActions();
             
             _currentStory = new Story(dialogueInfo.InkJSON.text);
+            _dialogueVariables.StartListening(_currentStory);
             _dialogueIsPlaying = true;
 
             if (dialogueInfo.CharacterPortrait)
@@ -107,6 +115,7 @@ namespace DialogueSystem
         private void ExitDialogueMode()
         {
             _dialogueIsPlaying = false;
+            _dialogueVariables.StopListening(_currentStory);
             _dialoguePanel.SetActive(false);
             ResetDialogueUI();
             
@@ -198,7 +207,6 @@ namespace DialogueSystem
                 return;
             }
 
-            LogManager.Log($"Number of choices: {currentChoices.Count}", FeatureType.Dialogue);
             if (currentChoices.Count > _choices.Length)
             {
                 LogManager.LogError($"More choices were given than the UI can support. Number of choices given: {currentChoices.Count}", 
@@ -233,7 +241,6 @@ namespace DialogueSystem
         {
             if (_canContinueToNextLine)
             {
-                LogManager.Log($"Choice: {choiceIndex}", FeatureType.Dialogue);
                 _currentStory.ChooseChoiceIndex(choiceIndex);
             
                 ContinueStory();
@@ -246,6 +253,11 @@ namespace DialogueSystem
             _dialogueText.text = "";
             _portraitImage.sprite = _defaultPortraitImage;
             _charaterNameText.text = "???";
+        }
+
+        public void SaveVariables()
+        {
+            _dialogueVariables.Save();
         }
     }
 }

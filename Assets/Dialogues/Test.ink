@@ -1,6 +1,8 @@
+INCLUDE globals.ink
+
 -> main
 
 === main ===
-Hola a todos amigos del metal.
+{ pokemon_name == "": ... | {pokemon_name}! }
 
 -> END
