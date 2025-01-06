@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[[{"->":"cartel"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"cartel":["^\"No debo volver a casa, mi pueblo me necesita.\"","\n","end",{"#f":1}],"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[[{"->":"main"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"main":["^Which pokemon do you <b><color=#F8FF30>choose</color></b>?","\n","end",{"#f":1}],"global decl":["ev","str","^#323232","/str",{"VAR=":"color"},"/ev","end",null],"#f":1}],"listDefs":{}}
