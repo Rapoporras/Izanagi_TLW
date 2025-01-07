@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinWidth: 0.015
-  _rayLenght: 0.05
+  _rayLenght: 0.4
   _verticalRayCount: 4
   _horizontalRayCount: 4
   _collisionLayers:
@@ -723,6 +723,7 @@ MonoBehaviour:
     variableValue: {fileID: 0}
     componentValue: {fileID: 8757022484067511555}
   _cameraFollowObject: {fileID: 350611128792687531}
+  <UseKnockBackAccelInAir>k__BackingField: 0
 --- !u!114 &610528215668057195
 MonoBehaviour:
   m_ObjectHideFlags: 0
