@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46885d52ad934905acdf43595e9a007c, type: 3}
-  m_Name: PlayerMaxManna 1
+  m_Name: PlayerMaxMannaGP
   m_EditorClassIdentifier: 
   _developerDescription: 
   _value: 25
