@@ -28,7 +28,6 @@ namespace PlayerController.States
             {
                 if (!_isPlayingWalkSound)
                 {
-                    Context.Audio.PlayWalkSound();
                     _isPlayingWalkSound = true;
                 }
             }

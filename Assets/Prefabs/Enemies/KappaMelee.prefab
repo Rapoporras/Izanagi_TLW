@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 3072299154411663207}
   - component: {fileID: 2528658669339278660}
   - component: {fileID: 7914818226175964720}
-  - component: {fileID: 3300052326258883922}
   - component: {fileID: 2997621577578823515}
   - component: {fileID: 1873960789445229911}
   - component: {fileID: 3287208414460947245}
@@ -134,7 +133,7 @@ GameObject:
   - component: {fileID: 7206371898482383501}
   - component: {fileID: 5396783194969937687}
   - component: {fileID: 4800116723216414608}
-  - component: {fileID: 6188615287743195764}
+  - component: {fileID: 1932840419693890605}
   m_Layer: 10
   m_Name: KappaMelee
   m_TagString: Enemy
@@ -200,53 +199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566df722bc980314d8160f8d8d9c4194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionTag: kappa
-  _actionVariable: kappaAction
---- !u!61 &3300052326258883922
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577676039033903462}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.11706054, y: 1.314}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.6835938, y: 2.59375}
-    newSize: {x: 4.31, y: 6.6400003}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5446839, y: 2.6270392}
-  m_EdgeRadius: 0
+  rollSound: {fileID: 8300000, guid: 02572f7468af5d8479506403fb438861, type: 3}
+  walkSound: {fileID: 8300000, guid: f55806e0e7c239442a97ad5151156567, type: 3}
+  attackSound: {fileID: 8300000, guid: f0ba2e1a0c0e00e40a5049f6dc5af65a, type: 3}
+  rollHitSound: {fileID: 8300000, guid: b261774eec2d3334b82f04b4fba9bf1a, type: 3}
+  hitSound: {fileID: 8300000, guid: e9969c77c42735043ab93d4670754dd2, type: 3}
 --- !u!114 &2997621577578823515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 801f4389-f66f-41ab-8f13-755cf3cc9f94
+  id: 5e6483be-9ae5-4b5e-b5e0-8e0479594071
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 7.5
@@ -528,26 +485,102 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1.296876}
   m_Size: {x: 1.544684, y: 2.5}
   m_Direction: 0
---- !u!114 &6188615287743195764
-MonoBehaviour:
+--- !u!82 &1932840419693890605
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577676039033903462}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sourceShape: 0
-  sphereShapeRadius: 1
-  lineShapeStart: {x: -0, y: -0, z: -1}
-  lineShapeEnd: {x: 0, y: 0, z: 1}
-  areaShapeSize: {x: 1, y: 1, z: 1}
-  playOnAwake: 0
-  m_tags:
-  - kappa
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2306945817455791371
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +654,7 @@ GameObject:
   - component: {fileID: 6829627544073253823}
   - component: {fileID: 405049525629598626}
   - component: {fileID: 772763842227940508}
+  - component: {fileID: 1185980895869562054}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Enemy
@@ -723,3 +757,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.04, y: 0.75}
   m_Size: {x: 1.2, y: 2.4}
   m_Direction: 0
+--- !u!114 &1185980895869562054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817451078996609799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81b04683d684b19a7489377a6846d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityHealth: {fileID: 2997621577578823515}
+  _damageMult: 1
