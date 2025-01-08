@@ -1,5 +1,5 @@
-﻿using Health;
-using KrillAudio.Krilloud;
+﻿using System.Collections.Generic;
+using Health;
 using PlayerController;
 using StateMachine;
 using UnityEngine;
@@ -20,9 +20,6 @@ namespace SceneMechanics.Stalactite
         [SerializeField] private float _fallingAcceleration = 40f;
         public float maxFallingVelocity = 30f;
 
-        [Header("Audio Settings")]
-        [KLVariable] private string _stateAudioVar;
-
         [Header("States (Debugging)")]
         [SerializeField] private bool _useDebugColors;
         [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -42,7 +39,11 @@ namespace SceneMechanics.Stalactite
         private RaycastInfo _raycastInfo;
         private EntityHealth _entityHealth;
         private ContactDamage _contactDamage;
-        private KLAudioSource _audioSource;
+        
+        [Header("Audio Settings")]
+        private AudioSource _audioSource;
+        [SerializeField] private List<AudioClip> _fallingAudio;
+        [SerializeField] private AudioClip _hitFloorAudio;
 
         private float _fallVel;
 
@@ -66,7 +67,7 @@ namespace SceneMechanics.Stalactite
             _raycastInfo = GetComponent<RaycastInfo>();
             _entityHealth = GetComponent<EntityHealth>();
             _contactDamage = GetComponent<ContactDamage>();
-            _audioSource = GetComponent<KLAudioSource>();
+            _audioSource = GetComponent<AudioSource>();
 
             fallGravityScale = Mathf.Abs(_fallingAcceleration / Physics2D.gravity.y);
         }
@@ -157,13 +158,13 @@ namespace SceneMechanics.Stalactite
         #region AUDIO
         public void PlayFloorHitAudio()
         {
-            _audioSource.SetIntVar(_stateAudioVar, 0);
+            _audioSource.clip = _hitFloorAudio;
             _audioSource.Play();
         }
 
         public void PlayFallAudio()
         {
-            _audioSource.SetIntVar(_stateAudioVar, 1);
+            _audioSource.clip = _fallingAudio[Random.Range(0,3)];
             _audioSource.Play();
         }
         #endregion

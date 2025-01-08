@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5291800022807628006}
   - component: {fileID: 8067325668912051492}
   - component: {fileID: 4998762513311322416}
-  - component: {fileID: 6499766034017694983}
+  - component: {fileID: -544519484924292747}
   m_Layer: 10
   m_Name: Stalactite
   m_TagString: Untagged
@@ -198,6 +198,7 @@ MonoBehaviour:
   detachingDuration: 0.5
   _fallingAcceleration: 40
   maxFallingVelocity: 30
+  _useDebugColors: 0
   _spriteRenderer: {fileID: 8738038812223414404}
   _idleDebugColor: {r: 0.8117647, g: 0.60784316, b: 0.53333336, a: 1}
   _detachingDebugColor: {r: 0.76862746, g: 1, b: 0.5921569, a: 1}
@@ -205,26 +206,107 @@ MonoBehaviour:
   _groundedDebugColor: {r: 0.5882353, g: 1, b: 0.9843137, a: 1}
   playerDetected: 0
   fallGravityScale: 0
---- !u!114 &6499766034017694983
-MonoBehaviour:
+  _fallingAudio:
+  - {fileID: 8300000, guid: 9310f80588b21fa4892cc407c9bc6f1d, type: 3}
+  - {fileID: 8300000, guid: 150131b1cf08dfa41b5daf5534e76b71, type: 3}
+  - {fileID: 8300000, guid: b26f053321a4a0948bdc685636ccd3e7, type: 3}
+  _hitFloorAudio: {fileID: 8300000, guid: a707efe093216664dbb8af294ce8d6f1, type: 3}
+--- !u!82 &-544519484924292747
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2246434144532650484}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sourceShape: 0
-  sphereShapeRadius: 1
-  lineShapeStart: {x: -0, y: -0, z: -1}
-  lineShapeEnd: {x: 0, y: 0, z: 1}
-  areaShapeSize: {x: 1, y: 1, z: 1}
-  playOnAwake: 0
-  m_tags:
-  - stalactite
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4244152056450948642
 GameObject:
   m_ObjectHideFlags: 0
