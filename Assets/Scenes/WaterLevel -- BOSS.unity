@@ -30785,6 +30785,7 @@ MonoBehaviour:
   _sweepingAttackProbPhase1: 0.5
   _fistAttackProbPhase2: 0.4
   _sweepingAttackProbPhase2: 0.6
+  _damageEvent: {fileID: 11400000, guid: fe336e7bf39a93f4a944606bf7ba8b93, type: 2}
   transitionToNextPhase: 0
   phase: 0
 --- !u!114 &607472503
@@ -30894,7 +30895,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    m_ImpulseDuration: 1
+    m_ImpulseDuration: 0.15
     m_ImpulseType: 0
     m_DissipationRate: 0.25
     m_RawSignal: {fileID: 0}
@@ -32456,6 +32457,7 @@ GameObject:
   - component: {fileID: 1564219027}
   - component: {fileID: 1564219026}
   - component: {fileID: 1564219025}
+  - component: {fileID: 1564219028}
   m_Layer: 0
   m_Name: seiryu-cabeza
   m_TagString: Untagged
@@ -32592,6 +32594,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1564219028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564219022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e805b8814a055994ca46ec2bc84a3dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fe336e7bf39a93f4a944606bf7ba8b93, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1564219026}
+        m_TargetAssemblyTypeName: Bosses.SeiryuHead, Assembly-CSharp
+        m_MethodName: OnDamaged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1578596298
 PrefabInstance:
   m_ObjectHideFlags: 0
