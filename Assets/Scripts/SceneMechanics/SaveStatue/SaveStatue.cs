@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DialogueSystem;
 using GlobalVariables;
 using InteractionSystem;
 using KrillAudio.Krilloud;
@@ -62,6 +63,8 @@ namespace SceneMechanics.SaveStatue
 
             TemporalDataManager.Instance.temporalData.Clear();
             RespawnEnemiesInScene();
+
+            DialogueManager.Instance.SaveVariables();
 
             ActivateSymbols();
             
