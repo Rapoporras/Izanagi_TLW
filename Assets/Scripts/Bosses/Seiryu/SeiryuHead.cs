@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils.CustomLogs;
 
 namespace Bosses
 {
@@ -12,6 +13,7 @@ namespace Bosses
 
         private int _defaultAnimHash;
         private int _angerAnimHash;
+        private int _damagedAnimHash;
 
         private float maxAngle = 20f;
 
@@ -20,6 +22,7 @@ namespace Bosses
             _animator = GetComponent<Animator>();
             _defaultAnimHash = Animator.StringToHash("default");
             _angerAnimHash = Animator.StringToHash("anger");
+            _damagedAnimHash = Animator.StringToHash("damaged");
         }
 
         public void Initialize(Transform player)
@@ -54,6 +57,11 @@ namespace Bosses
                     _animator.SetTrigger(_defaultAnimHash);
                     break;
             }
+        }
+
+        public void OnDamaged()
+        {
+            _animator.SetTrigger(_damagedAnimHash);
         }
     }
 }

@@ -11,9 +11,7 @@
     public enum AttackState
     {
         StartAttack,
-        Attacking,
         FinishAttack,
-        Recovering,
         Waiting
     }
 
@@ -22,7 +20,6 @@
         None,
         Fist,
         Sweep,
-        WaterGun,
         Transition
     }
 
