@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6712457799488341969}
   - component: {fileID: 5890541788300219076}
+  - component: {fileID: 8216435186297179805}
   m_Layer: 7
   m_Name: Hitbox
   m_TagString: Enemy
@@ -77,6 +78,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5446839, y: 2.6270392}
   m_EdgeRadius: 0
+--- !u!70 &8216435186297179805
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352466535151609425}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04, y: 0.75}
+  m_Size: {x: 1.2, y: 2.4}
+  m_Direction: 0
 --- !u!1 &1577676039033903462
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +124,6 @@ GameObject:
   - component: {fileID: 3072299154411663207}
   - component: {fileID: 2528658669339278660}
   - component: {fileID: 7914818226175964720}
-  - component: {fileID: 3300052326258883922}
   - component: {fileID: 2997621577578823515}
   - component: {fileID: 1873960789445229911}
   - component: {fileID: 3287208414460947245}
@@ -116,7 +151,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 36.591, y: -3, z: 0}
-  m_LocalScale: {x: 1.1398648, y: 1.1182206, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6712457799488341969}
@@ -169,51 +204,6 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: f0ba2e1a0c0e00e40a5049f6dc5af65a, type: 3}
   rollHitSound: {fileID: 8300000, guid: b261774eec2d3334b82f04b4fba9bf1a, type: 3}
   hitSound: {fileID: 8300000, guid: e9969c77c42735043ab93d4670754dd2, type: 3}
---- !u!61 &3300052326258883922
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577676039033903462}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.11706054, y: 1.314}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.6835938, y: 2.59375}
-    newSize: {x: 4.31, y: 6.6400003}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5446839, y: 2.6270392}
-  m_EdgeRadius: 0
 --- !u!114 &2997621577578823515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,14 +253,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: f7a5e0eb-ac3d-4336-9cd8-f47d856da4b2
+  id: 5e6483be-9ae5-4b5e-b5e0-8e0479594071
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 7.5
   chaseSpeed: 6
   onHitStunTime: 0.15
-  knockbackStrength: 3
-  rollingSpeed: 16
+  knockbackStrength: 2
+  rollingSpeed: 12
   rollingDistance: 7
   collisionDetectionCenter: {fileID: 4627207035166566724}
   collisionDetectionRadius: 0.7
@@ -663,6 +653,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6829627544073253823}
   - component: {fileID: 405049525629598626}
+  - component: {fileID: 772763842227940508}
+  - component: {fileID: 1185980895869562054}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Enemy
@@ -730,3 +722,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5446839, y: 2.6270392}
   m_EdgeRadius: 0
+--- !u!70 &772763842227940508
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817451078996609799}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04, y: 0.75}
+  m_Size: {x: 1.2, y: 2.4}
+  m_Direction: 0
+--- !u!114 &1185980895869562054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817451078996609799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81b04683d684b19a7489377a6846d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityHealth: {fileID: 2997621577578823515}
+  _damageMult: 1

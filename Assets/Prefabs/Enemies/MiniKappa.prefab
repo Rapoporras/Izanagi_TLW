@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.750001, y: -4.999, z: 0}
-  m_LocalScale: {x: 0.550482, y: 0.837313, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8199181110678112351}
@@ -70,7 +70,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &7060284086139184852
 BoxCollider2D:
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4a80610407a2a40b581eab5def2bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: 1f6b3941-4a5b-41e5-ab68-52a7891b3d4c
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 9
@@ -531,7 +531,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5759238556843186866}
@@ -578,9 +578,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 75c94d3114ba8f742b0b30cdb1070fa5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 286b2235ac753f14492c33bcafe18f10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -599,6 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1758532641058399503}
   - component: {fileID: 2693584863893311071}
+  - component: {fileID: 8312422114528745990}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Enemy
@@ -666,6 +667,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8312422114528745990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731075898588126719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81b04683d684b19a7489377a6846d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityHealth: {fileID: 1637692424790945618}
+  _damageMult: 1
 --- !u!1 &9189220875567740027
 GameObject:
   m_ObjectHideFlags: 0

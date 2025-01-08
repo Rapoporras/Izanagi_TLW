@@ -15,7 +15,7 @@ namespace Health
 
         [Space(10)]
         [SerializeField] private HealthController _health = new HealthController();
-
+        
         private ScreenShakeSource _screenShakeSource;
         private FlashEffect _flashEffect;
         
@@ -84,21 +84,6 @@ namespace Health
         public void RemoveListenerOnHit(Action listener)
         {
             _health.OnHealthUpdated -= listener;
-        }
-        
-        private void OnValidate()
-        {
-            Transform hurtboxTransform = transform.Find("Hurtbox");
-            if (!hurtboxTransform)
-            {
-                GameObject hurtbox = new GameObject("Hurtbox");
-                hurtbox.transform.parent = transform;
-                hurtbox.transform.localPosition = Vector3.zero;
-
-                hurtbox.layer = LayerMask.NameToLayer("Hurtbox");
-                BoxCollider2D hurtboxCollider = hurtbox.AddComponent<BoxCollider2D>();
-                hurtboxCollider.isTrigger = true;
-            }
         }
     }
 }

@@ -6,7 +6,6 @@ using PlayerController.States;
 using StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace PlayerController
 {

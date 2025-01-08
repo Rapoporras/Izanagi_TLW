@@ -87,6 +87,8 @@ namespace CustomMenus
         private const string StalactitePath = BasePath + "Scene Elements/Stalactite.prefab";
         private const string SaveStatuePath = BasePath + "Scene Elements/Save Statue.prefab";
         private const string NPCBasePath = BasePath + "Scene Elements/NPC Base.prefab";
+        private const string GhostPath = BasePath + "Scene Elements/Town/Ghost.prefab";
+        private const string GhostTownPath = BasePath + "Scene Elements/Town/Ghost Town.prefab";
         
         [MenuItem("GameObject/IzanagiTLW/Scene Elements/Breakable Wall", false, 0)]
         private static void CreateBreakableWall()
@@ -118,6 +120,18 @@ namespace CustomMenus
         private static void CreateNPCBase()
         {
             InstantiatePrefabAtPath(NPCBasePath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Town/Ghost", false, 0)]
+        private static void CreateGhost()
+        {
+            InstantiatePrefabAtPath(GhostPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/Scene Elements/Town/Ghost Town", false, 0)]
+        private static void CreateGhostTown()
+        {
+            InstantiatePrefabAtPath(GhostTownPath);
         }
         #endregion
         
@@ -192,13 +206,34 @@ namespace CustomMenus
         
         #region CAMERA SYSTEM
         private const string CameraPath = BasePath + "CameraSystem/Cameras.prefab";
+        private const string FollowPlayerCamPath = BasePath + "CameraSystem/FollowPlayerCAM.prefab";
+        private const string LockedPositionCamPath = BasePath + "CameraSystem/LockedPositionCAM.prefab";
+        private const string NoYFollowCamPath = BasePath + "CameraSystem/NoYFollowCAM.prefab";
         private const string CameraControlTriggerPath = BasePath + "CameraSystem/Camera Control Trigger.prefab";
         private const string LightPointPath = BasePath + "CameraSystem/LightPoint/LightPoint.prefab";
         
-        [MenuItem("GameObject/IzanagiTLW/CameraSystem/Cameras", false, 0)]
+        [MenuItem("GameObject/IzanagiTLW/CameraSystem/Cameras Object", false, 0)]
         private static void CreateCamera()
         {
             InstantiatePrefabAtPath(CameraPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/CameraSystem/Cameras/Follow Player CAM", false, 0)]
+        private static void CreateFollowPlayerCam()
+        {
+            InstantiatePrefabAtPath(FollowPlayerCamPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/CameraSystem/Cameras/Locked Position CAM", false, 0)]
+        private static void CreateLockedPositionCam()
+        {
+            InstantiatePrefabAtPath(LockedPositionCamPath);
+        }
+        
+        [MenuItem("GameObject/IzanagiTLW/CameraSystem/Cameras/NoY Follow CAM", false, 0)]
+        private static void CreateNoYFollowCam()
+        {
+            InstantiatePrefabAtPath(NoYFollowCamPath);
         }
         
         [MenuItem("GameObject/IzanagiTLW/CameraSystem/Camera Control Trigger", false, 0)]

@@ -9,6 +9,7 @@ namespace SceneMechanics.Stalactite
     public class Stalactite : BaseStateMachine<StalactiteStates>
     {
         [Header("Settings")]
+        [SerializeField] private bool _activateWithRaycasts = true;
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private LayerMask _groundLayer;
         [Space(5)]
@@ -100,6 +101,8 @@ namespace SceneMechanics.Stalactite
         
         public void CheckRaycasts()
         {
+            if (!_activateWithRaycasts) return;
+            
             _raySpacing = _horizontalDistance / (RayCount - 1);
             
             Vector3 startRayOrigin = transform.position;
@@ -116,7 +119,7 @@ namespace SceneMechanics.Stalactite
 
                 if (hit && hit.transform.CompareTag("Player"))
                 {
-                    playerDetected = true;
+                    Activate();
                     return;
                 }
                 
@@ -124,6 +127,12 @@ namespace SceneMechanics.Stalactite
                 Debug.DrawLine(rayOrigin, rayOrigin + (Vector2.down * hit.distance), Color.red);
 #endif
             }
+        }
+
+        [ContextMenu("Activate")]
+        public void Activate()
+        {
+            playerDetected = true;
         }
 
         public void SetGravityScale(float scale)

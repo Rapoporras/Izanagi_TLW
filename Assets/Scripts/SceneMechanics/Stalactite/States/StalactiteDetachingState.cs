@@ -22,10 +22,6 @@ namespace SceneMechanics.Stalactite
             _timer += Time.deltaTime;
         }
 
-        public override void FixedUpdateState() { }
-
-        public override void ExitState() { }
-
         public override StalactiteStates GetNextState()
         {
             if (_timer >= Context.detachingDuration)
