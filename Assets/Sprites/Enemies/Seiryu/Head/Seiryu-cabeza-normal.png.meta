@@ -1,0 +1,862 @@
+fileFormatVersion: 2
+guid: 0364a82be8b336a4a909896adda00c6b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7800
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 583c566ff4d961147b84b4ac2fc14d66
+      internalID: 1100697215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_1
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 7800
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4483993eb1e71842a3d0cbc5b998ec9
+      internalID: 77253798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_2
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 7800
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3cdab9f81b1bf4d97458f2aa4bbb4d
+      internalID: 1572095567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_3
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 7800
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a2771f7802b5c4a9e1a23172d81aa5
+      internalID: 1701978593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_4
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 7800
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb6aad361470f640917652741999ef8
+      internalID: -1234800275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6500
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76a2b60c2e46414785556525e00266f
+      internalID: 1138740318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 6500
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142e8b5b19c5ada448c3e191f3e8cde6
+      internalID: -699675593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_7
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 6500
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed22ec01135291449e6a33e57b81175
+      internalID: 1529733389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_8
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 6500
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d5562a9315545d4ab7e18db8d1028a2
+      internalID: -716716978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_9
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 6500
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49d876c4943e7f43935772a1ea9a551
+      internalID: -16306380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5200
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dca471c254ca6b4ab90dafa48287d07
+      internalID: 1362135996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 5200
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3eca989e0c90843b13c483498ceaa1
+      internalID: 276949670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_12
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 5200
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2065bbd9f1e48343854ac0f4842f9cc
+      internalID: 1981263336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_13
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 5200
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d44b71eaf5582c4985d63b257ae6e77
+      internalID: 39061068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_14
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 5200
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea42625d922dd94e98d2e0898829373
+      internalID: -1491640472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3900
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4502fc41d2e61b949b4d3c98c1f1f8ee
+      internalID: 617764448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_16
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3900
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e386fa49f83694a903082628b751c3
+      internalID: 1587160454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_17
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 3900
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47593205b96e37f428542bc7c80dc4ed
+      internalID: -674955599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_18
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 3900
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aabde1ada2edbb4998fd70c30973c3b
+      internalID: 1939648334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_19
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3900
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe301cb6b1fec5c4a8156f7199ab48f1
+      internalID: -603898573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2600
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193d633f54cdfba42b7a5cc58bb8d1fc
+      internalID: -2108456134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_21
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2600
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd192380ad59e9547a63ea304b576906
+      internalID: 1515215636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_22
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2600
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d505272ac4847b140be436037c5c7090
+      internalID: 148473738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_23
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 2600
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0df4aac3999af48a8fc3032cf993d2
+      internalID: 1006221814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_24
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2600
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a5a4f0ee66837419e01d681f7228bf
+      internalID: -1494163391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1300
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e55fdcb4076ce64ba858e72b29c8eba
+      internalID: -308925474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_26
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1300
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772051b9ebc6c0846b39b4292ac6d6ef
+      internalID: 920300793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_27
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1300
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c6e595350e02746a647f22b1ce47b7
+      internalID: 212871748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_28
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 1300
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da3b1a84246fdc4abfb05f70611fbeb
+      internalID: -220349338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_29
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1300
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb9a5ed3904be44bb6b54a7010c4f91
+      internalID: 894171175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728adb56f6ee1b5409ea4f9767c93dee
+      internalID: 649794802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_31
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e9d1aab8d04fa43830485a1582cd34
+      internalID: 72530658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_32
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ff2d85f01d3e24dbeb3faabf21deec
+      internalID: -1700497894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-cabeza-normal_33
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 1200
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe165038825eb584397d6503b5393103
+      internalID: -2029379017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Seiryu-cabeza-normal_0: 1100697215
+      Seiryu-cabeza-normal_1: 77253798
+      Seiryu-cabeza-normal_10: 1362135996
+      Seiryu-cabeza-normal_11: 276949670
+      Seiryu-cabeza-normal_12: 1981263336
+      Seiryu-cabeza-normal_13: 39061068
+      Seiryu-cabeza-normal_14: -1491640472
+      Seiryu-cabeza-normal_15: 617764448
+      Seiryu-cabeza-normal_16: 1587160454
+      Seiryu-cabeza-normal_17: -674955599
+      Seiryu-cabeza-normal_18: 1939648334
+      Seiryu-cabeza-normal_19: -603898573
+      Seiryu-cabeza-normal_2: 1572095567
+      Seiryu-cabeza-normal_20: -2108456134
+      Seiryu-cabeza-normal_21: 1515215636
+      Seiryu-cabeza-normal_22: 148473738
+      Seiryu-cabeza-normal_23: 1006221814
+      Seiryu-cabeza-normal_24: -1494163391
+      Seiryu-cabeza-normal_25: -308925474
+      Seiryu-cabeza-normal_26: 920300793
+      Seiryu-cabeza-normal_27: 212871748
+      Seiryu-cabeza-normal_28: -220349338
+      Seiryu-cabeza-normal_29: 894171175
+      Seiryu-cabeza-normal_3: 1701978593
+      Seiryu-cabeza-normal_30: 649794802
+      Seiryu-cabeza-normal_31: 72530658
+      Seiryu-cabeza-normal_32: -1700497894
+      Seiryu-cabeza-normal_33: -2029379017
+      Seiryu-cabeza-normal_4: -1234800275
+      Seiryu-cabeza-normal_5: 1138740318
+      Seiryu-cabeza-normal_6: -699675593
+      Seiryu-cabeza-normal_7: 1529733389
+      Seiryu-cabeza-normal_8: -716716978
+      Seiryu-cabeza-normal_9: -16306380
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

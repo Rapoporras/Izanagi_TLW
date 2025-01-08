@@ -61,8 +61,6 @@ namespace PlayerController
             _attackWindowActiveHash = Animator.StringToHash("attackWindowActive");
 
             _animationIddleSelect = Animator.StringToHash("animationSelect");
-
-            StartCoroutine(UpdateAnimationIddleSelect());
         }
 
         private void Update()
@@ -83,28 +81,11 @@ namespace PlayerController
 
         #region PLAY ANIMATIONS
 
-        /**
-         * Corutina para controlar que cambie cada cierto tiempo
-         * la animación del blendtree (animationSelect)
-         * */
-        private IEnumerator UpdateAnimationIddleSelect()
+        //Llamado desde evento de fin de animación de personaje Iddle
+        private void UpdateAnimationIddleSelect()
         {
-            while (true)
-            {
 
-                // Obtener información del estado actual del Animator
-                AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-
-                // Esperar a que la animación actual termine
-                while (stateInfo.normalizedTime < 1.0f)
-                {
-                    stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-                    yield return null; // Esperar al siguiente frame
-                }
-
-                _animator.SetFloat(_animationIddleSelect, Random.Range(0f, 1f));
-                yield return new WaitForSeconds(2f);
-            }
+           _animator.SetFloat(_animationIddleSelect, Random.Range(0f, 1f));
         }
 
         public void SetAttackAnimation(int attackType, int attackCombo)
