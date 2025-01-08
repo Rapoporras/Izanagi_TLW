@@ -1,0 +1,868 @@
+fileFormatVersion: 2
+guid: fd0c288037c05e24baae528d7d89f784
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 380
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076094e13f33ede41aacd458c8a6babe
+      internalID: -1549727998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_1
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38ecc9b53cb6b94cb5b1d11944fa5c9
+      internalID: 180045615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_2
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 933a4d3526c423043a59d16f33763623
+      internalID: -1004037845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_3
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a161e1d6ebadf2e4e8c25496e6b838b3
+      internalID: -1404654940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_4
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889740e45992c8c4984c432955b90ff4
+      internalID: 1790638149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_5
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42c983655de95b4eb3d6101010dcc64
+      internalID: 904636908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_6
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ce015c10607bf478c2e86fd140c457
+      internalID: -685562688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_7
+      rect:
+        serializedVersion: 2
+        x: 10500
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd7bffe580b19549a17353a7a3a05dc
+      internalID: 1643838661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_8
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 11700
+        width: 1500
+        height: 1300
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76fb6591ab3958b45b7c5d569fce7483
+      internalID: 1287969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5961c7afc872f45bc7eaac25aa81c9
+      internalID: 351977199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_10
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb50baf683c06c4aa20f4a29aadd3ea
+      internalID: -1725336077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_11
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a79da2db2c5474ea83318cc1831fb0
+      internalID: -464686332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_12
+      rect:
+        serializedVersion: 2
+        x: 4493
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2205fbd986ab5f94b9022ca7e2228324
+      internalID: 2128378067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_13
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eed5dce3b6bdf842a44b2ec57c875f0
+      internalID: 1924602555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_14
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d30fa23a2d60db4690c63ad5adadcfd
+      internalID: 1186727252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_15
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d684dfddeebf0f34c88f4eeb4f13d129
+      internalID: 1382709823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_16
+      rect:
+        serializedVersion: 2
+        x: 10500
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ec8ada40ed1a24fb8a016b50c690e9
+      internalID: 2041141522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_17
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 10400
+        width: 1500
+        height: 1298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6e7b301b62a8749beac08d3cdcf0c4
+      internalID: -130003159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba4f3cb5cbfdc84881e073bb7637a5e
+      internalID: -956279354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_19
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a140aeab2469bfb479067679a9b377dd
+      internalID: 1320311681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_20
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5387c2d2c3c43fd48b94d978eb84ff83
+      internalID: 1847420771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_21
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228dfc3ffd08adb4e9d58edf5d1445ab
+      internalID: -1816960154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_22
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367938f5ea31c66468c48d040e2936a3
+      internalID: 1227446679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_23
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93cda42ec4384a4ba6e7f622eed0779
+      internalID: -2021827131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_24
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebe3178ebab3974691f5dd9ce14ab8d
+      internalID: 388738078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_25
+      rect:
+        serializedVersion: 2
+        x: 10500
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e6b5ffe8c174543b154865a093c12f
+      internalID: -1208754331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_26
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 9100
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234017422059b014b98184495ca1c035
+      internalID: -888196462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7800
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7b1865308bb2744b3aa4c238752b1e
+      internalID: 884443145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_28
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 7800
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913f19925522bbb4d8f30af01305241d
+      internalID: 1361686408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_29
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 7800
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091ba6b828d03064cb255cc9ebf6a7b3
+      internalID: 596409760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_30
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 7800
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73fdafee231262d469cc10808b11852b
+      internalID: 1172671151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_31
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 7800
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b976a10f87a8142bfaf5bbfd6ef8d2
+      internalID: 1052677857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_32
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 7800
+        width: 1500
+        height: 1296
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692b49b59a044c84884c3c7dd431586f
+      internalID: 505257514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hinata-BasicCombo_33
+      rect:
+        serializedVersion: 2
+        x: 9011
+        y: 7799
+        width: 995
+        height: 1051
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ae2beea30fdce42878fa281640cc28
+      internalID: 84246399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hinata-BasicCombo_0: -1549727998
+      Hinata-BasicCombo_1: 180045615
+      Hinata-BasicCombo_10: -1725336077
+      Hinata-BasicCombo_11: -464686332
+      Hinata-BasicCombo_12: 2128378067
+      Hinata-BasicCombo_13: 1924602555
+      Hinata-BasicCombo_14: 1186727252
+      Hinata-BasicCombo_15: 1382709823
+      Hinata-BasicCombo_16: 2041141522
+      Hinata-BasicCombo_17: -130003159
+      Hinata-BasicCombo_18: -956279354
+      Hinata-BasicCombo_19: 1320311681
+      Hinata-BasicCombo_2: -1004037845
+      Hinata-BasicCombo_20: 1847420771
+      Hinata-BasicCombo_21: -1816960154
+      Hinata-BasicCombo_22: 1227446679
+      Hinata-BasicCombo_23: -2021827131
+      Hinata-BasicCombo_24: 388738078
+      Hinata-BasicCombo_25: -1208754331
+      Hinata-BasicCombo_26: -888196462
+      Hinata-BasicCombo_27: 884443145
+      Hinata-BasicCombo_28: 1361686408
+      Hinata-BasicCombo_29: 596409760
+      Hinata-BasicCombo_3: -1404654940
+      Hinata-BasicCombo_30: 1172671151
+      Hinata-BasicCombo_31: 1052677857
+      Hinata-BasicCombo_32: 505257514
+      Hinata-BasicCombo_33: 84246399
+      Hinata-BasicCombo_34: 224597027
+      Hinata-BasicCombo_35: -2034047744
+      Hinata-BasicCombo_36: 1397032396
+      Hinata-BasicCombo_37: -904198828
+      Hinata-BasicCombo_38: -880789252
+      Hinata-BasicCombo_39: 1234924735
+      Hinata-BasicCombo_4: 1790638149
+      Hinata-BasicCombo_5: 904636908
+      Hinata-BasicCombo_6: -685562688
+      Hinata-BasicCombo_7: 1643838661
+      Hinata-BasicCombo_8: 1287969
+      Hinata-BasicCombo_9: 351977199
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
