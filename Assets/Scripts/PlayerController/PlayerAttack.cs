@@ -6,6 +6,7 @@ using PlayerController.States;
 using StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils.CustomLogs;
 
 namespace PlayerController
 {
@@ -124,10 +125,10 @@ namespace PlayerController
                 {
                     int damage = Mathf.CeilToInt(AttackData.AttackDamage * AttackAirBoost);
                     damageArea.Damage(damage, true);
-                    UpdateMannaPoints(_mannaPerAttack);
                     
                     if (!_hasCollided)
                     {
+                        UpdateMannaPoints(_mannaPerAttack);
                         _hasCollided = true;
                         ApplyAttackForces();
                     }

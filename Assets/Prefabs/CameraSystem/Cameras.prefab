@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 826790508302704940}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6163864, y: -10.00001, z: -10}
+  m_LocalPosition: {x: -66, y: 28, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -71,7 +71,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -183,7 +183,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6903552352226140971}
   - component: {fileID: 4098985263235153011}
-  - component: {fileID: 4726704349319594111}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -230,18 +229,6 @@ MonoBehaviour:
   _fallPanAmount: 0.25
   _fallYPanTime: 0.35
   fallSpeedYDampingChangeThreshold: -15
---- !u!114 &4726704349319594111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452032451542915301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2d19103a42ac24fbc6714179ddef28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2151556335471891303
 GameObject:
   m_ObjectHideFlags: 0
