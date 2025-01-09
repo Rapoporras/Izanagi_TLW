@@ -1,5 +1,4 @@
-﻿using KrillAudio.Krilloud;
-using SaveSystem;
+﻿using SaveSystem;
 using UnityEngine;
 using Utils;
 
@@ -10,11 +9,11 @@ namespace SceneMechanics
     {
         private bool _eventActivated;
 
-        private KLAudioSource _audioSource;
+        private AudioSource _audioSource;
 
         private void Awake()
         {
-            _audioSource = GetComponent<KLAudioSource>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
