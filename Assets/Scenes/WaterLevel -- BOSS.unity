@@ -30740,7 +30740,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.25, y: 7.03}
+    oldSize: {x: 2.385, y: 7.44}
     newSize: {x: 2.25, y: 7.03}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -33942,14 +33942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceShape: 0
-  sphereShapeRadius: 1
-  lineShapeStart: {x: -0, y: -0, z: -1}
-  lineShapeEnd: {x: 0, y: 0, z: 1}
-  areaShapeSize: {x: 1, y: 1, z: 1}
-  playOnAwake: 1
-  m_tags:
-  - gameMusic
 --- !u!4 &1929861353
 Transform:
   m_ObjectHideFlags: 0
@@ -33977,8 +33969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d412da752f4e9ba9b95109fd95c1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _musicChannel: Music
-  _volume: 0.2
 --- !u!1 &1949017853
 GameObject:
   m_ObjectHideFlags: 0
