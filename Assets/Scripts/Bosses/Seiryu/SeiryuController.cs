@@ -1,4 +1,5 @@
 ﻿using System;
+using GameEvents;
 using Health;
 using StateMachine;
 using UnityEngine;
@@ -25,6 +26,9 @@ namespace Bosses
         [Header("Phase 2")]
         [SerializeField, Range(0, 1)] private float _fistAttackProbPhase2 = 0.4f;
         [SerializeField, Range(0, 1)] private float _sweepingAttackProbPhase2 = 0.6f;
+
+        [Header("Events")]
+        [SerializeField] private VoidEvent _damageEvent;
         
         public bool CanStartFight { get; private set; }
         public bool WaitForNextAttack { get; private set; }
@@ -134,6 +138,9 @@ namespace Bosses
 
         private void UpdatePhase()
         {
+            if (_damageEvent)
+                _damageEvent.Raise();
+            
             if (phase < 2 && HealthPercentage() <= _changePhasePercentage)
             {
                 phase = 2;

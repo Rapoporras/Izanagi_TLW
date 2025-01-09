@@ -1,4 +1,6 @@
-﻿using Enemies.Kappa;
+﻿using System.Collections;
+using DG.Tweening;
+using Enemies.Kappa;
 using Unity.Mathematics;
 using UnityEngine;
 using Utils;
@@ -10,7 +12,7 @@ namespace Enemies.Kappas
         [Header("Spawner settings")]
         [SerializeField] private int _kappasToSpawn = 3;
         [SerializeField] private float _spawnDuration = 1f;
-        [SerializeField] private GameObject _miniKappaPrefab;
+        [SerializeField] private MiniKappaAI _miniKappaPrefab;
 
         [Header("Player Detection Settings")]
         [SerializeField] private LayerMask _playerLayer;
@@ -19,62 +21,47 @@ namespace Enemies.Kappas
         [SerializeField, Min(0.1f)] private float _verticalOffset = 0.1f;
         [SerializeField, Min(0.5f)] private float _horizontalDistance = 1f;
 
-        [Header("Debugging")]
+        [Header("Dependencies")]
         [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private ParticleSystem _particleSystem;
+        [SerializeField] private Sprite _brokenSprinte;
+        
+        [Header("Debugging")]
         [SerializeField] private Color _spawningDebugColor;
-
-        // spawn
-        private int _miniKappasSpawned;
-        private Timer _spawnTimer;
 
         // player detection
         private const int RayCount = 3;
         private float _raySpacing;
 
-        private bool _isActive;
-
-        private void Awake()
-        {
-            float durationBetweenSpawn = _spawnDuration / _kappasToSpawn;
-            _spawnTimer = new Timer(durationBetweenSpawn);
-
-            _isActive = false;
-        }
+        private bool _playerDetected;
 
         private void Update()
         {
-            if (_isActive)
-            {
-                _spawnTimer.Tick(Time.deltaTime);
-            }
-            else
+            if (!_playerDetected)
             {
                 CheckRaycasts();
             }
         }
 
-        private void OnEnable() => _spawnTimer.OnTimerEnd += SpawnMiniKappa;
-        
-        private void OnDisable() => _spawnTimer.OnTimerEnd -= SpawnMiniKappa;
-
-        private void SpawnMiniKappa()
+        private IEnumerator SpawnMiniKappa()
         {
-            // instantiate here the mini kappa
-            GameObject miniKappaInstance = Instantiate(_miniKappaPrefab, transform.position, quaternion.identity);
-            miniKappaInstance.GetComponent<MiniKappaAI>().SetUpBehaviourTree();
-            _miniKappasSpawned++;
-            Debug.Log($"Instantiating mini kappa -- {_miniKappasSpawned}");
+            for (int i = 0; i < _kappasToSpawn; i++)
+            {
+                MiniKappaAI miniKappaInstance = Instantiate(_miniKappaPrefab, transform.position, Quaternion.identity);
+                miniKappaInstance.SetUpBehaviourTree();
+
+                PlaySpawnTween();
+                _particleSystem.Play();
+                
+                yield return new WaitForSeconds(_spawnDuration / _kappasToSpawn);
+            }
             
-            if (_miniKappasSpawned >= _kappasToSpawn)
-            {
-                _isActive = false;
-                // add some effects or animation here
-                Destroy(gameObject);
-            }
-            else
-            {
-                _spawnTimer.Reset();
-            }
+            _spriteRenderer.sprite = _brokenSprinte;
+        }
+
+        private void PlaySpawnTween()
+        {
+            transform.DOPunchScale(Vector3.down * 0.2f, 0.1f);
         }
         
         private void CheckRaycasts()
@@ -95,8 +82,9 @@ namespace Enemies.Kappas
 
                 if (hit && hit.transform.CompareTag("Player"))
                 {
-                    _isActive = true;
-                    _spriteRenderer.color = _spawningDebugColor; // just for debugging
+                    _playerDetected = true;
+                    StartCoroutine(SpawnMiniKappa());
+                    // _spriteRenderer.color = _spawningDebugColor; // just for debugging
                     return;
                 }
                 

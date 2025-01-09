@@ -27,7 +27,7 @@ MonoBehaviour:
     enabled: 1
   - feature: 4
     customColor: {r: 0.864451, g: 0.48584908, b: 1, a: 0}
-    enabled: 1
+    enabled: 0
   - feature: 5
     customColor: {r: 0.5400841, g: 1, b: 0.5235849, a: 0}
     enabled: 1

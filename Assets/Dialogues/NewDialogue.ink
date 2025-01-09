@@ -1,4 +1,6 @@
--> main
+INCLUDE globals.ink
+
+{ pokemon_name == "": -> main | -> already_chose}
 
 VAR color = "\#323232"
 
@@ -15,5 +17,10 @@ Which pokemon do you <b><color=\#F8FF30>choose</color></b>?
         -> chosen("Squirtle")
 
 === chosen(pokemon) ===
+~ pokemon_name = pokemon
 You chose <b><color={color}>{pokemon}</color></b>!
+-> END
+
+=== already_chose ===
+You already chose {pokemon_name}!
 -> END

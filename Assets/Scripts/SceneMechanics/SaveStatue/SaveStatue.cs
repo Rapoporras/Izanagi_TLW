@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using DialogueSystem;
 using GlobalVariables;
 using InteractionSystem;
-using KrillAudio.Krilloud;
 using PlayerController.Data;
 using SaveSystem;
 using SceneLoaderSystem;
@@ -35,7 +35,7 @@ namespace SceneMechanics.SaveStatue
         [Header("UI")]
         [SerializeField] private GameObject _interactUIText;
 
-        private KLAudioSource _audioSource;
+        private AudioSource _audioSource;
 
         private List<BaseEnemy> _sceneEnemies = new List<BaseEnemy>();
 
@@ -45,7 +45,7 @@ namespace SceneMechanics.SaveStatue
         {
             _sceneEnemies = FindAllEnemiesInScene();
 
-            _audioSource = GetComponent<KLAudioSource>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         public void Interact(Interactor interactor)
@@ -62,6 +62,8 @@ namespace SceneMechanics.SaveStatue
 
             TemporalDataManager.Instance.temporalData.Clear();
             RespawnEnemiesInScene();
+
+            DialogueManager.Instance.SaveVariables();
 
             ActivateSymbols();
             

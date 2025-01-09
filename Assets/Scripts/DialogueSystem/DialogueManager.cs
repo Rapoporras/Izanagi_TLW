@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Utils.CustomLogs;
 
 namespace DialogueSystem
 {
@@ -13,6 +14,10 @@ namespace DialogueSystem
     {
         [Header("Settings")]
         [SerializeField] private float _typingDuration = 0.04f;
+
+        [Header("Global Variables")]
+        [SerializeField] private string _fileName = "dialogueVariables.json";
+        [SerializeField] private TextAsset _loadGlobalsJSON; 
         
         [Header("Dialogue UI")]
         [SerializeField] private GameObject _dialoguePanel;
@@ -28,16 +33,21 @@ namespace DialogueSystem
         [SerializeField] private GameObject[] _choices;
 
         private TextMeshProUGUI[] _choicesText;
-        
+
+        private DialogueVariables _dialogueVariables;
+        private InkExternalFunctions _inkExternalFunctions;
         private Story _currentStory;
 
         private bool _isSelectingChoice;
         private bool _dialogueIsPlaying;
         private bool _canContinueToNextLine;
 
+        [SerializeField] private bool _inputPressed;
+
         private Coroutine _displayLineCoroutine;
 
         private static DialogueManager _instance;
+        public static DialogueManager Instance => _instance;
 
         private void Awake()
         {
@@ -51,8 +61,16 @@ namespace DialogueSystem
             }
         }
 
+        private void Update()
+        {
+            _inputPressed = InputManager.UIActions.Interact.WasPressedThisFrame();
+        }
+
         private void Start()
         {
+            _dialogueVariables = new DialogueVariables(_loadGlobalsJSON, Application.persistentDataPath, _fileName);
+            _inkExternalFunctions = new InkExternalFunctions();
+            
             _dialogueIsPlaying = false;
             _dialoguePanel.SetActive(false);
             ResetDialogueUI();
@@ -83,6 +101,8 @@ namespace DialogueSystem
             InputManager.EnableUIActions();
             
             _currentStory = new Story(dialogueInfo.InkJSON.text);
+            _dialogueVariables.StartListening(_currentStory);
+            _inkExternalFunctions.Bind(_currentStory);
             _dialogueIsPlaying = true;
 
             if (dialogueInfo.CharacterPortrait)
@@ -98,6 +118,8 @@ namespace DialogueSystem
         private void ExitDialogueMode()
         {
             _dialogueIsPlaying = false;
+            _dialogueVariables.StopListening(_currentStory);
+            _inkExternalFunctions.Unbind(_currentStory);
             _dialoguePanel.SetActive(false);
             ResetDialogueUI();
             
@@ -120,7 +142,12 @@ namespace DialogueSystem
             {
                 if (_displayLineCoroutine != null)
                     StopCoroutine(_displayLineCoroutine);
-                _displayLineCoroutine = StartCoroutine(DisplayLine(_currentStory.Continue()));
+
+                string nextLine = _currentStory.Continue();
+                if (string.IsNullOrEmpty(nextLine) && !_currentStory.canContinue)
+                    ExitDialogueMode();
+                
+                _displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
             }
             else
             {
@@ -142,8 +169,9 @@ namespace DialogueSystem
 
             foreach (var letter in line.ToCharArray())
             {
-                if (InputManager.UIActions.Interact.IsPressed() && _dialogueText.text.Length >= 3)
+                if (_inputPressed && _dialogueText.text.Length >= 3) // InputManager.UIActions.Interact.WasPressedThisFrame()
                 {
+                    LogManager.Log("Finish dialogue - input", FeatureType.Dialogue);
                     _dialogueText.maxVisibleCharacters = line.Length;
                     break;
                 }
@@ -182,11 +210,16 @@ namespace DialogueSystem
         private void DisplayChoices()
         {
             List<Choice> currentChoices = _currentStory.currentChoices;
-            if (currentChoices.Count == 0) return;
+            if (currentChoices.Count == 0)
+            {
+                _isSelectingChoice = false;
+                return;
+            }
 
             if (currentChoices.Count > _choices.Length)
             {
-                Debug.LogError($"More choices were given than the UI can support. Number of choices given: {currentChoices.Count}");
+                LogManager.LogError($"More choices were given than the UI can support. Number of choices given: {currentChoices.Count}", 
+                    FeatureType.Dialogue);
             }
 
             int index = 0;
@@ -217,7 +250,6 @@ namespace DialogueSystem
         {
             if (_canContinueToNextLine)
             {
-                Debug.Log($"Choice: {choiceIndex}");
                 _currentStory.ChooseChoiceIndex(choiceIndex);
             
                 ContinueStory();
@@ -230,6 +262,11 @@ namespace DialogueSystem
             _dialogueText.text = "";
             _portraitImage.sprite = _defaultPortraitImage;
             _charaterNameText.text = "???";
+        }
+
+        public void SaveVariables()
+        {
+            _dialogueVariables.Save();
         }
     }
 }
