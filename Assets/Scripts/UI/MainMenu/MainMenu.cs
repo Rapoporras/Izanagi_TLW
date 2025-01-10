@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using DialogueSystem;
 using GameEvents;
 using SaveSystem;
 using SceneLoaderSystem;
@@ -38,6 +39,8 @@ public class MainMenu : MonoBehaviour
             DisableMenuButtons();
             DataPersistenceManager.Instance.NewGame(_firstGameScene.sceneName);
             DataPersistenceManager.Instance.LoadGame(); // initialize variables with default values
+            
+            DialogueManager.Instance.SaveVariables(); // reset json variables
 
             LoadSceneRequest request = new LoadSceneRequest(_firstGameScene, true);
             if (_loadSceneRequestEvent)
