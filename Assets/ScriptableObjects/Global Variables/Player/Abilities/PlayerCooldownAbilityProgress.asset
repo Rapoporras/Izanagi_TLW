@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerCooldownAbilityProgress
   m_EditorClassIdentifier: 
   _developerDescription: 
-  _value: 0
+  _value: 1
