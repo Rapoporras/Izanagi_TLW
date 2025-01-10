@@ -1,4 +1,5 @@
 INCLUDE globals.ink
+EXTERNAL activateWallEvent()
 
 { pokemon_name == "": -> main | -> already_chose}
 
@@ -19,6 +20,7 @@ Which pokemon do you <b><color=\#F8FF30>choose</color></b>?
 === chosen(pokemon) ===
 ~ pokemon_name = pokemon
 You chose <b><color={color}>{pokemon}</color></b>!
+~ activateWallEvent()
 -> END
 
 === already_chose ===
