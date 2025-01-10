@@ -1,4 +1,3 @@
-using System;
 using GameEvents;
 using SceneLoaderSystem;
 using UnityEngine;
@@ -25,8 +24,6 @@ public class PauseMenuController : MonoBehaviour
     private void OnEnable()
     {
         InputManager.UIActions.Pause.performed += OnPause;
-        
-        _firstSelectedButton.Select();
     }
 
     private void OnDisable()
@@ -52,6 +49,8 @@ public class PauseMenuController : MonoBehaviour
         _panel.SetActive(true);
         Time.timeScale = 0f;
         _isPaused = true;
+        
+        _firstSelectedButton.Select();
     }
 
     public void Resume()
