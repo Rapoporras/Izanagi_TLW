@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 140470208}
   m_Layer: 0
   m_Name: seiryu-manoIzquierda
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 255466306}
   m_Layer: 0
   m_Name: Attack Manager
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 324532662}
   m_Layer: 0
   m_Name: seiryu-manoDerecha
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1432,7 +1432,7 @@ GameObject:
   - component: {fileID: 331301169}
   m_Layer: 7
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30721,9 +30721,9 @@ GameObject:
   - component: {fileID: 607472501}
   - component: {fileID: 607472504}
   - component: {fileID: 607472503}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Seiryu
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31511,7 +31511,7 @@ GameObject:
   - component: {fileID: 1129703751}
   m_Layer: 8
   m_Name: Hurtbox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31720,7 +31720,7 @@ GameObject:
   - component: {fileID: 1189168710}
   m_Layer: 8
   m_Name: Hurtbox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32024,7 +32024,7 @@ GameObject:
   - component: {fileID: 1520531258}
   m_Layer: 0
   m_Name: seiryu-Torso
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32461,7 +32461,7 @@ GameObject:
   - component: {fileID: 1564219028}
   m_Layer: 0
   m_Name: seiryu-cabeza
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32751,7 +32751,7 @@ GameObject:
   - component: {fileID: 1690165779}
   m_Layer: 7
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35448,11 +35448,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -61.5
       objectReference: {fileID: 0}
     - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 24.25
       objectReference: {fileID: 0}
     - target: {fileID: 5040862804570117236, guid: 9744243b2a019b34896ee3c6bedc9841, type: 3}
       propertyPath: m_LocalPosition.z
