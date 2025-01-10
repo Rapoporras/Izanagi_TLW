@@ -13,6 +13,7 @@ public class SpatialAudio : MonoBehaviour
     [Header("Audio Settings")]
     [SerializeField] private float soundRadius;
     [SerializeField] private float fullVolumeRadius;
+    [SerializeField, Range(0, 1)] private float maxVolume = 1f;
 
     private void Awake()
     {
@@ -39,10 +40,10 @@ public class SpatialAudio : MonoBehaviour
         
         if (distance <= fullVolumeRadius)
         {
-            _audioSource.volume = 1;
+            _audioSource.volume = maxVolume;
         } else if (distance <= soundRadius)
         {
-            _audioSource.volume = 1f - ((distance - fullVolumeRadius) / (soundRadius - fullVolumeRadius));
+            _audioSource.volume = (1f - ((distance - fullVolumeRadius) / (soundRadius - fullVolumeRadius))) * maxVolume;
         }
         else
         {
