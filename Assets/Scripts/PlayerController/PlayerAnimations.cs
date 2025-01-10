@@ -1,4 +1,5 @@
 ﻿using PlayerController.States;
+using System.Collections;
 using UnityEngine;
 
 namespace PlayerController
@@ -25,6 +26,9 @@ namespace PlayerController
         private int _attackComboHash;
 
         private int _attackWindowActiveHash;
+
+        //Variable con valor random para usarse en los blendTrees
+        private int _animationIddleSelect;
 
         public bool AttackWindowActive
         {
@@ -55,6 +59,8 @@ namespace PlayerController
             _attackComboHash = Animator.StringToHash("attackCombo");
 
             _attackWindowActiveHash = Animator.StringToHash("attackWindowActive");
+
+            _animationIddleSelect = Animator.StringToHash("animationSelect");
         }
 
         private void Update()
@@ -74,6 +80,14 @@ namespace PlayerController
         }
 
         #region PLAY ANIMATIONS
+
+        //Llamado desde evento de fin de animación de personaje Iddle
+        private void UpdateAnimationIddleSelect()
+        {
+
+           _animator.SetFloat(_animationIddleSelect, Random.Range(0f, 1f));
+        }
+
         public void SetAttackAnimation(int attackType, int attackCombo)
         {
             _animator.SetInteger(_attackTypeHash, attackType);
