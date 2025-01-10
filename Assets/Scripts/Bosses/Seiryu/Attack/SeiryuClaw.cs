@@ -110,6 +110,8 @@ namespace Bosses
                 _state = State.Waiting;
                 _recoveringTimer.Reset();
                 _restTargetPos = _initialPosition;
+                
+                _animator.SetTrigger(_defaultAnimHash);
                 TriggerStateChangeEvent(AttackState.Waiting, AttackType.None, _side);
             }
         }
@@ -160,7 +162,6 @@ namespace Bosses
             
             TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Fist, _side);
             
-            _animator.SetTrigger(_defaultAnimHash);
             yield return new WaitForSeconds(_timeBeforeRecovering);
             _state = State.Recovering;
         }
@@ -194,7 +195,6 @@ namespace Bosses
             
             TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Sweep, _side);
             
-            _animator.SetTrigger(_defaultAnimHash);
             yield return new WaitForSeconds(_timeBeforeRecovering);
             _state = State.Recovering;
         }
@@ -218,7 +218,6 @@ namespace Bosses
             if (triggerEvent)
                 TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Transition, _side);
             
-            _animator.SetTrigger(_defaultAnimHash);
             yield return new WaitForSeconds(_timeBeforeRecovering);
             _state = State.Recovering;
         }
