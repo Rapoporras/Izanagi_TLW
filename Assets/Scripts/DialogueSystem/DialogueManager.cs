@@ -42,7 +42,7 @@ namespace DialogueSystem
         private bool _dialogueIsPlaying;
         private bool _canContinueToNextLine;
 
-        [SerializeField] private bool _inputPressed;
+        private bool _inputPressed;
 
         private Coroutine _displayLineCoroutine;
 

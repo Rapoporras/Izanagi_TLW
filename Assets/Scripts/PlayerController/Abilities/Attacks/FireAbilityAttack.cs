@@ -21,12 +21,9 @@ namespace PlayerController.Abilities
                 Physics2D.OverlapCollider(_hitbox, _contactFilter, _overlappedColliders);
                 foreach (var entity in _overlappedColliders)
                 {
-                    if (entity.transform.parent.TryGetComponent(out EntityHealth entityHealth) && !entity.CompareTag("Player"))
+                    if (entity.TryGetComponent(out IDamageable damageableArea) && entity.CompareTag("Enemy"))
                     {
-                        if (!entityHealth.IsInvulnerable && entityHealth.damageable)
-                        {
-                            entityHealth.Damage(Damage, false);
-                        }
+                        damageableArea.Damage(Damage, false);
                     }
                 }
             }

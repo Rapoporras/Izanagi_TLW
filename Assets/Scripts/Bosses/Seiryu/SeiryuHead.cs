@@ -59,6 +59,8 @@ namespace Bosses
                     _animator.SetTrigger(_angerAnimHash);
                     break;
                 case AttackState.FinishAttack:
+                    break;
+                case AttackState.Waiting:
                     _animator.SetTrigger(_defaultAnimHash);
                     break;
             }
