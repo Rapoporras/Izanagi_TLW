@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Utils.CustomLogs;
 
 namespace Bosses
 {
@@ -13,7 +12,7 @@ namespace Bosses
 
         private int _defaultAnimHash;
         private int _angerAnimHash;
-        private int _damagedAnimHash;
+        private int _animationIddleSelect;
 
         private float maxAngle = 20f;
 
@@ -22,7 +21,7 @@ namespace Bosses
             _animator = GetComponent<Animator>();
             _defaultAnimHash = Animator.StringToHash("default");
             _angerAnimHash = Animator.StringToHash("anger");
-            _damagedAnimHash = Animator.StringToHash("damaged");
+            _animationIddleSelect = Animator.StringToHash("animationSelect");
         }
 
         public void Initialize(Transform player)
@@ -46,6 +45,12 @@ namespace Bosses
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
+        //Llamado desde evento de fin de animación de personaje Iddle
+        private void UpdateAnimationIddleSelect(int anim)
+        {
+            _animator.SetFloat(_animationIddleSelect, Random.Range(0f, 1f));
+        }
+
         public void OnAttackStateChange(SeiryuAttackInfo info)
         {
             switch (info.state)
@@ -57,11 +62,6 @@ namespace Bosses
                     _animator.SetTrigger(_defaultAnimHash);
                     break;
             }
-        }
-
-        public void OnDamaged()
-        {
-            _animator.SetTrigger(_damagedAnimHash);
         }
     }
 }
