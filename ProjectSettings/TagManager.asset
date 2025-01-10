@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - BreakableWall
+  - SpatialSound
   layers:
   - Default
   - TransparentFX

@@ -52,6 +52,7 @@ namespace Health
 
         public void ResetHealth()
         {
+            _hit = false;
             _health.ResetHealth(maxHealth);
         }
 
