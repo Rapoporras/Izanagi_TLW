@@ -13,6 +13,7 @@ namespace Enemies.Kappas
         [SerializeField] private int _kappasToSpawn = 3;
         [SerializeField] private float _spawnDuration = 1f;
         [SerializeField] private MiniKappaAI _miniKappaPrefab;
+        [SerializeField] private Transform _spawnPosition;
 
         [Header("Player Detection Settings")]
         [SerializeField] private LayerMask _playerLayer;
@@ -35,6 +36,11 @@ namespace Enemies.Kappas
 
         private bool _playerDetected;
 
+        private void Awake()
+        {
+            _particleSystem.Stop();
+        }
+
         private void Update()
         {
             if (!_playerDetected)
@@ -45,18 +51,21 @@ namespace Enemies.Kappas
 
         private IEnumerator SpawnMiniKappa()
         {
-            for (int i = 0; i < _kappasToSpawn; i++)
+            for (int i = 0; i < 3; i++)
             {
-                MiniKappaAI miniKappaInstance = Instantiate(_miniKappaPrefab, transform.position, Quaternion.identity);
-                miniKappaInstance.SetUpBehaviourTree();
-
                 PlaySpawnTween();
-                _particleSystem.Play();
-                
+                   
                 yield return new WaitForSeconds(_spawnDuration / _kappasToSpawn);
             }
-            
+
             _spriteRenderer.sprite = _brokenSprinte;
+
+            if (_spriteRenderer.sprite == _brokenSprinte)
+            {
+                _particleSystem.Play();
+                MiniKappaAI miniKappaInstance = Instantiate(_miniKappaPrefab, _spawnPosition.transform.position, Quaternion.identity);
+                miniKappaInstance.SetUpBehaviourTree();
+            }
         }
 
         private void PlaySpawnTween()

@@ -46,6 +46,9 @@ namespace SceneMechanics.Stalactite
         [SerializeField] private List<AudioClip> _fallingAudio;
         [SerializeField] private AudioClip _hitFloorAudio;
 
+        [Header("Dependencies")]
+        [SerializeField] private ParticleSystem _particleSystem;
+
         private float _fallVel;
 
         public bool DamageActive
@@ -120,6 +123,7 @@ namespace SceneMechanics.Stalactite
                 if (hit && hit.transform.CompareTag("Player"))
                 {
                     Activate();
+                    _particleSystem.Stop();
                     return;
                 }
                 
