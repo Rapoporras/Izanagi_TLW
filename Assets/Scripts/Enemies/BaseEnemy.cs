@@ -47,6 +47,7 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
     {
         _isEnemyDead = true;
         StartCoroutine(PlayDeathAnimation());
+         ControllerVibration.Instance.TriggerInstantVibration(0.1f, 0.1f, 0.4f);
     }
 
     private IEnumerator PlayDeathAnimation()
