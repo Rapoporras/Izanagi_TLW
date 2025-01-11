@@ -20,7 +20,7 @@ namespace Bosses
         [SerializeField] private float _recoveringSpeed;
 
         [Header("Positions")]
-        [SerializeField] private Transform _fistHitPosition;
+        [SerializeField] private Transform _transitionAttackPos;
         [Space(5)]
         [SerializeField] private Transform _sweepCurveControlPos;
         [SerializeField] private Transform _sweepEndPos;
@@ -155,6 +155,7 @@ namespace Bosses
             yield return new WaitForSeconds(_anticipationTime);
             
             isInPlace = false;
+            targetPos.y = _transitionAttackPos.position.y;
             while (!isInPlace)
             {
                 // set targetPos.y near the floor
@@ -213,7 +214,7 @@ namespace Bosses
             bool isInPlace = false;
             while (!isInPlace)
             {
-                isInPlace = MoveToTarget(_sweepEndPos.position, _fistAttackSpeed * Time.deltaTime);
+                isInPlace = MoveToTarget(_transitionAttackPos.position, _fistAttackSpeed * Time.deltaTime);
                 yield return null;
             }
             
