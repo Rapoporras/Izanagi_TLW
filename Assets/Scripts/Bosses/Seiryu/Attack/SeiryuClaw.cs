@@ -7,7 +7,7 @@ namespace Bosses
 {
     public class SeiryuClaw : MonoBehaviour
     {
-        private enum State
+        public enum State
         {
             Attacking, Recovering, Waiting
         }
@@ -50,6 +50,7 @@ namespace Bosses
         
         private Coroutine _attackCoroutine;
         private State _state;
+        public State state => _state;
 
         private Vector3 _initialPosition;
         private Vector3 _restTargetPos;
@@ -134,12 +135,12 @@ namespace Bosses
 
         #region FIST ATTACK
         [ContextMenu("Fist Attack")]
-        public void FistPunch()
+        public void FistPunch(Vector3 targetPos)
         {
-            InitAttack(_FistPunch(), AttackType.Fist);
+            InitAttack(_FistPunch(targetPos), AttackType.Fist);
         }
 
-        private IEnumerator _FistPunch()
+        private IEnumerator _FistPunch(Vector3 targetPos)
         {
             bool isInPlace = false;
             
@@ -156,7 +157,8 @@ namespace Bosses
             isInPlace = false;
             while (!isInPlace)
             {
-                isInPlace = MoveToTarget(_fistHitPosition.position, _fistAttackSpeed * Time.deltaTime);
+                // set targetPos.y near the floor
+                isInPlace = MoveToTarget(targetPos, _fistAttackSpeed * Time.deltaTime);
                 yield return null;
             }
             
@@ -247,6 +249,9 @@ namespace Bosses
                     break;
                 case AttackType.Sweep:
                     _animator.SetTrigger(_sweepAnimHash);
+                    break;
+                case AttackType.Transition:
+                    _animator.SetTrigger(_fistAnimHash);
                     break;
             }
         }

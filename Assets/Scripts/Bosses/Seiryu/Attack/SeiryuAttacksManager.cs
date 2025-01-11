@@ -3,6 +3,7 @@ using System.Collections;
 using CameraSystem;
 using GameEvents;
 using UnityEngine;
+using Utils.CustomLogs;
 using Random = UnityEngine.Random;
 
 namespace Bosses
@@ -59,23 +60,18 @@ namespace Bosses
             }
         }
 
-        public void Attack(Vector3 playerPos, int phase, float fistProb, float sweepProb)
+        public void Attack(Vector3 playerPos, float fistProb, float sweepProb)
         {
             SeiryuClaw nearestClaw = GetNearestClaw(playerPos);
             float attackSelection = Random.Range(0f, 1f);
 
             if (attackSelection < fistProb)
             {
-                nearestClaw.FistPunch();
+                nearestClaw.FistPunch(playerPos);
             }
             else if (attackSelection < fistProb + sweepProb)
             {
                 nearestClaw.SweepingAttack();
-            }
-            else if (phase == 2)
-            {
-                // water attack
-                nearestClaw.FistPunch();
             }
         }
 
@@ -86,6 +82,8 @@ namespace Bosses
 
         private IEnumerator _TransitionAttack()
         {
+            // add movement anticipation
+            // separar esa logica en las garras en una funcion aparte y poder reutilizarla
             yield return new WaitForSeconds(_transitonAnticipationTime);
             
             _leftClaw.TransitionAttack(true);
