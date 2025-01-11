@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using CameraSystem;
 using GameEvents;
 using UnityEngine;
@@ -18,9 +17,6 @@ namespace Bosses
         [SerializeField] private ScreenShakeProfile _fistAttackShake;
         [Space(5)]
         [SerializeField] private ScreenShakeSource _screenShakeSource;
-        
-        [Header("Transition")]
-        [SerializeField] private float _transitonAnticipationTime = 1f;
         
         [Header("Events")]
         [SerializeField] private VoidEvent _seiryuStalactitesEvent;
@@ -59,35 +55,23 @@ namespace Bosses
             }
         }
 
-        public void Attack(Vector3 playerPos, int phase, float fistProb, float sweepProb)
+        public void Attack(Vector3 playerPos, float fistProb, float sweepProb)
         {
             SeiryuClaw nearestClaw = GetNearestClaw(playerPos);
             float attackSelection = Random.Range(0f, 1f);
 
             if (attackSelection < fistProb)
             {
-                nearestClaw.FistPunch();
+                nearestClaw.FistPunch(playerPos);
             }
             else if (attackSelection < fistProb + sweepProb)
             {
                 nearestClaw.SweepingAttack();
             }
-            else if (phase == 2)
-            {
-                // water attack
-                nearestClaw.FistPunch();
-            }
         }
 
         public void TransitionAttack()
         {
-            StartCoroutine(_TransitionAttack());
-        }
-
-        private IEnumerator _TransitionAttack()
-        {
-            yield return new WaitForSeconds(_transitonAnticipationTime);
-            
             _leftClaw.TransitionAttack(true);
             _rightClaw.TransitionAttack(false);
 

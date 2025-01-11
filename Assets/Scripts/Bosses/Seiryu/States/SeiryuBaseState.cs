@@ -4,7 +4,7 @@ namespace Bosses
 {
     public enum SeiryuState
     {
-        Init, Combat, Transition, Dead, Waiting
+        Init, Combat, Dead, Waiting
     }
     
     public abstract class SeiryuBaseState : BaseState<SeiryuState>
