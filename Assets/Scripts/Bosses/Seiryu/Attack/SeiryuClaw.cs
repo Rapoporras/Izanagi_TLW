@@ -212,6 +212,18 @@ namespace Bosses
         private IEnumerator _TransitionAttack(bool triggerEvent)
         {
             bool isInPlace = false;
+            
+            Vector3 anticipationPos = transform.position;
+            anticipationPos.y += _anticipationHeight;
+            while (!isInPlace)
+            {
+                isInPlace = MoveToTarget(anticipationPos, _fistAttackSpeed * Time.deltaTime);
+                yield return null;
+            }
+            
+            yield return new WaitForSeconds(_anticipationTime);
+            
+            isInPlace = false;
             while (!isInPlace)
             {
                 isInPlace = MoveToTarget(_transitionAttackPos.position, _fistAttackSpeed * Time.deltaTime);

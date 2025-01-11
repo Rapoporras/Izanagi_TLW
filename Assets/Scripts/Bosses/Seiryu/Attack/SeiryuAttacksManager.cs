@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using CameraSystem;
 using GameEvents;
 using UnityEngine;
-using Utils.CustomLogs;
 using Random = UnityEngine.Random;
 
 namespace Bosses
@@ -19,9 +17,6 @@ namespace Bosses
         [SerializeField] private ScreenShakeProfile _fistAttackShake;
         [Space(5)]
         [SerializeField] private ScreenShakeSource _screenShakeSource;
-        
-        [Header("Transition")]
-        [SerializeField] private float _transitonAnticipationTime = 1f;
         
         [Header("Events")]
         [SerializeField] private VoidEvent _seiryuStalactitesEvent;
@@ -77,15 +72,6 @@ namespace Bosses
 
         public void TransitionAttack()
         {
-            StartCoroutine(_TransitionAttack());
-        }
-
-        private IEnumerator _TransitionAttack()
-        {
-            // add movement anticipation
-            // separar esa logica en las garras en una funcion aparte y poder reutilizarla
-            yield return new WaitForSeconds(_transitonAnticipationTime);
-            
             _leftClaw.TransitionAttack(true);
             _rightClaw.TransitionAttack(false);
 
