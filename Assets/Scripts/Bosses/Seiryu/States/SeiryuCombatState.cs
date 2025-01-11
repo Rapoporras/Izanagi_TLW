@@ -19,7 +19,7 @@ namespace Bosses
         {
             if (Context.WaitForNextAttack)
             {
-                if (Context.phase == 3)
+                if (Context.phase == 3 && !Context.transitionToNextPhase)
                     return SeiryuState.Dead;
                 
                 return SeiryuState.Waiting;
