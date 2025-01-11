@@ -272,6 +272,7 @@ MonoBehaviour:
   hurtboxLayer:
     serializedVersion: 2
     m_Bits: 256
+  kappaShell: {fileID: 1386292763941920442, guid: a9841bf52ba624642bae91b5ae96a557, type: 3}
 --- !u!114 &7035601677445066005
 MonoBehaviour:
   m_ObjectHideFlags: 0
