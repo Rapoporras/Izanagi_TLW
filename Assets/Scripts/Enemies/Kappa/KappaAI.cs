@@ -53,7 +53,7 @@ namespace Enemies.Kappa
         private static readonly int IdleHash = Animator.StringToHash("idle");
         private static readonly int HitHash = Animator.StringToHash("hit");
 
-        private KappaAudio _audio;
+        [SerializeField] public GameObject kappaShell;
 
         private bool _isRolling;
         private bool _isChasingPlayer;
@@ -67,8 +67,7 @@ namespace Enemies.Kappa
             {
                 player = GameObject.FindGameObjectWithTag("Player");
             }
-
-            _audio = GetComponent<KappaAudio>();
+            
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponentInChildren<Animator>();
         }
@@ -260,6 +259,20 @@ namespace Enemies.Kappa
             
             return false;
         }
+        
+        protected override void EnemyDie()
+        {
+            base.EnemyDie();
+            StartCoroutine(DisableEnemy());
+
+        }
+
+        private IEnumerator DisableEnemy()
+        {
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(kappaShell, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
+        }
     
         private void OnDrawGizmosSelected()
         {
@@ -270,6 +283,8 @@ namespace Enemies.Kappa
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(collisionDetectionCenter.position, collisionDetectionRadius);
         }
+
+
     
     }
 }
