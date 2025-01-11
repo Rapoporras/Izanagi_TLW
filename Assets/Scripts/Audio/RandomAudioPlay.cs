@@ -7,6 +7,8 @@ public class RandomAudioPlay : MonoBehaviour
     
     private AudioSource _audioSource;
 
+    [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
+
     [Header("Audio Settings")]
     [SerializeField] private bool useRandomVolume;
     [SerializeField, Range(0, 1)] private float minVolume = 1f;
@@ -41,6 +43,7 @@ public class RandomAudioPlay : MonoBehaviour
         }
         else
         {
+            _audioSource.clip = audioClips[Random.Range(0, audioClips.Count)];
             _randomTimer = Random.Range(minDelayBetweenPlays, maxDelayBetweenPlays);
             _randomVolume = Random.Range(minVolume, maxVolume);
             _randomPitch = Random.Range(minPitch, maxPitch);

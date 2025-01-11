@@ -30,6 +30,8 @@ namespace Enemies.Kappas
         [Header("Debugging")]
         [SerializeField] private Color _spawningDebugColor;
 
+        private AudioSource _audioSource;
+
         // player detection
         private const int RayCount = 3;
         private float _raySpacing;
@@ -39,6 +41,7 @@ namespace Enemies.Kappas
         private void Awake()
         {
             _particleSystem.Stop();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -95,6 +98,7 @@ namespace Enemies.Kappas
                 if (hit && hit.transform.CompareTag("Player"))
                 {
                     _playerDetected = true;
+                    _audioSource.Play();
                     StartCoroutine(SpawnMiniKappa());
                     // _spriteRenderer.color = _spawningDebugColor; // just for debugging
                     return;
