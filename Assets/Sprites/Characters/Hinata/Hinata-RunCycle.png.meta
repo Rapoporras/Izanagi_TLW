@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b59bc86cfd1994749a001f0140088a18
+guid: 2b39ad832ab91d141ba37dd05363a4e8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -101,9 +101,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 178
-        y: 1316
+        y: 1313
         width: 620
-        height: 618
+        height: 623
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c34b3074eec85374f98e9a5959fe65ee
-      internalID: 25192884
+      spriteID: 2cfc34e98d12bdb41bc3894cb461afb0
+      internalID: -208642972
       vertices: []
       indices: 
       edges: []
@@ -121,10 +121,10 @@ TextureImporter:
       name: Hinata-RunCycle_1
       rect:
         serializedVersion: 2
-        x: 1167
-        y: 1319
-        width: 618
-        height: 618
+        x: 2129
+        y: 1313
+        width: 620
+        height: 623
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69d281b14c4c1ef4e8d591d63955fc55
-      internalID: 2019134975
+      spriteID: d89f6897cfe09834489a6590b8c442c9
+      internalID: 9868378
       vertices: []
       indices: 
       edges: []
@@ -142,10 +142,10 @@ TextureImporter:
       name: Hinata-RunCycle_2
       rect:
         serializedVersion: 2
-        x: 2130
-        y: 1316
-        width: 615
-        height: 593
+        x: 4150
+        y: 1341
+        width: 620
+        height: 623
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03493c6716d0e644487be6d59edd581e
-      internalID: 1520882540
+      spriteID: 37eb9cac2d8e1af488f36f629f51b788
+      internalID: -179416756
       vertices: []
       indices: 
       edges: []
@@ -163,10 +163,10 @@ TextureImporter:
       name: Hinata-RunCycle_3
       rect:
         serializedVersion: 2
-        x: 3152
-        y: 1333
-        width: 589
-        height: 559
+        x: 168
+        y: 559
+        width: 623
+        height: 623
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1c432cfa4589d24c82728c4005a6c3a
-      internalID: 518844964
+      spriteID: 86d2ea3da8622f64aa6a5f059d2a9ceb
+      internalID: -571530903
       vertices: []
       indices: 
       edges: []
@@ -184,10 +184,10 @@ TextureImporter:
       name: Hinata-RunCycle_4
       rect:
         serializedVersion: 2
-        x: 4152
-        y: 1352
-        width: 617
-        height: 573
+        x: 2141
+        y: 569
+        width: 623
+        height: 622
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 437dea6cc2b37d24eb5ae21b363ec6a3
-      internalID: -970165443
+      spriteID: 79fa651afde27094b830ffd8f7e79130
+      internalID: 1457451740
       vertices: []
       indices: 
       edges: []
@@ -205,10 +205,10 @@ TextureImporter:
       name: Hinata-RunCycle_5
       rect:
         serializedVersion: 2
-        x: 170
-        y: 559
-        width: 621
-        height: 620
+        x: 4146
+        y: 608
+        width: 625
+        height: 623
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,92 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 746d3f001f3b2904f8c4bba1a53ebf04
-      internalID: -1072667309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hinata-RunCycle_6
-      rect:
-        serializedVersion: 2
-        x: 1171
-        y: 560
-        width: 619
-        height: 620
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3e164028b803f24ea3a657566ec0950
-      internalID: 366000727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hinata-RunCycle_7
-      rect:
-        serializedVersion: 2
-        x: 2141
-        y: 569
-        width: 623
-        height: 621
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a4697f67904e694f920dd80d4f7c6bd
-      internalID: -1239716722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hinata-RunCycle_8
-      rect:
-        serializedVersion: 2
-        x: 3146
-        y: 581
-        width: 599
-        height: 583
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45aa76e07b4f5af46a758c89b209f033
-      internalID: -569798122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hinata-RunCycle_9
-      rect:
-        serializedVersion: 2
-        x: 4147
-        y: 593
-        width: 594
-        height: 570
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 192ed47f42fa1284ba5fe25245221658
-      internalID: 1996327010
+      spriteID: ab2cd799fc5a8b744b2fb0dd28111644
+      internalID: -1816846389
       vertices: []
       indices: 
       edges: []
@@ -317,17 +233,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hinata-RunCycle_0: 25192884
-      Hinata-RunCycle_1: 2019134975
-      Hinata-RunCycle_10: 1065527146
-      Hinata-RunCycle_2: 1520882540
-      Hinata-RunCycle_3: 518844964
-      Hinata-RunCycle_4: -970165443
-      Hinata-RunCycle_5: -1072667309
-      Hinata-RunCycle_6: 366000727
-      Hinata-RunCycle_7: -1239716722
-      Hinata-RunCycle_8: -569798122
-      Hinata-RunCycle_9: 1996327010
+      Hinata-RunCycle_0: -208642972
+      Hinata-RunCycle_1: 9868378
+      Hinata-RunCycle_2: -179416756
+      Hinata-RunCycle_3: -571530903
+      Hinata-RunCycle_4: 1457451740
+      Hinata-RunCycle_5: -1816846389
+      Hinata-RunCycle_6: 229560045
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

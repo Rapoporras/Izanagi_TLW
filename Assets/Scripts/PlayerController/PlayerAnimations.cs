@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PlayerController.States;
+using UnityEngine;
 
 namespace PlayerController
 {
@@ -61,11 +62,11 @@ namespace PlayerController
             _animationIddleSelect = Animator.StringToHash("animationSelect");
         }
 
-        private void Update()
-        {
-            if (_player.CanDash && _player.DashRequest)
-                _animator.SetTrigger(_isDashingHash);
-        }
+        // private void Update()
+        // {
+        //     if (_player.CanDash && _player.DashRequest)
+        //         _animator.SetTrigger(_isDashingHash);
+        // }
 
         private void LateUpdate()
         {
@@ -73,7 +74,7 @@ namespace PlayerController
             _animator.SetFloat(_ySpeedHash, _player.Velocity.y);
             _animator.SetBool(_isGroundedHash, _player.IsGrounded);
             _animator.SetBool(_isSlidingHash, _player.IsWallSliding);
-            // _animator.SetBool(_isDashingHash, _player.CurrentState == PlayerStates.Dashing);
+            _animator.SetBool(_isDashingHash, _player.CurrentState == PlayerStates.Dashing);
             _animator.SetBool(_isTakingDamageHash, _player.IsTakingDamage);
         }
 
@@ -82,7 +83,6 @@ namespace PlayerController
         //Llamado desde evento de fin de animación de personaje Iddle
         private void UpdateAnimationIddleSelect()
         {
-
            _animator.SetFloat(_animationIddleSelect, Random.Range(0f, 1f));
         }
 
