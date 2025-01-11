@@ -60,13 +60,6 @@ namespace SceneLoaderSystem
                 enemy.player = player;
                 enemy.SetUpBehaviourTree();
             }
-
-            GameObject[] spatialSoundGameObjects = GameObject.FindGameObjectsWithTag("SpatialSound");
-            foreach (var spatialSoundGameObject in spatialSoundGameObjects)
-            {
-                spatialSoundGameObject.TryGetComponent(out SpatialAudio spatialAudio);
-                spatialAudio.player = player;
-            }
             
             // all dependencies must be loaded at this point
             // there must be an InputManager
