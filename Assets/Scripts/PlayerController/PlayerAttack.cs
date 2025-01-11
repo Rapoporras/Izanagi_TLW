@@ -147,7 +147,7 @@ namespace PlayerController
 
         public void StopAttack()
         {
-            InputManager.PlayerActions.Movement.Enable();
+            EnableMovement();
             attackInput = false;
             _hasCollided = false;
             _breakableWallHit = false;
@@ -172,6 +172,23 @@ namespace PlayerController
         private void UpdateMannaPoints(int amount)
         {
             _currentManna.Value = Mathf.Clamp(_currentManna + amount, 0, _maxManna);
+        }
+        #endregion
+        
+        #region PLAYER INPUT
+        public void EnableMovement()
+        {
+            InputManager.PlayerActions.Jump.Enable();
+            InputManager.PlayerActions.Movement.Enable();
+        }
+        
+        public void DisableMovement()
+        {
+            InputManager.PlayerActions.Jump.Disable();
+            if (_playerMovement.IsGrounded)
+            {
+                InputManager.PlayerActions.Movement.Disable();
+            }
         }
         #endregion
         
