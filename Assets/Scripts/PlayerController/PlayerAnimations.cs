@@ -1,5 +1,4 @@
 ﻿using PlayerController.States;
-using System.Collections;
 using UnityEngine;
 
 namespace PlayerController
@@ -63,11 +62,11 @@ namespace PlayerController
             _animationIddleSelect = Animator.StringToHash("animationSelect");
         }
 
-        private void Update()
-        {
-            if (_player.CanDash && _player.DashRequest)
-                _animator.SetTrigger(_isDashingHash);
-        }
+        // private void Update()
+        // {
+        //     if (_player.CanDash && _player.DashRequest)
+        //         _animator.SetTrigger(_isDashingHash);
+        // }
 
         private void LateUpdate()
         {
@@ -84,7 +83,6 @@ namespace PlayerController
         //Llamado desde evento de fin de animación de personaje Iddle
         private void UpdateAnimationIddleSelect()
         {
-
            _animator.SetFloat(_animationIddleSelect, Random.Range(0f, 1f));
         }
 

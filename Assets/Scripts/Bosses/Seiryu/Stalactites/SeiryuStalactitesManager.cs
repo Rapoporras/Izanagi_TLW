@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using CustomAttributes;
 using SceneMechanics.Stalactite;
 using UnityEngine;
 using Utils;
@@ -9,7 +10,7 @@ namespace Bosses
     public class SeiryuStalactitesManager : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private Vector2 _stalatitesTimeRange;
+        [SerializeField, MinMax(0,5)] private Vector2 _stalatitesTimeRange;
         
         [Space(10), SerializeField] private List<Stalactite> _stalactitesList;
 
