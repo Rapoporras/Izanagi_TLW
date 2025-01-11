@@ -1,30 +1,26 @@
-﻿using Utils;
+﻿using UnityEditor.Timeline;
 
 namespace Bosses
 {
     public class SeiryuCombatState : SeiryuBaseState
     {
-        private readonly float _attackDelayFirstPhase;
-        
-        private Timer _attacksTimer;
-        
-        public SeiryuCombatState(SeiryuState key, SeiryuController context) : base(key, context)
-        {
-            _attackDelayFirstPhase = 5f;
-            _attacksTimer = new Timer(_attackDelayFirstPhase);
-        }
+        public SeiryuCombatState(SeiryuState key, SeiryuController context)
+            : base(key, context) { }
 
         public override void EnterState()
         {
-            Context.TryToAttack();
+            if (Context.transitionToNextPhase)
+                Context.TransitionAttack();
+            else
+                Context.TryToAttack();
         }
 
         public override SeiryuState GetNextState()
         {
             if (Context.WaitForNextAttack)
             {
-                if (Context.transitionToNextPhase)
-                    return SeiryuState.Transition;
+                if (Context.phase == 3 && !Context.transitionToNextPhase)
+                    return SeiryuState.Dead;
                 
                 return SeiryuState.Waiting;
             }

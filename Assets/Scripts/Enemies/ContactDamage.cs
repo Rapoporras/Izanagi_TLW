@@ -13,15 +13,16 @@ public class ContactDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!isActive) return;
-        
+
         if ((1 << other.gameObject.layer) != _hurtboxLayer) return;
-        
+
         if (other.CompareTag("Player"))
         {
             if (other.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
             {
-                int xDirection = (int) Mathf.Sign(other.transform.position.x - transform.position.x);
+                int xDirection = (int)Mathf.Sign(other.transform.position.x - transform.position.x);
                 playerHealth.Damage(_damage, xDirection);
+                ControllerVibration.Instance.TriggerInstantVibration(0.2f, 0.3f, 0.5f);
             }
         }
 

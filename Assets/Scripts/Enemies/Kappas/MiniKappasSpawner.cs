@@ -63,8 +63,11 @@ namespace Enemies.Kappas
             if (_spriteRenderer.sprite == _brokenSprinte)
             {
                 _particleSystem.Play();
-                MiniKappaAI miniKappaInstance = Instantiate(_miniKappaPrefab, _spawnPosition.transform.position, Quaternion.identity);
-                miniKappaInstance.SetUpBehaviourTree();
+                for(int i=0; i < _kappasToSpawn; i++)
+                {
+                    MiniKappaAI miniKappaInstance = Instantiate(_miniKappaPrefab, _spawnPosition.transform.position, Quaternion.identity);
+                    miniKappaInstance.SetUpBehaviourTree();
+                }
             }
         }
 

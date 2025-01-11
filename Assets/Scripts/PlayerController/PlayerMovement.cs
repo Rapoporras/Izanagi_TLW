@@ -272,7 +272,7 @@ namespace PlayerController
             // avoid shorter jumps when falling and jumping with coyote time
             if (_rb2d.velocity.y < 0)
                 force -= _rb2d.velocity.y;
-            
+             
             _rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using CustomAttributes;
 using GameEvents;
 using Health;
 using StateMachine;
@@ -15,7 +16,7 @@ namespace Bosses
         
         [Header("Settings")]
         [Tooltip("Tiempo de espera para volver a realizar un nuevo ataque")]
-        [SerializeField] private Vector2 _attackWaitingRange = new Vector2(1.5f, 3f);
+        [SerializeField, MinMax(0,5)] private Vector2 _attackWaitingRange = new Vector2(1.5f, 3f);
         [Tooltip("Porcentaje de vida que debe tener el boss para cambiar de fase")]
         [SerializeField, Range(0,1)] private float _changePhasePercentage = 0.5f;
         
@@ -29,7 +30,8 @@ namespace Bosses
 
         [Header("Events")]
         [SerializeField] private VoidEvent _damageEvent;
-        
+
+        public SeiryuState CurrentState => _currentState.StateKey;
         public bool CanStartFight { get; private set; }
         public bool WaitForNextAttack { get; private set; }
         
@@ -72,7 +74,6 @@ namespace Bosses
             States.Add(SeiryuState.Init, new SeiryuInitCombatState(SeiryuState.Init, this));
             States.Add(SeiryuState.Combat, new SeiryuCombatState(SeiryuState.Combat, this));
             States.Add(SeiryuState.Waiting, new SeiryuWaitingState(SeiryuState.Waiting, this));
-            States.Add(SeiryuState.Transition, new SeiryuTransitionState(SeiryuState.Transition, this));
             States.Add(SeiryuState.Dead, new SeiryuDeadState(SeiryuState.Dead, this));
 
             _currentState = States[SeiryuState.Init];
@@ -97,12 +98,11 @@ namespace Bosses
         {
             if (phase == 1)
             {
-                _attacksManager.Attack(_player.position, phase, _fistAttackProbPhase1, _sweepingAttackProbPhase1);
+                _attacksManager.Attack(_player.position, _fistAttackProbPhase1, _sweepingAttackProbPhase1);
             }
             else if (phase == 2)
             {
-                _attacksManager.Attack(_player.position, phase, 
-                    _fistAttackProbPhase2, _sweepingAttackProbPhase2);
+                _attacksManager.Attack(_player.position, _fistAttackProbPhase2, _sweepingAttackProbPhase2);
             }
             WaitForNextAttack = false;
         }
@@ -110,7 +110,8 @@ namespace Bosses
         public void TransitionAttack()
         {
             _attacksManager.TransitionAttack();
-            // WaitForNextAttack = false;
+            transitionToNextPhase = false;
+            WaitForNextAttack = false;
         }
 
         public void SetSpritesAlpha(float alpha)

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Enemies.Kappa;
 using Health;
+using PlayerController;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -279,15 +280,25 @@ namespace Enemies.BehaviourTree
             {
                 if (!e.CompareTag("Enemy"))
                 {
-                    Debug.Log("roll hit");
 
                     if (e.CompareTag("Player"))
                     {
                         if (e.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
                         {
-                            int xDirection = (int)Mathf.Sign(e.transform.position.x - _enemyTransform.position.x);
-                            playerHealth.Damage(_rollDamage, xDirection);
+                            if (e.transform.parent.TryGetComponent(out PlayerMovement playerMovement))
+                            {
+                                if (!playerMovement.dashInvulnerability)
+                                {
+                                    int xDirection = (int)Mathf.Sign(e.transform.position.x - _enemyTransform.position.x);
+                                    playerHealth.Damage(_rollDamage, xDirection);
+                                    _rb.velocity = Vector2.zero;
+                                    _animator.SetTrigger("impact");    
+                                    return Node.Status.Success;
+                                }
+                            }
                         }
+                        
+                        return Node.Status.Running;
                     }
 
                     _rb.velocity = Vector2.zero;
