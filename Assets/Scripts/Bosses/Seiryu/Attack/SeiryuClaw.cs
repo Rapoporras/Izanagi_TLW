@@ -7,7 +7,7 @@ namespace Bosses
 {
     public class SeiryuClaw : MonoBehaviour
     {
-        private enum State
+        public enum State
         {
             Attacking, Recovering, Waiting
         }
@@ -20,7 +20,7 @@ namespace Bosses
         [SerializeField] private float _recoveringSpeed;
 
         [Header("Positions")]
-        [SerializeField] private Transform _fistHitPosition;
+        [SerializeField] private Transform _transitionAttackPos;
         [Space(5)]
         [SerializeField] private Transform _sweepCurveControlPos;
         [SerializeField] private Transform _sweepEndPos;
@@ -50,6 +50,7 @@ namespace Bosses
         
         private Coroutine _attackCoroutine;
         private State _state;
+        public State state => _state;
 
         private Vector3 _initialPosition;
         private Vector3 _restTargetPos;
@@ -134,12 +135,12 @@ namespace Bosses
 
         #region FIST ATTACK
         [ContextMenu("Fist Attack")]
-        public void FistPunch()
+        public void FistPunch(Vector3 targetPos)
         {
-            InitAttack(_FistPunch(), AttackType.Fist);
+            InitAttack(_FistPunch(targetPos), AttackType.Fist);
         }
 
-        private IEnumerator _FistPunch()
+        private IEnumerator _FistPunch(Vector3 targetPos)
         {
             bool isInPlace = false;
             
@@ -154,9 +155,11 @@ namespace Bosses
             yield return new WaitForSeconds(_anticipationTime);
             
             isInPlace = false;
+            targetPos.y = _transitionAttackPos.position.y;
             while (!isInPlace)
             {
-                isInPlace = MoveToTarget(_fistHitPosition.position, _fistAttackSpeed * Time.deltaTime);
+                // set targetPos.y near the floor
+                isInPlace = MoveToTarget(targetPos, _fistAttackSpeed * Time.deltaTime);
                 yield return null;
             }
             
@@ -209,9 +212,21 @@ namespace Bosses
         private IEnumerator _TransitionAttack(bool triggerEvent)
         {
             bool isInPlace = false;
+            
+            Vector3 anticipationPos = transform.position;
+            anticipationPos.y += _anticipationHeight;
             while (!isInPlace)
             {
-                isInPlace = MoveToTarget(_sweepEndPos.position, _fistAttackSpeed * Time.deltaTime);
+                isInPlace = MoveToTarget(anticipationPos, _fistAttackSpeed * Time.deltaTime);
+                yield return null;
+            }
+            
+            yield return new WaitForSeconds(_anticipationTime);
+            
+            isInPlace = false;
+            while (!isInPlace)
+            {
+                isInPlace = MoveToTarget(_transitionAttackPos.position, _fistAttackSpeed * Time.deltaTime);
                 yield return null;
             }
             
@@ -247,6 +262,9 @@ namespace Bosses
                     break;
                 case AttackType.Sweep:
                     _animator.SetTrigger(_sweepAnimHash);
+                    break;
+                case AttackType.Transition:
+                    _animator.SetTrigger(_fistAnimHash);
                     break;
             }
         }
