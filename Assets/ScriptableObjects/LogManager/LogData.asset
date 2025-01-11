@@ -15,25 +15,25 @@ MonoBehaviour:
   _features:
   - feature: 0
     customColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 0}
-    enabled: 0
+    enabled: 1
   - feature: 1
     customColor: {r: 1, g: 0.7450911, b: 0.25943398, a: 0}
     enabled: 1
   - feature: 2
     customColor: {r: 0.27305093, g: 0.7209899, b: 0.9811321, a: 0}
-    enabled: 0
+    enabled: 1
   - feature: 3
     customColor: {r: 1, g: 0.4292453, b: 0.4292453, a: 0}
-    enabled: 0
+    enabled: 1
   - feature: 4
     customColor: {r: 0.864451, g: 0.48584908, b: 1, a: 0}
     enabled: 0
   - feature: 5
     customColor: {r: 0.5400841, g: 1, b: 0.5235849, a: 0}
-    enabled: 0
+    enabled: 1
   - feature: 6
     customColor: {r: 1, g: 0.4764151, b: 0.79235584, a: 0}
-    enabled: 0
+    enabled: 1
   - feature: 7
     customColor: {r: 1, g: 0, b: 0.15044546, a: 1}
-    enabled: 0
+    enabled: 1

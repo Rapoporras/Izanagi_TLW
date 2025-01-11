@@ -39,9 +39,9 @@ namespace PlayerController.Abilities
             Collider2D[] entities = Physics2D.OverlapAreaAll(pointA, pointB, _hurtboxLayer);
             foreach (var entity in entities)
             {
-                if (entity.CompareTag("Enemy") && entity.transform.parent.TryGetComponent(out EntityHealth entityHealth))
+                if (entity.CompareTag("Enemy") && entity.TryGetComponent(out IDamageable damageableArea))
                 {
-                    entityHealth.Damage(damage, false);
+                    damageableArea.Damage(damage, false);
                 }
             }
             

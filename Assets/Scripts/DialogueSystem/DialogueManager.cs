@@ -35,13 +35,14 @@ namespace DialogueSystem
         private TextMeshProUGUI[] _choicesText;
 
         private DialogueVariables _dialogueVariables;
+        private InkExternalFunctions _inkExternalFunctions;
         private Story _currentStory;
 
         private bool _isSelectingChoice;
         private bool _dialogueIsPlaying;
         private bool _canContinueToNextLine;
 
-        [SerializeField] private bool _inputPressed;
+        private bool _inputPressed;
 
         private Coroutine _displayLineCoroutine;
 
@@ -67,9 +68,10 @@ namespace DialogueSystem
 
         private void Start()
         {
+            _dialogueVariables = new DialogueVariables(_loadGlobalsJSON, Application.persistentDataPath, _fileName);
+            _inkExternalFunctions = new InkExternalFunctions();
+            
             _dialogueIsPlaying = false;
-            if (_dialogueVariables == null)
-                _dialogueVariables = new DialogueVariables(_loadGlobalsJSON, Application.persistentDataPath, _fileName);
             _dialoguePanel.SetActive(false);
             ResetDialogueUI();
             
@@ -100,6 +102,7 @@ namespace DialogueSystem
             
             _currentStory = new Story(dialogueInfo.InkJSON.text);
             _dialogueVariables.StartListening(_currentStory);
+            _inkExternalFunctions.Bind(_currentStory);
             _dialogueIsPlaying = true;
 
             if (dialogueInfo.CharacterPortrait)
@@ -116,6 +119,7 @@ namespace DialogueSystem
         {
             _dialogueIsPlaying = false;
             _dialogueVariables.StopListening(_currentStory);
+            _inkExternalFunctions.Unbind(_currentStory);
             _dialoguePanel.SetActive(false);
             ResetDialogueUI();
             
@@ -138,7 +142,12 @@ namespace DialogueSystem
             {
                 if (_displayLineCoroutine != null)
                     StopCoroutine(_displayLineCoroutine);
-                _displayLineCoroutine = StartCoroutine(DisplayLine(_currentStory.Continue()));
+
+                string nextLine = _currentStory.Continue();
+                if (string.IsNullOrEmpty(nextLine) && !_currentStory.canContinue)
+                    ExitDialogueMode();
+                
+                _displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
             }
             else
             {

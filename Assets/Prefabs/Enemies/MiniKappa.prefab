@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   giveUpwardForce: 0
   damageable: 1
-  maxHealth: 30
+  maxHealth: 1
   invulnerabilityTime: 0.5
   _health:
     <MaxHealth>k__BackingField: 0
@@ -170,12 +170,12 @@ MonoBehaviour:
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 9
-  chaseSpeed: 9.5
+  chaseSpeed: 8.5
   onHitStunTime: 0.15
   knockbackStrength: 3
   attackCenter: {fileID: 1795511483269647706}
   attackRadius: 0.5
-  attackDamage: 15
+  attackDamage: 5
   hurtboxLayer:
     serializedVersion: 2
     m_Bits: 256

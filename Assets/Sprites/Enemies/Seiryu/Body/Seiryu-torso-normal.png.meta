@@ -1,0 +1,730 @@
+fileFormatVersion: 2
+guid: 7777bebaafed07f45867835ab6f83bf8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4250
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10434e2d7c0ac7d43b0b74d6903745ac
+      internalID: 477275444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 4250
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d45584b37a4db489ce376e01341261
+      internalID: 178325988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 4250
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07df62f4b4f32224c8a467c92b1762fd
+      internalID: -2088549339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 4250
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e55275835bccb498f3f9a26e35d523
+      internalID: 1236304281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 4250
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b812bb5c9e885640884b46322be421a
+      internalID: 232600814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3400
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0809fe2f568989a42ad6bc89ab0f577a
+      internalID: -1535909987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_6
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 3400
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37bd7cbd41e03ec4a9515dc1c1711bb9
+      internalID: 1953706949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_7
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3400
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a10eee562f869049afba3a74a6f35ab
+      internalID: 1014344706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_8
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3400
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c16b2dbbeab1f64eb4ae8a2576d1010
+      internalID: -654521405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_9
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 3400
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1af8e2e2bbee224b8ae0312c38a1816
+      internalID: -14415706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2550
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5ef1768ebfd9f49a58c890d891eb89
+      internalID: 678127486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_11
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2550
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238327f988b51024fb93e1d60011f9df
+      internalID: -1228333343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_12
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2550
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 566fb8c0d38f44747a4c696331106d16
+      internalID: 671077980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_13
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2550
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57536f8395450ca4081e33d3949104ad
+      internalID: 1899101857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_14
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 2550
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5ceb21a0e545c4fa44a128986741c1
+      internalID: 1102784277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1700
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7466e4206890754468103190837d79a0
+      internalID: -1893557429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_16
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1700
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb92e9f9d37a0643a73359746497ea5
+      internalID: -1340727739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_17
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1700
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6eeefce7068294996ff05c92a7652e
+      internalID: 737161333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_18
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1700
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9641bc4b6d6f3b84abb026faed10881c
+      internalID: 454245927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_19
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1700
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18171dfad2eb25d47bb326bb829e6785
+      internalID: 520805251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 850
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2706cd634e91a8c42bf753bc45a6a6e9
+      internalID: 1411883712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_21
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 850
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d738307d839cfae40b5db4a3db29da79
+      internalID: 407940740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_22
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 850
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8254c06a40d61419ea145d38e4c1b6
+      internalID: 1359749325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_23
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 850
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5dea637b1759ca43845ac0484c1ca69
+      internalID: 1243655904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_24
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 850
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 577f26522c004d0448111198bd0a8408
+      internalID: -1755139668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7059cc7e93630384f98fa044c6eb5547
+      internalID: 1619691597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_26
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3780363adc730cf48a1ec751adaa947b
+      internalID: -1722961432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seiryu-torso-normal_27
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35790afdf3e6e0546a45389eac60c122
+      internalID: 1446008124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Seiryu-torso-normal_0: 477275444
+      Seiryu-torso-normal_1: 178325988
+      Seiryu-torso-normal_10: 678127486
+      Seiryu-torso-normal_11: -1228333343
+      Seiryu-torso-normal_12: 671077980
+      Seiryu-torso-normal_13: 1899101857
+      Seiryu-torso-normal_14: 1102784277
+      Seiryu-torso-normal_15: -1893557429
+      Seiryu-torso-normal_16: -1340727739
+      Seiryu-torso-normal_17: 737161333
+      Seiryu-torso-normal_18: 454245927
+      Seiryu-torso-normal_19: 520805251
+      Seiryu-torso-normal_2: -2088549339
+      Seiryu-torso-normal_20: 1411883712
+      Seiryu-torso-normal_21: 407940740
+      Seiryu-torso-normal_22: 1359749325
+      Seiryu-torso-normal_23: 1243655904
+      Seiryu-torso-normal_24: -1755139668
+      Seiryu-torso-normal_25: 1619691597
+      Seiryu-torso-normal_26: -1722961432
+      Seiryu-torso-normal_27: 1446008124
+      Seiryu-torso-normal_3: 1236304281
+      Seiryu-torso-normal_4: 232600814
+      Seiryu-torso-normal_5: -1535909987
+      Seiryu-torso-normal_6: 1953706949
+      Seiryu-torso-normal_7: 1014344706
+      Seiryu-torso-normal_8: -654521405
+      Seiryu-torso-normal_9: -14415706
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

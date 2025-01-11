@@ -28,6 +28,8 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
     /// </summary>
     protected virtual void OnEnable()
     {
+        _entityHealth.ResetHealth();
+        _isEnemyDead = false;
         _entityHealth.AddListenerDeathEvent(EnemyDie);
     }
     

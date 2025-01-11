@@ -12,7 +12,7 @@ namespace SceneMechanics
         [Space(10)]
         [SerializeField] private List<Ghost> _ghosts;
 
-        private Coroutine _activateGhostsCoroutine;
+        private Coroutine _activateGhostsCoroutine; 
 
         private IEnumerator ActivateGhosts()
         {
