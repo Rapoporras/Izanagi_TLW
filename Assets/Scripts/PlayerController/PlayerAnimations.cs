@@ -1,6 +1,4 @@
-﻿using PlayerController.States;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PlayerController
 {
@@ -75,7 +73,7 @@ namespace PlayerController
             _animator.SetFloat(_ySpeedHash, _player.Velocity.y);
             _animator.SetBool(_isGroundedHash, _player.IsGrounded);
             _animator.SetBool(_isSlidingHash, _player.IsWallSliding);
-            _animator.SetBool(_isDashingHash, _player.CurrentState == PlayerStates.Dashing);
+            // _animator.SetBool(_isDashingHash, _player.CurrentState == PlayerStates.Dashing);
             _animator.SetBool(_isTakingDamageHash, _player.IsTakingDamage);
         }
 
