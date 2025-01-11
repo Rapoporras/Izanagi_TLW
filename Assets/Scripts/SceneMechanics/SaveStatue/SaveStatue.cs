@@ -66,7 +66,7 @@ namespace SceneMechanics.SaveStatue
             DialogueManager.Instance.SaveVariables();
 
             ActivateSymbols();
-            
+            ControllerVibration.Instance.TriggerProgressiveVibration(0.5f, 0.5f);
             _audioSource.Play();
             LogManager.Log("Game saved . . .", FeatureType.SaveSystem);
         }
