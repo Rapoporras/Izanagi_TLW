@@ -242,3 +242,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8304470913818249218, guid: 532905a3217bcce4195c254cf052420a, type: 3}
   m_PrefabInstance: {fileID: 7396332180532657479}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &5321182785727002721 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3422084132771857702, guid: 532905a3217bcce4195c254cf052420a, type: 3}
+  m_PrefabInstance: {fileID: 7396332180532657479}
+  m_PrefabAsset: {fileID: 0}

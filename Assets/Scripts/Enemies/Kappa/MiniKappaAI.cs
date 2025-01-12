@@ -3,11 +3,12 @@ using Enemies.BehaviourTree;
 using Health;
 using SaveSystem;
 using UnityEngine;
+using Utils;
 using Utils.CustomLogs;
 
 namespace Enemies.Kappa
 {
-    public class MiniKappaAI : BaseEnemy
+    public class MiniKappaAI : BaseEnemy, IResettable
     {
         [Header("Chase parameters")]
         [Tooltip("Radius where the player will be detected")]
@@ -215,6 +216,10 @@ namespace Enemies.Kappa
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackCenter.position, attackRadius);
         }
-    
+
+        public void ResetObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

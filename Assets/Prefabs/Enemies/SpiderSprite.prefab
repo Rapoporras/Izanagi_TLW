@@ -107,6 +107,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3112451438946760269}
+  - component: {fileID: 5781055487278962607}
+  - component: {fileID: 2457789450513057149}
   m_Layer: 0
   m_Name: SpiderSprite
   m_TagString: Untagged
@@ -131,6 +133,46 @@ Transform:
   - {fileID: 6349404870290192467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5781055487278962607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2404141686481388140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0dba69023d4b649480eae0d4cb849b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2457789450513057149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2404141686481388140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e805b8814a055994ca46ec2bc84a3dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4eaec2ddecb45ae44a030ad2a9090586, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5781055487278962607}
+        m_TargetAssemblyTypeName: Utils.DestroyBehaviour, Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8835490418491109503
 GameObject:
   m_ObjectHideFlags: 0
