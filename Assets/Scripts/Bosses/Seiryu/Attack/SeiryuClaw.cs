@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using GameEvents;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils;
 
 namespace Bosses
@@ -40,6 +41,14 @@ namespace Bosses
         [Header("Events")]
         [SerializeField] private SeiryuAttackInfoEvent _attackEvent;
         
+        [FormerlySerializedAs("punchSound")]
+        [Header("Audio")]
+        [SerializeField] private AudioClip fistSound;
+        [SerializeField] private AudioClip sweepSound;
+
+        private AudioSource _audioSource;
+        private bool _didSweepSoundPlay;
+        
         private Rigidbody2D _rb2d;
         private Animator _animator;
         private ContactDamage _contactDamage;
@@ -56,6 +65,8 @@ namespace Bosses
         private Vector3 _restTargetPos;
         
         private Timer _recoveringTimer;
+        
+        
 
         private void Awake()
         {
@@ -63,6 +74,8 @@ namespace Bosses
             _animator = GetComponent<Animator>();
             _contactDamage = GetComponent<ContactDamage>();
             _contactDamage.isActive = false;
+
+            _audioSource = GetComponent<AudioSource>();
 
             _defaultAnimHash = Animator.StringToHash("default");
             _fistAnimHash = Animator.StringToHash("fist");
@@ -162,6 +175,10 @@ namespace Bosses
                 isInPlace = MoveToTarget(targetPos, _fistAttackSpeed * Time.deltaTime);
                 yield return null;
             }
+
+            _audioSource.volume = 0.65f;
+            _audioSource.clip = fistSound;
+            _audioSource.Play();
             
             TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Fist, _side);
             
@@ -189,12 +206,22 @@ namespace Bosses
                 float sweepProgression = sweepDistanceTraveled / sweepLength;
                 sweepProgression = Mathf.Clamp01(sweepProgression);
 
+                if (sweepProgression > 0.5 && !_didSweepSoundPlay)
+                {
+                    _audioSource.clip = sweepSound;
+                    _audioSource.volume = 1f;
+                    _audioSource.Play();
+                    _didSweepSoundPlay = true;
+                }
+
                 Vector3 nextPos = MathUtils.BezierCurvePos(sweepProgression, _initialPosition,
                     _sweepCurveControlPos.position, _sweepEndPos.position);
                 _rb2d.MovePosition(nextPos);
                 
                 yield return null;
             }
+
+            _didSweepSoundPlay = false;
             
             TriggerStateChangeEvent(AttackState.FinishAttack, AttackType.Sweep, _side);
             

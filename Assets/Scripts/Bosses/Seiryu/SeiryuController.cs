@@ -30,6 +30,7 @@ namespace Bosses
 
         [Header("Events")]
         [SerializeField] private VoidEvent _damageEvent;
+        
 
         public SeiryuState CurrentState => _currentState.StateKey;
         public bool CanStartFight { get; private set; }
