@@ -38,7 +38,7 @@ namespace DialogueSystem
         public void Reset()
         {
             _globalVariablesStory.ResetState();
-            _variables.Clear();
+            InitVariables();
         }
 
         public void Save()
@@ -89,6 +89,11 @@ namespace DialogueSystem
                 }
             }
             
+            InitVariables();
+        }
+
+        private void InitVariables()
+        {
             _variables = new Dictionary<string, Ink.Runtime.Object>();
             foreach (var name in _globalVariablesStory.variablesState)
             {
@@ -99,7 +104,6 @@ namespace DialogueSystem
         
         private void OnVariableChange(string name, Ink.Runtime.Object value)
         {
-            LogManager.Log($"Variable changed: {name} = {value}", FeatureType.Dialogue);
             if (_variables.ContainsKey(name))
             {
                 _variables.Remove(name);
