@@ -28,6 +28,8 @@ namespace Enemies.Kappa
 
         private AudioSource _audioSource;
         
+        [SerializeField] public GameObject spiderSprite;
+        
         private Rigidbody2D _rb;
         private Animator _animator;
         private static readonly int AttackHash = Animator.StringToHash("attack");
@@ -179,6 +181,19 @@ namespace Enemies.Kappa
             if (Vector3.Distance(transform.position, player.transform.position) <= detectionRadius) return true;
             if (_audioSource.isPlaying) _audioSource.Stop();
             return false;
+        }
+        
+        protected override void EnemyDie()
+        {
+            base.EnemyDie();
+            StartCoroutine(DisableEnemy());
+        }
+
+        private IEnumerator DisableEnemy()
+        {
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(spiderSprite, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
         }
     
         private void OnDrawGizmosSelected()
