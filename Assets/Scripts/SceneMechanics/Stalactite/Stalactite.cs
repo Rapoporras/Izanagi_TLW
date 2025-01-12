@@ -46,6 +46,7 @@ namespace SceneMechanics.Stalactite
         private AudioSource _audioSource;
         [SerializeField] private List<AudioClip> _fallingAudio;
         [SerializeField] private AudioClip _hitFloorAudio;
+        [SerializeField] private AudioClip _breakAudio;
 
         [Header("Dependencies")]
         [SerializeField] private ParticleSystem _particleSystem;
@@ -103,6 +104,8 @@ namespace SceneMechanics.Stalactite
         private void DestroyObject()
         {
             // add effects here
+            _audioSource.clip = _breakAudio;
+            _audioSource.Play();
             gameObject.SetActive(false);
         }
         

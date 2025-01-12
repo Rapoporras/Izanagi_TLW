@@ -864,8 +864,10 @@ MonoBehaviour:
   fallSound: {fileID: 8300000, guid: 5e313d91f72dcf24ebc99f54f1b69aab, type: 3}
   dashSound: {fileID: 8300000, guid: df4a7f28e80fd034dbe011a69324e9c9, type: 3}
   walkSound: {fileID: 8300000, guid: f55806e0e7c239442a97ad5151156567, type: 3}
-  recoverHealthSound: {fileID: 0}
+  recoverHealthSound: {fileID: 8300000, guid: 91f081a15b348f649a3350ce1709f731, type: 3}
   hitSound: {fileID: 8300000, guid: 08a221dbcbf2a8a4998fbb4dd94bf94c, type: 3}
+  fireAttackSound: {fileID: 8300000, guid: bbf56033dcab8944c9f7618368bc72f9, type: 3}
+  fireUltiSound: {fileID: 8300000, guid: 0e8bc4338b997c542978ea8b5eb51666, type: 3}
 --- !u!114 &6381124633207999371
 MonoBehaviour:
   m_ObjectHideFlags: 0
