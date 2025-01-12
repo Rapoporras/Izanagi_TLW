@@ -20,6 +20,8 @@ namespace PlayerController.Abilities
 
         private PlayerMovement _playerMovement;
         private PlayerAbilities _playerAbilities;
+
+        private Transform _spawnPoint;
         
         public override void Initialize(GameObject target)
         {
@@ -28,6 +30,8 @@ namespace PlayerController.Abilities
             
             if (_playerAbilities == null)
                 _playerAbilities = target.GetComponent<PlayerAbilities>();
+
+            _spawnPoint = _playerAbilities.fireAbilitySpawnPos;
         }
         
         public override bool PerformAbility(GameObject target)
@@ -36,7 +40,7 @@ namespace PlayerController.Abilities
             
             LogManager.Log("Fire ability", FeatureType.Abilities);
             FireAbilityAttack abilityAttack =
-                Instantiate(_fireAbilityAttackPrefab, target.transform.position, target.transform.rotation);
+                Instantiate(_fireAbilityAttackPrefab, _spawnPoint.position, target.transform.rotation);
             abilityAttack.Damage = _abilityDamage;
             abilityAttack.Duration = AbilityDuration;
             

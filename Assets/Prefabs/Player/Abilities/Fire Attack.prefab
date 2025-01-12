@@ -4901,6 +4901,7 @@ MonoBehaviour:
   _hurtboxLayer:
     serializedVersion: 2
     m_Bits: 256
+  _particleSystem: {fileID: 5321182785727002721}
 --- !u!61 &5707929695190335346
 BoxCollider2D:
   m_ObjectHideFlags: 0
