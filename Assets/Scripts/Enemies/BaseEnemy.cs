@@ -1,4 +1,3 @@
-using System.Collections;
 using Health;
 using SaveSystem;
 using UnityEngine;
@@ -46,7 +45,7 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
     protected virtual void EnemyDie()
     {
         _isEnemyDead = true;
-         ControllerVibration.Instance.TriggerInstantVibration(0.1f, 0.1f, 0.4f);
+        ControllerVibration.Instance.TriggerInstantVibration(0.1f, 0.1f, 0.4f);
     }
 
     public void LoadTemporalData(TemporalDataSO temporalData)
@@ -62,6 +61,8 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
         {
             gameObject.SetActive(true);
         }
+        
+        // meter esto en un método virtual, hacer override en la clase de la araña
     }
 
     public void SaveTemporalData(TemporalDataSO temporalData)
@@ -75,5 +76,7 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
         {
             temporalData.deadEnemies.Remove(id);
         }
+        
+        // meter esto en un método virtual, hacer override en la clase de la araña (dejar método vacío)
     }
 }

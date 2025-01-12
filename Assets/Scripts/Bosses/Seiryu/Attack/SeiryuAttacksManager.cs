@@ -46,10 +46,12 @@ namespace Bosses
                             _seiryuStalactitesEvent.Raise();
                         
                         _screenShakeSource.TriggerScreenShake(_transitionAttackShake);
+                        ControllerVibration.Instance.TriggerInstantVibration(0.7f, 0.3f, 0.5f);
                     }
                     else if (info.type == AttackType.Fist)
                     {
                         _screenShakeSource.TriggerScreenShake(_fistAttackShake);
+                        ControllerVibration.Instance.TriggerInstantVibration(0.7f, 0.3f, 0.5f);
                     }
                     break;
             }
