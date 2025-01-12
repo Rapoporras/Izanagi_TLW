@@ -129,7 +129,8 @@ namespace Bosses
 
         public void FinishBattle()
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            OnFightFinished?.Invoke();
         }
         
         private void OnReadyForAttack()

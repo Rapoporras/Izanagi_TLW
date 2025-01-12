@@ -823,6 +823,7 @@ MonoBehaviour:
   _playerAbilitiesData: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
   _boostIcon: {fileID: 920100239317866299}
   _shield: {fileID: 7017688677903369985}
+  fireAbilitySpawnPos: {fileID: 2885668353557405222}
   _currentAbility:
     valueType: 1
     constantValue: 0
@@ -1103,7 +1104,39 @@ Transform:
   - {fileID: 7347923576346863529}
   - {fileID: 3439513541572044905}
   - {fileID: 7079387735626935189}
+  - {fileID: 2885668353557405222}
   m_Father: {fileID: 3687132239636878760}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8231773384068130581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2885668353557405222}
+  m_Layer: 9
+  m_Name: FireAbility SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2885668353557405222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231773384068130581}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.758, y: 1.439, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5677699652441642348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8252386998518686686
 GameObject:

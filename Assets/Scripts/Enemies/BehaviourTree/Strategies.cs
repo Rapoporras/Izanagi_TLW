@@ -274,13 +274,14 @@ namespace Enemies.BehaviourTree
                 return Node.Status.Success;
             }
             
+            int decorationLayer = LayerMask.NameToLayer ("Decoration");
             Collider2D[] entities = Physics2D.OverlapCircleAll(_enemyAI.CollisionDetectionCenter.position, _enemyAI.CollisionDetectionRadius);
 
             foreach (var e in entities)
             {
-                if (!e.CompareTag("Enemy"))
+                if (!e.CompareTag("Enemy") && e.gameObject.layer != decorationLayer)
                 {
-
+                    
                     if (e.CompareTag("Player"))
                     {
                         if (e.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
