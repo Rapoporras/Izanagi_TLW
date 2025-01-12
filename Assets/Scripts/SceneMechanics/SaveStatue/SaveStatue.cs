@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DialogueSystem;
+using GameEvents;
 using GlobalVariables;
 using InteractionSystem;
 using PlayerController.Data;
@@ -35,6 +36,9 @@ namespace SceneMechanics.SaveStatue
         [Header("UI")]
         [SerializeField] private GameObject _interactUIText;
 
+        [Header("Events")]
+        [SerializeField] private VoidEvent _saveEvent;
+
         private AudioSource _audioSource;
 
         private List<BaseEnemy> _sceneEnemies = new List<BaseEnemy>();
@@ -61,7 +65,6 @@ namespace SceneMechanics.SaveStatue
             DataPersistenceManager.Instance.SaveGame();
 
             TemporalDataManager.Instance.temporalData.Clear();
-            RespawnEnemiesInScene();
 
             DialogueManager.Instance.SaveVariables();
 
@@ -69,6 +72,9 @@ namespace SceneMechanics.SaveStatue
             ControllerVibration.Instance.TriggerProgressiveVibration(0.5f, 0.5f);
             _audioSource.Play();
             LogManager.Log("Game saved . . .", FeatureType.SaveSystem);
+            
+            if (_saveEvent)
+                _saveEvent.Raise();
         }
 
         public void ShowInteractionUI(bool showUI)
@@ -83,13 +89,13 @@ namespace SceneMechanics.SaveStatue
             return new List<BaseEnemy>(enemies);
         }
 
-        private void RespawnEnemiesInScene()
-        {
-            foreach (var enemy in _sceneEnemies)
-            {
-                enemy.gameObject.SetActive(true);
-            }
-        }
+        // private void RespawnEnemiesInScene()
+        // {
+        //     foreach (var enemy in _sceneEnemies)
+        //     {
+        //         enemy.gameObject.SetActive(true);
+        //     }
+        // }
         
         public void ActivateSymbols()
         {
