@@ -31,6 +31,8 @@ namespace Bosses
         [Header("Events")]
         [SerializeField] private VoidEvent _damageEvent;
 
+        private AudioSource _audioSource;
+        
         public SeiryuState CurrentState => _currentState.StateKey;
         public bool CanStartFight { get; private set; }
         public bool WaitForNextAttack { get; private set; }
@@ -49,6 +51,7 @@ namespace Bosses
         {
             _health = GetComponent<EntityHealth>();
             _seiryuSprites = GetComponentsInChildren<SpriteRenderer>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         protected override void Start()
@@ -129,7 +132,8 @@ namespace Bosses
 
         public void FinishBattle()
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            OnFightFinished?.Invoke();
         }
         
         private void OnReadyForAttack()
@@ -139,6 +143,8 @@ namespace Bosses
 
         private void UpdatePhase()
         {
+            _audioSource.Play();
+            
             if (_damageEvent)
                 _damageEvent.Raise();
             

@@ -23,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalScene.unity
     guid: 409c668c404e10843b0af788a7f5184f
-  - enabled: 1
-    path: Assets/Scenes/SeiryuScene.unity
-    guid: 6685cad7cdcd5f64c99c74ad6da3ce6d
   m_configObjects: {}

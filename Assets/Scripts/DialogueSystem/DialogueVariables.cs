@@ -35,6 +35,12 @@ namespace DialogueSystem
             story.variablesState.variableChangedEvent -= OnVariableChange;
         }
 
+        public void Reset()
+        {
+            _globalVariablesStory.ResetState();
+            InitVariables();
+        }
+
         public void Save()
         {
             string fullPath = Path.Combine(_varDirPath, _varFileName);
@@ -83,6 +89,11 @@ namespace DialogueSystem
                 }
             }
             
+            InitVariables();
+        }
+
+        private void InitVariables()
+        {
             _variables = new Dictionary<string, Ink.Runtime.Object>();
             foreach (var name in _globalVariablesStory.variablesState)
             {
@@ -93,7 +104,6 @@ namespace DialogueSystem
         
         private void OnVariableChange(string name, Ink.Runtime.Object value)
         {
-            LogManager.Log($"Variable changed: {name} = {value}", FeatureType.Dialogue);
             if (_variables.ContainsKey(name))
             {
                 _variables.Remove(name);

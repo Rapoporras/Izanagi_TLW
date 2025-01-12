@@ -3,10 +3,11 @@ using Health;
 using PlayerController;
 using StateMachine;
 using UnityEngine;
+using Utils;
 
 namespace SceneMechanics.Stalactite
 {
-    public class Stalactite : BaseStateMachine<StalactiteStates>
+    public class Stalactite : BaseStateMachine<StalactiteStates>, IResettable
     {
         [Header("Settings")]
         [SerializeField] private bool _activateWithRaycasts = true;
@@ -45,11 +46,13 @@ namespace SceneMechanics.Stalactite
         private AudioSource _audioSource;
         [SerializeField] private List<AudioClip> _fallingAudio;
         [SerializeField] private AudioClip _hitFloorAudio;
+        [SerializeField] private AudioClip _breakAudio;
 
         [Header("Dependencies")]
         [SerializeField] private ParticleSystem _particleSystem;
 
         private float _fallVel;
+        private Vector3 _initialPos;
 
         public bool DamageActive
         {
@@ -74,6 +77,8 @@ namespace SceneMechanics.Stalactite
             _audioSource = GetComponent<AudioSource>();
 
             fallGravityScale = Mathf.Abs(_fallingAcceleration / Physics2D.gravity.y);
+
+            _initialPos = transform.position;
         }
 
         private void OnEnable()
@@ -99,7 +104,9 @@ namespace SceneMechanics.Stalactite
         private void DestroyObject()
         {
             // add effects here
-            Destroy(gameObject);
+            _audioSource.clip = _breakAudio;
+            _audioSource.Play();
+            gameObject.SetActive(false);
         }
         
         public void CheckRaycasts()
@@ -181,5 +188,15 @@ namespace SceneMechanics.Stalactite
             _audioSource.Play();
         }
         #endregion
+
+        public void ResetObject()
+        {
+            _currentState.ExitState();
+            _currentState = States[StalactiteStates.Idle];
+            _currentState.EnterState();
+            
+            transform.position = _initialPos;
+            gameObject.SetActive(true);
+        }
     }
 }

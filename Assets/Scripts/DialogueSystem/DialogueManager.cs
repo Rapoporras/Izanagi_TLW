@@ -99,6 +99,7 @@ namespace DialogueSystem
             
             InputManager.DisablePlayerActions();
             InputManager.EnableUIActions();
+            InputManager.UIActions.Pause.Disable();
             
             _currentStory = new Story(dialogueInfo.InkJSON.text);
             _dialogueVariables.StartListening(_currentStory);
@@ -124,6 +125,7 @@ namespace DialogueSystem
             ResetDialogueUI();
             
             InputManager.EnablePlayerActions();
+            InputManager.UIActions.Pause.Enable();
         }
 
         private void ContinueStoryCallback(InputAction.CallbackContext context)
@@ -169,9 +171,8 @@ namespace DialogueSystem
 
             foreach (var letter in line.ToCharArray())
             {
-                if (_inputPressed && _dialogueText.text.Length >= 3) // InputManager.UIActions.Interact.WasPressedThisFrame()
+                if (_inputPressed && _dialogueText.text.Length >= 3)
                 {
-                    LogManager.Log("Finish dialogue - input", FeatureType.Dialogue);
                     _dialogueText.maxVisibleCharacters = line.Length;
                     break;
                 }
@@ -267,6 +268,12 @@ namespace DialogueSystem
         public void SaveVariables()
         {
             _dialogueVariables.Save();
+        }
+
+        public void ResetVariables()
+        {
+            _dialogueVariables.Reset();
+            SaveVariables();
         }
     }
 }

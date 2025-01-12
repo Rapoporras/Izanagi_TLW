@@ -80,7 +80,33 @@ namespace Health
                     UpdateHealth(-amount);
                 }
                 
+                ControllerVibration.Instance.TriggerInstantVibration(0.2f, 0.3f, 0.5f);
                 _playerMovement.ApplyDamageKnockBack(attackDirection);
+                if (_screenShakeSource)
+                    _screenShakeSource.TriggerScreenShake();
+                
+                StartCoroutine(TurnOffHit());
+            }
+        }
+
+        public void FlowerDamage(int amount)
+        {
+            if (_dashInvulnerability)
+            {
+                _dashInvulnerability.Value = false;
+            }
+            else if (!_hit && _currentHealth.Value > 0)
+            {
+                _hit = true;
+                if (HasShield)
+                {
+                    HasShield = false;
+                }
+                else
+                {
+                    UpdateHealth(-amount);
+                }
+                
                 if (_screenShakeSource)
                     _screenShakeSource.TriggerScreenShake();
                 

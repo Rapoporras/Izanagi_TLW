@@ -14,46 +14,57 @@ namespace Bosses
         
         [Space(10), SerializeField] private List<Stalactite> _stalactitesList;
 
-        private List<Stalactite> _firstSublist;
-        private List<Stalactite> _secondSublist;
+        // private List<Stalactite> _firstSublist;
+        // private List<Stalactite> _secondSublist;
 
         private bool _firstActivation;
         private Coroutine _stalactitesCoroutine;
 
         private void Start()
         {
-            _firstActivation = true;
-            AssignSublists();
+            _firstActivation = false;
+            // AssignSublists();
         }
 
-        private void AssignSublists()
-        {
-            _firstSublist = new List<Stalactite>();
-            _secondSublist = new List<Stalactite>();
-            
-            var shuffledList = new List<Stalactite>(_stalactitesList);
-            shuffledList.Shuffle();
-
-            int middle = shuffledList.Count / 2;
-
-            _firstSublist = shuffledList.GetRange(0, middle);
-            _secondSublist = shuffledList.GetRange(middle, shuffledList.Count - middle);
-        }
+        // private void AssignSublists()
+        // {
+        //     _firstSublist = new List<Stalactite>();
+        //     _secondSublist = new List<Stalactite>();
+        //     
+        //     var shuffledList = new List<Stalactite>(_stalactitesList);
+        //     shuffledList.Shuffle();
+        //
+        //     int middle = shuffledList.Count / 2;
+        //
+        //     _firstSublist = shuffledList.GetRange(0, middle);
+        //     _secondSublist = shuffledList.GetRange(middle, shuffledList.Count - middle);
+        // }
 
         public void ActivateStalactites()
         {
+            if (_firstActivation) return;
+            
             if (_stalactitesCoroutine != null)
                 StopCoroutine(_stalactitesCoroutine);
+
+            List<Stalactite> shuffleList = new List<Stalactite>(_stalactitesList);
+            shuffleList.Shuffle();
             
-            if (_firstActivation)
-            {
-                _stalactitesCoroutine = StartCoroutine(_ActivateStalactites(_firstSublist));
-                _firstActivation = false;
-            }
-            else
-            {
-                _stalactitesCoroutine = StartCoroutine(_ActivateStalactites(_secondSublist));
-            }
+            _stalactitesCoroutine = StartCoroutine(_ActivateStalactites(shuffleList));
+            _firstActivation = true;
+
+            // if (_stalactitesCoroutine != null)
+            //     StopCoroutine(_stalactitesCoroutine);
+            //
+            // if (_firstActivation)
+            // {
+            //     _stalactitesCoroutine = StartCoroutine(_ActivateStalactites(_firstSublist));
+            //     _firstActivation = false;
+            // }
+            // else
+            // {
+            //     _stalactitesCoroutine = StartCoroutine(_ActivateStalactites(_secondSublist));
+            // }
         }
 
         private IEnumerator _ActivateStalactites(List<Stalactite> stalactites)
@@ -66,8 +77,6 @@ namespace Bosses
                 float time = Random.Range(_stalatitesTimeRange.x, _stalatitesTimeRange.y);
                 yield return new WaitForSeconds(time);
             }
-            
-            // stalactites.Clear();
         }
     }
 }

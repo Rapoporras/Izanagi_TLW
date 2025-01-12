@@ -1,11 +1,14 @@
 using System.Collections;
 using Enemies.BehaviourTree;
 using Health;
+using SaveSystem;
 using UnityEngine;
+using Utils;
+using Utils.CustomLogs;
 
 namespace Enemies.Kappa
 {
-    public class MiniKappaAI : BaseEnemy
+    public class MiniKappaAI : BaseEnemy, IResettable
     {
         [Header("Chase parameters")]
         [Tooltip("Radius where the player will be detected")]
@@ -27,6 +30,8 @@ namespace Enemies.Kappa
         private BehaviourTree.BehaviourTree _miniKappaBehaviourTree;
 
         private AudioSource _audioSource;
+        
+        [SerializeField] public GameObject spiderSprite;
         
         private Rigidbody2D _rb;
         private Animator _animator;
@@ -82,7 +87,17 @@ namespace Enemies.Kappa
             
             _miniKappaBehaviourTree.AddChild(actionToDo);
         }
-    
+
+        protected override void LoadState(TemporalDataSO temporalData)
+        {
+            Destroy(gameObject);
+        }
+
+        protected override void SaveState(TemporalDataSO temporalData)
+        {
+            // intentionally left blank
+        }
+
         private void Update()
         {
             if (!_isEnemyDead) _miniKappaBehaviourTree.Process();
@@ -180,6 +195,19 @@ namespace Enemies.Kappa
             if (_audioSource.isPlaying) _audioSource.Stop();
             return false;
         }
+        
+        protected override void EnemyDie()
+        {
+            base.EnemyDie();
+            StartCoroutine(DisableEnemy());
+        }
+
+        private IEnumerator DisableEnemy()
+        {
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(spiderSprite, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
+        }
     
         private void OnDrawGizmosSelected()
         {
@@ -188,6 +216,10 @@ namespace Enemies.Kappa
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackCenter.position, attackRadius);
         }
-    
+
+        public void ResetObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

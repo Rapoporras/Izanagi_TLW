@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5e6483be-9ae5-4b5e-b5e0-8e0479594071
+  id: 99537c4c-e378-4cef-b6fa-caa4f81d03ae
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 7.5
@@ -272,6 +272,7 @@ MonoBehaviour:
   hurtboxLayer:
     serializedVersion: 2
     m_Bits: 256
+  kappaShell: {fileID: 1386292763941920442, guid: a9841bf52ba624642bae91b5ae96a557, type: 3}
 --- !u!114 &7035601677445066005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +466,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -482,8 +483,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.296876}
-  m_Size: {x: 1.544684, y: 2.5}
+  m_Offset: {x: 0.019521791, y: 1.296876}
+  m_Size: {x: 1.5056407, y: 2.4999998}
   m_Direction: 0
 --- !u!82 &1932840419693890605
 AudioSource:

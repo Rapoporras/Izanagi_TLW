@@ -84,7 +84,7 @@ namespace PlayerController
         private float _lastPressedJumpTime;
         private int _additionalJumps;
         public bool IsGrounded => _raycastInfo.HitInfo.Below;
-        public bool IsWallSliding => (LeftWallHit || RightWallHit) && !IsGrounded;
+        public bool IsWallSliding => _currentState?.StateKey == PlayerStates.WallSliding;
         public bool JumpRequest { get; private set; }
         public bool HandleLongJumps { get; private set; }
         public bool IsActiveCoyoteTime { get; set; }
@@ -408,6 +408,12 @@ namespace PlayerController
         public void SetGravityScale(float scale)
         {
             _rb2d.gravityScale = scale;
+        }
+
+        public void SetPosition(Vector3 pos, bool facingRight)
+        {
+            transform.position = pos;
+            SetDirectionToFace(facingRight);
         }
 
         public void SetDirectionToFace(bool isMovingRight)

@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bda48946e9440a88fbdf8419700eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2dd5e58e-f57d-44d3-936c-0ea0d7dc2857
+  id: 2579dccd-fa7d-4f32-9057-38dbdf0af41b
   _playerMaxHealth:
     valueType: 1
     constantValue: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   _abilitiesData: {fileID: 11400000, guid: aa867202488ea144e8415b653386690f, type: 2}
   _playerPath: {fileID: 11400000, guid: 7b198a95120b9dd41b69ff27c6bf0079, type: 2}
   _interactUIText: {fileID: 1458794317758345216}
+  _saveEvent: {fileID: 11400000, guid: 4eaec2ddecb45ae44a030ad2a9090586, type: 2}
 --- !u!82 &-472822910149741382
 AudioSource:
   m_ObjectHideFlags: 0
@@ -343,8 +344,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 24c78fe6ee700434591e4b65baf701bc, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

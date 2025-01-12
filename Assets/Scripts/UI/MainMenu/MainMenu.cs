@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
             DataPersistenceManager.Instance.NewGame(_firstGameScene.sceneName);
             DataPersistenceManager.Instance.LoadGame(); // initialize variables with default values
             
-            DialogueManager.Instance.SaveVariables(); // reset json variables
+            DialogueManager.Instance.ResetVariables();
 
             LoadSceneRequest request = new LoadSceneRequest(_firstGameScene, true);
             if (_loadSceneRequestEvent)

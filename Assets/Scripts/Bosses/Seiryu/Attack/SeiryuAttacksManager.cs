@@ -21,9 +21,16 @@ namespace Bosses
         [Header("Events")]
         [SerializeField] private VoidEvent _seiryuStalactitesEvent;
 
+        private AudioSource _audioSource;
+
         public event Action OnReadyForAttack;
 
         private bool _transitionAttack;
+
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
 
         public void Initialize()
         {
@@ -45,11 +52,14 @@ namespace Bosses
                         if (_seiryuStalactitesEvent)
                             _seiryuStalactitesEvent.Raise();
                         
+                        _audioSource.Play();
                         _screenShakeSource.TriggerScreenShake(_transitionAttackShake);
+                        ControllerVibration.Instance.TriggerInstantVibration(0.7f, 0.3f, 0.5f);
                     }
                     else if (info.type == AttackType.Fist)
                     {
                         _screenShakeSource.TriggerScreenShake(_fistAttackShake);
+                        ControllerVibration.Instance.TriggerInstantVibration(0.7f, 0.3f, 0.5f);
                     }
                     break;
             }
