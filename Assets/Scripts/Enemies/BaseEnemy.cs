@@ -43,17 +43,10 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 
     public abstract void SetUpBehaviourTree();
 
-    protected void EnemyDie()
+    protected virtual void EnemyDie()
     {
         _isEnemyDead = true;
-        StartCoroutine(PlayDeathAnimation());
          ControllerVibration.Instance.TriggerInstantVibration(0.1f, 0.1f, 0.4f);
-    }
-
-    private IEnumerator PlayDeathAnimation()
-    {
-        yield return new WaitForSeconds(1f);
-        gameObject.SetActive(false);
     }
 
     public void LoadTemporalData(TemporalDataSO temporalData)
