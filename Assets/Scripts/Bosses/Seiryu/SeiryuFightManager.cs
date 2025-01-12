@@ -9,9 +9,8 @@ namespace Bosses
     {
         [Header("Dependencies")]
         [SerializeField] private SeiryuController _seiryuController;
-        [SerializeField] private GameObject[] _exitWalls;
-        [Space(10)]
         [SerializeField] private GameObject _seiryuNPC;
+        [SerializeField] private GameObject[] _exitWalls;
 
         [Header("Transition")]
         [SerializeField] private Image _fadeImage;
