@@ -5,17 +5,18 @@ INCLUDE globals.ink
 
 === main ===
 ~ meetYokai = true
-¿Qué haces aquí? ¡No me moveré! Tengo una sed terrible, y sin el té especial, no puedo dar ni un paso.
+¿Qué haces aquí? <i>¡No me moveré!</i> Tengo un hambre terrible
+Sin el <b>Ramen especial</b>, no puedo dar ni un paso.
 En estas profundidades, vive un kappa que escapó de la maldición de los onis. 
-Ahora se dedica a vender todo lo que encuentra por ahí.
-Él debe tener un poco de té... tráemelo, y tal vez te deje pasar.
+Él debe tener un poco de <b>Ramen especial</b>
+Tráemelo, y tal vez te deje pasar.
  ->END
 
 
 
 
 === goOut ===
-¡Oh, eso es té! No me lo puedo creer. Glup, glup... 
+¡Oh, eso es <b>Ramen especial</b>! !Damelo!
 ¡Agg! ¡Qué asco! ¿De verdad esperé todo este tiempo por esto?
 Me dijeron que era un manjar... pero vaya decepción. 
 En fin, me largo de aquí.
