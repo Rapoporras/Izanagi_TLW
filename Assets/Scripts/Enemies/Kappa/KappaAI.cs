@@ -3,10 +3,11 @@ using Enemies.BehaviourTree;
 using Health;
 using PlayerController;
 using UnityEngine;
+using Utils;
 
 namespace Enemies.Kappa
 {
-    public class KappaAI : BaseEnemy
+    public class KappaAI : BaseEnemy, IResettable
     {
         [Header("Chase parameters")]
         [Tooltip("Radius where the player will be detected")]
@@ -59,6 +60,8 @@ namespace Enemies.Kappa
         private bool _isChasingPlayer;
         private bool _isDetected;
 
+        private Vector3 _initialPos;
+
         protected override void Awake()
         {
             base.Awake();
@@ -70,6 +73,8 @@ namespace Enemies.Kappa
             
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponentInChildren<Animator>();
+
+            _initialPos = transform.position;
         }
         
         protected override void OnEnable()
@@ -283,6 +288,10 @@ namespace Enemies.Kappa
         }
 
 
-    
+        public void ResetObject()
+        {
+            transform.position = _initialPos;
+            gameObject.SetActive(true);
+        }
     }
 }
