@@ -35,6 +35,12 @@ namespace DialogueSystem
             story.variablesState.variableChangedEvent -= OnVariableChange;
         }
 
+        public void Reset()
+        {
+            _globalVariablesStory.ResetState();
+            _variables.Clear();
+        }
+
         public void Save()
         {
             string fullPath = Path.Combine(_varDirPath, _varFileName);

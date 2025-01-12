@@ -268,7 +268,6 @@ namespace Enemies.BehaviourTree
             
             if (Mathf.Abs(_goalPosition.x - _enemyTransform.position.x) <= 0.15f)
             {
-                Debug.Log("roll stop");
                 _rb.velocity = Vector2.zero;
                 _animator.SetTrigger("stopRoll");
                 return Node.Status.Success;
@@ -316,8 +315,6 @@ namespace Enemies.BehaviourTree
             }
             
             _rb.velocity = new Vector2(_goalDirection * _rollingSpeed, _rb.velocity.y);
-            
-            LogManager.Log("Distance from goal:" + Mathf.Abs(_goalPosition.x - _enemyTransform.position.x), FeatureType.Enemies);
             
             return Node.Status.Running;
         }

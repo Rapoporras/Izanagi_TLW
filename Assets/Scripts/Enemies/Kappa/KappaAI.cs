@@ -118,8 +118,6 @@ namespace Enemies.Kappa
             actionToDo.AddChild(chasePlayer);
             
             _kappaBehaviourTree.AddChild(actionToDo);
-            
-            Debug.Log(_kappaBehaviourTree);
         }
     
         void Update()
