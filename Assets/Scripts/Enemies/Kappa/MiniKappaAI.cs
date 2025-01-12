@@ -1,7 +1,9 @@
 using System.Collections;
 using Enemies.BehaviourTree;
 using Health;
+using SaveSystem;
 using UnityEngine;
+using Utils.CustomLogs;
 
 namespace Enemies.Kappa
 {
@@ -84,7 +86,17 @@ namespace Enemies.Kappa
             
             _miniKappaBehaviourTree.AddChild(actionToDo);
         }
-    
+
+        protected override void LoadState(TemporalDataSO temporalData)
+        {
+            Destroy(gameObject);
+        }
+
+        protected override void SaveState(TemporalDataSO temporalData)
+        {
+            // intentionally left blank
+        }
+
         private void Update()
         {
             if (!_isEnemyDead) _miniKappaBehaviourTree.Process();

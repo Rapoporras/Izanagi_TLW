@@ -270,5 +270,11 @@ namespace DialogueSystem
         {
             _dialogueVariables.Save();
         }
+
+        public void ResetVariables()
+        {
+            _dialogueVariables.Reset();
+            SaveVariables();
+        }
     }
 }
