@@ -42652,11 +42652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6521777660260470615, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: _damage
-      value: 35
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6532850704360586406, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: _damage
-      value: 35
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7092218436535223816, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: _fistAttackProbPhase1

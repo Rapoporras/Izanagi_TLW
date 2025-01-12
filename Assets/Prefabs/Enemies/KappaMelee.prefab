@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cdddad6934ca54e9231339ddf96905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   _damage: 20
   _canDamageEnemies: 0
   _hurtboxLayer:
@@ -466,7 +466,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -483,8 +483,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.296876}
-  m_Size: {x: 1.544684, y: 2.5}
+  m_Offset: {x: 0.019521791, y: 1.296876}
+  m_Size: {x: 1.5056407, y: 2.4999998}
   m_Direction: 0
 --- !u!82 &1932840419693890605
 AudioSource:
