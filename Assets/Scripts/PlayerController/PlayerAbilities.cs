@@ -15,6 +15,8 @@ namespace PlayerController
         [SerializeField] private PlayerAbilitiesData _playerAbilitiesData;
         [SerializeField] private GameObject _boostIcon;
         [SerializeField] private GameObject _shield;
+        [Space(10)]
+        public Transform fireAbilitySpawnPos;
         
         [Header("Settings")]
         [SerializeField] private AbilityTypeReference _currentAbility;
