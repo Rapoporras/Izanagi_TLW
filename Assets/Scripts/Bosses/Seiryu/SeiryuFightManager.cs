@@ -27,6 +27,11 @@ namespace Bosses
 
         private Coroutine _finishFightCoroutine;
         private GameObject _player;
+
+        private AudioSource _audioSource;
+        [SerializeField] private AudioClip _bossMusic;
+        [SerializeField] private AudioClip _roar;
+        
         
         private bool _hasFightStarted;
 
@@ -35,12 +40,15 @@ namespace Bosses
             // just in case
             _seiryuNPC.gameObject.SetActive(false);
             SetImageAlpha(0f);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player") && !_hasFightStarted)
             {
+                _audioSource.clip = _bossMusic;
+                _audioSource.Play();
                 _player = other.gameObject;
                 _hasFightStarted = true;
                 _seiryuController.StartFight(other.transform);
@@ -80,6 +88,11 @@ namespace Bosses
         private IEnumerator _FinishFight()
         {
             yield return Fade(1f);
+            
+            _audioSource.Stop();
+            _audioSource.clip = _roar;
+            _audioSource.loop = false;
+            _audioSource.Play();
             
             // replace dragon
             _seiryuController.gameObject.SetActive(false);
