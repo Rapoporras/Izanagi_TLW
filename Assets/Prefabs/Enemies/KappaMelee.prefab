@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cdddad6934ca54e9231339ddf96905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
+  isActive: 1
   _damage: 20
   _canDamageEnemies: 0
   _hurtboxLayer:
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5e6483be-9ae5-4b5e-b5e0-8e0479594071
+  id: 99537c4c-e378-4cef-b6fa-caa4f81d03ae
   player: {fileID: 0}
   _alwaysRespawn: 0
   detectionRadius: 7.5

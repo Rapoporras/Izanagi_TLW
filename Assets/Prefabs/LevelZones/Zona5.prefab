@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9140649971738049718}
   - component: {fileID: 2484035904786515171}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022972703099972182}
   - component: {fileID: 8627484201365970258}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraBF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8928072414223186802}
   - component: {fileID: 2166525666244811772}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4888961724710332234}
   - component: {fileID: 562356490854692302}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a3_1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6010843067093497829}
   - component: {fileID: 6125863007157775952}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraEF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3751260343333799599}
   - component: {fileID: 2454282890828356803}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1336180800598534469}
   - component: {fileID: 670340688060131882}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraE_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438879162766115156}
   - component: {fileID: 8973633172269138004}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 94546469580079229}
   - component: {fileID: 8448269151228582782}
   - component: {fileID: 4882819794765363158}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Morada1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5341349658937696134}
   - component: {fileID: 1547724633374593969}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7563038538272134560}
   - component: {fileID: 6589042120495552522}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraF_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -956,7 +956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3000081941469353740}
   - component: {fileID: 5700823508647632276}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1040,7 +1040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4431142675514167922}
   - component: {fileID: 2319461500269765956}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1124,7 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8310421340656585697}
   - component: {fileID: 3670481133269930000}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraD 1_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1209,7 +1209,7 @@ GameObject:
   - component: {fileID: 78362246764038526}
   - component: {fileID: 8410641458041204297}
   - component: {fileID: 372682441563932310}
-  m_Layer: 4
+  m_Layer: 13
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6041,7 +6041,7 @@ GameObject:
   - component: {fileID: 1483704698238460520}
   - component: {fileID: 7975845164388694313}
   - component: {fileID: 7147527271471101827}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rosa1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6207,7 +6207,7 @@ GameObject:
   - component: {fileID: 2019808414413208877}
   - component: {fileID: 2126699907127483599}
   - component: {fileID: 2197002223194939350}
-  m_Layer: 4
+  m_Layer: 13
   m_Name: Particle System_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11036,7 +11036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303352439463986399}
   - component: {fileID: 2026924992537953902}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11120,7 +11120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2198855383729033485}
   - component: {fileID: 7988642248541007641}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11204,7 +11204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276569538575041154}
   - component: {fileID: 567963046642772142}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11288,7 +11288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3373230280777832843}
   - component: {fileID: 8051009870248041396}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11372,7 +11372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7264101132728876269}
   - component: {fileID: 7413546916628956994}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11456,7 +11456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2910547499672530764}
   - component: {fileID: 1673216462081734598}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11518,7 +11518,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 06a039577d1541a42bc71f5d06d4c928, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11540,7 +11540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7445892157760986380}
   - component: {fileID: 8164983780695298832}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CuelgaHuevosRoto_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11624,7 +11624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7878923680217016453}
   - component: {fileID: 1320898741698300275}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11708,7 +11708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3660733595982187412}
   - component: {fileID: 4541556306364271320}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11792,7 +11792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2573904314552957246}
   - component: {fileID: 7325847633637366596}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraA_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11876,7 +11876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6751089712073162805}
   - component: {fileID: 5293411213127006911}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11960,7 +11960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1730272931027293773}
   - component: {fileID: 4740818531245619955}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CuelgaHuevosRoto_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12045,7 +12045,7 @@ GameObject:
   - component: {fileID: 464030000100119949}
   - component: {fileID: 672243363140994885}
   - component: {fileID: 7806678013957423024}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Planta1_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -12151,7 +12151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6222870362301518852}
   - component: {fileID: 4931385453976718317}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12235,7 +12235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9181000418598109528}
   - component: {fileID: 3871706078415296328}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraCF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12319,7 +12319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3696762778003104767}
   - component: {fileID: 1229023872583246006}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraD 1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12403,7 +12403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6563685867867799229}
   - component: {fileID: 29744678967363877}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CuelgaHuevosRoto_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12490,7 +12490,7 @@ GameObject:
   - component: {fileID: 2831136125487971116}
   - component: {fileID: 8944536933891993295}
   - component: {fileID: 8572823827965311281}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaA_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12655,7 +12655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4418255863284492458}
   - component: {fileID: 7983247915247930374}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12739,7 +12739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6698611984699383073}
   - component: {fileID: 6612732773791402638}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala2B_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12823,7 +12823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1481752442920058965}
   - component: {fileID: 3585208989184419728}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaC_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12907,7 +12907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5486114586605508496}
   - component: {fileID: 5866503548877671241}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12991,7 +12991,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2537148276708966641}
   - component: {fileID: 6925497078926472291}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13075,7 +13075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 458590267950681311}
   - component: {fileID: 973703380544214605}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraE_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13159,7 +13159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3587872041188321786}
   - component: {fileID: 3515451151836991066}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13243,7 +13243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1579555608564539126}
   - component: {fileID: 5926835789297362367}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13327,7 +13327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825327515314769566}
   - component: {fileID: 8410012342470372719}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13412,7 +13412,7 @@ GameObject:
   - component: {fileID: 7375044489558170957}
   - component: {fileID: 1226451661445657573}
   - component: {fileID: 1408660905767849448}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaA_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13517,7 +13517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6276832782509975728}
   - component: {fileID: 6981033023436760680}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraD 1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13601,7 +13601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3310190266016010227}
   - component: {fileID: 8082044534142309468}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala2B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13686,7 +13686,7 @@ GameObject:
   - component: {fileID: 5744470559685061531}
   - component: {fileID: 5583137968190815832}
   - component: {fileID: 3646297407426190999}
-  m_Layer: 4
+  m_Layer: 13
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13777,7 +13777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53468392150425290}
   - component: {fileID: 5566788045008144547}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a2_1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13862,7 +13862,7 @@ GameObject:
   - component: {fileID: 4324634303520451885}
   - component: {fileID: 8117770874765376751}
   - component: {fileID: 5980869437910329624}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Morada1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13966,7 +13966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5786658924779906301}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Farolillo_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14000,7 +14000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5299110696596933856}
   - component: {fileID: 7202073798743654413}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14084,7 +14084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4904920013364426270}
   - component: {fileID: 2906940427584669447}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14168,7 +14168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4258467006631536923}
   - component: {fileID: 6301552688472402545}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala2B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14252,7 +14252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3664944740396141027}
   - component: {fileID: 5677354654566230198}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna1BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14336,7 +14336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6278782744750723372}
   - component: {fileID: 1869233255352653191}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14420,7 +14420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3202823613661042095}
   - component: {fileID: 6590308088470174890}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14504,7 +14504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8147883973206792678}
   - component: {fileID: 3314935956220084128}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaA3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14589,7 +14589,7 @@ GameObject:
   - component: {fileID: 1037509664925529494}
   - component: {fileID: 6162221176276926356}
   - component: {fileID: 7991688471308038428}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Morada1_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14697,7 +14697,7 @@ GameObject:
   - component: {fileID: 4733871110219870917}
   - component: {fileID: 3373922299623313463}
   - component: {fileID: 8757139534824516717}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rosa1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14862,7 +14862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8896535267387178721}
   - component: {fileID: 5088194223329441726}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14946,7 +14946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7727998200470656161}
   - component: {fileID: 3567009245182537629}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15030,7 +15030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724211530936188336}
   - component: {fileID: 170416117431692505}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraA_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15114,7 +15114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6507983080049408617}
   - component: {fileID: 8703806081423099827}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15198,7 +15198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3954842660270967892}
   - component: {fileID: 3317030722570050993}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraBF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15282,7 +15282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8715279845258103574}
   - component: {fileID: 6691807636624584377}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15366,7 +15366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3816858318046582559}
   - component: {fileID: 2302859793208510193}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15450,7 +15450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2191593383569830371}
   - component: {fileID: 2295703965932516613}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a1_2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15537,7 +15537,7 @@ GameObject:
   - component: {fileID: 287087280086289629}
   - component: {fileID: 2589070748695315601}
   - component: {fileID: 4500135715168827360}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15705,7 +15705,7 @@ GameObject:
   - component: {fileID: 228935253252496468}
   - component: {fileID: 2316350870584210269}
   - component: {fileID: 5307850973058071627}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaA_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15870,7 +15870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2546099120418438091}
   - component: {fileID: 5244173038476683982}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15955,7 +15955,7 @@ GameObject:
   - component: {fileID: 1842349159641333023}
   - component: {fileID: 6886467400864476557}
   - component: {fileID: 7125172131528522443}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Morada1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16060,7 +16060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6757225566496101394}
   - component: {fileID: 9004851544638501868}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16144,7 +16144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6071513524617612234}
   - component: {fileID: 7424537350225044290}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraDF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16228,7 +16228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5424145945404836761}
   - component: {fileID: 6638427396301589415}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraE_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16312,7 +16312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4492601018288304032}
   - component: {fileID: 5137906511464650268}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16396,7 +16396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 120974767189098485}
   - component: {fileID: 7589802299355425771}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16480,7 +16480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7261904845623497250}
   - component: {fileID: 2719652601610623932}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16564,7 +16564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4956473588169236121}
   - component: {fileID: 9128826049912469303}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a3_2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16648,7 +16648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3456703600432022629}
   - component: {fileID: 3339171164291463353}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaMorada1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16732,7 +16732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6857019084109007218}
   - component: {fileID: 1094235264807359077}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16817,7 +16817,7 @@ GameObject:
   - component: {fileID: 651164496567002488}
   - component: {fileID: 7212559714013532737}
   - component: {fileID: 6444611131127887581}
-  m_Layer: 4
+  m_Layer: 13
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21646,7 +21646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2127549736386763274}
   - component: {fileID: 6657672920526635151}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Farol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21733,7 +21733,7 @@ GameObject:
   - component: {fileID: 5543167517632958379}
   - component: {fileID: 878524675401801204}
   - component: {fileID: 413572915007953684}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaA_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21898,7 +21898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8166557520863797138}
   - component: {fileID: 4102669372213801048}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21982,7 +21982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8605813001413726828}
   - component: {fileID: 4291542682725629188}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22066,7 +22066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4799103222366336477}
   - component: {fileID: 4467077670813922272}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22150,7 +22150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7157251845274376931}
   - component: {fileID: 3996842814990732196}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaMorada1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22234,7 +22234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2449977313175387386}
   - component: {fileID: 7897475087929508325}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a1_3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22318,7 +22318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4645279787492464262}
   - component: {fileID: 2331092907281417925}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a1_4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22402,7 +22402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7629619455153006762}
   - component: {fileID: 9053444287484829121}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CuelgaHuevosRoto_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22486,7 +22486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8941483811956524314}
   - component: {fileID: 7405319404589459595}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraD 1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22570,7 +22570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611378256458119998}
   - component: {fileID: 218767265773755444}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22654,7 +22654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8574908267076289460}
   - component: {fileID: 816617578984179429}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala2B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22738,7 +22738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3073689727593540728}
   - component: {fileID: 5391802205888508517}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraD 1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22822,7 +22822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6616092090588913046}
   - component: {fileID: 7539945551527108168}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22906,7 +22906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3666902813033723776}
   - component: {fileID: 1892445460731198512}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22990,7 +22990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2109359271170244941}
   - component: {fileID: 2694964708709550591}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna3BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23074,7 +23074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1730620877218467649}
   - component: {fileID: 3402401223998807543}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a1_6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23158,7 +23158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5936555424641486140}
   - component: {fileID: 714598187924377863}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CuelgaHuevosRoto_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23242,7 +23242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456185264132411606}
   - component: {fileID: 8408520211813060775}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23326,7 +23326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035113774960513401}
   - component: {fileID: 8240516684422849524}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23410,7 +23410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8274742399496317836}
   - component: {fileID: 8559708940554772056}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23494,7 +23494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4504134960369433762}
   - component: {fileID: 2315397462774961825}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraD 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23579,7 +23579,7 @@ GameObject:
   - component: {fileID: 7373259693578189251}
   - component: {fileID: 5444939359579747663}
   - component: {fileID: 4738842420733319432}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Morada1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23684,7 +23684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3974577049297908140}
   - component: {fileID: 576851912114073869}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23767,7 +23767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6818985918643028916}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Zona5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23944,7 +23944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5501270509506797683}
   - component: {fileID: 6037849045271619623}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24028,7 +24028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8778886362364508364}
   - component: {fileID: 4013005403363373531}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24112,7 +24112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8025015620357709902}
   - component: {fileID: 7124047787694978944}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24196,7 +24196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5807828376461109235}
   - component: {fileID: 1685504092981709488}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CuelgaHuevosRoto_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24280,7 +24280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5620878212875973981}
   - component: {fileID: 1861525704721665887}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24364,7 +24364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4362564456306735250}
   - component: {fileID: 2571162095394571426}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24448,7 +24448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7522744181464228327}
   - component: {fileID: 6746161381616579190}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24532,7 +24532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1824564081024260189}
   - component: {fileID: 6730379240516726039}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24616,7 +24616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8382814239273660975}
   - component: {fileID: 1519559966825502164}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24700,7 +24700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46413672451139139}
   - component: {fileID: 4876300204597576595}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24784,7 +24784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5226532445809381950}
   - component: {fileID: 5201263251218156564}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraA_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24869,7 +24869,7 @@ GameObject:
   - component: {fileID: 5129790664800321287}
   - component: {fileID: 7455026616188372526}
   - component: {fileID: 4819995655023099486}
-  m_Layer: 4
+  m_Layer: 13
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24963,7 +24963,7 @@ GameObject:
   - component: {fileID: 786281736370096076}
   - component: {fileID: 5827472525740108978}
   - component: {fileID: 5387997565582468174}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rosa1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25128,7 +25128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2675377381222943598}
   - component: {fileID: 2479399896219813144}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25213,7 +25213,7 @@ GameObject:
   - component: {fileID: 5654094533661486010}
   - component: {fileID: 6542492980300924392}
   - component: {fileID: 4744794194166535572}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Morada1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25318,7 +25318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884419533101144996}
   - component: {fileID: 3994618687015581284}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25403,7 +25403,7 @@ GameObject:
   - component: {fileID: 6169652860619573222}
   - component: {fileID: 3273935514237534112}
   - component: {fileID: 2490428409590949937}
-  m_Layer: 4
+  m_Layer: 13
   m_Name: Particle System_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30233,7 +30233,7 @@ GameObject:
   - component: {fileID: 6356366521247721542}
   - component: {fileID: 4490626293154142695}
   - component: {fileID: 6082846584867994542}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Planta1_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30339,7 +30339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7416032832257903077}
   - component: {fileID: 5268008841866827339}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a1_5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30423,7 +30423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4395211548554257112}
   - component: {fileID: 285653528138890954}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30507,7 +30507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1781105245762157579}
   - component: {fileID: 4290335859090187333}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaA3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30591,7 +30591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6943012710822608815}
   - component: {fileID: 5872596149067063081}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30675,7 +30675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5510411206114837322}
   - component: {fileID: 5406662031904133037}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30759,7 +30759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 514363001944010556}
   - component: {fileID: 9121278642341768035}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30843,7 +30843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2966617355060915433}
   - component: {fileID: 3078838260052495710}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30927,7 +30927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58117515427032553}
   - component: {fileID: 756610126519321879}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30989,7 +30989,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 0de5d2147e9982841b80b14c31aea55e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -31011,7 +31011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3713778908413061306}
   - component: {fileID: 522448078699304416}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31095,7 +31095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3605126251266045134}
   - component: {fileID: 1738356621589027482}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31179,7 +31179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4651218923948748281}
   - component: {fileID: 6198449482376566077}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31241,7 +31241,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 0de5d2147e9982841b80b14c31aea55e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -31263,7 +31263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583872574883540934}
   - component: {fileID: 6622719513262647198}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraF_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31347,7 +31347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7322444182732177644}
   - component: {fileID: 2852599018069684846}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraE_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31431,7 +31431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5346035556438749073}
   - component: {fileID: 8838123628514719109}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31515,7 +31515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7538920320454041524}
   - component: {fileID: 7728197070977855829}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FarolPalo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31599,7 +31599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9084424913756628133}
   - component: {fileID: 2473144798197594245}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31683,7 +31683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3134236758660272485}
   - component: {fileID: 2098863757774555124}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a2_2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31767,7 +31767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6218353765695724887}
   - component: {fileID: 738843783833677601}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31851,7 +31851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6834360552133184275}
   - component: {fileID: 5759138997325840224}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31936,7 +31936,7 @@ GameObject:
   - component: {fileID: 6694086049412941432}
   - component: {fileID: 1891756077266353575}
   - component: {fileID: 8570479265133667867}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaA_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32041,7 +32041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3997674523747540491}
   - component: {fileID: 2546969374615632559}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32125,7 +32125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6435056557343486032}
   - component: {fileID: 2913914078439204252}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa2_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32209,7 +32209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6922601039893147710}
   - component: {fileID: 5471317395969376122}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32293,7 +32293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2185446434736683477}
   - component: {fileID: 6733703242091384249}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a1_1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32377,7 +32377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5012505702274063941}
   - component: {fileID: 3481110071411307480}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32461,7 +32461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7425134658887484696}
   - component: {fileID: 7154320733807678983}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Telara\xF1a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32545,7 +32545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8867783220595644245}
   - component: {fileID: 4305102759852023988}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraF_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32635,6 +32635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetaMorada3
       objectReference: {fileID: 0}
+    - target: {fileID: 937078145654772368, guid: 2d681d72be214cd43a04f1f5c71ae138, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8962827776038062413, guid: 2d681d72be214cd43a04f1f5c71ae138, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -32712,6 +32716,10 @@ PrefabInstance:
     - target: {fileID: 937078145654772368, guid: 2d681d72be214cd43a04f1f5c71ae138, type: 3}
       propertyPath: m_Name
       value: SetaMorada3_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937078145654772368, guid: 2d681d72be214cd43a04f1f5c71ae138, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8962827776038062413, guid: 2d681d72be214cd43a04f1f5c71ae138, type: 3}
       propertyPath: m_LocalScale.x
