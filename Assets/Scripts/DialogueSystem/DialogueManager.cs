@@ -99,6 +99,7 @@ namespace DialogueSystem
             
             InputManager.DisablePlayerActions();
             InputManager.EnableUIActions();
+            InputManager.UIActions.Pause.Disable();
             
             _currentStory = new Story(dialogueInfo.InkJSON.text);
             _dialogueVariables.StartListening(_currentStory);
@@ -124,6 +125,7 @@ namespace DialogueSystem
             ResetDialogueUI();
             
             InputManager.EnablePlayerActions();
+            InputManager.UIActions.Pause.Enable();
         }
 
         private void ContinueStoryCallback(InputAction.CallbackContext context)
