@@ -25,6 +25,8 @@ namespace Enemies.Kappa
         [SerializeField] private LayerMask hurtboxLayer;
     
         private BehaviourTree.BehaviourTree _miniKappaBehaviourTree;
+
+        private AudioSource _audioSource;
         
         private Rigidbody2D _rb;
         private Animator _animator;
@@ -41,6 +43,7 @@ namespace Enemies.Kappa
             }
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _audioSource = GetComponent<AudioSource>();
         }
         
         protected override void OnEnable()
@@ -93,6 +96,7 @@ namespace Enemies.Kappa
             if (Mathf.Abs(xDifference) < 0.2)
             {
                 _rb.velocity = new Vector2(0, _rb.velocity.y);
+                _audioSource.Stop();
                 _animator.SetBool(IsMovingHash, false);
             }
             else
@@ -105,6 +109,7 @@ namespace Enemies.Kappa
                     transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 }
                 _rb.velocity = new Vector2(playerDirection * chaseSpeed, _rb.velocity.y);
+                if (!_audioSource.isPlaying) _audioSource.Play();
                 _animator.SetBool(IsMovingHash, true);
             }
                 
@@ -120,7 +125,7 @@ namespace Enemies.Kappa
                     return true;
                 }
             }
-
+            
             return false;
         }
         
@@ -155,6 +160,7 @@ namespace Enemies.Kappa
         private void OnHitKnockback()
         {
             _rb.velocity = Vector2.zero;
+            if (_audioSource.isPlaying) _audioSource.Stop();
             Vector2 knockbackDirection = transform.position - player.transform.position;
             _rb.AddForce(knockbackDirection.normalized * knockbackStrength, ForceMode2D.Impulse);
             if (onHitStunTime > 0)
@@ -170,7 +176,9 @@ namespace Enemies.Kappa
     
         private bool IsPlayerDetected()
         {
-            return Vector3.Distance(transform.position, player.transform.position) <= detectionRadius;
+            if (Vector3.Distance(transform.position, player.transform.position) <= detectionRadius) return true;
+            if (_audioSource.isPlaying) _audioSource.Stop();
+            return false;
         }
     
         private void OnDrawGizmosSelected()

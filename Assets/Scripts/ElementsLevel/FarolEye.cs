@@ -18,19 +18,24 @@ public class FarolEye : MonoBehaviour
         if (jugadorDetectado && player != null)
         {
             // Obtener la posición del jugador
-            // Vector3 playerPos = player.position;
+            Vector3 playerPos = player.position;
 
-            // // Calcular la dirección hacia el jugador
-            // float   , , = Mathf.Sign(playerPos.x - transform.position.x);
+            // Calcular la dirección del jugador
+            float direccion = playerPos.x > transform.position.x ? -1 : 1;
 
             // // Mover el ojo un paso pequeño en la dirección del jugador
-            // float nuevaPosX = transform.position.x + direccion * velocidadSeguir;
+            float nuevaPosX = transform.position.x * direccion * velocidadSeguir;
 
             // // Limitar el movimiento del ojo dentro de los límites
-            // nuevaPosX = Mathf.Clamp(nuevaPosX, limiteIzq, limiteDer);
+            nuevaPosX = Mathf.Clamp(nuevaPosX, limiteIzq, limiteDer);
 
             // // Actualizar la posición del ojo (en el eje X)
-            // transform.position = new Vector3(nuevaPosX, transform.position.y, transform.position.z);
+            transform.localPosition = new Vector3(nuevaPosX, transform.localPosition.y, transform.localPosition.z);
+        }
+        else
+        {
+            // Si el jugador no está en el rango, el ojo se queda en su posición inicial
+            transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
         }
     }
     // Detectar la entrada del jugador en el rango
