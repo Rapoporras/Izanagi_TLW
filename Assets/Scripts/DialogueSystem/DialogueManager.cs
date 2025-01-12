@@ -171,9 +171,8 @@ namespace DialogueSystem
 
             foreach (var letter in line.ToCharArray())
             {
-                if (_inputPressed && _dialogueText.text.Length >= 3) // InputManager.UIActions.Interact.WasPressedThisFrame()
+                if (_inputPressed && _dialogueText.text.Length >= 3)
                 {
-                    LogManager.Log("Finish dialogue - input", FeatureType.Dialogue);
                     _dialogueText.maxVisibleCharacters = line.Length;
                     break;
                 }
