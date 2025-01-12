@@ -5043,6 +5043,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 150131b1cf08dfa41b5daf5534e76b71, type: 3}
   - {fileID: 8300000, guid: b26f053321a4a0948bdc685636ccd3e7, type: 3}
   _hitFloorAudio: {fileID: 8300000, guid: a707efe093216664dbb8af294ce8d6f1, type: 3}
+  _breakAudio: {fileID: 8300000, guid: 239f218886e04354492aa286d9a0a79f, type: 3}
   _particleSystem: {fileID: 4079495774695192857}
 --- !u!82 &-544519484924292747
 AudioSource:
