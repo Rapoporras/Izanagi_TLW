@@ -6,13 +6,17 @@ namespace Bosses
     public class SeiryuDeadState : SeiryuBaseState
     {
         private readonly float _deathDuration;
-        private Timer _timer;
+        private readonly Timer _timer;
+
+        private bool _hasFinishedBattle;
 
         public SeiryuDeadState(SeiryuState key, SeiryuController context)
             : base(key, context)
         {
             _deathDuration = 1f;
             _timer = new Timer(_deathDuration);
+
+            _hasFinishedBattle = false;
         }
 
         public override void EnterState()
@@ -31,9 +35,10 @@ namespace Bosses
                 float alpha = _timer.RemainingSeconds / _deathDuration;
                 Context.SetSpritesAlpha(alpha);
             }
-            else
+            else if (!_hasFinishedBattle)
             {
                 Context.FinishBattle();
+                _hasFinishedBattle = true;
             }
         }
 

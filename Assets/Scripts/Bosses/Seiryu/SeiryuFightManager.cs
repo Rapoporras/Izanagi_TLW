@@ -26,7 +26,9 @@ namespace Bosses
 
         private void Awake()
         {
-            _seiryuNPC.gameObject.SetActive(false); // just in case
+            // just in case
+            _seiryuNPC.gameObject.SetActive(false);
+            SetImageAlpha(0f);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -57,12 +59,14 @@ namespace Bosses
         {
             if (_finishFightCoroutine != null)
                 StopCoroutine(_finishFightCoroutine);
-            StartCoroutine(_FinishFight());
+            _finishFightCoroutine = StartCoroutine(_FinishFight());
         }
 
         private IEnumerator _FinishFight()
         {
+            Debug.Log("Start Fade - 1");
             yield return Fade(1f);
+            Debug.Log("Finish Fade - 1");
             
             // replace dragon
             _seiryuController.gameObject.SetActive(false);
@@ -71,7 +75,9 @@ namespace Bosses
             // set player position and facing direction
             _player.GetComponent<PlayerMovement>().SetPosition(_playerPosAfterFade.position, _playerLookingRightAfterFade);
             
+            Debug.Log("Start Fade - 0");
             yield return Fade(0f);
+            Debug.Log("Finish Fade - 0");
         }
 
         private IEnumerator Fade(float targetAlpha)

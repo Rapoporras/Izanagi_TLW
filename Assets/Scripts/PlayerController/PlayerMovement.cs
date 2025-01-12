@@ -84,7 +84,7 @@ namespace PlayerController
         private float _lastPressedJumpTime;
         private int _additionalJumps;
         public bool IsGrounded => _raycastInfo.HitInfo.Below;
-        public bool IsWallSliding => _currentState.StateKey == PlayerStates.WallSliding;
+        public bool IsWallSliding => _currentState?.StateKey == PlayerStates.WallSliding;
         public bool JumpRequest { get; private set; }
         public bool HandleLongJumps { get; private set; }
         public bool IsActiveCoyoteTime { get; set; }
