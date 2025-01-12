@@ -35926,6 +35926,8 @@ MonoBehaviour:
   _fadeDuration: 1
   _playerPosAfterFade: {fileID: 1678120841}
   _playerLookingRightAfterFade: 1
+  _finalScene: {fileID: 11400000, guid: 209a315d852e08a40a74628772214ba7, type: 2}
+  _loadSceneRequestEvent: {fileID: 11400000, guid: 52641e5cf7bf10d4c9a00b36e5c7617f, type: 2}
 --- !u!4 &1017986032
 Transform:
   m_ObjectHideFlags: 0
@@ -42809,34 +42811,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075396543783585662, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_SortingOrder
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2394376827526929537, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2729326806435927433, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831953193323122202, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_SortingOrder
-      value: 44
-      objectReference: {fileID: 0}
     - target: {fileID: 3927668385854088194, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: _sweepEndPos
       value: 
       objectReference: {fileID: 798430363}
-    - target: {fileID: 3927668385854088194, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _fistHitPosition
-      value: 
-      objectReference: {fileID: 1595207584}
-    - target: {fileID: 3927668385854088194, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _recoveringSpeed
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 3927668385854088194, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: _transitionAttackPos
       value: 
@@ -42845,82 +42823,14 @@ PrefabInstance:
       propertyPath: _sweepCurveControlPos
       value: 
       objectReference: {fileID: 1352424378}
-    - target: {fileID: 3927668385854088194, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _timeBeforeRecovering
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4523326668448635509, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875842789696144325, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_SortingOrder
-      value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 5305958784470738334, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_SortingOrder
-      value: 49
-      objectReference: {fileID: 0}
     - target: {fileID: 5373101734797684850, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: m_Name
       value: Seiryu
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373101734797684850, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6267290975112951092, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _maxRotation
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6521777660260470615, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _damage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6532850704360586406, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _damage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092218436535223816, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _fistAttackProbPhase1
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092218436535223816, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _fistAttackProbPhase2
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092218436535223816, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _changePhasePercentage
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092218436535223816, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _sweepingAttackProbPhase1
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092218436535223816, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _sweepingAttackProbPhase2
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8338952580360561511, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: _sweepEndPos
       value: 
       objectReference: {fileID: 1949017854}
-    - target: {fileID: 8338952580360561511, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _fistHitPosition
-      value: 
-      objectReference: {fileID: 1059322063}
-    - target: {fileID: 8338952580360561511, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _recoveringSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338952580360561511, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _anticipationTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338952580360561511, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _anticipationHeight
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8338952580360561511, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: _transitionAttackPos
       value: 
@@ -42929,14 +42839,6 @@ PrefabInstance:
       propertyPath: _sweepCurveControlPos
       value: 
       objectReference: {fileID: 422318174}
-    - target: {fileID: 8338952580360561511, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: _timeBeforeRecovering
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060047694426538009, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
-      propertyPath: m_ImpulseDefinition.m_ImpulseDuration
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

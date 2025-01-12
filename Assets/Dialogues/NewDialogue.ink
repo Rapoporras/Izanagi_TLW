@@ -1,5 +1,6 @@
 INCLUDE globals.ink
 EXTERNAL activateWallEvent()
+EXTERNAL finalSceneTransition()
 
 { pokemon_name == "": -> main | -> already_chose}
 
@@ -21,6 +22,7 @@ Which pokemon do you <b><color=\#F8FF30>choose</color></b>?
 ~ pokemon_name = pokemon
 You chose <b><color={color}>{pokemon}</color></b>!
 ~ activateWallEvent()
+~ finalSceneTransition()
 -> END
 
 === already_chose ===

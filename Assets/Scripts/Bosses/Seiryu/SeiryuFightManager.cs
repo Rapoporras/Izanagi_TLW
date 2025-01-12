@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using GameEvents;
 using PlayerController;
+using SceneLoaderSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +20,10 @@ namespace Bosses
         [Space(10)]
         [SerializeField] private Transform _playerPosAfterFade;
         [SerializeField] private bool _playerLookingRightAfterFade;
+
+        [Header("Final Scene")]
+        [SerializeField] private SceneSO _finalScene;
+        [SerializeField] private LoadSceneRequestEvent _loadSceneRequestEvent;
 
         private Coroutine _finishFightCoroutine;
         private GameObject _player;
@@ -48,11 +54,13 @@ namespace Bosses
         private void OnEnable()
         {
             _seiryuController.OnFightFinished += FinishFight;
+            DialogueSystem.DialogueEvents.finalSceneEvent += FinalSceneTransition;
         }
-        
+
         private void OnDisable()
         {
             _seiryuController.OnFightFinished -= FinishFight;
+            DialogueSystem.DialogueEvents.finalSceneEvent -= FinalSceneTransition;
         }
 
         private void FinishFight()
@@ -61,12 +69,17 @@ namespace Bosses
                 StopCoroutine(_finishFightCoroutine);
             _finishFightCoroutine = StartCoroutine(_FinishFight());
         }
+        
+        private void FinalSceneTransition()
+        {
+            var request = new LoadSceneRequest(_finalScene, true);
+            if (_loadSceneRequestEvent)
+                _loadSceneRequestEvent.Raise(request);
+        }
 
         private IEnumerator _FinishFight()
         {
-            Debug.Log("Start Fade - 1");
             yield return Fade(1f);
-            Debug.Log("Finish Fade - 1");
             
             // replace dragon
             _seiryuController.gameObject.SetActive(false);
@@ -75,9 +88,7 @@ namespace Bosses
             // set player position and facing direction
             _player.GetComponent<PlayerMovement>().SetPosition(_playerPosAfterFade.position, _playerLookingRightAfterFade);
             
-            Debug.Log("Start Fade - 0");
             yield return Fade(0f);
-            Debug.Log("Finish Fade - 0");
         }
 
         private IEnumerator Fade(float targetAlpha)
