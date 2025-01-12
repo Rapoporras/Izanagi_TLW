@@ -8,14 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 911339381681022611}
-  m_Layer: 0
+  - component: {fileID: 9113393816810221129}
+  m_Layer: 13
   m_Name: Farolillo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9113393816810221129
 Transform:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 717909340027533897}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Zone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9113393816810226123}
   - {fileID: 6786865478799697743}
   - {fileID: 5918340323886059246}
   - {fileID: 1794578886427382449}
@@ -101,6 +100,9 @@ Transform:
   - {fileID: 7416859289488317604}
   - {fileID: 8990013058361739936}
   - {fileID: 497240604189488832}
+  - {fileID: 9113393816810221129}
+  - {fileID: 4125743233157494267}
+  - {fileID: 9113393816810226129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586761803407132217
@@ -113,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1534170988191560780}
   - component: {fileID: 797237117065358842}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaA2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4301272803877114188}
   - component: {fileID: 2710436937447051503}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaA1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4500562423931088634}
   - component: {fileID: 1510012208532864279}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaB4_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557570312480283694}
   - component: {fileID: 5470392497086722864}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala2A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +453,7 @@ GameObject:
   - component: {fileID: 6089557807934690978}
   - component: {fileID: 913054628782106024}
   - component: {fileID: 3347390623415112483}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FarolOjo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +473,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9213393816810226129}
+  m_Father: {fileID: 9113393816810221129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6089557807934690978
 SpriteRenderer:
@@ -586,7 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 205472535934208634}
   - component: {fileID: 1909941166588805155}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Farol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +608,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9113343816810226129}
+  m_Father: {fileID: 9113393816810221129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1909941166588805155
 SpriteRenderer:
@@ -670,7 +672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5093567834819419218}
   - component: {fileID: 6653311695600675415}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805311453534314814}
   - component: {fileID: 1314402062086089094}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 31597139765061476}
   - component: {fileID: 8585506088199969317}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -922,7 +924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5412692076140419532}
   - component: {fileID: 6484287016701845759}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6786865478799697743}
   - component: {fileID: 1967688920848861055}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaB4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6820936537392531242}
   - component: {fileID: 8854766683144571052}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1174,7 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6358034331580340697}
   - component: {fileID: 5557551050288564811}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaB4_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1258,7 +1260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8990013058361739936}
   - component: {fileID: 6755652229141058247}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8579526468466805484}
   - component: {fileID: 2178860234728381908}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaA1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1426,7 +1428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6473126310999680309}
   - component: {fileID: 3488022222495954769}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaRoja1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1512,7 +1514,7 @@ GameObject:
   - component: {fileID: 497240604189488832}
   - component: {fileID: 8011368728809494534}
   - component: {fileID: 2298316962059062611}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1490573948152904849}
   - component: {fileID: 2646907933324945363}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1701,7 +1703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7416859289488317604}
   - component: {fileID: 3167916175361438095}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1785,7 +1787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1253388378682684162}
   - component: {fileID: 1664461150983702197}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Arbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1869,7 +1871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1794578886427382449}
   - component: {fileID: 2008298386312806168}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaB4_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1953,7 +1955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1917240202549706098}
   - component: {fileID: 8823819706969788979}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FarolLengua
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1973,7 +1975,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9113393516810226129}
+  m_Father: {fileID: 9113393816810221129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8823819706969788979
 SpriteRenderer:
@@ -2037,7 +2039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7915701243121931700}
   - component: {fileID: 1971294093568729868}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FarolPalo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2057,7 +2059,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9113393816010226129}
+  m_Father: {fileID: 9113393816810221129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1971294093568729868
 SpriteRenderer:
@@ -2121,7 +2123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7669658485025686555}
   - component: {fileID: 8369332115975656883}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,7 +2207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5617606269198764922}
   - component: {fileID: 764923142986156838}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaB4_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2289,7 +2291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5550195543682702640}
   - component: {fileID: 3524197804993716205}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2373,7 +2375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5918340323886059246}
   - component: {fileID: 269479689255771372}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaB4_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2457,7 +2459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6731717488128444704}
   - component: {fileID: 386762005380834033}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Estala1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2541,7 +2543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1526235257964666886}
   - component: {fileID: 4751575436667598377}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaB4_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2625,7 +2627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264689247736780127}
   - component: {fileID: 442335802979707998}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaB4_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2709,7 +2711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 379648640796849410}
   - component: {fileID: 4370397488965782877}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2793,7 +2795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4223988120938506359}
   - component: {fileID: 4132845487662506176}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2877,7 +2879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3513899801782784074}
   - component: {fileID: 6573133445372170998}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Columna3BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2961,7 +2963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4415550765283457232}
   - component: {fileID: 8259972574595030046}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraB_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3045,7 +3047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5271312717409393527}
   - component: {fileID: 7847572825249070293}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PiedraCF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3129,7 +3131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6107481005343366950}
   - component: {fileID: 3965493530989298202}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaA1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3213,7 +3215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4854762735857275990}
   - component: {fileID: 2443753233957798863}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SetaRosa1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3297,7 +3299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7254577509846354834}
   - component: {fileID: 8734839900497891913}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlantaA1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3383,6 +3385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedLight
       objectReference: {fileID: 0}
+    - target: {fileID: 3203825913246600119, guid: 5ceebf06f182a4f438361fa04d0578a6, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6625170991169632357, guid: 5ceebf06f182a4f438361fa04d0578a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.069
@@ -3441,9 +3447,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 717909340027533897}
     m_Modifications:
+    - target: {fileID: 61172582286844803, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 870778868503940212, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821804639192406062, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166457027502001190, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769672135042020006, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828247814935270226, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4119956238582538307, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
       propertyPath: m_Name
       value: Plantas cerca de agua
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119956238582538307, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232054592779179492, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7170687649262839737, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3485,6 +3523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7296323833579208991, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3495,6 +3537,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7170687649262839737, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
   m_PrefabInstance: {fileID: 2226330698804584710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2973212561756000044
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 717909340027533897}
+    m_Modifications:
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -163.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 123.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543224100324464765, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+      propertyPath: m_Name
+      value: FireFlies
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+--- !u!4 &4125743233157494267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1153885290971069143, guid: eebb84f961de7eb4584f2c545c061c00, type: 3}
+  m_PrefabInstance: {fileID: 2973212561756000044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4603643191978310220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3503,9 +3607,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 717909340027533897}
     m_Modifications:
+    - target: {fileID: 2394369720994052242, guid: 5dad461d0fd5eb84289b79ff0f204255, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728243286869919268, guid: 5dad461d0fd5eb84289b79ff0f204255, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4182893620278302537, guid: 5dad461d0fd5eb84289b79ff0f204255, type: 3}
       propertyPath: m_Name
       value: Farolillo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182893620278302537, guid: 5dad461d0fd5eb84289b79ff0f204255, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4727137435370404765, guid: 5dad461d0fd5eb84289b79ff0f204255, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3547,6 +3663,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8707131539956116541, guid: 5dad461d0fd5eb84289b79ff0f204255, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3565,9 +3685,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 717909340027533897}
     m_Modifications:
+    - target: {fileID: 61172582286844803, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 870778868503940212, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821804639192406062, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166457027502001190, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769672135042020006, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828247814935270226, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4119956238582538307, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
       propertyPath: m_Name
       value: Plantas cerca de agua_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119956238582538307, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232054592779179492, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7170687649262839737, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3608,6 +3760,10 @@ PrefabInstance:
     - target: {fileID: 7170687649262839737, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296323833579208991, guid: d70c8e077d4e3934d97ac86225b0c98e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
