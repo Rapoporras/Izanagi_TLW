@@ -1,8 +1,8 @@
-using System.Collections;
 using Health;
 using SaveSystem;
 using UnityEngine;
 using Utils;
+using Utils.CustomLogs;
 
 public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
 {
@@ -46,10 +46,20 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
     protected virtual void EnemyDie()
     {
         _isEnemyDead = true;
-         ControllerVibration.Instance.TriggerInstantVibration(0.1f, 0.1f, 0.4f);
+        ControllerVibration.Instance.TriggerInstantVibration(0.1f, 0.1f, 0.4f);
     }
 
     public void LoadTemporalData(TemporalDataSO temporalData)
+    {
+        LoadState(temporalData);
+    }
+
+    public void SaveTemporalData(TemporalDataSO temporalData)
+    {
+        SaveState(temporalData);
+    }
+
+    protected virtual void LoadState(TemporalDataSO temporalData)
     {
         _entityHealth.ResetHealth();
         if (_alwaysRespawn) return;
@@ -64,7 +74,7 @@ public abstract class BaseEnemy : IdentifiableObject, ITemporalDataPersistence
         }
     }
 
-    public void SaveTemporalData(TemporalDataSO temporalData)
+    protected virtual void SaveState(TemporalDataSO temporalData)
     {
         bool containsId = temporalData.deadEnemies.Contains(id);
         if (_isEnemyDead && !containsId)

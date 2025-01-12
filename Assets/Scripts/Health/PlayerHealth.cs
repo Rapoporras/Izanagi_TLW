@@ -80,6 +80,7 @@ namespace Health
                     UpdateHealth(-amount);
                 }
                 
+                ControllerVibration.Instance.TriggerInstantVibration(0.2f, 0.3f, 0.5f);
                 _playerMovement.ApplyDamageKnockBack(attackDirection);
                 if (_screenShakeSource)
                     _screenShakeSource.TriggerScreenShake();
