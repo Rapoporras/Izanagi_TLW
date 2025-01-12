@@ -1,4 +1,5 @@
 INCLUDE globals.ink
+EXTERNAL activateWallEvent()
 
 { getTea == false: -> main | -> goOut}
 
@@ -21,5 +22,6 @@ Tráemelo, y tal vez te deje pasar.
 Me dijeron que era un manjar... pero vaya decepción. 
 En fin, me largo de aquí.
 ~ yokaiOut = true
+~ activateWallEvent()
 -> END
 
