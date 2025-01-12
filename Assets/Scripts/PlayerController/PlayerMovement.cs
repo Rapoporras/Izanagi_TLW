@@ -410,6 +410,12 @@ namespace PlayerController
             _rb2d.gravityScale = scale;
         }
 
+        public void SetPosition(Vector3 pos, bool facingRight)
+        {
+            transform.position = pos;
+            SetDirectionToFace(facingRight);
+        }
+
         public void SetDirectionToFace(bool isMovingRight)
         {
             if (isMovingRight != IsFacingRight)
