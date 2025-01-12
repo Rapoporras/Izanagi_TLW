@@ -806,7 +806,7 @@ MonoBehaviour:
     constantValue: 0
     variableValue: {fileID: 11400000, guid: f8eb4bb3febbfbc4fa5085f3ea59e0fa, type: 2}
     componentValue: {fileID: 0}
-  _potionsHealth: 10
+  _potionsHealth: 30
   _onPlayerDeathEvent: {fileID: 11400000, guid: 444dc0c36f0617c4baabd78362ab082d, type: 2}
 --- !u!114 &4846970282278479726
 MonoBehaviour:

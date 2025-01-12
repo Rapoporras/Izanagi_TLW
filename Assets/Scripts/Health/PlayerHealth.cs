@@ -88,6 +88,31 @@ namespace Health
             }
         }
 
+        public void FlowerDamage(int amount)
+        {
+            if (_dashInvulnerability)
+            {
+                _dashInvulnerability.Value = false;
+            }
+            else if (!_hit && _currentHealth.Value > 0)
+            {
+                _hit = true;
+                if (HasShield)
+                {
+                    HasShield = false;
+                }
+                else
+                {
+                    UpdateHealth(-amount);
+                }
+                
+                if (_screenShakeSource)
+                    _screenShakeSource.TriggerScreenShake();
+                
+                StartCoroutine(TurnOffHit());
+            }
+        }
+
 
         private void UpdateHealth(int amount)
         {

@@ -17,7 +17,6 @@ public class Dust : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("entra");
             if (other.CompareTag("Player"))
             {
                 _particleSystem1.Play();
