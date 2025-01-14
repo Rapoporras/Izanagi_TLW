@@ -78,3 +78,6 @@ crashlytics-build.properties
 
 .vscode/*
 *.vsconfig
+GODAI.keystore
+Assets/google-services.json
+Assets/google-services.json.meta
