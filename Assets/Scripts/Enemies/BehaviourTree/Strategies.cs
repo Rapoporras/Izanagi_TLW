@@ -273,6 +273,7 @@ namespace Enemies.BehaviourTree
                 return Node.Status.Success;
             }
             
+            int groundLayer = LayerMask.NameToLayer ("Ground");
             int decorationLayer = LayerMask.NameToLayer ("Decoration");
             Collider2D[] entities = Physics2D.OverlapCircleAll(_enemyAI.CollisionDetectionCenter.position, _enemyAI.CollisionDetectionRadius);
 
@@ -280,7 +281,6 @@ namespace Enemies.BehaviourTree
             {
                 if (!e.CompareTag("Enemy") && e.gameObject.layer != decorationLayer)
                 {
-                    
                     if (e.CompareTag("Player"))
                     {
                         if (e.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
@@ -301,6 +301,9 @@ namespace Enemies.BehaviourTree
                         return Node.Status.Running;
                     }
 
+                    if (e.gameObject.layer != groundLayer)
+                        return Node.Status.Running;
+                    
                     _rb.velocity = Vector2.zero;
                     _animator.SetTrigger("impact");    
                     return Node.Status.Success;
