@@ -170,8 +170,8 @@ MonoBehaviour:
   id: 1f6b3941-4a5b-41e5-ab68-52a7891b3d4c
   player: {fileID: 0}
   _alwaysRespawn: 0
-  detectionRadius: 9
-  chaseSpeed: 8.5
+  detectionRadius: 8.5
+  chaseSpeed: 9.75
   onHitStunTime: 0.15
   knockbackStrength: 3
   attackCenter: {fileID: 1795511483269647706}
