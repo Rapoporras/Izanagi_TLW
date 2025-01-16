@@ -1,68 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FarolEye : MonoBehaviour
 {
 
-    private Transform player;  // Referencia al jugador
-    public float rangoDeteccion = 5f;  // Rango de detección del farol
-    public float velocidadSeguir = 2f;  // Velocidad a la que sigue al jugador
-    public float limiteIzq = -5f;  // Límite izquierdo del farol
-    public float limiteDer = 5f;   // Límite derecho del farol
+    private Transform player;
+    public float detectionRange = 5f;
+    public float trackSpeed = 0.1f;
+    public float rightLimit = -0.1f;
+    public float leftLimit = 0.1f;
 
-    private bool jugadorDetectado = false;
+    private bool _playerDetected;
 
     private void Update()
     {
-        if (jugadorDetectado && player != null)
+        if (_playerDetected && player != null)
         {
-            // Obtener la posición del jugador
-            Vector3 playerPos = player.position;
-
-            // Calcular la dirección del jugador
-            float direccion = playerPos.x > transform.position.x ? -1 : 1;
-
-            // // Mover el ojo un paso pequeño en la dirección del jugador
-            float nuevaPosX = transform.position.x * direccion * velocidadSeguir;
-
-            // // Limitar el movimiento del ojo dentro de los límites
-            nuevaPosX = Mathf.Clamp(nuevaPosX, limiteIzq, limiteDer);
-
-            // // Actualizar la posición del ojo (en el eje X)
-            transform.localPosition = new Vector3(nuevaPosX, transform.localPosition.y, transform.localPosition.z);
+            float xDifference = player.position.x - transform.position.x;
+            float playerDirection = Mathf.Sign(xDifference);
+            
+            float newEyePosition = transform.localPosition.x + playerDirection;
+            newEyePosition = Mathf.Clamp(newEyePosition, rightLimit, leftLimit);
+            
+            Vector3 newPosition = new Vector3(newEyePosition, transform.localPosition.y, transform.localPosition.z);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, trackSpeed);
         }
         else
         {
-            // Si el jugador no está en el rango, el ojo se queda en su posición inicial
-            transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
-        }
-    }
-    // Detectar la entrada del jugador en el rango
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))  // Asegúrate de que el jugador tenga el tag "Player"
-        {
-            // Obtener la referencia al jugador cuando entra en el trigger
-            player = other.transform;
-            jugadorDetectado = true;
+            Vector3 newPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, trackSpeed);
         }
     }
 
-    // Detectar cuando el jugador sale del rango
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player")) 
+        {
+            _playerDetected = true;
+            player = other.transform;
+        }
+    }
+
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            jugadorDetectado = false;
-            player = null;  // Eliminar la referencia cuando el jugador salga
+            _playerDetected = false;
+            player = null;
         }
     }
-
-    // Visualiza el área de detección (Opcional, solo para desarrollo)
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, rangoDeteccion);
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }

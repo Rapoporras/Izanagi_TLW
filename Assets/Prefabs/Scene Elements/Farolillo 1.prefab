@@ -182,10 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 769f13859c173ae499a2762c525e062e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangoDeteccion: 5
-  velocidadSeguir: 2
-  limiteIzq: -0.1
-  limiteDer: 0.1
+  detectionRange: 5
+  trackSpeed: 0.1
+  rightLimit: -0.1
+  leftLimit: 0.1
 --- !u!58 &3280601111907347769
 CircleCollider2D:
   m_ObjectHideFlags: 0
