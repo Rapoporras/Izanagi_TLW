@@ -466,7 +466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thanks for playing
+  m_text: Gracias Por Jugar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc214365605118e4488a1d653a6758cc, type: 2}
   m_sharedMaterial: {fileID: -6846490022988322527, guid: bc214365605118e4488a1d653a6758cc, type: 2}
@@ -849,12 +849,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'More Information Soon
-
-    Fill out the form to help us.
-
-    Wait for
-    back the Main Menu'
+  m_text: "M\xE1s informaci\xF3n pronto\r\nDejanos tu comentario\nPronto regresar\xE1
+    al men\xFA principal."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc214365605118e4488a1d653a6758cc, type: 2}
   m_sharedMaterial: {fileID: -6846490022988322527, guid: bc214365605118e4488a1d653a6758cc, type: 2}

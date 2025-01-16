@@ -433,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -518,7 +518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -996,7 +996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1161,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35880,7 +35880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36200,7 +36200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36400,7 +36400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37472,7 +37472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37778,7 +37778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1886229328788576961, guid: aa7756aaf9a79f141b53c8176f974714, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -66
+      value: -64.287476
       objectReference: {fileID: 0}
     - target: {fileID: 1886229328788576961, guid: aa7756aaf9a79f141b53c8176f974714, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38440,7 +38440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738038812223414404, guid: 7c162e237ee36014fb2520b702525e3f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42559,7 +42559,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 14
+    OrthographicSize: 12
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -43027,11 +43027,11 @@ PrefabInstance:
       objectReference: {fileID: 1352424378}
     - target: {fileID: 4875842789696144325, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: m_SortingOrder
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5305958784470738334, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: m_SortingOrder
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5373101734797684850, guid: e6da671a0ca6e7a4bbb071cfea0ce412, type: 3}
       propertyPath: m_Name
