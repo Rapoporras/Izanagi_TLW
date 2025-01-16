@@ -253,11 +253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219996bd190f83e4db110349d5e25392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 99537c4c-e378-4cef-b6fa-caa4f81d03ae
+  id: f1011d7a-41b1-435f-ad47-430b360eef1c
   player: {fileID: 0}
   _alwaysRespawn: 0
-  detectionRadius: 7.5
-  chaseSpeed: 6
+  detectionRadius: 9
+  chaseSpeed: 7.5
   onHitStunTime: 0.15
   knockbackStrength: 2
   rollingSpeed: 12
