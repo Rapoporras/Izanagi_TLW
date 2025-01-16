@@ -61,7 +61,7 @@ namespace Enemies.BehaviourTree
         private float _chaseSpeed;
         private float _timeToStopChase;
         private float _stopChaseTimer;
-        
+
         private LayerMask _groundLayer;
         private float _jumpForce;
         private bool _isGrounded;
@@ -69,8 +69,8 @@ namespace Enemies.BehaviourTree
 
         private float _areaWidth;
         private float _areaHeight;
-        
-        
+
+
 
         public ChaseStrategyWithJump(GameObject enemy, GameObject player, float detectionRadius, float chaseSpeed,
             float timeToStopChase, LayerMask groundLayer, float jumpForce, float areaWidth, float areaHeight)
@@ -90,17 +90,17 @@ namespace Enemies.BehaviourTree
 
         public Node.Status Process()
         {
-            
+
             Rigidbody2D rb = _enemy.GetComponent<Rigidbody2D>();
-            
+
             _isGrounded = Physics2D.Raycast(_enemyTransform.position, Vector2.down, 0.1f, _groundLayer);
 
             float playerDirection = Mathf.Sign(_playerTransform.position.x - _enemyTransform.position.x);
 
-             bool isPlayerAbove = Physics2D.OverlapBox(_enemyTransform.position + new Vector3(0f, 4f, 0f),
-                 new Vector2(_areaWidth, _areaHeight), 0, 1 << _playerTransform.gameObject.layer);
-            
-            
+            bool isPlayerAbove = Physics2D.OverlapBox(_enemyTransform.position + new Vector3(0f, 4f, 0f),
+                new Vector2(_areaWidth, _areaHeight), 0, 1 << _playerTransform.gameObject.layer);
+
+
             if (_stopChaseTimer > 0)
             {
                 if (Vector3.Distance(_enemyTransform.position, _playerTransform.position) > _detectionRadius)
@@ -145,7 +145,7 @@ namespace Enemies.BehaviourTree
             _stopChaseTimer = _timeToStopChase;
         }
     }
-    
+
     public class ChaseStrategy : IStrategy
     {
         private GameObject _enemy;
@@ -158,7 +158,7 @@ namespace Enemies.BehaviourTree
 
         private float _areaWidth;
         private float _areaHeight;
-        
+
         public ChaseStrategy(GameObject enemy, GameObject player, float detectionRadius, float chaseSpeed,
             float timeToStopChase)
         {
@@ -173,11 +173,11 @@ namespace Enemies.BehaviourTree
 
         public Node.Status Process()
         {
-            
+
             Rigidbody2D rb = _enemy.GetComponent<Rigidbody2D>();
 
             float playerDirection = Mathf.Sign(_playerTransform.position.x - _enemyTransform.position.x);
-            
+
             if (_stopChaseTimer > 0)
             {
                 if (Vector3.Distance(_enemyTransform.position, _playerTransform.position) > _detectionRadius)
@@ -240,7 +240,7 @@ namespace Enemies.BehaviourTree
 
             _startDuration = startDuration;
             _startDurationTimer = _startDuration;
-            
+
             _rb = enemy.GetComponent<Rigidbody2D>();
             _animator = enemy.GetComponentInChildren<Animator>();
         }
@@ -257,30 +257,30 @@ namespace Enemies.BehaviourTree
                 _isRollCalculated = true;
                 _animator.SetTrigger("roll");
             }
-            
+
             // if it's starting the attack slow down
             if (_startDurationTimer > 0)
             {
-                _rb.velocity = new Vector2(_goalDirection * (_rollingSpeed/8), _rb.velocity.y);
+                _rb.velocity = new Vector2(_goalDirection * (_rollingSpeed / 8), _rb.velocity.y);
                 _startDurationTimer -= Time.deltaTime;
                 return Node.Status.Running;
             }
-            
+
             if (Mathf.Abs(_goalPosition.x - _enemyTransform.position.x) <= 0.15f)
             {
                 _rb.velocity = Vector2.zero;
                 _animator.SetTrigger("stopRoll");
                 return Node.Status.Success;
             }
-            
-            int decorationLayer = LayerMask.NameToLayer ("Decoration");
+            int groundLayer = LayerMask.NameToLayer("Ground");
+            int decorationLayer = LayerMask.NameToLayer("Decoration");
             Collider2D[] entities = Physics2D.OverlapCircleAll(_enemyAI.CollisionDetectionCenter.position, _enemyAI.CollisionDetectionRadius);
 
             foreach (var e in entities)
             {
                 if (!e.CompareTag("Enemy") && e.gameObject.layer != decorationLayer)
                 {
-                    
+
                     if (e.CompareTag("Player"))
                     {
                         if (e.transform.parent.TryGetComponent(out PlayerHealth playerHealth))
@@ -292,31 +292,34 @@ namespace Enemies.BehaviourTree
                                     int xDirection = (int)Mathf.Sign(e.transform.position.x - _enemyTransform.position.x);
                                     playerHealth.Damage(_rollDamage, xDirection);
                                     _rb.velocity = Vector2.zero;
-                                    _animator.SetTrigger("impact");    
+                                    _animator.SetTrigger("impact");
                                     return Node.Status.Success;
                                 }
                             }
                         }
-                        
+
                         return Node.Status.Running;
                     }
-
+                    if (e.gameObject.layer != groundLayer)
+                        return Node.Status.Running;
+                        
                     _rb.velocity = Vector2.zero;
-                    _animator.SetTrigger("impact");    
+                    _animator.SetTrigger("impact");
                     return Node.Status.Success;
                 }
             }
-            
+
             if (_goalDirection > 0 && _enemyTransform.localScale.x > 0)
             {
                 _enemyTransform.localScale = new Vector2(-_enemyTransform.localScale.x, _enemyTransform.localScale.y);
-            } else if (_goalDirection < 0 && _enemyTransform.localScale.x < 0)
+            }
+            else if (_goalDirection < 0 && _enemyTransform.localScale.x < 0)
             {
                 _enemyTransform.localScale = new Vector2(-_enemyTransform.localScale.x, _enemyTransform.localScale.y);
             }
-            
+
             _rb.velocity = new Vector2(_goalDirection * _rollingSpeed, _rb.velocity.y);
-            
+
             return Node.Status.Running;
         }
 

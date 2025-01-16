@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - BreakableWall
   - SpatialSound
+  - Decoration
   layers:
   - Default
   - TransparentFX
