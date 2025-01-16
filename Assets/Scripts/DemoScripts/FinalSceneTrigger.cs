@@ -7,14 +7,21 @@ namespace DemoScripts
 {
     public class FinalSceneTrigger : MonoBehaviour, IInteractable
     {
+        [Header("Scene Transition")]
         [SerializeField] private SceneSO _finalScene;
+        [SerializeField] private LevelEntranceSO _entranceToSpawn;
+        [SerializeField] private PlayerPathSO _playerPath;
+        [Space(5)]
+        [SerializeField] private LoadSceneRequestEvent _loadSceneRequestEvent;
+        
+        [Header("UI")]
         [SerializeField] private GameObject _interactionText;
 
-        [SerializeField] private LoadSceneRequestEvent _loadSceneRequestEvent;
         
         public void Interact(Interactor interactor)
         {
             LoadSceneRequest request = new LoadSceneRequest(_finalScene, true);
+            _playerPath.levelEntrance = _entranceToSpawn;
             if (_loadSceneRequestEvent)
                 _loadSceneRequestEvent.Raise(request);
         }
