@@ -86,7 +86,7 @@ Godai ha sido desarrollado por un equipo de estudiantes de la Universidad de Má
 
 Si tienes preguntas o sugerencias, no dudes en contactarme:
 
-- **Twitter:** [@GodaiGame](https://twitter.com/GodaiGame)
+- **Email:** [Email PixelessGames](mailto:pixellessgames@gmail.com)
 
 ---
 
