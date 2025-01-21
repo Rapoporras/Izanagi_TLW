@@ -8,11 +8,11 @@
 
 ## 🎮 Descripción
 
-En **Godai**, el jugador explora un mundo inspirado en la mitología japonesa, enfrentando enemigos y resolviendo puzzles para recuperar los poderes de los Godai, las bestias elementales guardianas de los puntos cardinales. El objetivo final es liberar a los dioses y restaurar el equilibrio en el mundo.
+En **Godai**, el jugador explora un mundo inspirado en la mitología japonesa, enfrentando enemigos y resolviendo puzzles para recuperar los poderes de los Godai,custodiados por las bestias elementales guardianas de los puntos cardinales. El objetivo final es liberar a los dioses y restaurar el equilibrio en el mundo.
 
 - **Género:** Metroidvania, acción y aventura.
-- **Plataformas:** PC (Windows), con expansiones futuras a consolas.
-- **Estado actual:** En desarrollo, versión Alpha.
+- **Plataformas:** PC (Windows), Android con expansiones futuras a consolas.
+- **Estado actual:** En desarrollo.
 
 ---
 
@@ -53,15 +53,6 @@ En **Godai**, el jugador explora un mundo inspirado en la mitología japonesa, e
 - Espacio en disco: 5 GB.
 - Resolución: 1080p a 60 FPS.
 
-### Pasos para instalar
-
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/godai.git
-   ```
-2. Abre el proyecto en Unity (versión recomendada: Unity 2021.3.0f1).
-3. Ejecuta la escena principal (`Assets/Scenes/MainScene.unity`).
-
 ---
 
 
@@ -80,17 +71,16 @@ Hace siglos, los dioses liderados por Izanagi gobernaban la tierra en paz hasta 
 
 ---
 
-## 🤝 Contribuciones
+🛠️ Desarrollo
+Godai ha sido desarrollado por un equipo de estudiantes de la Universidad de Málaga, como parte del trabajo final de máster. El equipo está formado por:
 
-¡Las contribuciones son bienvenidas! Sigue estos pasos:
-
-1. Haz un fork del repositorio.
-2. Crea una rama nueva (`git checkout -b feature/nueva-caracteristica`).
-3. Realiza los cambios y haz un commit (`git commit -m 'Añadida nueva característica'`).
-4. Envía un pull request.
-
+- Dani Trigueros (Arte y Diseño).
+- Diego Ruiz (Desarrollo).
+- Ignacio Porras (Diseño y Desarrollo).
+- Pablo Álvarez (Desarrollo y Sonido).
+- David Doña (Arte).
+- 
 ---
-
 ## 📧 Contacto
 
 Si tienes preguntas o sugerencias, no dudes en contactarme:
