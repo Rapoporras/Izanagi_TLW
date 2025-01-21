@@ -71,7 +71,8 @@ Hace siglos, los dioses liderados por Izanagi gobernaban la tierra en paz hasta 
 
 ---
 
-🛠️ Desarrollo
+## 🛠️ Desarrollo
+
 Godai ha sido desarrollado por un equipo de estudiantes de la Universidad de Málaga, como parte del trabajo final de máster. El equipo está formado por:
 
 - Dani Trigueros (Arte y Diseño).
@@ -79,7 +80,7 @@ Godai ha sido desarrollado por un equipo de estudiantes de la Universidad de Má
 - Ignacio Porras (Diseño y Desarrollo).
 - Pablo Álvarez (Desarrollo y Sonido).
 - David Doña (Arte).
-- 
+  
 ---
 ## 📧 Contacto
 
